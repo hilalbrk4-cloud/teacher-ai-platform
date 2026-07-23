@@ -128,3 +128,18 @@
     @apply font-sans;
   }
 }
+
+@media print {
+  body > div > aside,
+  body > div > div > header {
+    display: none !important;
+  }
+
+  main {
+    padding: 0 !important;
+  }
+
+  #lesson-plan-print-area {
+    box-shadow: none !important;
+  }
+}
