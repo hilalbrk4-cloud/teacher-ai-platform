@@ -1,0 +1,23 @@
+{
+  "id": "test.bozuk-konu",
+  "slug": "bozuk-konu",
+  "subject": "turkce",
+  "gradeLevel": "7",
+  "topic": "Bozuk Örnek Konu",
+  "aliases": [],
+  "curriculumKeywords": [],
+  "packSchemaVersion": "1.0.0",
+  "contentVersion": "1.0.0",
+  "status": "draft",
+  "verificationStatus": "unverified",
+  "sources": "bu bir dizi değil",
+  "changelog": [],
+  "learningOutcomes": [],
+  "keyConcepts": [],
+  "commonMisconceptions": [],
+  "assessableSkills": [],
+  "questionPatterns": [],
+  "difficultyRules": { "allowedLevels": ["easy"], "progressionNotes": "Not." },
+  "forbiddenPatterns": [],
+  "criticalReviewRules": []
+}

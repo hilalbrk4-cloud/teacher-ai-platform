@@ -1,4 +1,14 @@
 import type { LessonPlanRefinementId, LessonPlanSectionKey } from "@/types/lesson-planner";
+import type {
+  CognitiveLevel,
+  DifficultyLevel,
+  QuestionApproach,
+  QuestionType,
+  QuizRequiredField,
+  QuizType,
+  VisualType,
+  VisualUsage,
+} from "@/types/quiz-generator";
 
 export const locales = ["tr", "en"] as const;
 
@@ -182,6 +192,108 @@ export interface Dictionary {
       copyError: string;
       shortened: string;
       expanded: string;
+      validation: string;
+    };
+  };
+  quizGenerator: {
+    pageTitle: string;
+    pageHelperText: string;
+    hero: {
+      eyebrow: string;
+      highlights: string[];
+    };
+    labels: {
+      quizTypes: Record<QuizType, string>;
+      questionTypes: Record<QuestionType, string>;
+      questionApproaches: Record<QuestionApproach, string>;
+      cognitiveLevels: Record<CognitiveLevel, string>;
+      difficultyLevels: Record<DifficultyLevel | "mixed", string>;
+      visualUsageOptions: Record<VisualUsage, string>;
+      visualTypes: Record<VisualType, string>;
+    };
+    form: {
+      essentialTitle: string;
+      advancedTitle: string;
+      advancedToggleShow: string;
+      advancedToggleHide: string;
+      fields: Record<
+        "quizType" | "subject" | "gradeLevel" | "topic" | "objectives" | "questionCount",
+        { label: string; placeholder: string }
+      >;
+      questionTypesLabel: string;
+      questionTypesDescription: string;
+      questionApproachLabel: string;
+      cognitiveLevelLabel: string;
+      difficultyLabel: string;
+      visualUsageLabel: string;
+      visualTypesLabel: string;
+      visualTypesDescription: string;
+      includeAnswerKeyLabel: string;
+      includeExplanationsLabel: string;
+      errors: Record<QuizRequiredField, string>;
+      validationBanner: string;
+      submit: string;
+      submitLoading: string;
+      submitCaption: string;
+    };
+    loadingMessages: [string, string, string];
+    preview: {
+      title: string;
+      liveBadge: string;
+      emptyTitle: string;
+      emptyDescription: string;
+      structureHint: string;
+      questionPendingText: string;
+      summaryQuestionCount: (count: number) => string;
+      pointsLabel: (points: number) => string;
+      correctAnswerLabel: string;
+      explanationLabel: string;
+    };
+    answerKey: {
+      title: string;
+      toggleShow: string;
+      toggleHide: string;
+    };
+    result: {
+      statusDraft: string;
+      statusSaved: string;
+      generatedAtPrefix: string;
+      savedAtPrefix: string;
+      exportUnavailableTooltip: string;
+      comingSoonBadge: string;
+      actions: {
+        edit: string;
+        doneEditing: string;
+        save: string;
+        copyAll: string;
+        regenerate: string;
+        regenerating: string;
+        exportWord: string;
+        exportPdf: string;
+        duplicate: string;
+        print: string;
+      };
+      improve: {
+        trigger: string;
+        makeEasier: string;
+        makeHarder: string;
+        convertToNewGeneration: string;
+        increaseVisualQuestions: string;
+        addGraphQuestions: string;
+        improveDistractors: string;
+        shortenQuiz: string;
+        expandQuiz: string;
+        comingSoonBadge: string;
+      };
+    };
+    feedback: {
+      generated: string;
+      generationError: string;
+      requestTimeout: string;
+      saved: string;
+      duplicated: string;
+      copiedAll: string;
+      copyError: string;
       validation: string;
     };
   };

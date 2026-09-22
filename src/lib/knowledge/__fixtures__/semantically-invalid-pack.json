@@ -1,0 +1,36 @@
+{
+  "id": "test.semantik-hatali-konu",
+  "slug": "semantik-hatali-konu",
+  "subject": "sosyal-bilgiler",
+  "gradeLevel": "6",
+  "topic": "Semantik Hatalı Örnek Konu",
+  "aliases": [],
+  "curriculumKeywords": [],
+  "packSchemaVersion": "1.0.0",
+  "contentVersion": "1.0.0",
+  "status": "draft",
+  "verificationStatus": "unverified",
+  "sources": [],
+  "changelog": [],
+  "learningOutcomes": [],
+  "keyConcepts": [{ "term": "Kavram", "definition": "Tanım." }],
+  "commonMisconceptions": [{ "id": "mc-1", "description": "Yanlış anlama.", "correction": "Düzeltme." }],
+  "assessableSkills": [],
+  "questionPatterns": [
+    {
+      "id": "qp-1",
+      "name": "Hatalı Desen",
+      "suitableCognitiveLevels": ["not-a-real-level"],
+      "suitableApproaches": ["not-a-real-approach"],
+      "description": "Açıklama.",
+      "requiredInformation": ["Bilgi"],
+      "reasoningSteps": ["Adım"],
+      "recommendedVisuals": [],
+      "avoid": [],
+      "targetedMisconceptionIds": ["mc-999"]
+    }
+  ],
+  "difficultyRules": { "allowedLevels": ["easy"], "progressionNotes": "Not." },
+  "forbiddenPatterns": [],
+  "criticalReviewRules": []
+}

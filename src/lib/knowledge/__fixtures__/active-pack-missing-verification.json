@@ -1,0 +1,23 @@
+{
+  "id": "test.dogrulanmamis-aktif-konu",
+  "slug": "dogrulanmamis-aktif-konu",
+  "subject": "matematik",
+  "gradeLevel": "7",
+  "topic": "Doğrulanmamış Aktif Örnek Konu",
+  "aliases": [],
+  "curriculumKeywords": [],
+  "packSchemaVersion": "1.0.0",
+  "contentVersion": "1.0.0",
+  "status": "active",
+  "verificationStatus": "unverified",
+  "sources": [],
+  "changelog": [],
+  "learningOutcomes": [],
+  "keyConcepts": [{ "term": "Kavram", "definition": "Tanım." }],
+  "commonMisconceptions": [{ "id": "mc-1", "description": "Yanlış anlama.", "correction": "Düzeltme." }],
+  "assessableSkills": [],
+  "questionPatterns": [],
+  "difficultyRules": { "allowedLevels": ["easy"], "progressionNotes": "Not." },
+  "forbiddenPatterns": [],
+  "criticalReviewRules": []
+}

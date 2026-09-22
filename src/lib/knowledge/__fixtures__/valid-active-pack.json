@@ -1,0 +1,52 @@
+{
+  "id": "test.ornek-konu",
+  "slug": "ornek-konu",
+  "subject": "matematik",
+  "gradeLevel": "6",
+  "topic": "Örnek Konu (Test Amaçlı)",
+  "aliases": ["ornek-konu-alias"],
+  "curriculumKeywords": ["test", "ornek"],
+  "packSchemaVersion": "1.0.0",
+  "contentVersion": "1.0.0",
+  "status": "active",
+  "verificationStatus": "verified",
+  "sources": [
+    { "id": "src-1", "sourceType": "internalReview", "title": "Dahili test incelemesi", "accessDate": "2026-01-10" }
+  ],
+  "lastReviewedAt": "2026-01-10",
+  "reviewedBy": "Test İnceleyici",
+  "changelog": [
+    { "version": "1.0.0", "date": "2026-01-10", "author": "Test Yazarı", "summary": "İlk sürüm." }
+  ],
+  "learningOutcomes": [
+    { "id": "lo-1", "statement": "Örnek bir öğrenme çıktısını açıklayabilir.", "cognitiveLevel": "understand", "difficulty": "easy" }
+  ],
+  "keyConcepts": [
+    { "term": "Örnek Kavram", "definition": "Test amaçlı örnek bir kavram tanımı." }
+  ],
+  "commonMisconceptions": [
+    { "id": "mc-1", "description": "Öğrenciler örnek bir yanlış anlama yapar.", "correction": "Doğrusu şudur." }
+  ],
+  "assessableSkills": ["Örnek beceriyi uygulayabilme"],
+  "questionPatterns": [
+    {
+      "id": "qp-1",
+      "name": "Örnek Soru Deseni",
+      "suitableCognitiveLevels": ["understand", "apply"],
+      "suitableApproaches": ["learningCheck"],
+      "suitableQuestionTypes": ["multipleChoice"],
+      "description": "Test amaçlı örnek bir soru deseni.",
+      "requiredInformation": ["Örnek bilgi 1"],
+      "reasoningSteps": ["Örnek adım 1"],
+      "recommendedVisuals": ["none"],
+      "avoid": ["Örnek kaçınılması gereken durum"],
+      "targetedMisconceptionIds": ["mc-1"],
+      "exampleStem": "Örnek soru kökü."
+    }
+  ],
+  "difficultyRules": { "allowedLevels": ["easy", "medium"], "progressionNotes": "Kolay düzeyden orta düzeye ilerler." },
+  "forbiddenPatterns": ["Örnek yasaklı desen"],
+  "criticalReviewRules": [
+    { "id": "crr-1", "rule": "Örnek kritik inceleme kuralı.", "severity": "blocking" }
+  ]
+}

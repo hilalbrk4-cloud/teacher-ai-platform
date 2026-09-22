@@ -1,0 +1,23 @@
+{
+  "id": "test.taslak-konu",
+  "slug": "taslak-konu",
+  "subject": "fen-bilimleri",
+  "gradeLevel": "5",
+  "topic": "Taslak Örnek Konu",
+  "aliases": [],
+  "curriculumKeywords": [],
+  "packSchemaVersion": "1.0.0",
+  "contentVersion": "0.1.0",
+  "status": "draft",
+  "verificationStatus": "unverified",
+  "sources": [],
+  "changelog": [],
+  "learningOutcomes": [],
+  "keyConcepts": [{ "term": "Taslak Kavram", "definition": "Taslak amaçlı bir tanım." }],
+  "commonMisconceptions": [{ "id": "mc-1", "description": "Taslak yanlış anlama.", "correction": "Taslak düzeltme." }],
+  "assessableSkills": [],
+  "questionPatterns": [],
+  "difficultyRules": { "allowedLevels": ["easy"], "progressionNotes": "Taslak not." },
+  "forbiddenPatterns": [],
+  "criticalReviewRules": []
+}

@@ -1,0 +1,68 @@
+[
+  {
+    "id": "test.surum-konusu",
+    "slug": "surum-konusu",
+    "subject": "matematik",
+    "gradeLevel": "6",
+    "topic": "Sürüm Örnek Konusu",
+    "aliases": ["surum-konusu-eski"],
+    "curriculumKeywords": [],
+    "packSchemaVersion": "1.0.0",
+    "contentVersion": "1.0.0",
+    "status": "archived",
+    "verificationStatus": "verified",
+    "sources": [{ "id": "src-1", "sourceType": "internalReview", "title": "İnceleme" }],
+    "lastReviewedAt": "2025-01-10",
+    "reviewedBy": "İnceleyici",
+    "changelog": [{ "version": "1.0.0", "date": "2025-01-10", "author": "Yazar", "summary": "İlk sürüm, artık arşivlendi." }],
+    "learningOutcomes": [{ "id": "lo-1", "statement": "Eski çıktı.", "cognitiveLevel": "remember", "difficulty": "easy" }],
+    "keyConcepts": [{ "term": "Kavram", "definition": "Tanım." }],
+    "commonMisconceptions": [{ "id": "mc-1", "description": "Yanlış anlama.", "correction": "Düzeltme." }],
+    "assessableSkills": ["Eski beceri"],
+    "questionPatterns": [],
+    "difficultyRules": { "allowedLevels": ["easy"], "progressionNotes": "Not." },
+    "forbiddenPatterns": [],
+    "criticalReviewRules": [{ "id": "crr-1", "rule": "Kural.", "severity": "warning" }]
+  },
+  {
+    "id": "test.surum-konusu",
+    "slug": "surum-konusu",
+    "subject": "matematik",
+    "gradeLevel": "6",
+    "topic": "Sürüm Örnek Konusu",
+    "aliases": ["surum-konusu-eski"],
+    "curriculumKeywords": [],
+    "packSchemaVersion": "1.0.0",
+    "contentVersion": "1.1.0",
+    "status": "active",
+    "verificationStatus": "verified",
+    "sources": [{ "id": "src-1", "sourceType": "internalReview", "title": "İnceleme" }],
+    "lastReviewedAt": "2026-01-10",
+    "reviewedBy": "İnceleyici",
+    "changelog": [
+      { "version": "1.0.0", "date": "2025-01-10", "author": "Yazar", "summary": "İlk sürüm." },
+      { "version": "1.1.0", "date": "2026-01-10", "author": "Yazar", "summary": "Güncellendi ve aktif hale getirildi." }
+    ],
+    "learningOutcomes": [{ "id": "lo-1", "statement": "Güncel çıktı.", "cognitiveLevel": "understand", "difficulty": "easy" }],
+    "keyConcepts": [{ "term": "Kavram", "definition": "Tanım." }],
+    "commonMisconceptions": [{ "id": "mc-1", "description": "Yanlış anlama.", "correction": "Düzeltme." }],
+    "assessableSkills": ["Güncel beceri"],
+    "questionPatterns": [
+      {
+        "id": "qp-1",
+        "name": "Desen",
+        "suitableCognitiveLevels": ["understand"],
+        "suitableApproaches": ["learningCheck"],
+        "description": "Açıklama.",
+        "requiredInformation": ["Bilgi"],
+        "reasoningSteps": ["Adım"],
+        "recommendedVisuals": ["none"],
+        "avoid": [],
+        "targetedMisconceptionIds": ["mc-1"]
+      }
+    ],
+    "difficultyRules": { "allowedLevels": ["easy", "medium"], "progressionNotes": "Not." },
+    "forbiddenPatterns": [],
+    "criticalReviewRules": [{ "id": "crr-1", "rule": "Kural.", "severity": "blocking" }]
+  }
+]

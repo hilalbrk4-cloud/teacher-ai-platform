@@ -1,0 +1,344 @@
+{
+  "id": "matematik.7.oran-ve-oranti",
+  "slug": "oran-ve-oranti",
+  "subject": "matematik",
+  "gradeLevel": "7",
+  "topic": "Oran ve Orantı",
+  "unit": "Sayılar ve İşlemler",
+  "aliases": ["oran-orani", "dogru-ve-ters-oranti"],
+  "curriculumKeywords": ["oran", "orantı", "doğru orantı", "ters orantı", "orantı sabiti", "ölçek", "karışım problemleri"],
+  "curriculumYear": "2024-2025",
+  "packSchemaVersion": "1.0.0",
+  "contentVersion": "1.1.0",
+  "status": "draft",
+  "verificationStatus": "needsReview",
+  "sources": [
+    {
+      "id": "src-meb-2018-program",
+      "sourceType": "mebCurriculum",
+      "title": "Matematik Dersi Öğretim Programı (2018)",
+      "publisher": "T.C. Millî Eğitim Bakanlığı",
+      "reference": "https://mufredat.meb.gov.tr/Dosyalar/201813017165445-MATEMAT%C4%B0K%20%C3%96%C4%9ERET%C4%B0M%20PROGRAMI%202018v.pdf",
+      "accessDate": "2026-07-26"
+    },
+    {
+      "id": "src-meb-7-sinif-unite",
+      "sourceType": "mebCurriculum",
+      "title": "7. Sınıf Matematik Öğretim Programı Ünite Belgesi",
+      "publisher": "T.C. Millî Eğitim Bakanlığı",
+      "reference": "https://mufredat.meb.gov.tr/Dosyalar/TTKB/Ortaokul/7/Matematik/c1_matematik_7.pdf",
+      "accessDate": "2026-07-26"
+    },
+    {
+      "id": "src-crosscheck-secondary",
+      "sourceType": "other",
+      "title": "7. Sınıf Matematik Dersi Kazanımları (ikincil kaynak, çapraz kontrol amaçlı)",
+      "publisher": "matematikciler.com",
+      "reference": "https://matematikciler.com/7-sinif-matematik-dersi-kazanimlari/",
+      "accessDate": "2026-07-26"
+    }
+  ],
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-07-26",
+      "author": "EduPilot İçerik Ekibi (yapay zekâ destekli taslak — insan incelemesi bekliyor)",
+      "summary": "İlk taslak sürüm. Öğrenme çıktılarının metni iki bağımsız kaynakla birebir çapraz kontrol edildi; resmi kazanım kodları (M.7.1.4.x) birincil MEB PDF'i bu ortamda işlenemediği için doğrulanamadı ve bu nedenle pakete dahil edilmedi. Paket, resmi doğrulama ve insan incelemesi tamamlanana kadar taslak durumda kalacaktır."
+    },
+    {
+      "version": "1.1.0",
+      "date": "2026-07-26",
+      "author": "EduPilot İçerik Ekibi (yapay zekâ destekli taslak — insan incelemesi bekliyor)",
+      "summary": "Pedagojik düzeltmeler: içler-dışlar çarpımının geçerlilik koşulu, 'yalnızca doğru orantıda geçerlidir' ifadesinden 'ilişki türü belirlenip geçerli bir oran eşitliği kurulduktan sonra kullanılabilir; ters orantıda oran yönleri düzeltilmeli veya çarpımın sabitliği kullanılmalıdır' ilkesine güncellendi (ilgili tüm alanlarda). Karışım ve indirim/artış sınıflandırmasını zorunlu kılan birleşik soru deseni kaldırıldı; yerine yalnızca karışım oranına odaklanan, doğru/ters orantı sınıflandırmasını zorunlu kılmayan yeni bir desen eklendi. Ters orantılı işçi-süre örnek sorusu, eşit verimlilik varsayımını açıkça belirtecek şekilde düzeltildi. Analiz/değerlendirme düzeyinde, hatalı ve doğru çözümün karşılaştırılmasını gerektiren yeni bir 'Öğrenci Çözümü / Hata Analizi' soru deseni eklendi."
+    }
+  ],
+  "learningOutcomes": [
+    {
+      "id": "lo-1",
+      "statement": "Oranda çokluklardan birinin 1 olması durumunda diğerinin alacağı değeri belirler.",
+      "cognitiveLevel": "apply",
+      "difficulty": "easy"
+    },
+    {
+      "id": "lo-2",
+      "statement": "Birbirine oranı verilen iki çokluktan biri verildiğinde diğerini bulur.",
+      "cognitiveLevel": "apply",
+      "difficulty": "easy"
+    },
+    {
+      "id": "lo-3",
+      "statement": "Gerçek hayat durumlarını inceleyerek iki çokluğun orantılı olup olmadığına karar verir.",
+      "cognitiveLevel": "analyze",
+      "difficulty": "medium"
+    },
+    {
+      "id": "lo-4",
+      "statement": "Doğru orantılı iki çokluk arasındaki ilişkiyi ifade eder.",
+      "cognitiveLevel": "understand",
+      "difficulty": "easy"
+    },
+    {
+      "id": "lo-5",
+      "statement": "Doğru orantılı iki çokluğa ait orantı sabitini belirler ve yorumlar.",
+      "cognitiveLevel": "apply",
+      "difficulty": "medium"
+    },
+    {
+      "id": "lo-6",
+      "statement": "Gerçek hayat durumlarını inceleyerek iki çokluğun ters orantılı olup olmadığına karar verir.",
+      "cognitiveLevel": "analyze",
+      "difficulty": "medium"
+    },
+    {
+      "id": "lo-7",
+      "statement": "Doğru ve ters orantıyla ilgili problemleri çözer.",
+      "cognitiveLevel": "apply",
+      "difficulty": "medium"
+    }
+  ],
+  "prerequisiteKnowledge": [
+    "Kesirlerle dört işlem",
+    "Oran kavramının temel tanımı (a:b veya a/b gösterimi)",
+    "Orantı kavramının temel tanımı ve içler-dışlar çarpımı fikri",
+    "Temel yüzde hesaplamaları",
+    "Temel birim dönüşümleri"
+  ],
+  "keyConcepts": [
+    { "term": "Oran", "definition": "İki çokluğun birbirine bölünmesiyle elde edilen, birimsiz veya bağlama özgü birimli karşılaştırma ifadesi (a:b)." },
+    { "term": "Orantı", "definition": "Birbirine eşit iki oranın eşitliği (a:b = c:d)." },
+    { "term": "Doğru orantı", "definition": "Bir çokluk artarken diğerinin de aynı oranda arttığı, oranının (bölümünün) sabit kaldığı ilişki (y = k·x)." },
+    { "term": "Ters orantı", "definition": "Bir çokluk artarken diğerinin aynı oranda azaldığı, çarpımının sabit kaldığı ilişki (x·y = k)." },
+    { "term": "Orantı sabiti (k)", "definition": "Doğru orantılı iki çokluğun oranını (y/x) veya ters orantılı iki çokluğun çarpımını (x·y) veren, bağlama özgü birimi olabilen sabit değer." },
+    { "term": "İçler-dışlar çarpımı", "definition": "a:b = c:d orantısında a·d = b·c eşitliğinin kurulması; yalnızca ilişki türü belirlendikten ve matematiksel olarak geçerli bir oran eşitliği kurulduktan sonra kullanılabilecek bir çözüm adımıdır. Ters orantı durumunda ya oran yönleri doğru şekilde ayarlanmalı ya da çarpımın sabitliği ilişkisi (x·y = k) kullanılmalıdır." },
+    { "term": "Ölçek", "definition": "Bir çizim veya modeldeki uzunluğun gerçek uzunluğa oranı." }
+  ],
+  "commonMisconceptions": [
+    {
+      "id": "mc-oran-siralama",
+      "description": "Öğrenciler bir oranın her zaman belirli/sabit bir sırayla (örn. büyük:küçük) yazılması gerektiğini düşünür; bağlamın belirlediği sırayı (a:b ile b:a farklıdır) göz ardı eder.",
+      "correction": "Oranın sırası tamamen bağlam tarafından belirlenir; a:b ve b:a genellikle farklı anlamlar taşır ve soruda hangi çokluğun önce verildiği açıkça izlenmelidir."
+    },
+    {
+      "id": "mc-dogru-ters-karistirma",
+      "description": "Öğrenciler iki çokluk birlikte arttığında bunu otomatik olarak doğru orantı sanır; oranın (bölümün) gerçekten sabit kalıp kalmadığını kontrol etmez.",
+      "correction": "Doğru orantı için oranın (y/x) sabit kalması gerekir; birlikte artma tek başına yeterli kanıt değildir, sabitlik değer çiftleriyle test edilmelidir."
+    },
+    {
+      "id": "mc-oranti-sabiti-birim",
+      "description": "Öğrenciler orantı sabitini birimsiz, soyut bir sayı olarak ele alır ve gerçek hayat bağlamındaki birimini (ör. TL/kg, km/saat) göz ardı eder.",
+      "correction": "Orantı sabiti, bağlama göre bir birime sahip olabilir; sabit hesaplandıktan sonra biriminin ne anlama geldiği mutlaka yorumlanmalıdır."
+    },
+    {
+      "id": "mc-capraz-carpim-ezber",
+      "description": "Öğrenciler içler-dışlar çarpımı kuralını, ilişki türünü belirlemeden ve geçerli bir oran eşitliği kurup kurmadığını sorgulamadan her orantı probleminde mekanik olarak uygular.",
+      "correction": "İçler-dışlar çarpımı yalnızca ilişki türü belirlenip matematiksel olarak geçerli bir oran eşitliği kurulduktan sonra kullanılabilir; ters orantı durumunda ya oran yönleri doğru ayarlanmalı ya da çarpımın sabitliği ilişkisi (x·y = k) kullanılmalıdır."
+    },
+    {
+      "id": "mc-olcek-yonu",
+      "description": "Ölçek problemlerinde öğrenciler ölçeğin hangi yönde uygulanacağını (çizimden gerçeğe mi, gerçekten çizime mi) karıştırır.",
+      "correction": "Ölçek oranının hangi çokluğu (çizim mi gerçek mi) temsil ettiği net biçimde belirlenmeli, orantı buna göre kurulmalıdır."
+    }
+  ],
+  "teachingApproaches": [
+    "Somut, sayısal örneklerden genel orantı ilişkisinin soyutlanmasına doğru ilerleme",
+    "Değer çiftlerini tablo hâlinde göstererek oranın sabitliğinin görsel olarak fark edilmesini sağlama",
+    "Gerçek hayat bağlamlarıyla (tarif, ölçek, iş-işçi, hız-zaman) ilişkilendirme",
+    "Doğru ve ters orantıyı yan yana karşılaştırarak ayırt etme becerisini vurgulama"
+  ],
+  "realWorldConnections": [
+    "Mutfak tariflerinde malzeme oranlarının değiştirilmesi",
+    "Harita ve plan ölçekleri",
+    "Sabit sayıda işçinin bir işi tamamlama süresi",
+    "İndirim ve zam hesaplamaları",
+    "Sabit hızla alınan yol ile geçen süre ilişkisi"
+  ],
+  "differentiationNotes": "Destek ihtiyacı olan öğrenciler için: değer çiftlerini önce somut nesnelerle veya tablo ile gösterip oranın sabitliğini adım adım keşfettirme, tek adımlı problemlerle başlama. İleri düzey öğrenciler için: çok adımlı, birden fazla bağlamı (ölçek + karışım gibi) birleştiren problemler ve orantı sabitinin farklı birimlerdeki yorumu.",
+  "sampleQuestionSeeds": [
+    "İki malzeme arasında sabit bir oran bulunan bir tarifte, malzemelerden birinin miktarı değiştirildiğinde diğerinin nasıl değişeceğini soran soyut bir bağlam.",
+    "Sabit hızla alınan yol ile geçen süre arasındaki doğru orantılı ilişkiyi sorgulayan soyut bir bağlam.",
+    "Sabit miktarda bir iş için, eşit verimlilikte çalışan işçi sayısı ile işin tamamlanma süresi arasındaki ters orantılı ilişkiyi inceleyen soyut bir bağlam.",
+    "Bir harita veya planda iki nokta arasındaki uzaklığın ölçek kullanılarak gerçek uzaklığa dönüştürüldüğü soyut bir bağlam."
+  ],
+  "crossCurricularLinks": [
+    "Fen Bilimleri: karışım oranları ve deney raporlarında oran kullanımı",
+    "Sosyal Bilgiler: harita ölçekleri ve uzaklık hesaplamaları"
+  ],
+  "assessableSkills": [
+    "Verilen bir orana göre eksik çokluğu bulma",
+    "İki çokluğun doğru orantılı olup olmadığını gerekçelendirerek belirleme",
+    "Doğru orantı sabitini hesaplama ve bağlam içinde yorumlama",
+    "İki çokluğun ters orantılı olup olmadığını gerekçelendirerek belirleme",
+    "Doğru ve ters orantı problemlerini (ölçek ve karışım bağlamlarında) çözme",
+    "Oran ve orantı içeren gerçek hayat problemlerini modelleme"
+  ],
+  "questionPatterns": [
+    {
+      "id": "qp-eksik-cokluk",
+      "name": "Eksik Çokluğu Bulma",
+      "suitableCognitiveLevels": ["apply"],
+      "suitableApproaches": ["learningCheck", "quickReview"],
+      "suitableQuestionTypes": ["shortAnswer", "multipleChoice"],
+      "description": "İki çokluk arasındaki oran verildiğinde, çokluklardan biri bilindiğinde diğerinin bulunmasını gerektiren tek adımlı soru deseni.",
+      "requiredInformation": ["İki çokluk arasındaki oran", "Çokluklardan birinin değeri"],
+      "reasoningSteps": [
+        "Verilen oranı a:b biçiminde ifade et",
+        "Bilinen değeri orana yerleştir",
+        "Birim oran veya içler-dışlar çarpımı ile bilinmeyeni hesapla"
+      ],
+      "recommendedVisuals": ["none", "table"],
+      "avoid": ["Gerçek sınav sorularının birebir veya küçük değişikliklerle tekrarı"],
+      "targetedMisconceptionIds": ["mc-oran-siralama"],
+      "exampleStem": "Bir bağlamda iki çokluk arasındaki oran verilir; çokluklardan biri sayısal olarak verildiğinde diğerinin değeri istenir (soyut, örnek amaçlı desen — somut sayılar üretim sırasında belirlenir)."
+    },
+    {
+      "id": "qp-dogru-oranti-karari",
+      "name": "Doğru Orantı Kararı",
+      "suitableCognitiveLevels": ["analyze"],
+      "suitableApproaches": ["realLifeContext", "learningCheck"],
+      "suitableQuestionTypes": ["multipleChoice", "openEnded"],
+      "description": "İki çokluğa ait en az iki değer çifti verildiğinde, öğrencinin oranın sabit kalıp kalmadığını kontrol ederek doğru orantı olup olmadığına karar vermesini gerektiren soru deseni.",
+      "requiredInformation": ["İki çokluğa ait en az iki değer çifti", "Bağlamın gerçek hayat çerçevesi"],
+      "reasoningSteps": [
+        "Her değer çifti için oranı (bölümü) hesapla",
+        "Oranların birbirine eşit olup olmadığını karşılaştır",
+        "Doğru orantı tanımına uygunluğuna karar ver ve gerekçelendir"
+      ],
+      "recommendedVisuals": ["table", "graph"],
+      "avoid": ["Gerçek sınav bağlamlarının doğrudan kopyalanması", "Oranın sabitliğini kontrol etmeden 'birlikte artıyor, o hâlde doğru orantıdır' sonucuna varmayı doğru kabul etme"],
+      "targetedMisconceptionIds": ["mc-dogru-ters-karistirma"]
+    },
+    {
+      "id": "qp-oranti-sabiti-yorumlama",
+      "name": "Orantı Sabitini Yorumlama",
+      "suitableCognitiveLevels": ["apply", "evaluate"],
+      "suitableApproaches": ["realLifeContext"],
+      "suitableQuestionTypes": ["openEnded", "shortAnswer"],
+      "description": "Doğru orantılı iki çokluğa ait bir değer çifti verildiğinde orantı sabitinin hesaplanmasını ve bağlam içindeki biriminin/anlamının yorumlanmasını gerektiren soru deseni.",
+      "requiredInformation": ["Doğru orantılı iki çokluğa ait bir değer çifti", "Bağlamın birimleri (ör. TL, kg, km, saat)"],
+      "reasoningSteps": [
+        "Orantı sabitini k = y/x olarak hesapla",
+        "Sabitin birimini belirle",
+        "Sabitin bağlam içinde ne anlama geldiğini yorumla"
+      ],
+      "recommendedVisuals": ["table", "graph"],
+      "avoid": ["Orantı sabitini birimsiz, bağlamdan kopuk bir sayı olarak sunma"],
+      "targetedMisconceptionIds": ["mc-oranti-sabiti-birim"]
+    },
+    {
+      "id": "qp-ters-oranti-karari-ve-cozum",
+      "name": "Ters Orantı Kararı ve Çözümü",
+      "suitableCognitiveLevels": ["analyze", "apply"],
+      "suitableApproaches": ["realLifeContext", "problemSolving"],
+      "suitableQuestionTypes": ["multipleChoice", "shortAnswer"],
+      "description": "İki çokluğa ait değer çiftleri veya bir gerçek hayat bağlamı verildiğinde, ters orantı ilişkisinin tanınmasını ve eksik değerin buna göre çözülmesini gerektiren soru deseni.",
+      "requiredInformation": ["İki çokluğa ait değer çiftleri veya bağlam açıklaması"],
+      "reasoningSteps": [
+        "Çarpımın (x·y) sabit olup olmadığını kontrol et",
+        "Ters orantı ise x·y = k ilişkisini kur",
+        "Bilinmeyen değeri bu ilişkiden çöz"
+      ],
+      "recommendedVisuals": ["table"],
+      "avoid": ["Ters orantı problemlerinde, oran yönleri düzeltilmeden veya çarpımın sabitliği ilişkisi kurulmadan içler-dışlar çarpımının doğrudan uygulanması"],
+      "targetedMisconceptionIds": ["mc-capraz-carpim-ezber", "mc-dogru-ters-karistirma"]
+    },
+    {
+      "id": "qp-olcek-problemi",
+      "name": "Ölçek Problemi",
+      "suitableCognitiveLevels": ["apply"],
+      "suitableApproaches": ["realLifeContext", "problemSolving"],
+      "suitableQuestionTypes": ["shortAnswer", "multipleChoice"],
+      "description": "Bir ölçek oranı ve bir boyut (çizim veya gerçek) verildiğinde, diğer boyutun orantı kurularak hesaplanmasını gerektiren soru deseni.",
+      "requiredInformation": ["Ölçek oranı", "Çizim veya gerçek boyutlardan biri"],
+      "reasoningSteps": [
+        "Ölçek oranının hangi yönü (çizim→gerçek veya gerçek→çizim) temsil ettiğini belirle",
+        "Orantıyı buna göre kur",
+        "Bilinmeyen boyutu hesapla"
+      ],
+      "recommendedVisuals": ["geometryDiagram", "table"],
+      "avoid": ["Ölçek yönünü belirtmeden veya karıştırarak soru kurgulama"],
+      "targetedMisconceptionIds": ["mc-olcek-yonu"]
+    },
+    {
+      "id": "qp-karisim-orani",
+      "name": "Karışım Oranı Problemi",
+      "suitableCognitiveLevels": ["apply", "analyze"],
+      "suitableApproaches": ["realLifeContext", "problemSolving"],
+      "suitableQuestionTypes": ["openEnded", "shortAnswer"],
+      "description": "İki veya daha fazla bileşenin belirli bir oranla karıştırıldığı bir bağlamda, bileşenlerden birinin miktarı değiştiğinde diğer bileşen(ler)in veya karışımın tamamının miktarının oran kullanılarak bulunmasını gerektiren soru deseni.",
+      "requiredInformation": ["Karışımdaki bileşenler arasındaki oran", "Bileşenlerden en az birinin miktarı"],
+      "reasoningSteps": [
+        "Karışımdaki bileşenler arasındaki oranı belirle",
+        "Verilen miktarı orana yerleştir",
+        "Diğer bileşen(ler)in veya karışımın tamamının miktarını hesapla"
+      ],
+      "recommendedVisuals": ["none", "table"],
+      "avoid": [
+        "Karışım problemini otomatik olarak doğru orantı problemi gibi ele alıp oranın gerçekten sabit kalıp kalmadığını sorgulamama",
+        "Yüzde, indirim veya artış içeren her durumu zorunlu olarak doğru ya da ters orantı problemi gibi sınıflandırma"
+      ],
+      "targetedMisconceptionIds": ["mc-oran-siralama"]
+    },
+    {
+      "id": "qp-ogrenci-cozumu-hata-analizi",
+      "name": "Öğrenci Çözümü / Hata Analizi",
+      "suitableCognitiveLevels": ["analyze", "evaluate"],
+      "suitableApproaches": ["competencyBased", "newGeneration"],
+      "suitableQuestionTypes": ["multipleChoice", "openEnded"],
+      "description": "Aynı oran/orantı problemine ait iki farklı öğrenci çözümü, iddiası veya akıl yürütme yolu sunulduğunda (en az biri hatalı), öğrencinin hangisinin matematiksel olarak doğru olduğunu belirlemesini ve diğerindeki hatayı gerekçesiyle açıklamasını gerektiren yüksek düzey soru deseni.",
+      "requiredInformation": [
+        "Aynı problemi ele alan iki farklı çözüm, iddia veya akıl yürütme yolu (en az biri hatalı)",
+        "Hatalı çözümün dayandığı kavram yanılgısına dair yeterli bağlam"
+      ],
+      "reasoningSteps": [
+        "Her iki çözümü/iddiayı ayrı ayrı incele",
+        "Hangi çözümün matematiksel olarak geçerli olduğunu belirle",
+        "Diğer çözümdeki hatanın nedenini kavramsal olarak açıkla"
+      ],
+      "recommendedVisuals": ["none", "table"],
+      "avoid": [
+        "Yalnızca doğru çözümü seçtirip hatayı açıklatmadan bırakma",
+        "İki çözümü de doğru ya da belirsiz sunma",
+        "Akıl yürütme gerektirmeyen, salt hesaplama sonucunu soran bir soruya indirgeme"
+      ],
+      "targetedMisconceptionIds": [
+        "mc-oran-siralama",
+        "mc-dogru-ters-karistirma",
+        "mc-oranti-sabiti-birim",
+        "mc-capraz-carpim-ezber",
+        "mc-olcek-yonu"
+      ],
+      "exampleStem": "Aynı orantı problemi için iki farklı öğrencinin çözümü sunulur; öğrencilerden biri kavram yanılgılarından birine dayanan hatalı bir akıl yürütme izler. Hangi çözümün doğru olduğu ve diğerindeki hatanın nedeni sorulur (soyut, örnek amaçlı desen — somut sayılar ve bağlam üretim sırasında belirlenir)."
+    }
+  ],
+  "difficultyRules": {
+    "allowedLevels": ["easy", "medium", "hard"],
+    "progressionNotes": "Kolay düzeyde tek adımlı oran tamamlama (eksik çokluğu bulma); orta düzeyde doğru/ters orantı ayrımı, orantı sabitinin hesaplanması ve temel gerçek hayat problemleri; zor düzeyde çok adımlı, birden fazla bağlamı (ölçek + karışım gibi) birleştiren ve orantı sabitinin birimli yorumunu gerektiren problemler."
+  },
+  "forbiddenPatterns": [
+    "Bilinen bir resmi sınav (LGS, deneme sınavı vb.), ders kitabı veya yayınevi sorusunun birebir ya da kolayca tanınabilir biçimde uyarlanması",
+    "Ters orantı problemlerinde, oran yönleri doğru ayarlanmadan veya çarpımın sabitliği ilişkisi kurulmadan içler-dışlar çarpımının doğrudan uygulanması",
+    "Orantı sabitinin birimsiz, bağlamdan kopuk şekilde sunulması"
+  ],
+  "criticalReviewRules": [
+    {
+      "id": "crr-dogru-ters-ayrimi",
+      "rule": "Üretilen her soru, doğru orantı mı ters orantı mı olduğu açıkça ayırt edilebilir şekilde kurgulanmalıdır; ilişki türü belirsiz bırakılamaz.",
+      "severity": "blocking"
+    },
+    {
+      "id": "crr-capraz-carpim-uygunlugu",
+      "rule": "İçler-dışlar çarpımı yalnızca ilişki türü belirlenip matematiksel olarak geçerli bir oran eşitliği kurulduktan sonra bir çözüm adımı olarak sunulabilir; ters orantı durumunda oran yönleri doğru ayarlanmalı ya da çarpımın sabitliği ilişkisi (x·y = k) kullanılmalıdır.",
+      "severity": "blocking"
+    },
+    {
+      "id": "crr-gercek-sinav-tekrari",
+      "rule": "Soru kökleri veya bağlamları, bilinen MEB/LGS veya yayınevi sorularının yeniden üretimi ya da kolayca tanınabilir bir uyarlaması olmamalıdır.",
+      "severity": "blocking"
+    },
+    {
+      "id": "crr-birim-tutarliligi",
+      "rule": "Orantı sabiti veya oran içeren her sonucun birimi, bağlamla tutarlı ve açıkça belirtilmiş olmalıdır.",
+      "severity": "warning"
+    }
+  ]
+}
