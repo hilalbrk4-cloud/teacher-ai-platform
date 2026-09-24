@@ -180,3 +180,73 @@ answered — that's decided entirely server-side by `LESSON_PLAN_PROVIDER`.
 Whether a teacher's plan comes from the mock service or a real OpenAI call
 now depends solely on that server-side setting, with no code or UI change
 required to switch between them.
+
+# Quiz Generator — Visual Question Types (`gorselSoru`)
+
+A registry-based, multi-type visual question architecture. A teacher enables
+it by selecting the **Görsel yeni nesil** question type; for each such
+Blueprint slot, the model picks the most suitable `tip` itself and returns
+`{ "tip": "...", "veri": {...} }`.
+
+- **Definitions (server-safe, no React):** `src/lib/quiz-generator/gorsel-sorular/`
+  — each tip carries its key, `veri` schema + validator, prompt example,
+  `gorselKategorisi` and `gorselStratejisi`. `tanimlar.ts` aggregates them.
+- **Registry + router (client):** `src/components/features/quiz-generator/gorsel-sorular/`
+  — `registry.ts` adds a React component to each definition;
+  `gorsel-soru-router.tsx` renders a question by its `tip`, so different
+  tips can coexist in one quiz.
+- **Functional visuals** (`sayi_dogrusu`, `kesir_kartlari`) are drawn as SVG
+  from `veri`. The validator recomputes the correct answer from the data
+  and rejects a response whose `dogruSecenekId` disagrees, or where the
+  correct answer isn't in exactly one option.
+- **Decorative visuals** (`gercek_hayat_senaryo` scenes) live in a separate
+  layer (`dekoratif-gorsel.tsx`). Changing the tip's `gorselStratejisi`
+  (`svg` → `hazirGorsel` / `yapayZeka` / `yok`) swaps the provider without
+  touching question logic. Only `svg` is implemented; `hazirGorsel` expects
+  `public/gorseller/sahneler/<sahne>.webp` (no files yet); `yapayZeka` is a
+  placeholder that renders nothing.
+- **Prompt:** `buildGorselSoruBlock` lists every tip suitable for the
+  subject (fraction tips are math-only) with its schema, rules and an
+  example that is guaranteed to pass its own validator (covered by tests).
+
+### Tasks (görevler) and the visual-question plan
+
+Each tip has several tasks, each with its own schema, rules and example:
+`sayi_dogrusu` → siralama, hedefeEnYakin, isaretliKesir, kesriGoster;
+`kesir_kartlari` → ifadeDegerlendirme, turuBul, gosterimDonusumu;
+`gercek_hayat_senaryo` → karsilastirma, kalaniBulma, coklugunKesri, cokAdimliCikarim.
+The Blueprint (`gorselSoruPlaniAta`) assigns a tip + task to every
+`gorselSoru` slot: each suitable tip is used once before any repeats, and
+a repeated tip always gets a different task. Fraction tips/tasks are only
+assigned when the topic or outcomes mention fractions. The prompt shows
+only the assigned tasks, and the validator rejects a response that deviates
+from the plan. Scenario questions must carry ≥2 `islemAdimlari`, and a
+single-fraction answer that already appears in the scenario is rejected.
+
+### Generation reliability (real OpenAI)
+
+- **Batching:** `generateQuizInBatches` (`src/lib/quiz-generator/batch-generation.ts`)
+  splits the Blueprint into near-equal batches of at most `QUIZ_BATCH_SIZE`
+  (3) questions, runs up to `QUIZ_BATCH_CONCURRENCY` (4) in parallel, and
+  merges them in plan order. A batch that fails validation is regenerated
+  once on its own; if it fails again the whole request fails (a quiz with
+  missing questions is never returned). Knowledge Pack pattern coverage is
+  still computed over the full quiz. Each batch gets its own context areas
+  and a rotating suggested `tip` so parallel batches don't converge on the
+  same scenario or tip.
+- **Structured outputs:** `buildQuizResponseJsonSchema` sends a strict JSON
+  Schema (field names, required fields, enums) whenever a batch has no
+  free-form classic `visual`; otherwise plain JSON mode is used.
+  `cozum` / `answerExplanation` come before the answer fields so the model
+  solves first.
+- **Repair instead of reject (functional tips only):** when the model marks
+  the wrong option, or the correct answer is missing from the options, the
+  answer key is repaired from the data and `cozum` is regenerated from the
+  data. Duplicate options are dropped (≥3 must remain); unknown/duplicate
+  card colors are remapped. A stem that asks the opposite of `siralama` /
+  `soruBicimi` is still rejected, as are questions where every student is
+  right (or wrong).
+
+To add a tip: add its key to `GORSEL_SORU_TIPLERI` and its data type to
+`GorselSoruVeriHaritasi`, write its definition, then register its
+component — TypeScript's mapped types fail the build if any step is missed.

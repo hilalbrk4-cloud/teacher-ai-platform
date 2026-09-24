@@ -1,7 +1,9 @@
+import { dogrulaGorselSoru } from "@/lib/quiz-generator/gorsel-sorular/tanimlar";
 import { createQuizGeneratorId } from "@/lib/quiz-generator/id";
 import type { QuestionBlueprintSlot, QuizBlueprint } from "@/types/quiz-blueprint";
 import type {
   FillInBlankQuestion,
+  GorselSoruQuestion,
   MatchingQuestion,
   MultipleChoiceQuestion,
   OpenEndedQuestion,
@@ -76,6 +78,15 @@ export const QUIZ_QUESTION_TYPE_METADATA: readonly QuizQuestionTypeMeta[] = [
     label: "Açık uçlu",
     description: "Öğrencinin kendi cümleleriyle yanıtladığı, tek doğru cevabı olmayan soru.",
     aiFields: '"sampleAnswer" (örnek/model bir cevap) ve isteğe bağlı "gradingCriteria" (metin dizisi).',
+  },
+  {
+    key: "gorselSoru",
+    label: "Görsel yeni nesil soru",
+    description:
+      "Konuya uygun görsel soru tipini modelin kendisinin seçtiği, veriden çizilen yeni nesil soru.",
+    aiFields:
+      'bu türde ortak alanlar KULLANILMAZ; soru nesnesi YALNIZCA {"tip","veri"} alanlarından oluşur ' +
+      "(bkz. GÖRSEL SORU TİPLERİ bölümü).",
   },
 ];
 
@@ -209,7 +220,8 @@ function readOptionalPositiveNumber(
   issues: QuizValidationIssue[]
 ): number | undefined {
   const value = record[field];
-  if (value === undefined) return undefined;
+  // Structured outputs (strict) writes optional fields as `null`.
+  if (value === undefined || value === null) return undefined;
   if (typeof value !== "number" || !Number.isFinite(value) || value <= 0) {
     issues.push({ path: `${path}.${field}`, message: `"${field}" belirtilirse pozitif bir sayı olmalıdır.` });
     return undefined;
@@ -572,7 +584,7 @@ function validateOpenEnded(
 
   const rawCriteria = record.gradingCriteria;
   let gradingCriteria: string[] | undefined;
-  if (rawCriteria !== undefined) {
+  if (rawCriteria !== undefined && rawCriteria !== null) {
     if (!Array.isArray(rawCriteria) || !rawCriteria.every((item) => typeof item === "string" && item.trim())) {
       issues.push({ path: `${path}.gradingCriteria`, message: '"gradingCriteria" belirtilirse bir metin dizisi olmalıdır.' });
       return undefined;
@@ -584,7 +596,7 @@ function validateOpenEnded(
 }
 
 const TYPE_VALIDATORS: Record<
-  QuestionType,
+  Exclude<QuestionType, "gorselSoru">,
   (record: Record<string, unknown>, path: string, issues: QuizValidationIssue[]) => TypedQuestionFields["fields"] | undefined
 > = {
   multipleChoice: validateMultipleChoice,
@@ -614,6 +626,10 @@ function validateQuestionAgainstSlot(
     return undefined;
   }
 
+  if (slot.type === "gorselSoru") {
+    return validateGorselSoruAgainstSlot(raw, slot, path, issues);
+  }
+
   const type = raw.type;
   if (typeof type !== "string" || !QUESTION_TYPE_KEYS.has(type as QuestionType)) {
     issues.push({ path: `${path}.type`, message: `Geçersiz veya beklenmeyen soru türü: ${String(type)}` });
@@ -631,23 +647,59 @@ function validateQuestionAgainstSlot(
   const typed = TYPE_VALIDATORS[slot.type](raw, path, issues);
   if (!common || !typed) return undefined;
 
-  const audit = {
-    learningOutcome: slot.learningOutcome,
-    cognitiveLevel: slot.cognitiveLevel,
-    difficulty: slot.difficulty,
-    approach: slot.approach,
-    visualType: slot.visualType,
-  };
-
   return {
     id: createQuizGeneratorId("q"),
     prompt: common.prompt,
     visual: common.visual,
     points: common.points,
     answerExplanation: common.answerExplanation,
-    audit,
+    audit: buildAudit(slot),
     ...typed,
   } as QuizQuestion;
+}
+
+function buildAudit(slot: QuestionBlueprintSlot): QuizQuestion["audit"] {
+  return {
+    learningOutcome: slot.learningOutcome,
+    cognitiveLevel: slot.cognitiveLevel,
+    difficulty: slot.difficulty,
+    approach: slot.approach,
+    visualType: slot.visualType,
+  };
+}
+
+/**
+ * `gorselSoru` sıraları `{ "tip", "veri" }` biçiminde gelir; tip seçimi
+ * modele bırakılmıştır, ama `veri` seçilen tipin registry'deki kendi
+ * doğrulayıcısından geçmek zorundadır. Soru kökü (`veri.soru`) ve çözüm
+ * (`veri.cozum`) ortak `prompt` / `answerExplanation` alanlarına taşınır,
+ * böylece kopyalama, cevap anahtarı gibi genel özellikler değişmeden çalışır.
+ */
+function validateGorselSoruAgainstSlot(
+  raw: Record<string, unknown>,
+  slot: QuestionBlueprintSlot,
+  path: string,
+  issues: QuizValidationIssue[]
+): GorselSoruQuestion | undefined {
+  if (raw.type !== undefined && raw.type !== "gorselSoru") {
+    issues.push({
+      path: `${path}.type`,
+      message: `Bu sıradaki soru bir görsel soru olmalıydı ({"tip","veri"}), ama "${String(raw.type)}" döndürüldü.`,
+    });
+    return undefined;
+  }
+
+  const dogrulanmis = dogrulaGorselSoru(raw, path, issues, slot.gorselPlani);
+  if (!dogrulanmis) return undefined;
+
+  return {
+    id: createQuizGeneratorId("q"),
+    type: "gorselSoru",
+    prompt: dogrulanmis.soru,
+    answerExplanation: dogrulanmis.cozum,
+    audit: buildAudit(slot),
+    ...dogrulanmis.icerik,
+  };
 }
 
 /**

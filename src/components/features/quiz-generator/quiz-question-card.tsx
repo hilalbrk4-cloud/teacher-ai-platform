@@ -1,6 +1,7 @@
 "use client";
 
 import { Textarea } from "@/components/ui/textarea";
+import { GorselSoruRouter } from "@/components/features/quiz-generator/gorsel-sorular/gorsel-soru-router";
 import { QuizVisualRenderer } from "@/components/features/quiz-generator/quiz-visual-renderer";
 import type { Dictionary } from "@/types/i18n";
 import type { QuizQuestion } from "@/types/quiz-generator";
@@ -208,11 +209,24 @@ export function QuizQuestionCard({ t, index, question, editable, showAnswer, onC
         ) : null}
       </div>
 
-      <EditablePrompt question={question} editable={editable} onChange={onChange} />
+      {question.type === "gorselSoru" ? (
+        // Görsel sorular kendi düzenini belirler (ör. bilgi → çizim → soru
+        // kökü → şıklar); soru kökü düzenlenebilir hâliyle içeri verilir.
+        <GorselSoruRouter
+          question={question}
+          soruKoku={<EditablePrompt question={question} editable={editable} onChange={onChange} />}
+          showAnswer={showAnswer}
+          t={t}
+        />
+      ) : (
+        <>
+          <EditablePrompt question={question} editable={editable} onChange={onChange} />
 
-      {question.visual ? <QuizVisualRenderer visual={question.visual} /> : null}
+          {question.visual ? <QuizVisualRenderer visual={question.visual} /> : null}
 
-      <QuestionBody t={t} question={question} editable={editable} showAnswer={showAnswer} onChange={onChange} />
+          <QuestionBody t={t} question={question} editable={editable} showAnswer={showAnswer} onChange={onChange} />
+        </>
+      )}
 
       {showAnswer && question.answerExplanation ? (
         <div className="rounded-md bg-muted/40 p-2.5 text-xs text-muted-foreground">

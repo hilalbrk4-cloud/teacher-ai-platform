@@ -4,6 +4,7 @@ import { ChevronDown, KeyRound } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { gorselSoruCevapMetni } from "@/lib/quiz-generator/gorsel-sorular/tanimlar";
 import { cn } from "@/lib/utils";
 import type { Dictionary } from "@/types/i18n";
 import type { QuizQuestion } from "@/types/quiz-generator";
@@ -34,6 +35,8 @@ function formatAnswer(question: QuizQuestion): string {
         .join(" → ");
     case "openEnded":
       return question.sampleAnswer;
+    case "gorselSoru":
+      return gorselSoruCevapMetni(question);
     default:
       return "";
   }

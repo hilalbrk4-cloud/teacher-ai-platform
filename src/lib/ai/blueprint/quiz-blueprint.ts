@@ -8,10 +8,9 @@ import type {
   SlotVisualType,
   VisualType,
 } from "@/types/quiz-generator";
+import { isMathSubject, isScienceSubject } from "@/lib/ai/blueprint/subject";
+import { gorselSoruPlaniAta } from "@/lib/quiz-generator/gorsel-sorular/tanimlar";
 import type { QuestionBlueprintSlot, QuizBlueprint } from "@/types/quiz-blueprint";
-
-const MATH_SUBJECT_KEYWORDS = ["matematik", "math"];
-const SCIENCE_SUBJECT_KEYWORDS = ["fen", "science", "biyoloji", "kimya", "fizik"];
 
 const DEFAULT_MATH_VISUALS: VisualType[] = [
   "graph",
@@ -46,18 +45,10 @@ const DIFFICULTY_CYCLES: Record<DifficultyLevel | "mixed", DifficultyLevel[]> = 
 // order instead of being resequenced by difficulty.
 const FLAT_ORDER_QUIZ_TYPES = new Set(["exitTicket"]);
 
-function matchesSubjectKeyword(subject: string, keywords: string[]): boolean {
-  const normalized = subject.trim().toLowerCase();
-  return keywords.some((keyword) => normalized.includes(keyword));
-}
-
-export function isMathSubject(subject: string): boolean {
-  return matchesSubjectKeyword(subject, MATH_SUBJECT_KEYWORDS);
-}
-
-export function isScienceSubject(subject: string): boolean {
-  return matchesSubjectKeyword(subject, SCIENCE_SUBJECT_KEYWORDS);
-}
+// Re-exported so existing imports keep working; the helpers live in their
+// own module so the visual-question definitions can use them without an
+// import cycle (this module imports those definitions).
+export { isMathSubject, isScienceSubject };
 
 /**
  * Step 1: question order & type distribution. Splits `questionCount`
@@ -209,7 +200,9 @@ export function buildQuizBlueprint(input: QuizFormInput): QuizBlueprint {
     learningOutcome: outcomes[index],
     difficulty: difficulties[index],
     approach: approaches[index],
-    visualType: visuals[index],
+    // A "gorselSoru" slot carries its own visual (drawn from its tip's data),
+    // so it never also gets a classic `visual` allocated.
+    visualType: types[index] === "gorselSoru" ? "none" : visuals[index],
   }));
 
   return {
@@ -220,7 +213,12 @@ export function buildQuizBlueprint(input: QuizFormInput): QuizBlueprint {
     totalQuestions: count,
     includeAnswerKey: input.includeAnswerKey,
     includeExplanations: input.includeExplanations,
-    slots: orderSlots(unorderedSlots, input.quizType),
+    // Step 8: visual-question plan. Runs after ordering so the first visual
+    // questions a student meets use distinct tips (see `gorselSoruPlaniAta`).
+    slots: gorselSoruPlaniAta(orderSlots(unorderedSlots, input.quizType), {
+      subject: input.subject,
+      topic: input.topic,
+    }),
     language: "tr",
   };
 }

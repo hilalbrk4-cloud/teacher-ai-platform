@@ -280,6 +280,7 @@ export const en: Dictionary = {
         matching: "Matching",
         ordering: "Ordering",
         openEnded: "Open-ended",
+        gorselSoru: "Visual new-generation",
       },
       questionApproaches: {
         quickReview: "Quick review",
@@ -380,6 +381,11 @@ export const en: Dictionary = {
       pointsLabel: (points) => `${points} points`,
       correctAnswerLabel: "Correct answer",
       explanationLabel: "Explanation",
+      visualQuestion: {
+        infoLabel: "Info",
+        correctMark: "Correct answer",
+        unsupported: "This question type can't be displayed yet.",
+      },
     },
     answerKey: {
       title: "Answer key",

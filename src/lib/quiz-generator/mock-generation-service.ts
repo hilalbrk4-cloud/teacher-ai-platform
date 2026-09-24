@@ -1,7 +1,9 @@
+import { dogrulaGorselSoru, gorevTanimi } from "@/lib/quiz-generator/gorsel-sorular/tanimlar";
 import { createQuizGeneratorId } from "@/lib/quiz-generator/id";
 import type { GenerateQuizOptions, QuizGenerationService } from "@/lib/quiz-generator/generation-service";
+import type { GorselSoruPlani } from "@/types/gorsel-soru";
 import type { QuestionBlueprintSlot, QuizPrompt } from "@/types/quiz-blueprint";
-import type { Quiz, QuizQuestion, QuizVisual, SlotVisualType } from "@/types/quiz-generator";
+import type { QuestionAudit, Quiz, QuizQuestion, QuizVisual, SlotVisualType } from "@/types/quiz-generator";
 
 const STAGE_COUNT = 3;
 const STAGE_DELAY_MS = 500;
@@ -50,13 +52,37 @@ function buildMockVisual(visualType: SlotVisualType, topic: string): QuizVisual 
   }
 }
 
-function buildAudit(slot: QuestionBlueprintSlot) {
+function buildAudit(slot: QuestionBlueprintSlot): QuestionAudit {
   return {
     learningOutcome: slot.learningOutcome,
     cognitiveLevel: slot.cognitiveLevel,
     difficulty: slot.difficulty,
     approach: slot.approach,
     visualType: slot.visualType,
+  };
+}
+
+const VARSAYILAN_PLAN: GorselSoruPlani = { tip: "gercek_hayat_senaryo", gorev: "cokAdimliCikarim" };
+
+/**
+ * Uses the tip/task the Blueprint assigned to the slot and runs that task's
+ * own registry example through the same validator a real AI response goes
+ * through — so the mock can never show a visual question the real
+ * pipeline would reject.
+ */
+function buildMockGorselSoru(slot: QuestionBlueprintSlot, id: string, audit: QuestionAudit): QuizQuestion {
+  const plan = slot.gorselPlani ?? VARSAYILAN_PLAN;
+  const dogrulanmis = dogrulaGorselSoru(gorevTanimi(plan).ornek, `mock.${plan.tip}`, [], plan);
+  if (!dogrulanmis) {
+    throw new Error(`Registry örneği kendi doğrulayıcısından geçemedi: ${plan.tip}/${plan.gorev}`);
+  }
+  return {
+    id,
+    type: "gorselSoru",
+    prompt: dogrulanmis.soru,
+    answerExplanation: dogrulanmis.cozum,
+    audit,
+    ...dogrulanmis.icerik,
   };
 }
 
@@ -145,6 +171,8 @@ function buildMockQuestion(slot: QuestionBlueprintSlot, prompt: QuizPrompt): Qui
         sampleAnswer: `Öğrenci, ${prompt.topic} konusunu gerçek bir örnekle ilişkilendirerek açıklamalıdır.`,
         gradingCriteria: ["Kavramı doğru tanımlar", "Gerçekçi bir örnek verir"],
       };
+    case "gorselSoru":
+      return buildMockGorselSoru(slot, shared.id, audit);
     default: {
       const exhaustiveCheck: never = slot.type;
       throw new Error(`Desteklenmeyen soru türü: ${exhaustiveCheck}`);

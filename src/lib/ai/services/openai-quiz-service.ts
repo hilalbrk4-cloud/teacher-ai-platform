@@ -7,6 +7,7 @@
 import OpenAI, { APIConnectionTimeoutError, AuthenticationError, APIError } from "openai";
 
 import { getOpenAiApiKey, OPENAI_QUIZ_MODEL, QUIZ_REQUEST_TIMEOUT_MS } from "@/lib/ai/config";
+import { buildQuizResponseJsonSchema } from "@/lib/ai/schemas/quiz-response-json-schema";
 import { validateQuizResponse } from "@/lib/ai/schemas/quiz-schema";
 import { QuizProviderError } from "@/lib/ai/services/quiz-provider-error";
 import type { GenerateQuizOptions, QuizGenerationService } from "@/lib/quiz-generator/generation-service";
@@ -18,7 +19,9 @@ function createClient(): OpenAI {
   if (!apiKey) {
     throw new QuizProviderError("missing_api_key", "OpenAI API anahtarı tanımlı değil.");
   }
-  return new OpenAI({ apiKey, timeout: QUIZ_REQUEST_TIMEOUT_MS });
+  // One SDK-level retry covers transient timeouts and rate limits (429);
+  // content failures are retried per batch by `generateQuizInBatches`.
+  return new OpenAI({ apiKey, timeout: QUIZ_REQUEST_TIMEOUT_MS, maxRetries: 1 });
 }
 
 function mapProviderError(error: unknown): QuizProviderError {
@@ -50,13 +53,22 @@ export const openAiQuizGenerationService: QuizGenerationService = {
   async generate(prompt: QuizPrompt, options?: GenerateQuizOptions): Promise<Quiz> {
     const client = createClient();
 
+    // Strict structured outputs whenever the whole response shape is
+    // expressible as a schema (field names, required fields and enums are
+    // then guaranteed); plain JSON mode for batches with free-form visuals.
+    const jsonSchema = buildQuizResponseJsonSchema(prompt);
+
     let outputText: string | null | undefined;
     try {
       options?.onProgress?.(0);
       const response = await client.responses.create({
         model: OPENAI_QUIZ_MODEL,
         input: prompt.instructions,
-        text: { format: { type: "json_object" } },
+        text: {
+          format: jsonSchema
+            ? { type: "json_schema", name: "quiz", schema: jsonSchema, strict: true }
+            : { type: "json_object" },
+        },
         max_output_tokens: 6000,
       });
       options?.onProgress?.(1);
@@ -78,9 +90,15 @@ export const openAiQuizGenerationService: QuizGenerationService = {
 
     const validation = validateQuizResponse(parsed, prompt);
     if (!validation.success) {
-      // GEÇİCİ TEŞHİS LOGU — sorun bulununca silinecek.
-      // Doğrulamanın hangi soruyu ve hangi alanı reddettiğini terminale döker.
-      console.error("[EduPilot] validation issues:", JSON.stringify(validation.issues, null, 2));
+      // Dev-only diagnostic: which field of which question was rejected.
+      // Issue paths/messages carry structure only, never teacher input.
+      if (process.env.NODE_ENV !== "production") {
+        console.error("[EduPilot] Quiz batch validation issues:", JSON.stringify(validation.issues, null, 2));
+        console.error(
+          `[EduPilot] Quiz batch raw model output (format: ${jsonSchema ? "json_schema strict" : "json_object"}):\n` +
+            JSON.stringify(parsed, null, 2)
+        );
+      }
       throw new QuizProviderError("schema_validation_failed", "Model yanıtı beklenen yapıya uymuyor.");
     }
 

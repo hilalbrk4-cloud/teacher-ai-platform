@@ -248,6 +248,11 @@ export interface Dictionary {
       pointsLabel: (points: number) => string;
       correctAnswerLabel: string;
       explanationLabel: string;
+      visualQuestion: {
+        infoLabel: string;
+        correctMark: string;
+        unsupported: string;
+      };
     };
     answerKey: {
       title: string;

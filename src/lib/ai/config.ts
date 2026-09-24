@@ -49,8 +49,21 @@ const DEFAULT_QUIZ_PROVIDER: QuizProvider = "mock";
  */
 export const OPENAI_QUIZ_MODEL = "gpt-4o";
 
-/** Maximum time (ms) to wait for the OpenAI request before treating it as a timeout. */
+/** Maximum time (ms) to wait for ONE batch request before treating it as a timeout. */
 export const QUIZ_REQUEST_TIMEOUT_MS = 30_000;
+
+/**
+ * Quizzes are generated in small batches instead of one large request: a
+ * single 10-question request regularly exceeded the timeout, while a
+ * 2-3 question batch reliably finishes in well under it.
+ */
+export const QUIZ_BATCH_SIZE = 3;
+
+/** How many batches run at the same time (keeps bursts within provider rate limits). */
+export const QUIZ_BATCH_CONCURRENCY = 4;
+
+/** A batch whose response fails validation (or times out) is regenerated once before giving up. */
+export const QUIZ_BATCH_MAX_ATTEMPTS = 2;
 
 /**
  * Reads which quiz generation service should be used. Falls back to

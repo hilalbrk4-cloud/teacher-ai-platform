@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Yeni Nesil Soru — Sayı Doğrusu Demosu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+    --bg:#f5f4fb; --surface:#ffffff; --ink:#20233a; --muted:#6d7286;
+    --line:#e7e6f1; --accent:#5b4bd6; --accent-soft:#efeafc;
+    --info-bg:#eef3f7; --info-ink:#3d4b57;
+    --correct:#12855f; --correct-bg:#e2f5ed; --wrong:#c0453c; --wrong-bg:#fbeae8;
+    --amber:#b9791b;
+    --nl1:#2b2f3a; --nl2:#178f9c; --nl3:#dd5f3a;
+    --code-bg:#1f2233; --code-ink:#e7e9f5; --code-key:#9db4ff; --code-str:#8fd6a6; --code-num:#f0b36b;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#14151f; --surface:#1d1f2c; --ink:#eef0fa; --muted:#9aa0b4;
+      --line:#2c2f40; --accent:#8b7cf0; --accent-soft:#282544;
+      --info-bg:#1b2530; --info-ink:#bfd0dc;
+      --correct:#54c79a; --correct-bg:#173328; --wrong:#e78a82; --wrong-bg:#33201e;
+      --amber:#e0a44b;
+      --nl1:#c7cbe0; --nl2:#4bc3d0; --nl3:#f0855f;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#14151f; --surface:#1d1f2c; --ink:#eef0fa; --muted:#9aa0b4;
+    --line:#2c2f40; --accent:#8b7cf0; --accent-soft:#282544;
+    --info-bg:#1b2530; --info-ink:#bfd0dc;
+    --correct:#54c79a; --correct-bg:#173328; --wrong:#e78a82; --wrong-bg:#33201e;
+    --amber:#e0a44b; --nl1:#c7cbe0; --nl2:#4bc3d0; --nl3:#f0855f;
+  }
+  *{box-sizing:border-box}
+  html{scroll-padding-top:env(safe-area-inset-top,0px)}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:"Nunito",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    line-height:1.5; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px; margin:0 auto; padding:22px 18px 60px}
+  header.top{display:flex; align-items:center; gap:10px; margin-bottom:6px}
+  .logo{width:30px;height:30px;border-radius:9px;background:var(--accent);
+    display:grid;place-items:center;color:#fff;font-weight:800;font-size:16px;flex:none}
+  header.top h1{font-size:1.06rem; font-weight:800; margin:0; letter-spacing:-.2px}
+  .sub{color:var(--muted); font-size:.9rem; margin:2px 0 18px 40px}
+
+  .card{background:var(--surface); border:1px solid var(--line);
+    border-radius:16px; padding:20px 20px 22px; box-shadow:0 1px 2px rgba(20,20,40,.04)}
+  .qnum{font-weight:800; color:var(--accent); font-size:.95rem; margin-bottom:10px}
+
+  .info{background:var(--info-bg); color:var(--info-ink); border-radius:11px;
+    padding:12px 14px; font-size:.92rem; text-align:center; margin-bottom:18px}
+  .info b{font-weight:800}
+
+  .nl{width:100%; height:auto; display:block; margin:2px 0}
+  .lines{overflow-x:auto}
+
+  .qtext{font-weight:700; margin:16px 0 14px; font-size:1rem}
+  .qtext .lead{display:block; color:var(--muted); font-weight:600; font-size:.92rem; margin-bottom:4px}
+
+  .opts{display:grid; gap:10px}
+  .opt{display:flex; align-items:center; gap:12px; width:100%; text-align:left;
+    background:var(--surface); border:1.5px solid var(--line); border-radius:12px;
+    padding:11px 14px; cursor:pointer; font:inherit; color:inherit; transition:border-color .12s, background .12s}
+  .opt:hover{border-color:var(--accent)}
+  .opt .letter{font-weight:800; color:var(--muted); width:20px; flex:none}
+  .opt .seq{font-size:1.5rem; letter-spacing:2px; line-height:1}
+  .opt .seq .lt{font-size:1rem; color:var(--muted); vertical-align:middle; margin:0 4px}
+  .opt.correct{border-color:var(--correct); background:var(--correct-bg)}
+  .opt.correct .letter{color:var(--correct)}
+  .opt.wrong{border-color:var(--wrong); background:var(--wrong-bg)}
+  .opt.wrong .letter{color:var(--wrong)}
+  .opt .mark{margin-left:auto; font-weight:800; font-size:.92rem; opacity:0}
+  .opt.correct .mark{opacity:1; color:var(--correct)}
+  .opt.wrong .mark{opacity:1; color:var(--wrong)}
+
+  .controls{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px}
+  .btn{font:inherit; font-weight:700; border-radius:11px; padding:10px 16px; cursor:pointer; border:1.5px solid var(--line); background:var(--surface); color:var(--ink)}
+  .btn:hover{border-color:var(--accent)}
+  .btn.primary{background:var(--accent); border-color:var(--accent); color:#fff}
+  .btn.primary:hover{filter:brightness(1.05)}
+
+  .note{margin-top:16px; font-size:.9rem; color:var(--muted)}
+  .note b{color:var(--ink)}
+
+  details.data{margin-top:22px; border:1px solid var(--line); border-radius:14px; background:var(--surface); overflow:hidden}
+  details.data > summary{cursor:pointer; list-style:none; padding:14px 18px; font-weight:800; font-size:.95rem; display:flex; align-items:center; gap:8px}
+  details.data > summary::-webkit-details-marker{display:none}
+  details.data > summary .chev{margin-left:auto; color:var(--muted); transition:transform .15s}
+  details.data[open] > summary .chev{transform:rotate(90deg)}
+  .data .body{padding:0 18px 18px}
+  .data p.exp{color:var(--muted); font-size:.9rem; margin:0 0 12px}
+  pre.code{margin:0; background:var(--code-bg); color:var(--code-ink); border-radius:11px;
+    padding:16px; overflow-x:auto; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:.82rem; line-height:1.55}
+  pre.code .k{color:var(--code-key)} pre.code .s{color:var(--code-str)} pre.code .n{color:var(--code-num)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="logo">E</div>
+    <h1>Yeni Nesil Soru — Sayı Doğrusu</h1>
+  </header>
+  <p class="sub">Soru bir <b>resim</b> değil: yapay zekânın ürettiği <b>veriden</b> çiziliyor. “Yeni soru üret”e bas — her seferinde matematiksel olarak doğru çizilir.</p>
+
+  <div class="card">
+    <div class="qnum" id="qnum">Soru 1</div>
+    <div class="info">
+      <b>Bilgi:</b> Bütünün eş parçalarından yalnızca birini gösteren kesre <b>birim kesir</b> denir.
+      Birim kesirler, payı 1 olan kesirlerdir.
+    </div>
+    <div class="lines" id="lines"></div>
+    <div class="qtext">
+      <span class="lead">Yukarıda bazı birim kesirlerin sayı doğrusu üzerindeki değerleri böcek görselleriyle verilmiştir.</span>
+      Böceklerle işaretlenen birim kesirlerin küçükten büyüğe doğru sıralanmış hâli aşağıdakilerden hangisidir?
+    </div>
+    <div class="opts" id="opts"></div>
+    <div class="controls">
+      <button class="btn primary" id="new">Yeni soru üret</button>
+      <button class="btn" id="reveal">Cevabı göster</button>
+    </div>
+    <p class="note" id="note"><b>İpucu:</b> Bir şıkka dokun, sonra “Cevabı göster” ile kontrol et.</p>
+  </div>
+
+  <details class="data" id="dataBox">
+    <summary>Yapay zekânın ürettiği veri <span class="chev">›</span></summary>
+    <div class="body">
+      <p class="exp">Modelden istediğin şey bu JSON. Böcek konumları <code>value</code> (1/payda) alanından hesaplanıp SVG ile çiziliyor — yani konum her zaman doğru. Uygulamana koyacağın parça da tam olarak bu.</p>
+      <pre class="code" id="json"></pre>
+    </div>
+  </details>
+</div>
+
+<script>
+(function(){
+  const DENOMS = [2,3,4,5,6,8];
+  const BUGS = [
+    {e:"🐌", ad:"salyangoz"}, {e:"🐞", ad:"uğur böceği"}, {e:"🐝", ad:"arı"},
+    {e:"🦋", ad:"kelebek"}, {e:"🐜", ad:"karınca"}, {e:"🐛", ad:"tırtıl"}
+  ];
+  const RANGES = [1,2,3,4];
+  const LINE_COLORS = ["var(--nl1)","var(--nl2)","var(--nl3)"];
+
+  let Q = null;      // current question
+  let selected = null;
+  let revealed = false;
+
+  function pickDistinct(arr,n){
+    const c=[...arr], out=[];
+    for(let i=0;i<n;i++){ out.push(c.splice(Math.floor(Math.random()*c.length),1)[0]); }
+    return out;
+  }
+  function shuffle(a){ const b=[...a]; for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1)); [b[i],b[j]]=[b[j],b[i]];} return b; }
+  function seqKey(o){ return o.map(m=>m.e).join(""); }
+
+  function build(){
+    const ds = pickDistinct(DENOMS,3);
+    const bugs = pickDistinct(BUGS,3);
+    const markers = ds.map((d,i)=>({
+      emoji: bugs[i].e, ad: bugs[i].ad,
+      d, value: 1/d,
+      rangeMax: RANGES[Math.floor(Math.random()*RANGES.length)]
+    }));
+    // correct order: smallest to largest value (largest denominator first)
+    const correct = [...markers].sort((a,b)=>a.value-b.value);
+    // options: correct + 3 distinct distractor permutations
+    const perms = permutations(markers).filter(p=>seqKey(p)!==seqKey(correct));
+    const distractors = pickDistinct(perms, Math.min(3, perms.length));
+    let options = shuffle([correct, ...distractors]);
+    const correctIdx = options.findIndex(o=>seqKey(o)===seqKey(correct));
+    Q = { markers, correct, options, correctIdx };
+    selected = null; revealed = false;
+  }
+
+  function permutations(arr){
+    if(arr.length<=1) return [arr];
+    const res=[];
+    arr.forEach((x,i)=>{
+      const rest=[...arr.slice(0,i),...arr.slice(i+1)];
+      permutations(rest).forEach(p=>res.push([x,...p]));
+    });
+    return res;
+  }
+
+  function numberLineSVG(m, color){
+    const W=640,H=88,padL=42,padR=42,axisY=54,aw=W-padL-padR;
+    const M=m.rangeMax;
+    const xOf = v => padL + (v/M)*aw;
+    let s = `<svg class="nl" viewBox="0 0 ${W} ${H}" role="img" aria-label="${m.ad} sayı doğrusunda ${m.rangeMax}'e kadar">`;
+    // axis with arrowheads
+    s += `<line x1="${padL-14}" y1="${axisY}" x2="${W-padR+14}" y2="${axisY}" stroke="${color}" stroke-width="2.4"/>`;
+    s += `<path d="M${padL-14},${axisY} l9,-5 v10 z" fill="${color}"/>`;
+    s += `<path d="M${W-padR+14},${axisY} l-9,-5 v10 z" fill="${color}"/>`;
+    // minor ticks at multiples of 1/d
+    const step = 1/m.d;
+    for(let v=0; v<=M+1e-9; v+=step){
+      const x=xOf(v);
+      s += `<line x1="${x}" y1="${axisY-6}" x2="${x}" y2="${axisY+6}" stroke="${color}" stroke-width="1.4" opacity="0.55"/>`;
+    }
+    // integer labels + bold ticks
+    for(let i=0;i<=M;i++){
+      const x=xOf(i);
+      s += `<line x1="${x}" y1="${axisY-9}" x2="${x}" y2="${axisY+9}" stroke="${color}" stroke-width="2.4"/>`;
+      s += `<text x="${x}" y="${axisY+26}" text-anchor="middle" font-family="Nunito,sans-serif" font-size="14" font-weight="700" fill="var(--ink)">${i}</text>`;
+    }
+    // marker: connector + emoji
+    const mx=xOf(m.value);
+    s += `<line x1="${mx}" y1="${axisY}" x2="${mx}" y2="${axisY-18}" stroke="${color}" stroke-width="2"/>`;
+    s += `<circle cx="${mx}" cy="${axisY}" r="3.4" fill="${color}"/>`;
+    s += `<text x="${mx}" y="${axisY-20}" text-anchor="middle" font-size="22">${m.emoji}</text>`;
+    s += `</svg>`;
+    return s;
+  }
+
+  function frac(m){ return "1/"+m.d; }
+
+  function renderJSON(){
+    const q = Q;
+    const lines = q.markers.map(m =>
+`    { "isaretci": "${m.emoji}", "ad": "${m.ad}", "value": "${frac(m)}", "rangeMax": ${m.rangeMax} }`
+    ).join(",\n");
+    const opts = q.options.map((o,i)=>
+`    "${String.fromCharCode(65+i)}": "${o.map(m=>m.emoji).join(" < ")}"`
+    ).join(",\n");
+    const raw =
+`{
+  "tip": "sayi_dogrusu_birim_kesir",
+  "kazanim": "M.4.1.4 — Birim kesirleri sayı doğrusunda gösterir ve karşılaştırır.",
+  "bloom": "analiz",
+  "sayi_dogrulari": [
+${lines}
+  ],
+  "soru": "Böceklerle işaretlenen birim kesirleri küçükten büyüğe sırala.",
+  "secenekler": {
+${opts}
+  },
+  "dogru_cevap": "${String.fromCharCode(65+q.correctIdx)}",
+  "cozum": "Birim kesirlerde payda büyüdükçe kesir küçülür; konumlar sayı doğrusunda soldan sağa okunur."
+}`;
+    // light syntax coloring
+    const esc = raw.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+    const colored = esc
+      .replace(/"([^"]+)":/g,'"<span class="k">$1</span>":')
+      .replace(/: "([^"]*)"/g,': "<span class="s">$1</span>"')
+      .replace(/: (\d+)/g,': <span class="n">$1</span>');
+    document.getElementById("json").innerHTML = colored;
+  }
+
+  let counter = 1;
+  function render(){
+    document.getElementById("qnum").textContent = "Soru "+counter;
+    document.getElementById("lines").innerHTML =
+      Q.markers.map((m,i)=>numberLineSVG(m, LINE_COLORS[i%3])).join("");
+
+    const opts = document.getElementById("opts");
+    opts.innerHTML = "";
+    Q.options.forEach((o,i)=>{
+      const btn=document.createElement("button");
+      btn.className="opt"; btn.type="button"; btn.dataset.idx=i;
+      const seq = o.map(m=>`<span>${m.emoji}</span>`).join('<span class="lt">&lt;</span>');
+      btn.innerHTML = `<span class="letter">${String.fromCharCode(65+i)})</span>`+
+                      `<span class="seq">${seq}</span>`+
+                      `<span class="mark"></span>`;
+      btn.addEventListener("click",()=>{ if(revealed) return; selected=i; paintOptions(); });
+      opts.appendChild(btn);
+    });
+    paintOptions();
+    renderJSON();
+    setNote();
+  }
+
+  function paintOptions(){
+    [...document.querySelectorAll(".opt")].forEach((el)=>{
+      const i=+el.dataset.idx;
+      el.classList.remove("correct","wrong");
+      el.querySelector(".mark").textContent="";
+      el.style.outline = (!revealed && selected===i) ? "2px solid var(--accent)" : "none";
+      if(revealed){
+        if(i===Q.correctIdx){ el.classList.add("correct"); el.querySelector(".mark").textContent="Doğru"; }
+        else if(selected===i){ el.classList.add("wrong"); el.querySelector(".mark").textContent="Yanlış"; }
+      }
+    });
+  }
+
+  function setNote(){
+    const n=document.getElementById("note");
+    if(!revealed){ n.innerHTML='<b>İpucu:</b> Bir şıkka dokun, sonra “Cevabı göster” ile kontrol et.'; return; }
+    const letter=String.fromCharCode(65+Q.correctIdx);
+    const ok = selected===Q.correctIdx;
+    const order = Q.correct.map(m=>`${m.emoji} (${frac(m)})`).join(" < ");
+    n.innerHTML = `<b>Doğru cevap: ${letter}.</b> Sıralama: ${order}. `+
+      (selected==null ? "" : ok ? "Seçtiğin şık doğruydu. ✅" : "Seçtiğin şık yanlıştı.");
+  }
+
+  document.getElementById("new").addEventListener("click",()=>{ counter++; build(); render(); });
+  document.getElementById("reveal").addEventListener("click",()=>{ revealed=true; paintOptions(); setNote(); });
+
+  build(); render();
+})();
+</script>
+</body>
+</html>

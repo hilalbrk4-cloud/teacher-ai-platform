@@ -281,6 +281,7 @@ export const tr: Dictionary = {
         matching: "Eşleştirme",
         ordering: "Sıralama",
         openEnded: "Açık uçlu",
+        gorselSoru: "Görsel yeni nesil",
       },
       questionApproaches: {
         quickReview: "Hızlı tekrar",
@@ -381,6 +382,11 @@ export const tr: Dictionary = {
       pointsLabel: (points) => `${points} puan`,
       correctAnswerLabel: "Doğru cevap",
       explanationLabel: "Açıklama",
+      visualQuestion: {
+        infoLabel: "Bilgi",
+        correctMark: "Doğru cevap",
+        unsupported: "Bu soru tipi henüz görüntülenemiyor.",
+      },
     },
     answerKey: {
       title: "Cevap anahtarı",

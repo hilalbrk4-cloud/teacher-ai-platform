@@ -1,4 +1,4 @@
-import { isMathSubject, isScienceSubject } from "@/lib/ai/blueprint/quiz-blueprint";
+import { isMathSubject, isScienceSubject } from "@/lib/ai/blueprint/subject";
 import { QUIZ_QUESTION_TYPE_METADATA, QUIZ_VISUAL_TYPE_METADATA } from "@/lib/ai/schemas/quiz-schema";
 import {
   buildKnowledgePackOverviewBlock,
@@ -8,6 +8,8 @@ import {
   type QuizGeneratorPackContext,
   type SlotPatternAssignment,
 } from "@/lib/ai/prompts/quiz-generator-knowledge-pack-blocks";
+import { gorevTanimi, gorselSoruTanimi } from "@/lib/quiz-generator/gorsel-sorular/tanimlar";
+import type { GorselSoruPlani } from "@/types/gorsel-soru";
 import type { QuestionBlueprintSlot, QuizBlueprint, QuizPrompt } from "@/types/quiz-blueprint";
 import type { CognitiveLevel, QuestionApproach } from "@/types/quiz-generator";
 
@@ -133,11 +135,18 @@ function buildSlotLine(slot: QuestionBlueprintSlot, index: number): string {
   // "multipleChoice", since the output contract says "type" must match
   // this plan line exactly and the label was the only value present.
   const visualField = slot.visualType === "none" ? "yok" : `${slot.visualType} (${visualLabel})`;
+  // The tip AND task are decided by the Blueprint (see `gorselSoruPlaniAta`)
+  // so a quiz never gets two near-identical visual questions; the validator
+  // rejects a response that deviates from them.
+  const plan = slot.gorselPlani;
+  const planField = plan
+    ? ` | Görsel soru tipi: ${plan.tip} | Görev: ${plan.gorev} (${gorevTanimi(plan).etiket})`
+    : "";
 
   return (
     `${index + 1}. Tür anahtarı: ${slot.type} (${typeLabel}) | Bilişsel düzey: ${COGNITIVE_LEVEL_LABELS[slot.cognitiveLevel]} | ` +
     `Zorluk: ${DIFFICULTY_LABELS[slot.difficulty]} | Yaklaşım: ${APPROACH_LABELS[slot.approach]} | ` +
-    `Kazanım: ${slot.learningOutcome} | Görsel anahtarı: ${visualField}`
+    `Kazanım: ${slot.learningOutcome} | Görsel anahtarı: ${visualField}${planField}`
   );
 }
 
@@ -176,10 +185,16 @@ function buildSlotBlock(
   return `${planLine}\n${guidance}${repeatNote}`;
 }
 
-function buildQuestionPlanBlock(blueprint: QuizBlueprint, packContext?: QuizGeneratorPackContext): string {
-  const assignments = packContext
-    ? computeQuestionPatternCoverage(blueprint.slots, packContext.projection.questionPatterns).assignments
-    : undefined;
+function buildQuestionPlanBlock(
+  blueprint: QuizBlueprint,
+  packContext?: QuizGeneratorPackContext,
+  precomputedAssignments?: SlotPatternAssignment[]
+): string {
+  const assignments =
+    precomputedAssignments ??
+    (packContext
+      ? computeQuestionPatternCoverage(blueprint.slots, packContext.projection.questionPatterns).assignments
+      : undefined);
 
   const slotNumbersByPatternId = new Map<string, number[]>();
   assignments?.forEach((assignment, index) => {
@@ -208,6 +223,12 @@ function buildQuestionPlanBlock(blueprint: QuizBlueprint, packContext?: QuizGene
       "Türkçe etiket yalnızca senin anlaman içindir ve JSON çıktısına ASLA yazılmamalıdır.",
     "- \"Görsel\" alanı \"yok\" olmayan her soru için, belirtilen görsel türüne uygun bir \"visual\" nesnesi " +
       "döndürmelisin (bkz. GÖRSEL KULLANIMI bölümü).",
+    ...(hasGorselSoruSlot(blueprint)
+      ? [
+          "- \"Tür anahtarı\" gorselSoru olan sıralarda soru tipini SEN seçer ve soruyu { \"tip\", \"veri\" } " +
+            "biçiminde yazarsın (bkz. GÖRSEL SORU TİPLERİ bölümü).",
+        ]
+      : []),
     ...(packContext
       ? [
           "- Bir sorunun altında [BİLGİ PAKETİ DESENİ — ZORUNLU] ile başlayan bir rehberlik varsa, bu rehberlik o " +
@@ -278,6 +299,9 @@ function buildQuestionQualityBlock(): string {
     "- Yapay, gerçek dışı veya zorlama hikayeler kurma; bağlam gerekiyorsa gerçekçi ve konuya uygun olsun.",
     "- Yaklaşımı Hızlı Tekrar veya Öğrenme Kontrolü olan ya da bilişsel düzeyi Hatırlama/Anlama olan sorular " +
       "dışında, doğrudan ezber/hatırlamayla cevaplanan sorulardan kaçın — öğrenciyi akıl yürütmeye teşvik et.",
+    "- Aynı istisnalar dışında cevap, soruda verilen sayılardan tek bir okuma veya doğrudan karşılaştırmayla " +
+      "bulunmamalı (ör. \"3/4 km mi 5/8 km mi daha uzun?\" YETERSİZ); öğrenci en az bir işlem veya çıkarım yapmalı. " +
+      "Çözüme katkısı olmayan süs cümleleri (\"çok merak ettiler\", \"güzel bir gün geçirdiler\") yazma.",
     "- Çoktan seçmeli sorularda her yanlış seçenek gerçekçi bir öğrenci yanılgısını temsil etsin; rastgele " +
       "sayı veya ifade kullanma. En az bir çeldirici, açıkça yaygın bir öğrenci hatasına karşılık gelmelidir " +
       "(ör. kesir toplarken payda ve payı ayrı ayrı toplamak, birim çevirisini unutmak, işlem sırasını " +
@@ -351,6 +375,70 @@ function buildVisualUsageBlock(blueprint: QuizBlueprint): string {
       "kullan.",
     "- Bu plandaki sorularda kullanılması gereken görsel türleri ve \"data\" içeriği:",
     lines.join("\n"),
+  ].join("\n");
+}
+
+function hasGorselSoruSlot(blueprint: QuizBlueprint): boolean {
+  return blueprint.slots.some((slot) => slot.type === "gorselSoru");
+}
+
+/**
+ * Introduces only the tips and tasks the plan actually assigns in this
+ * blueprint (or batch) — each with its data schema, rules and an example
+ * that passes its own validator — so the prompt stays short and the model
+ * never has to choose.
+ */
+function buildGorselSoruBlock(blueprint: QuizBlueprint): string {
+  const planlar = blueprint.slots.flatMap((slot) => (slot.gorselPlani ? [slot.gorselPlani] : []));
+  const tipler = Array.from(new Set(planlar.map((plan) => plan.tip)));
+
+  const tipBloklari = tipler.map((tip) => {
+    const tanim = gorselSoruTanimi(tip);
+    const gorevler = Array.from(new Set(planlar.filter((plan) => plan.tip === tip).map((plan) => plan.gorev)));
+    const gorevBloklari = gorevler.map((gorev) => {
+      const gorevTanim = gorevTanimi({ tip, gorev } as GorselSoruPlani);
+      return [
+        `  Görev: "${gorev}" — ${gorevTanim.etiket}`,
+        `    Öğrenciden istenen: ${gorevTanim.aciklama}`,
+        '    "veri" alanları:',
+        `      - "gorev": "${gorev}"`,
+        ...[...gorevTanim.semaAciklamasi, ...tanim.ortakSemaAciklamasi].map((satir) => `      - ${satir}`),
+        ...(gorevTanim.kurallar.length > 0
+          ? ["    Göreve özgü kurallar:", ...gorevTanim.kurallar.map((satir) => `      - ${satir}`)]
+          : []),
+        "    Örnek çıktı (yalnızca yapıyı örnek al; metinleri, sayıları ve emojileri KOPYALAMA):",
+        `      ${JSON.stringify(gorevTanim.ornek)}`,
+      ].join("\n");
+    });
+
+    return [
+      `Tip: "${tip}" — ${tanim.etiket}`,
+      `  ${tanim.aciklama}`,
+      `  Görsel: ${
+        tanim.gorselKategorisi === "fonksiyonel"
+          ? "fonksiyonel — sistem \"veri\"deki sayılardan kendisi çizer ve doğru cevabı kendisi hesaplar."
+          : "dekoratif — yalnızca bağlamı destekler, hiçbir bilgi taşımaz."
+      }`,
+      "  Kurallar:",
+      ...tanim.kurallar.map((satir) => `    - ${satir}`),
+      ...gorevBloklari,
+    ].join("\n");
+  });
+
+  return [
+    "GÖRSEL SORU TİPLERİ (ZORUNLU):",
+    "SORU PLANI'nda \"Tür anahtarı\" gorselSoru olan her sıra için:",
+    "- O satırdaki \"Görsel soru tipi\" ve \"Görev\" değerlerini AYNEN kullan; başka bir tip veya görev seçme " +
+      "(sistem plandan sapan yanıtı reddeder).",
+    '- O sıradaki soru nesnesi YALNIZCA şu iki alandan oluşur: { "tip": "<tip anahtarı>", "veri": { ... } }. ' +
+      '"type", "prompt", "visual", "points" veya "answerExplanation" alanlarını bu nesneye YAZMA; soru kökü ' +
+      '"veri.soru", doğru cevap "veri.dogruSecenekId" alanındadır.',
+    "- Görselleri sen çizmezsin; sistem \"veri\"den kendisi çizer. SVG, HTML, markdown veya görsel betimlemesi yazma.",
+    "- Çeşitlilik görevde ve SAYILARDA olmalıdır: emoji, hayvan, renk veya isim değiştirmek çeşitlilik SAYILMAZ. " +
+      "Aynı tipte birden fazla soru yazıyorsan farklı paydalar ve farklı sayı aralıkları kullan.",
+    "- SORU PLANI'ndaki bilişsel düzey, zorluk, yaklaşım ve kazanım bu sorular için de bağlayıcıdır.",
+    "- \"veri\" içindeki alan adlarını ve sabit değerleri (ör. \"kucuktenBuyuge\", \"mavi\") birebir koru.",
+    tipBloklari.join("\n\n"),
   ].join("\n");
 }
 
@@ -430,6 +518,12 @@ function buildOutputStructureBlock(blueprint: QuizBlueprint): string {
     '  - "answerExplanation" (isteğe bağlı): Doğru cevabın kısa açıklaması.',
     "- Her soru türüne özgü ek alanlar:",
     typeLines.join("\n"),
+    ...(usedTypes.has("gorselSoru")
+      ? [
+          '- İSTİSNA: "Tür anahtarı" gorselSoru olan sıralarda yukarıdaki ortak alanlar kullanılmaz; o sıradaki ' +
+            'nesne YALNIZCA { "tip": "...", "veri": { ... } } biçimindedir.',
+        ]
+      : []),
     '- Soru nesnelerine "id", "audit", "cognitiveLevel", "difficulty", "approach" veya "learningOutcome" gibi ' +
       "planlama alanları EKLEME; bunlar sistem tarafından otomatik olarak eklenir.",
   ].join("\n");
@@ -458,15 +552,68 @@ function buildOutputFormatBlock(): string {
   ].join("\n");
 }
 
-function buildInstructions(blueprint: QuizBlueprint, packContext?: QuizGeneratorPackContext): string {
+/** One batch's position within the full quiz (see `buildQuizPromptBatches`). */
+interface QuizPromptBatchScope {
+  batchIndex: number;
+  batchCount: number;
+  /** 0-based index of this batch's first question in the full quiz. */
+  startIndex: number;
+  totalQuestions: number;
+  topic: string;
+  /** Knowledge Pack pattern assignments computed once over the FULL quiz, sliced to this batch. */
+  assignments?: SlotPatternAssignment[];
+}
+
+// Parallel batches can't see each other's questions; giving each batch
+// its own context areas keeps them from converging on the same scenario.
+const BATCH_CONTEXT_AREAS = [
+  "alışveriş ve bütçe",
+  "mutfak ve tarifler",
+  "spor ve oyun",
+  "yolculuk ve harita",
+  "okul ve sınıf yaşamı",
+  "doğa, bahçe ve tarım",
+  "bilim ve ölçüm",
+  "sanat, müzik ve el işi",
+];
+
+function buildBatchBlock(scope: QuizPromptBatchScope, questionCount: number): string {
+  const first = scope.startIndex + 1;
+  const last = scope.startIndex + questionCount;
+  const areas = [0, 1].map(
+    (offset) => BATCH_CONTEXT_AREAS[(scope.batchIndex * 2 + offset) % BATCH_CONTEXT_AREAS.length]
+  );
+
+  return [
+    "PARÇALI ÜRETİM (ZORUNLU):",
+    `Bu sınav toplam ${scope.totalQuestions} sorudan oluşuyor ve ${scope.batchCount} parça hâlinde, aynı anda ` +
+      `farklı yazarlar tarafından yazılıyor. Sen ${scope.batchIndex + 1}. parçayı, yani sınavın ${first}-${last}. ` +
+      "sorularını yazıyorsun.",
+    `- Aşağıdaki SORU PLANI yalnızca senin sorularını içerir ve 1'den başlayarak numaralandırılmıştır; "questions" ` +
+      `dizin tam olarak ${questionCount} öğe içermelidir.`,
+    "- Diğer parçalarla aynı senaryoyu, sayıları veya bağlamı tekrar etmemek için bu parçadaki soruların " +
+      `bağlamlarını, konuya uygun düştüğü ölçüde şu alanlardan seç: ${areas.join(", ")}.`,
+    `- "title" alanına tüm sınav için (${scope.topic}) kısa bir başlık yaz.`,
+  ].join("\n");
+}
+
+function buildInstructions(
+  blueprint: QuizBlueprint,
+  packContext?: QuizGeneratorPackContext,
+  batch?: QuizPromptBatchScope
+): string {
   const blocks = [`ROL:\n${AI_ROLE}`, MEB_LGS_PHILOSOPHY_BLOCK];
 
   if (packContext) {
     blocks.push(buildKnowledgePackOverviewBlock(packContext));
   }
 
+  if (batch) {
+    blocks.push(buildBatchBlock(batch, blueprint.slots.length));
+  }
+
   blocks.push(
-    buildQuestionPlanBlock(blueprint, packContext),
+    buildQuestionPlanBlock(blueprint, packContext, batch?.assignments),
     buildApproachDefinitionsBlock(blueprint),
     buildCognitiveLevelDefinitionsBlock(blueprint)
   );
@@ -484,7 +631,10 @@ function buildInstructions(blueprint: QuizBlueprint, packContext?: QuizGenerator
   if (!packContext && isMathSubject(blueprint.subject)) blocks.push(buildMathQualityBlock());
   if (!packContext && isScienceSubject(blueprint.subject)) blocks.push(buildScienceQualityBlock());
   if (blueprint.slots.some((slot) => slot.visualType !== "none")) blocks.push(buildVisualUsageBlock(blueprint));
-  if (blueprint.slots.some((slot) => slot.visualType === "none")) blocks.push(buildNoVisualQualityBlock());
+  if (hasGorselSoruSlot(blueprint)) blocks.push(buildGorselSoruBlock(blueprint));
+  if (blueprint.slots.some((slot) => slot.visualType === "none" && slot.type !== "gorselSoru")) {
+    blocks.push(buildNoVisualQualityBlock());
+  }
   if (blueprint.includeAnswerKey) blocks.push(buildAnswerKeyBlock());
 
   blocks.push(buildTopicSpecificityBlock());
@@ -523,4 +673,53 @@ export function buildQuizPrompt(blueprint: QuizBlueprint, packContext?: QuizGene
     ...blueprint,
     instructions: buildInstructions(blueprint, packContext),
   };
+}
+
+/** Splits `count` into `ceil(count / maxSize)` nearly equal parts (10, 3 → [3, 3, 2, 2]). */
+export function splitIntoBatchSizes(count: number, maxSize: number): number[] {
+  if (count <= 0) return [];
+  const batchCount = Math.ceil(count / Math.max(1, maxSize));
+  const base = Math.floor(count / batchCount);
+  const extra = count % batchCount;
+  return Array.from({ length: batchCount }, (_, index) => base + (index < extra ? 1 : 0));
+}
+
+/**
+ * Splits a blueprint into small batches that can be generated in parallel
+ * — one big request for many questions regularly exceeds the provider
+ * timeout. Each returned `QuizPrompt` carries only its own slots (so the
+ * validator checks exactly that batch), while Knowledge Pack pattern
+ * coverage is still computed once over the whole quiz and sliced, so
+ * batching never changes which pattern a question gets.
+ *
+ * A blueprint that fits in one batch produces exactly `buildQuizPrompt`'s
+ * output — batching adds nothing for small quizzes.
+ */
+export function buildQuizPromptBatches(
+  blueprint: QuizBlueprint,
+  packContext: QuizGeneratorPackContext | undefined,
+  maxBatchSize: number
+): QuizPrompt[] {
+  const sizes = splitIntoBatchSizes(blueprint.slots.length, maxBatchSize);
+  if (sizes.length <= 1) return [buildQuizPrompt(blueprint, packContext)];
+
+  const assignments = packContext
+    ? computeQuestionPatternCoverage(blueprint.slots, packContext.projection.questionPatterns).assignments
+    : undefined;
+
+  let startIndex = 0;
+  return sizes.map((size, batchIndex) => {
+    const slots = blueprint.slots.slice(startIndex, startIndex + size);
+    const batchBlueprint: QuizBlueprint = { ...blueprint, slots, totalQuestions: slots.length };
+    const scope: QuizPromptBatchScope = {
+      batchIndex,
+      batchCount: sizes.length,
+      startIndex,
+      totalQuestions: blueprint.slots.length,
+      topic: blueprint.topic,
+      assignments: assignments?.slice(startIndex, startIndex + size),
+    };
+    startIndex += size;
+    return { ...batchBlueprint, instructions: buildInstructions(batchBlueprint, packContext, scope) };
+  });
 }

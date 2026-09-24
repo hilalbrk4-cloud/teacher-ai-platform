@@ -1,12 +1,12 @@
 import { NextResponse } from "next/server";
 
 import { buildQuizBlueprint } from "@/lib/ai/blueprint/quiz-blueprint";
-import { buildQuizPrompt } from "@/lib/ai/prompts/quiz-generator-prompt";
 import { deriveQuizPackContext } from "@/lib/ai/prompts/quiz-generator-knowledge-pack-blocks";
 import { getServerQuizGenerationService } from "@/lib/ai/services/quiz-generation-service-factory";
 import { getSafeQuizErrorMessage } from "@/lib/ai/services/quiz-provider-error";
 import { createProductionKnowledgePackRegistry } from "@/lib/knowledge/registry/production-registry";
 import { resolveKnowledgePackForQuiz } from "@/lib/knowledge/registry/resolve-pack-for-quiz";
+import { generateQuizInBatches } from "@/lib/quiz-generator/batch-generation";
 import {
   COGNITIVE_LEVELS,
   DIFFICULTY_LEVELS,
@@ -28,6 +28,11 @@ import type {
 } from "@/types/quiz-generator";
 
 export const runtime = "nodejs";
+
+// Batches run in parallel, but a batch that fails validation is
+// regenerated once; this leaves room for that worst case on hosts that cap
+// route duration.
+export const maxDuration = 120;
 
 function readEnumOrDefault<T extends string>(value: unknown, allowed: readonly T[], fallback: T): T {
   return typeof value === "string" && (allowed as readonly string[]).includes(value) ? (value as T) : fallback;
@@ -161,9 +166,8 @@ export async function POST(request: Request) {
     logKnowledgePackResolution(resolutionOutcome);
     const packContext = deriveQuizPackContext(resolutionOutcome);
 
-    const prompt = buildQuizPrompt(blueprint, packContext);
     const service = getServerQuizGenerationService();
-    const quiz = await service.generate(prompt);
+    const quiz = await generateQuizInBatches(blueprint, packContext, service);
     return NextResponse.json({ quiz });
   } catch (error) {
     const safe = getSafeQuizErrorMessage(error);

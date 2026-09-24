@@ -1,3 +1,5 @@
+import type { GorselSoruIcerigi } from "@/types/gorsel-soru";
+
 export const QUIZ_TYPES = [
   "classroomQuiz",
   "worksheetQuiz",
@@ -18,6 +20,7 @@ export const QUESTION_TYPES = [
   "matching",
   "ordering",
   "openEnded",
+  "gorselSoru",
 ] as const;
 
 export type QuestionType = (typeof QUESTION_TYPES)[number];
@@ -169,7 +172,15 @@ export interface OpenEndedQuestion extends QuizQuestionBase {
   gradingCriteria?: string[];
 }
 
+/**
+ * Registry tabanlı görsel soru (bkz. `src/lib/quiz-generator/gorsel-sorular`).
+ * `prompt` soru kökünü, `tip` + `veri` ise tipe özgü içeriği taşır; hangi
+ * bileşenle çizileceğine `tip` alanı karar verir.
+ */
+export type GorselSoruQuestion = QuizQuestionBase & { type: "gorselSoru" } & GorselSoruIcerigi;
+
 export type QuizQuestion =
+  | GorselSoruQuestion
   | MultipleChoiceQuestion
   | TrueFalseQuestion
   | ShortAnswerQuestion

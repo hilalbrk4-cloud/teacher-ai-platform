@@ -1,3 +1,4 @@
+import type { GorselSoruPlani } from "@/types/gorsel-soru";
 import type {
   CognitiveLevel,
   DifficultyLevel,
@@ -21,6 +22,8 @@ export interface QuestionBlueprintSlot {
   difficulty: DifficultyLevel;
   approach: QuestionApproach;
   visualType: SlotVisualType;
+  /** Only on `gorselSoru` slots: the tip and task this question must use (see `gorselSoruPlaniAta`). */
+  gorselPlani?: GorselSoruPlani;
 }
 
 /**
