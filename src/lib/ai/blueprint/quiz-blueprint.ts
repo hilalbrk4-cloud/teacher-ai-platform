@@ -218,6 +218,7 @@ export function buildQuizBlueprint(input: QuizFormInput): QuizBlueprint {
     slots: gorselSoruPlaniAta(orderSlots(unorderedSlots, input.quizType), {
       subject: input.subject,
       topic: input.topic,
+      gradeLevel: input.gradeLevel,
     }),
     language: "tr",
   };

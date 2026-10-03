@@ -195,7 +195,15 @@ export type KesirKartlariVerisi = KesirKartlariOrtak &
 // gercek_hayat_senaryo
 // ---------------------------------------------------------------------------
 
-export const SENARYO_GOREVLERI = ["karsilastirma", "kalaniBulma", "coklugunKesri", "cokAdimliCikarim"] as const;
+export const SENARYO_GOREVLERI = [
+  "bolmeEnFazla",
+  "birimOlcekleme",
+  "araliklar",
+  "kalaniBulma",
+  "coklugunKesri",
+  "karsilastirma",
+  "cokAdimliCikarim",
+] as const;
 
 export type SenaryoGorevi = (typeof SENARYO_GOREVLERI)[number];
 
@@ -235,7 +243,19 @@ export type GorselSoruIcerigi = {
   [K in GorselSoruTipi]: { tip: K; veri: GorselSoruVeriHaritasi[K] };
 }[GorselSoruTipi];
 
-/** Blueprint'in bir `gorselSoru` sırasına atadığı tip ve görev. */
+/**
+ * Sayısal senaryo görevlerinde sayıları kod seçer (bkz. `senaryo-sayilari.ts`):
+ * model bu sayılarla senaryoyu yazar, kod da hesabının `cevap`a ulaştığını
+ * denetler.
+ */
+export interface SenaryoSayilari {
+  veriler: { ad: string; deger: Kesir }[];
+  cevap: Kesir;
+  /** Sayılar arasındaki ilişki (ör. "34/5 ÷ 8/5 = 4 1/4 → en fazla 4"). */
+  ipucu: string;
+}
+
+/** Blueprint'in bir `gorselSoru` sırasına atadığı tip, görev ve (sayısal senaryolarda) sayılar. */
 export type GorselSoruPlani = {
   [K in GorselSoruTipi]: { tip: K; gorev: GorselSoruGorevHaritasi[K] };
-}[GorselSoruTipi];
+}[GorselSoruTipi] & { sayilar?: SenaryoSayilari };

@@ -49,8 +49,12 @@ const DEFAULT_QUIZ_PROVIDER: QuizProvider = "mock";
  */
 export const OPENAI_QUIZ_MODEL = "gpt-4o";
 
-/** Maximum time (ms) to wait for ONE batch request before treating it as a timeout. */
-export const QUIZ_REQUEST_TIMEOUT_MS = 30_000;
+/**
+ * Maximum time (ms) to wait for ONE batch request before treating it as a
+ * timeout. Scenario questions with structured `hesap` produce long outputs,
+ * and 30s timed out a 9-question quiz under a saturated per-minute limit.
+ */
+export const QUIZ_REQUEST_TIMEOUT_MS = 45_000;
 
 /**
  * Quizzes are generated in small batches instead of one large request: a
@@ -59,11 +63,32 @@ export const QUIZ_REQUEST_TIMEOUT_MS = 30_000;
  */
 export const QUIZ_BATCH_SIZE = 3;
 
-/** How many batches run at the same time (keeps bursts within provider rate limits). */
-export const QUIZ_BATCH_CONCURRENCY = 4;
+/**
+ * How many batches run at the same time. OpenAI counts each request's input
+ * PLUS its reserved `max_output_tokens` against the per-minute token limit
+ * (30k TPM for gpt-4o on the account's current tier); 4 parallel batches
+ * with a 6k reservation each exceeded it and returned 429s.
+ */
+export const QUIZ_BATCH_CONCURRENCY = 2;
 
-/** A batch whose response fails validation (or times out) is regenerated once before giving up. */
-export const QUIZ_BATCH_MAX_ATTEMPTS = 2;
+/**
+ * Output tokens reserved per request: a base plus a per-question allowance.
+ * Measured scenario questions (with their structured `hesap`) use roughly
+ * 500-700 output tokens; 900 leaves headroom without over-reserving.
+ */
+export const QUIZ_OUTPUT_TOKENS_BASE = 400;
+export const QUIZ_OUTPUT_TOKENS_PER_QUESTION = 900;
+
+/** SDK-level retries; the SDK waits for the provider's `retry-after` on 429s. */
+export const QUIZ_SDK_MAX_RETRIES = 3;
+
+/**
+ * A batch whose response fails validation is regenerated before giving up.
+ * Three attempts: scenario arithmetic is now verified step by step by code,
+ * so a single slip by the model rejects the batch — and a slip on the retry
+ * too previously failed the whole quiz.
+ */
+export const QUIZ_BATCH_MAX_ATTEMPTS = 3;
 
 /**
  * Reads which quiz generation service should be used. Falls back to

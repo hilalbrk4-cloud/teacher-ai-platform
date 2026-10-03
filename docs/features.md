@@ -223,6 +223,30 @@ only the assigned tasks, and the validator rejects a response that deviates
 from the plan. Scenario questions must carry ≥2 `islemAdimlari`, and a
 single-fraction answer that already appears in the scenario is rejected.
 
+### Scenario questions: arithmetic is guaranteed by code
+
+Quality target: `references/senaryo-kalite-referans.md` (its 7-point checklist
+and three reference questions are in the prompt).
+
+- **Numbers are chosen by code** (`senaryo-sayilari.ts`), backwards from
+  the answer, and attached to the slot's plan: in real runs gpt-4o could
+  not reliably pick numbers satisfying the constraints (integer counts,
+  whole intervals). The model writes the context, the structured `hesap`
+  and the distractors around the given numbers.
+- **The model's `hesap` is recomputed with exact fraction arithmetic**
+  (`kesir-aritmetigi.ts`). It must reach the planned answer, use every
+  number in the scenario (and only those), contain a fraction operation,
+  and the model's marked option must equal the code's answer. Counted
+  things must be whole numbers. The explanation is generated from `hesap`.
+  Otherwise the question is rejected and regenerated.
+- Fraction multiplication/division tasks (`bolmeEnFazla`, `birimOlcekleme`)
+  are only assigned from grade 6 (MEB). `araliklar` (fencepost) is
+  implemented but **excluded from plans**: in 3/3 real runs the model
+  described the endpoints in a way that contradicted the ±1 step — a
+  semantic mismatch code can't detect.
+- Only rejected questions are regenerated, with the rejection reasons as
+  feedback (`generateQuizInBatches`).
+
 ### Generation reliability (real OpenAI)
 
 - **Batching:** `generateQuizInBatches` (`src/lib/quiz-generator/batch-generation.ts`)

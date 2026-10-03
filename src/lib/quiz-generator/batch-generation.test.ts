@@ -128,6 +128,37 @@ describe("generateQuizInBatches", () => {
     expect(quiz.questions).toHaveLength(10);
   });
 
+  it("parçada yalnızca reddedilen soruyu, ret nedeniyle birlikte yeniden ister; geçerlileri korur", async () => {
+    const kucuk = buildQuizBlueprint({ ...FORM, questionCount: 3 });
+    const istenenler: number[][] = [];
+    const servis: QuizGenerationService = {
+      async generate(prompt) {
+        istenenler.push(prompt.slots.map((slot) => slot.order));
+        const sorular = prompt.slots.map((slot) => ({
+          id: `soru-${slot.order}`,
+          type: "trueFalse" as const,
+          prompt: String(slot.order),
+          correctAnswer: true,
+          audit: { ...slot },
+        }));
+        if (istenenler.length === 1) {
+          throw new QuizProviderError("schema_validation_failed", "bozuk", {
+            partial: [sorular[0], undefined, sorular[2]],
+            issues: [{ path: "questions[1].veri.dogruSecenekId", message: "Kodun hesapladığı cevap 2 3/4." }],
+            title: "Başlık",
+          });
+        }
+        expect(prompt.instructions).toContain("ÖNCEKİ DENEMENİN GERİ BİLDİRİMİ");
+        expect(prompt.instructions).toContain("Kodun hesapladığı cevap 2 3/4.");
+        return { id: "q", title: "x", quizType: prompt.quizType, subject: "", gradeLevel: "", topic: "", includeAnswerKey: true, generatedAt: "", questions: sorular };
+      },
+    };
+    const quiz = await generateQuizInBatches(kucuk, undefined, servis, { concurrency: 1 });
+    expect(istenenler).toEqual([kucuk.slots.map((slot) => slot.order), [kucuk.slots[1].order]]);
+    expect(quiz.questions.map((question) => question.prompt)).toEqual(kucuk.slots.map((slot) => String(slot.order)));
+    expect(quiz.title).toBe("Başlık");
+  });
+
   it("yeniden deneme de başarısız olursa hatayı döndürür; eksik soruyla sınav üretmez", async () => {
     const servis = sahteServis((prompt) => {
       if (prompt.slots[0].order === blueprint.slots[3].order) {

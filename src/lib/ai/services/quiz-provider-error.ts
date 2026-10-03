@@ -1,3 +1,5 @@
+import type { QuizQuestion } from "@/types/quiz-generator";
+
 /**
  * Typed error for anything that can go wrong while generating a quiz
  * through a real AI provider. Carries only a stable `code` — never a raw
@@ -13,13 +15,27 @@ export type QuizProviderErrorCode =
   | "invalid_json"
   | "schema_validation_failed";
 
+/**
+ * Attached to a `schema_validation_failed` error when the response had the
+ * right shape: the questions that DID pass (by position) and why the others
+ * failed, so the caller can keep the good ones and retry only the rest.
+ * Server-side only — never sent to the client.
+ */
+export interface QuizPartialValidation {
+  partial: (QuizQuestion | undefined)[];
+  issues: { path: string; message: string }[];
+  title?: string;
+}
+
 export class QuizProviderError extends Error {
   readonly code: QuizProviderErrorCode;
+  readonly validation?: QuizPartialValidation;
 
-  constructor(code: QuizProviderErrorCode, message: string) {
+  constructor(code: QuizProviderErrorCode, message: string, validation?: QuizPartialValidation) {
     super(message);
     this.name = "QuizProviderError";
     this.code = code;
+    this.validation = validation;
   }
 }
 

@@ -6,7 +6,14 @@
  */
 import OpenAI, { APIConnectionTimeoutError, AuthenticationError, APIError } from "openai";
 
-import { getOpenAiApiKey, OPENAI_QUIZ_MODEL, QUIZ_REQUEST_TIMEOUT_MS } from "@/lib/ai/config";
+import {
+  getOpenAiApiKey,
+  OPENAI_QUIZ_MODEL,
+  QUIZ_OUTPUT_TOKENS_BASE,
+  QUIZ_OUTPUT_TOKENS_PER_QUESTION,
+  QUIZ_REQUEST_TIMEOUT_MS,
+  QUIZ_SDK_MAX_RETRIES,
+} from "@/lib/ai/config";
 import { buildQuizResponseJsonSchema } from "@/lib/ai/schemas/quiz-response-json-schema";
 import { validateQuizResponse } from "@/lib/ai/schemas/quiz-schema";
 import { QuizProviderError } from "@/lib/ai/services/quiz-provider-error";
@@ -19,9 +26,10 @@ function createClient(): OpenAI {
   if (!apiKey) {
     throw new QuizProviderError("missing_api_key", "OpenAI API anahtarı tanımlı değil.");
   }
-  // One SDK-level retry covers transient timeouts and rate limits (429);
-  // content failures are retried per batch by `generateQuizInBatches`.
-  return new OpenAI({ apiKey, timeout: QUIZ_REQUEST_TIMEOUT_MS, maxRetries: 1 });
+  // SDK-level retries cover transient timeouts and rate limits (429, where
+  // the SDK honors the provider's retry-after); content failures are
+  // retried per batch by `generateQuizInBatches`.
+  return new OpenAI({ apiKey, timeout: QUIZ_REQUEST_TIMEOUT_MS, maxRetries: QUIZ_SDK_MAX_RETRIES });
 }
 
 function mapProviderError(error: unknown): QuizProviderError {
@@ -34,6 +42,12 @@ function mapProviderError(error: unknown): QuizProviderError {
     return new QuizProviderError("missing_api_key", "OpenAI kimlik doğrulaması başarısız oldu.");
   }
   if (error instanceof APIError) {
+    // Dev-only: the status and provider message (e.g. an invalid schema or a
+    // rate limit) are otherwise hidden behind the generic error code. The
+    // API key is never part of either.
+    if (process.env.NODE_ENV !== "production") {
+      console.error("[EduPilot] OpenAI API error:", error.status, error.message);
+    }
     return new QuizProviderError("provider_error", "OpenAI sağlayıcısında bir sorun oluştu.");
   }
 
@@ -69,7 +83,9 @@ export const openAiQuizGenerationService: QuizGenerationService = {
             ? { type: "json_schema", name: "quiz", schema: jsonSchema, strict: true }
             : { type: "json_object" },
         },
-        max_output_tokens: 6000,
+        // Sized to the batch: the reservation counts against the per-minute
+        // token limit even when unused, so a flat 6000 caused 429s.
+        max_output_tokens: QUIZ_OUTPUT_TOKENS_BASE + QUIZ_OUTPUT_TOKENS_PER_QUESTION * prompt.slots.length,
       });
       options?.onProgress?.(1);
       outputText = response.output_text;
@@ -99,7 +115,11 @@ export const openAiQuizGenerationService: QuizGenerationService = {
             JSON.stringify(parsed, null, 2)
         );
       }
-      throw new QuizProviderError("schema_validation_failed", "Model yanıtı beklenen yapıya uymuyor.");
+      throw new QuizProviderError(
+        "schema_validation_failed",
+        "Model yanıtı beklenen yapıya uymuyor.",
+        validation.partial ? { partial: validation.partial, issues: validation.issues, title: validation.title } : undefined
+      );
     }
 
     options?.onProgress?.(2);

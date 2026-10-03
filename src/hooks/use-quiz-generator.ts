@@ -40,10 +40,10 @@ const REQUIRED_FIELDS: QuizRequiredField[] = ["subject", "gradeLevel", "topic", 
 
 const FEEDBACK_DURATION_MS = 3200;
 const LOADING_STAGE_INTERVAL_MS = 700;
-// Backstop above the server's own budget: batches run in parallel (each
-// capped at 30s plus one SDK retry), and a batch that fails validation is
-// regenerated once — see `generateQuizInBatches`.
-const CLIENT_REQUEST_TIMEOUT_MS = 100_000;
+// Backstop above the server's own budget: batches run in parallel, and a
+// batch that fails validation is regenerated up to twice — see
+// `generateQuizInBatches` and `QUIZ_BATCH_MAX_ATTEMPTS`.
+const CLIENT_REQUEST_TIMEOUT_MS = 130_000;
 
 function isRequiredField(key: keyof QuizFormInput): key is QuizRequiredField {
   return (REQUIRED_FIELDS as string[]).includes(key);

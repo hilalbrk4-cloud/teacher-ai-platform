@@ -30,9 +30,9 @@ import type {
 export const runtime = "nodejs";
 
 // Batches run in parallel, but a batch that fails validation is
-// regenerated once; this leaves room for that worst case on hosts that cap
-// route duration.
-export const maxDuration = 120;
+// regenerated up to twice; this leaves room for that worst case on hosts
+// that cap route duration.
+export const maxDuration = 150;
 
 function readEnumOrDefault<T extends string>(value: unknown, allowed: readonly T[], fallback: T): T {
   return typeof value === "string" && (allowed as readonly string[]).includes(value) ? (value as T) : fallback;

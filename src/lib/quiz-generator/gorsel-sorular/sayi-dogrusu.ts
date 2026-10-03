@@ -13,7 +13,7 @@ import {
   kesirDegeri,
   kesirlerEsitMi,
   kesirMetni,
-  metinKesriIceriyorMu,
+  metinDegeriIceriyorMu,
   metniNormallestir,
   okuIstegeBagliMetin,
   okuKesir,
@@ -50,9 +50,9 @@ const SIRALAMA_IFADELERI: Record<SiralamaYonu, string> = {
 
 const PAY_SINIRI = { min: 1, max: 60 };
 // Payda 1 geçerlidir: tam sayı noktaları (ör. 2/1) iyi bir çeldiricidir.
-const PAYDA_SINIRI = { min: 1, max: 12 };
+const PAYDA_SINIRI = { min: 1, max: 20 };
 const ARALIK_SINIRI = { min: 1, max: 5 };
-const BOLME_SINIRI = { min: 2, max: 12 };
+const BOLME_SINIRI = { min: 2, max: 20 };
 const EN_FAZLA_ARALIK = 30;
 const SECENEK_SINIRI = { min: 3, max: 5 };
 const SIMGE_EN_UZUN = 8;
@@ -229,7 +229,7 @@ function okuIsaretciSecenekleri(value: unknown, isaretciIdleri: Set<string>, pat
  * "3/2" aynı hedefi anar.
  */
 function kokHedefiAniyorMu(soru: string, hedef: Kesir, path: string, sorunlar: Sorunlar): boolean {
-  if (metinKesriIceriyorMu(soru, hedef)) return true;
+  if (metinDegeriIceriyorMu(soru, hedef)) return true;
   sorunlar.push({ path: `${path}.soru`, message: `Soru kökü hedef kesri (${kesirMetni(hedef)}) içermelidir.` });
   return false;
 }

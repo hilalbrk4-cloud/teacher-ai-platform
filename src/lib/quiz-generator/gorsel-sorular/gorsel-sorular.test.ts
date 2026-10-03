@@ -10,6 +10,8 @@ import {
   gorevTanimi,
   gorselSoruCevapMetni,
 } from "@/lib/quiz-generator/gorsel-sorular/tanimlar";
+import { esitMi, oranYap } from "@/lib/quiz-generator/gorsel-sorular/kesir-aritmetigi";
+import { senaryoSayilariUret } from "@/lib/quiz-generator/gorsel-sorular/senaryo-sayilari";
 import { mockQuizGenerationService } from "@/lib/quiz-generator/mock-generation-service";
 import { GORSEL_SORU_TIPLERI, type GorselSoruPlani, type GorselSoruTipi } from "@/types/gorsel-soru";
 import type { QuizFormInput } from "@/types/quiz-generator";
@@ -100,6 +102,22 @@ describe("görsel soru planı (Blueprint)", () => {
     expect(geometri.every((plan) => plan.tip === "gercek_hayat_senaryo" && plan.gorev === "cokAdimliCikarim")).toBe(true);
   });
 
+  it("kesir bölme/çarpma gerektiren senaryo görevlerini 5. sınıfa atamaz; kesir konusunda metinsel görevi kullanmaz", () => {
+    const tumSenaryoGorevleri = (sinif: string) =>
+      new Set(
+        planlar({ ...FORM, gradeLevel: sinif, questionCount: 18 })
+          .filter((plan) => plan.tip === "gercek_hayat_senaryo")
+          .map((plan) => plan.gorev)
+      );
+    const besinci = tumSenaryoGorevleri("5. Sınıf");
+    expect([...besinci].sort()).toEqual(["coklugunKesri", "kalaniBulma", "karsilastirma"]);
+    const altinci = tumSenaryoGorevleri("6. Sınıf");
+    expect(altinci.has("bolmeEnFazla") && altinci.has("birimOlcekleme")).toBe(true);
+    expect(altinci.has("cokAdimliCikarim")).toBe(false);
+    // Anlamsal çelişki riski nedeniyle plandan çıkarıldı (bkz. gorev tanımı).
+    expect(altinci.has("araliklar")).toBe(false);
+  });
+
   it("deterministiktir: aynı form her zaman aynı planı verir", () => {
     expect(planlar(FORM)).toEqual(planlar(FORM));
   });
@@ -138,6 +156,13 @@ describe("sayi_dogrusu", () => {
       veri.soru = soru;
       expect(dogrulaVeri("sayi_dogrusu", veri).sorunlar).toEqual([]);
     }
+  });
+
+  it("hedefeEnYakin: tam sayı hedefi tanır (gerçek çıktı: 'hangisi 1'e en yakındır?')", () => {
+    const veri = ornekVeri("sayi_dogrusu", "hedefeEnYakin");
+    veri.hedef = { tam: 1, pay: 0, payda: 1 };
+    veri.soru = "Hangi hayvanın bulunduğu nokta 1'e en yakındır?";
+    expect(dogrulaVeri("sayi_dogrusu", veri).sorunlar).toEqual([]);
   });
 
   it("hedefeEnYakin: soru kökü hedef kesri anmıyorsa reddeder", () => {
@@ -255,27 +280,132 @@ describe("gercek_hayat_senaryo", () => {
     expect(sorunlar[0].message).toContain("1/8");
   });
 
-  it("gerçek çıktılardaki yanlış alarmları üretmez: tam sayılı cevap ve sıralama cevabı", () => {
-    // Cevap "1 3/4 kg", senaryoda "3/4 kg" geçiyor: 1 3/4 ≠ 3/4, cevap metinde verilmemiş.
-    const kalan = ornekVeri("gercek_hayat_senaryo", "kalaniBulma");
-    kalan.senaryo = "Bir market 3 kilogram peynir aldı. Gün içinde 1/2 kilogramını kahvaltıda, 3/4 kilogramını sandviçte kullandı.";
-    kalan.secenekler = [
-      { id: "A", metin: "5/4 kg" },
-      { id: "B", metin: "1 1/4 kg" },
-      { id: "C", metin: "1 3/4 kg" },
-    ];
-    kalan.dogruSecenekId = "C";
-    expect(dogrulaVeri("gercek_hayat_senaryo", kalan).sorunlar).toEqual([]);
+  const kesir = (pay: number, payda = 1, tam: number | null = null) => ({ tam, pay, payda });
 
-    // Sıralama cevabı senaryodaki kesirleri içerir; bu doğaldır.
-    const siralama = ornekVeri("gercek_hayat_senaryo", "karsilastirma");
-    (siralama.secenekler as Veri[])[0].metin = "1/4, 1/2, 5/8";
-    expect(dogrulaVeri("gercek_hayat_senaryo", siralama).sorunlar).toEqual([]);
+  it("cevabı model değil kod hesaplar; çözüm metni doğrulanmış hesaptan üretilir", () => {
+    const { icVeri, sonuc, sorunlar } = dogrulaVeri("gercek_hayat_senaryo", ornekVeri("gercek_hayat_senaryo", "araliklar"));
+    expect(sorunlar).toEqual([]);
+    expect(icVeri?.dogruSecenekId).toBe("B");
+    expect(sonuc?.cozum).toContain("49/2 ÷ 1 3/4 = 14");
+    expect(sonuc?.cozum).toContain("14 − 1 = 13");
   });
 
-  it("tek adımda çözülen (işlem adımı 2'den az) soruyu reddeder", () => {
+  it("modelin cevabı kodun hesabıyla uyuşmuyorsa reddeder (gerçek çıktı: bisiklet turu, 225 km)", () => {
+    // Model toplam yolu 225 km bulup onu işaretlemişti; senaryodaki 45 km ile doğrusu 337 1/2 km'dir.
+    const veri = {
+      gorev: "kalaniBulma",
+      sahne: "yolculuk",
+      senaryo:
+        "Ali bisiklet turunun ilk gününde yolun 1/3'ünü, ikinci gününde kalan yolun 4/5'ini tamamladı. Geriye 45 km yol kaldı.",
+      soru: "Turun tamamı kaç km'dir?",
+      hesap: [
+        { id: "a1", aciklama: "İlk günden sonra kalan", islem: "cikar", girdiler: [{ adimId: null, deger: kesir(1) }, { adimId: null, deger: kesir(1, 3) }], sonuc: kesir(2, 3) },
+        { id: "a2", aciklama: "İkinci gün gidilen", islem: "carp", girdiler: [{ adimId: "a1", deger: null }, { adimId: null, deger: kesir(4, 5) }], sonuc: kesir(8, 15) },
+        { id: "a3", aciklama: "Geriye kalan pay", islem: "cikar", girdiler: [{ adimId: "a1", deger: null }, { adimId: "a2", deger: null }], sonuc: kesir(2, 15) },
+        { id: "a4", aciklama: "Turun tamamı", islem: "bol", girdiler: [{ adimId: null, deger: kesir(45) }, { adimId: "a3", deger: null }], sonuc: kesir(225) },
+      ],
+      sonucTamSayiOlmali: false,
+      birim: "km",
+      secenekler: [
+        { id: "A", deger: kesir(180), hata: "yanlisIslem" },
+        { id: "B", deger: kesir(225), hata: null },
+        { id: "C", deger: kesir(150), hata: "adimAtlama" },
+      ],
+      dogruSecenekId: "B",
+    };
+    const { sonuc, sorunlar } = dogrulaVeri("gercek_hayat_senaryo", veri);
+    expect(sonuc).toBeUndefined();
+    expect(sorunlar.some((sorun) => sorun.message.includes("Kodun hesapladığı cevap (337 1/2)"))).toBe(true);
+  });
+
+  it("sayılması gereken yerde kesirli ara sonucu reddeder (gerçek çıktı: 15 çocuğun yarısı)", () => {
+    const veri = {
+      gorev: "coklugunKesri",
+      sahne: "yolculuk",
+      senaryo: "Bir otobüste 40 yolcu var. Yolcuların 5/8'i yetişkin, geri kalanı çocuktur. Çocukların 1/2'si öğrencidir.",
+      soru: "Otobüste kaç öğrenci vardır?",
+      hesap: [
+        { id: "a1", aciklama: "Yetişkinler", islem: "carp", girdiler: [{ adimId: null, deger: kesir(40) }, { adimId: null, deger: kesir(5, 8) }], sonuc: kesir(25) },
+        { id: "a2", aciklama: "Çocuklar", islem: "cikar", girdiler: [{ adimId: null, deger: kesir(40) }, { adimId: "a1", deger: null }], sonuc: kesir(15) },
+        { id: "a3", aciklama: "Öğrenciler", islem: "carp", girdiler: [{ adimId: "a2", deger: null }, { adimId: null, deger: kesir(1, 2) }], sonuc: kesir(1, 2, 7) },
+      ],
+      sonucTamSayiOlmali: true,
+      birim: null,
+      secenekler: [
+        { id: "A", deger: kesir(7), hata: "yuvarlama" },
+        { id: "B", deger: kesir(1, 2, 7), hata: null },
+        { id: "C", deger: kesir(15), hata: "adimAtlama" },
+      ],
+      dogruSecenekId: "B",
+    };
+    const { sonuc, sorunlar } = dogrulaVeri("gercek_hayat_senaryo", veri);
+    expect(sonuc).toBeUndefined();
+    expect(sorunlar[0].message).toContain("tam sayı");
+  });
+
+  it("modelin işaretlediği şık kodun hesabıyla uyuşmuyorsa reddeder (onarmaz)", () => {
+    const veri = ornekVeri("gercek_hayat_senaryo", "bolmeEnFazla");
+    veri.dogruSecenekId = "C";
+    expect(dogrulaVeri("gercek_hayat_senaryo", veri).sonuc).toBeUndefined();
+  });
+
+  it("hesapta senaryoda olmayan bir sayı kullanılırsa reddeder", () => {
     const veri = ornekVeri("gercek_hayat_senaryo", "kalaniBulma");
-    veri.islemAdimlari = ["2 − 7/8 = 9/8"];
+    veri.senaryo = (veri.senaryo as string).replace("5/8", "3/8");
+    const { sorunlar } = dogrulaVeri("gercek_hayat_senaryo", veri);
+    expect(sorunlar.some((sorun) => sorun.message.includes("5/8 senaryoda geçmiyor"))).toBe(true);
+  });
+
+  it("'en fazla' sorusunu yukarı yuvarlamayla, 'birFazla' etiketini yanlış değerle kabul etmez", () => {
+    const yon = ornekVeri("gercek_hayat_senaryo", "bolmeEnFazla");
+    yon.soru = "Buna göre terzi aldığı kumaşla en az kaç gömlek dikebilir?";
+    expect(dogrulaVeri("gercek_hayat_senaryo", yon).sonuc).toBeUndefined();
+
+    const etiket = ornekVeri("gercek_hayat_senaryo", "bolmeEnFazla");
+    (etiket.secenekler as Veri[])[2].deger = kesir(6);
+    expect(dogrulaVeri("gercek_hayat_senaryo", etiket).sonuc).toBeUndefined();
+  });
+
+  it("gerçek çıktı: '1 3/4 kg' cevabını, senaryoda '3/4 kg' geçiyor diye reddetmez", () => {
+    const veri = {
+      gorev: "kalaniBulma",
+      sahne: "market",
+      senaryo: "Bir market 3 kilogram peynir aldı. Gün içinde 1/2 kilogramını kahvaltıda, 3/4 kilogramını sandviçte kullandı.",
+      soru: "Günün sonunda kaç kilogram peynir kalmıştır?",
+      hesap: [
+        { id: "a1", aciklama: "Kullanılan", islem: "topla", girdiler: [{ adimId: null, deger: kesir(1, 2) }, { adimId: null, deger: kesir(3, 4) }], sonuc: kesir(5, 4) },
+        { id: "a2", aciklama: "Kalan", islem: "cikar", girdiler: [{ adimId: null, deger: kesir(3) }, { adimId: "a1", deger: null }], sonuc: kesir(3, 4, 1) },
+      ],
+      sonucTamSayiOlmali: false,
+      birim: "kg",
+      secenekler: [
+        { id: "A", deger: kesir(5, 4), hata: "adimAtlama" },
+        { id: "B", deger: kesir(1, 4, 2), hata: "yakinDeger" },
+        { id: "C", deger: kesir(3, 4, 1), hata: null },
+      ],
+      dogruSecenekId: "C",
+    };
+    const { icVeri, sorunlar } = dogrulaVeri("gercek_hayat_senaryo", veri);
+    expect(sorunlar).toEqual([]);
+    expect((icVeri?.secenekler as Veri[])[2].metin).toBe("1 3/4 kg");
+  });
+
+  it("senaryodaki bir sayı hesapta kullanılmıyorsa reddeder (gerçek çıktı: '3 gün boyunca' hiç kullanılmamış)", () => {
+    const veri = ornekVeri("gercek_hayat_senaryo", "karsilastirma");
+    veri.senaryo = (veri.senaryo as string).replace("Elif ve Can", "Elif ve Can 3 gün boyunca");
+    const { sorunlar } = dogrulaVeri("gercek_hayat_senaryo", veri);
+    expect(sorunlar.some((sorun) => sorun.message.includes("Senaryodaki 3 çözümde hiç kullanılmıyor"))).toBe(true);
+  });
+
+  it("senaryo metni soru cümlesi içeriyorsa reddeder (tek soru yalnızca kökte sorulur)", () => {
+    const veri = ornekVeri("gercek_hayat_senaryo", "kalaniBulma");
+    veri.senaryo = `${veri.senaryo as string} Akşama ne kadar çikolata kalır?`;
+    expect(dogrulaVeri("gercek_hayat_senaryo", veri).sonuc).toBeUndefined();
+  });
+
+  it("metinsel görevde tek adımda çözülen soruyu reddeder", () => {
+    const veri = ornekVeri("gercek_hayat_senaryo", "cokAdimliCikarim");
+    veri.islemAdimlari = ["Yalnızca A gelişti."];
     expect(dogrulaVeri("gercek_hayat_senaryo", veri).sonuc).toBeUndefined();
   });
 
@@ -286,8 +416,50 @@ describe("gercek_hayat_senaryo", () => {
   });
 });
 
+describe("senaryo sayıları (kod seçer)", () => {
+  const SAYISAL = ["bolmeEnFazla", "birimOlcekleme", "araliklar", "kalaniBulma", "coklugunKesri", "karsilastirma"] as const;
+  const SAYILAN = new Set(["bolmeEnFazla", "araliklar", "coklugunKesri"]);
+
+  it.each(SAYISAL)("%s: 200 farklı tohumda koşulları sağlayan sayılar üretir", (gorev) => {
+    for (let tohum = 1; tohum <= 200; tohum += 1) {
+      const sayilar = senaryoSayilariUret(gorev, tohum * 7919);
+      const cevap = oranYap(sayilar.cevap);
+      expect(cevap.pay).toBeGreaterThan(0);
+      if (SAYILAN.has(gorev)) expect(cevap.payda).toBe(1);
+      // Cevap, senaryoya yazılacak verilerden biri olmamalı (cevap metinde verilmez).
+      expect(sayilar.veriler.some((veri) => esitMi(oranYap(veri.deger), cevap))).toBe(false);
+    }
+  });
+
+  it("plandaki sayılarla yazılmamış bir senaryoyu, doğru hesaplı olsa bile reddeder", () => {
+    const plan: GorselSoruPlani = {
+      tip: "gercek_hayat_senaryo",
+      gorev: "araliklar",
+      sayilar: {
+        veriler: [
+          { ad: "toplam uzunluk", deger: { pay: 45, payda: 2 } },
+          { ad: "aralık", deger: { tam: 1, pay: 1, payda: 2 } },
+        ],
+        cevap: { pay: 14, payda: 1 },
+        ipucu: "15 aralık; uçlarda nesne yok → 14",
+      },
+    };
+    const sorunlar: GorselSoruSorunu[] = [];
+    // Registry örneği kendi sayılarıyla (49/2 ve 1 3/4) doğrudur ama plandaki sayıları kullanmıyor.
+    expect(dogrulaGorselSoru(gorevTanimi(plan).ornek, "q", sorunlar, plan)).toBeUndefined();
+    expect(sorunlar[0].message).toContain("senaryoda geçmiyor");
+  });
+});
+
 describe("Quiz akışına entegrasyon", () => {
-  const blueprint = buildQuizBlueprint(FORM);
+  // Registry örnekleri kendi sabit sayılarını taşır; kodun planladığı sayılar
+  // bu testte uygulanmaz (onlar "senaryo sayıları" testlerinde denetlenir).
+  const blueprint = {
+    ...buildQuizBlueprint(FORM),
+    slots: buildQuizBlueprint(FORM).slots.map((slot) =>
+      slot.gorselPlani ? { ...slot, gorselPlani: { tip: slot.gorselPlani.tip, gorev: slot.gorselPlani.gorev } as GorselSoruPlani } : slot
+    ),
+  };
   const ornekler = blueprint.slots.map((slot) => klonla(gorevTanimi(slot.gorselPlani!).ornek));
 
   it("plana uyan { tip, veri } yanıtını kabul eder", () => {

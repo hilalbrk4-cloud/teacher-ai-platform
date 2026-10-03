@@ -188,7 +188,18 @@ export interface QuizValidationIssue {
 
 export type QuizValidationResult =
   | { success: true; data: Quiz; issues: [] }
-  | { success: false; data?: undefined; issues: QuizValidationIssue[] };
+  | {
+      success: false;
+      data?: undefined;
+      issues: QuizValidationIssue[];
+      /**
+       * When the response had the right number of questions: each slot's
+       * question if it passed validation, `undefined` if it didn't — so a
+       * retry can regenerate only the rejected ones.
+       */
+      partial?: (QuizQuestion | undefined)[];
+      title?: string;
+    };
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null && !Array.isArray(value);
@@ -735,14 +746,13 @@ export function validateQuizResponse(value: unknown, blueprint: QuizBlueprint): 
     return { success: false, issues };
   }
 
-  const questions: QuizQuestion[] = [];
-  blueprint.slots.forEach((slot, index) => {
-    const question = validateQuestionAgainstSlot(rawQuestions[index], slot, `questions[${index}]`, issues);
-    if (question) questions.push(question);
-  });
+  const partial = blueprint.slots.map((slot, index) =>
+    validateQuestionAgainstSlot(rawQuestions[index], slot, `questions[${index}]`, issues)
+  );
+  const questions = partial.filter((question): question is QuizQuestion => question !== undefined);
 
   if (!title || questions.length !== blueprint.slots.length) {
-    return { success: false, issues };
+    return { success: false, issues, partial, title };
   }
 
   return {

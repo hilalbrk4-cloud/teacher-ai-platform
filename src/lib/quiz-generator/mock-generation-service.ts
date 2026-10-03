@@ -71,7 +71,9 @@ const VARSAYILAN_PLAN: GorselSoruPlani = { tip: "gercek_hayat_senaryo", gorev: "
  * pipeline would reject.
  */
 function buildMockGorselSoru(slot: QuestionBlueprintSlot, id: string, audit: QuestionAudit): QuizQuestion {
-  const plan = slot.gorselPlani ?? VARSAYILAN_PLAN;
+  // The registry example has its own fixed numbers, so the plan's generated
+  // scenario numbers (if any) are not applied to it.
+  const plan = { tip: (slot.gorselPlani ?? VARSAYILAN_PLAN).tip, gorev: (slot.gorselPlani ?? VARSAYILAN_PLAN).gorev } as GorselSoruPlani;
   const dogrulanmis = dogrulaGorselSoru(gorevTanimi(plan).ornek, `mock.${plan.tip}`, [], plan);
   if (!dogrulanmis) {
     throw new Error(`Registry örneği kendi doğrulayıcısından geçemedi: ${plan.tip}/${plan.gorev}`);

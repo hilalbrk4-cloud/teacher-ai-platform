@@ -1,5 +1,6 @@
 import type {
   GorselSoruGorevHaritasi,
+  GorselSoruPlani,
   GorselSoruTipi,
   GorselSoruVeriHaritasi,
   GorselStratejisi,
@@ -42,6 +43,16 @@ export interface GorselSoruGorevTanimi<K extends GorselSoruTipi> {
   aciklama: string;
   /** `true` ise yalnızca konusu kesirler olan sorulara atanır. */
   kesirKonusuGerekir: boolean;
+  /** `true` ise konusu kesirler olan sorulara ATANMAZ (daha güçlü, hesabı doğrulanan görevler varken). */
+  kesirKonusundaKullanilmaz?: boolean;
+  /** Görevin gerektirdiği en düşük sınıf (ör. kesirlerle bölme MEB'de 6. sınıf kazanımıdır). */
+  enAzSinif?: number;
+  /**
+   * `true` ise görev hiçbir soruya atanmaz (tanımı ve doğrulayıcısı durur).
+   * Gerçek üretimlerde doğrulayıcının yakalayamadığı bir kalite sorunu
+   * görülen görevler için kullanılır; nedeni tanımın yanında yazılır.
+   */
+  plandanCikarildi?: boolean;
   /** `veri` alanlarının prompt'ta gösterilen açıklaması (her öğe bir satır). */
   semaAciklamasi: readonly string[];
   /** Göreve özgü içerik kuralları (prompt'ta gösterilir). */
@@ -70,11 +81,15 @@ export type GorselSoruTanimi<K extends GorselSoruTipi> = GorselAyari & {
   kurallar: readonly string[];
   /** Tüm görevlerde ortak `veri` alanlarının açıklaması (her görevin kendi açıklamasına eklenir). */
   ortakSemaAciklamasi: readonly string[];
+  /** Hedeflenen kalite seviyesini gösteren gerçek sınav soruları (prompt'ta metin olarak gösterilir). */
+  hedefSeviyeOrnekleri?: readonly string[];
   gorevler: { readonly [G in GorselSoruGorevHaritasi[K]]: GorselSoruGorevTanimi<K> };
   dogrula(
     veri: unknown,
     path: string,
-    sorunlar: GorselSoruSorunu[]
+    sorunlar: GorselSoruSorunu[],
+    /** Blueprint'in bu soru için planı; sayısal senaryolarda kodun seçtiği sayıları taşır. */
+    plan?: GorselSoruPlani
   ): GorselSoruDogrulamaSonucu<GorselSoruVeriHaritasi[K]> | undefined;
   /** Cevap anahtarında gösterilen, doğru şıkkın okunabilir özeti. */
   dogruCevapMetni(veri: GorselSoruVeriHaritasi[K]): string;
@@ -163,6 +178,19 @@ export function metinKesriIceriyorMu(metin: string, kesir: Kesir): boolean {
   return metindekiKesirler(metin).some((bulunan) => kesirlerEsitMi(bulunan.kesir, kesir));
 }
 
+/**
+ * `metinKesriIceriyorMu`nun tam sayıları da tanıyan hâli: değer bir tam
+ * sayıysa (1, 4/4, 2 0/5) metinde kesir parçası olmayan "1" de eşleşir —
+ * "hangisi 1'e en yakındır?" hedefi doğru anar.
+ */
+export function metinDegeriIceriyorMu(metin: string, kesir: Kesir): boolean {
+  if (metinKesriIceriyorMu(metin, kesir)) return true;
+  const toplamPay = (kesir.tam ?? 0) * kesir.payda + kesir.pay;
+  if (toplamPay % kesir.payda !== 0) return false;
+  const kesirsiz = metin.replace(METINDEKI_KESIR, " ");
+  return new RegExp(`(^|[^\\d.,])${toplamPay / kesir.payda}([^\\d.,]|$)`).test(kesirsiz);
+}
+
 const KESIR_PAY_SINIRI = { min: 0, max: 999 };
 const KESIR_PAYDA_SINIRI = { min: 1, max: 100 };
 const KESIR_TAM_SINIRI = { min: 1, max: 99 };
@@ -179,7 +207,8 @@ export function okuKesir(
   }
   const pay = okuTamSayi(value, "pay", path, sorunlar, KESIR_PAY_SINIRI);
   const payda = okuTamSayi(value, "payda", path, sorunlar, KESIR_PAYDA_SINIRI);
-  const tamVar = !yokMu(value.tam);
+  // `"tam": 0` (ör. 4/3 için {tam:0,pay:4,payda:3}) "tam kısım yok" demektir.
+  const tamVar = !yokMu(value.tam) && value.tam !== 0;
   const tam = tamVar ? okuTamSayi(value, "tam", path, sorunlar, KESIR_TAM_SINIRI) : undefined;
   if (pay === undefined || payda === undefined || (tamVar && tam === undefined)) return undefined;
   return tam !== undefined ? { tam, pay, payda } : { pay, payda };

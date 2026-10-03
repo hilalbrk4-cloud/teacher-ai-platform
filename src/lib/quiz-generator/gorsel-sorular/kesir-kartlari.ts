@@ -96,13 +96,13 @@ export function iddiaDogruMu(kart: Kesir, iddia: KesirTuruIddiasi): boolean {
 }
 
 /**
- * Tam sayılı bir kesir, değer olarak bir bileşik kesre eşittir. Bu yüzden
- * "tam sayılı karttaki kesir bileşiktir" (veya tersi) iddiası tartışmaya
- * açıktır — her iddianın tek bir doğru değerlendirmesi olmalı.
+ * Tam sayılı bir kesir, değer olarak bir bileşik kesre eşittir; bu yüzden
+ * "tam sayılı karttaki kesir (1 1/4) bileşiktir" iddiası tartışmaya açıktır.
+ * Ters yön tartışmaya açık DEĞİLDİR: 5/3 yazıldığı biçimiyle tam sayılı bir
+ * kesir değildir ve "tam sayılı olanı bul" sorusunda iyi bir çeldiricidir.
  */
 function belirsizIddiaMi(kart: Kesir, iddia: KesirTuruIddiasi): boolean {
-  const tur = kartTuru(kart);
-  return (tur === "tamSayili" && iddia === "bilesik") || (tur === "bilesik" && iddia === "tamSayili");
+  return kartTuru(kart) === "tamSayili" && iddia === "bilesik";
 }
 
 /**
@@ -325,7 +325,7 @@ function dogrulaIfadeDegerlendirme(raw: Record<string, unknown>, ortak: OrtakAla
         sorunlar.push({
           path: `${ogePath}.iddia`,
           message:
-            "Tam sayılı bir kart için \"bilesik\", bileşik bir kart için \"tamSayili\" iddiası tartışmaya açıktır; " +
+            "Tam sayılı bir kart için \"bilesik\" iddiası tartışmaya açıktır; " +
             "farklı bir iddia seçilmelidir.",
         });
         return undefined;
@@ -419,8 +419,17 @@ const TUR_KOK_IFADELERI: Record<KesirTuruIddiasi, string> = {
 };
 
 function dogrulaTuruBul(raw: Record<string, unknown>, ortak: OrtakAlanlar, path: string, sorunlar: Sorunlar): Sonuc {
-  const { kartlar } = ortak;
   const hedefTur = okuSecim(raw, "hedefTur", KESIR_TURU_IDDIALARI, path, sorunlar);
+  // "Bileşik olanı bul" sorusunda tam sayılı bir kart (1 1/4) tartışmaya
+  // açıktır. Model bunu bir çeldirici olarak koymuşsa kartın tam kısmı
+  // atılır (1 1/4 → 1/4): kart yine yanlış bir şık olarak kalır, çizim
+  // veriden yapıldığı için soru tutarlıdır ve çözüm veriden yeniden yazılır.
+  const belirsizKartVar = hedefTur !== undefined && ortak.kartlar.some((kart) => belirsizIddiaMi(kart, hedefTur));
+  const kartlar = belirsizKartVar
+    ? ortak.kartlar.map((kart) =>
+        hedefTur && belirsizIddiaMi(kart, hedefTur) ? { id: kart.id, renk: kart.renk, pay: kart.pay, payda: kart.payda } : kart
+      )
+    : ortak.kartlar;
   const kartIdleri = new Set(kartlar.map((kart) => kart.id));
   const secenekler = okuKimlikliDizi<KartSecenegi>(raw.secenekler, `${path}.secenekler`, sorunlar, SECENEK_SINIRI, (oge, id, ogePath) => {
     const kartId = okuMetin(oge, "kartId", ogePath, sorunlar);
@@ -435,13 +444,6 @@ function dogrulaTuruBul(raw: Record<string, unknown>, ortak: OrtakAlanlar, path:
 
   if (!metniNormallestir(ortak.soru).includes(TUR_KOK_IFADELERI[hedefTur])) {
     sorunlar.push({ path: `${path}.soru`, message: `Soru kökü aranan türü ("${TUR_KOK_IFADELERI[hedefTur]}") sormalıdır.` });
-    return undefined;
-  }
-  if (kartlar.some((kart) => belirsizIddiaMi(kart, hedefTur))) {
-    sorunlar.push({
-      path: `${path}.kartlar`,
-      message: "Aranan tür bileşikse tam sayılı kart, tam sayılıysa bileşik kart kullanma; cevap tartışmaya açık olur.",
-    });
     return undefined;
   }
   const uyanlar = kartlar.filter((kart) => iddiaDogruMu(kart, hedefTur));
@@ -475,7 +477,7 @@ function dogrulaTuruBul(raw: Record<string, unknown>, ortak: OrtakAlanlar, path:
     secenekler: uzlasma.secenekler,
     dogruSecenekId: uzlasma.dogruSecenekId,
   };
-  const yenidenYaz = uzlasma.onarildi || ortak.renkDegisti;
+  const yenidenYaz = uzlasma.onarildi || ortak.renkDegisti || belirsizKartVar;
   return { soru: ortak.soru, cozum: yenidenYaz ? veridenCozum(veri) : ortak.cozum, veri };
 }
 
@@ -711,7 +713,8 @@ const gorevler: GorselSoruTanimi<"kesir_kartlari">["gorevler"] = {
     kurallar: [
       "Tam olarak bir kart aranan türde olmalı; sistem kartlardan hesaplar.",
       "Diğer kartlar yanılgıya dayalı çeldirici olmalı (ör. bileşik aranıyorsa 7/7 doğru cevap, 1/9 veya 5/8 çeldirici).",
-      "Aranan tür bileşikse tam sayılı kart, tam sayılıysa bileşik kart kullanma.",
+      "Aranan tür bileşikse tam sayılı kart kullanma (1 1/4'ün bileşik olup olmadığı tartışmaya açıktır). Aranan " +
+        "tür tam sayılıysa bileşik kartlar (ör. 5/3) iyi çeldiricidir.",
     ],
     ornek: {
       tip: "kesir_kartlari",

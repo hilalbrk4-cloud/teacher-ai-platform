@@ -8,8 +8,10 @@ import {
   type GorselSoruTanimi,
 } from "@/lib/quiz-generator/gorsel-sorular/ortak";
 import { sayiDogrusuTanimi } from "@/lib/quiz-generator/gorsel-sorular/sayi-dogrusu";
+import { senaryoSayilariUret } from "@/lib/quiz-generator/gorsel-sorular/senaryo-sayilari";
 import {
   GORSEL_SORU_TIPLERI,
+  type SenaryoGorevi,
   type GorselSoruGorevHaritasi,
   type GorselSoruIcerigi,
   type GorselSoruPlani,
@@ -44,10 +46,22 @@ export function isGorselSoruTipi(value: unknown): value is GorselSoruTipi {
   return typeof value === "string" && (GORSEL_SORU_TIPLERI as readonly string[]).includes(value);
 }
 
-function tipinGorevleri<K extends GorselSoruTipi>(tip: K, kesirKonusu: boolean): GorselSoruGorevHaritasi[K][] {
+function tipinGorevleri<K extends GorselSoruTipi>(
+  tip: K,
+  kesirKonusu: boolean,
+  sinif: number | undefined
+): GorselSoruGorevHaritasi[K][] {
   return (Object.values(gorselSoruTanimi(tip).gorevler) as GorselSoruGorevTanimi<K>[])
-    .filter((gorev) => kesirKonusu || !gorev.kesirKonusuGerekir)
+    .filter((gorev) => !gorev.plandanCikarildi)
+    .filter((gorev) => (kesirKonusu ? !gorev.kesirKonusundaKullanilmaz : !gorev.kesirKonusuGerekir))
+    .filter((gorev) => sinif === undefined || gorev.enAzSinif === undefined || sinif >= gorev.enAzSinif)
     .map((gorev) => gorev.gorev);
+}
+
+/** "5. Sınıf", "6", "6. sınıf (ileri)" → 5 / 6; sayı yoksa sınıf kısıtı uygulanmaz. */
+function sinifDuzeyi(gradeLevel: string | undefined): number | undefined {
+  const eslesme = gradeLevel?.match(/\d+/);
+  return eslesme ? Number(eslesme[0]) : undefined;
 }
 
 /** Aynı girdide hep aynı sonucu veren küçük bir özet (Blueprint rastgelelik kullanmaz). */
@@ -73,10 +87,11 @@ function tohum(metin: string): number {
  */
 export function gorselSoruPlaniAta(
   slots: QuestionBlueprintSlot[],
-  baglam: { subject: string; topic: string }
+  baglam: { subject: string; topic: string; gradeLevel?: string }
 ): QuestionBlueprintSlot[] {
   const metinler = [baglam.topic, ...slots.map((slot) => slot.learningOutcome)];
   const kesirKonusu = isFractionTopic(baglam.subject, metinler);
+  const sinif = sinifDuzeyi(baglam.gradeLevel);
   const tipler = GORSEL_SORU_TIPLERI.filter((tip) => kesirKonusu || !gorselSoruTanimi(tip).kesirKonusuGerekir);
   const baslangic = tohum(metinler.join("|"));
 
@@ -86,10 +101,15 @@ export function gorselSoruPlaniAta(
     const tipIndex = (sira + baslangic) % tipler.length;
     const tip = tipler[tipIndex];
     const tekrar = Math.floor(sira / tipler.length);
-    const gorevler = tipinGorevleri(tip, kesirKonusu);
+    const gorevler = tipinGorevleri(tip, kesirKonusu, sinif);
     const gorev = gorevler[(tekrar + baslangic + tipIndex) % gorevler.length];
     sira += 1;
-    return { ...slot, gorselPlani: { tip, gorev } as GorselSoruPlani };
+    // Sayısal senaryolarda sayıları kod seçer; model yalnızca senaryoyu yazar.
+    const sayilar =
+      tip === "gercek_hayat_senaryo" && gorev !== "cokAdimliCikarim"
+        ? senaryoSayilariUret(gorev as Exclude<SenaryoGorevi, "cokAdimliCikarim">, baslangic + slot.order * 7919)
+        : undefined;
+    return { ...slot, gorselPlani: { tip, gorev, ...(sayilar ? { sayilar } : {}) } as GorselSoruPlani };
   });
 }
 
@@ -135,7 +155,7 @@ export function dogrulaGorselSoru(
   }
 
   const tip = raw.tip;
-  const sonuc = gorselSoruTanimi(tip).dogrula(raw.veri, `${path}.veri`, sorunlar);
+  const sonuc = gorselSoruTanimi(tip).dogrula(raw.veri, `${path}.veri`, sorunlar, plan);
   if (!sonuc) return undefined;
 
   return { soru: sonuc.soru, cozum: sonuc.cozum, icerik: { tip, veri: sonuc.veri } as GorselSoruIcerigi };

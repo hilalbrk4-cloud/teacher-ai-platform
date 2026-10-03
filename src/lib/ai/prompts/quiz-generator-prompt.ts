@@ -8,6 +8,7 @@ import {
   type QuizGeneratorPackContext,
   type SlotPatternAssignment,
 } from "@/lib/ai/prompts/quiz-generator-knowledge-pack-blocks";
+import { kesirGosterimi } from "@/lib/quiz-generator/gorsel-sorular/kesir-aritmetigi";
 import { gorevTanimi, gorselSoruTanimi } from "@/lib/quiz-generator/gorsel-sorular/tanimlar";
 import type { GorselSoruPlani } from "@/types/gorsel-soru";
 import type { QuestionBlueprintSlot, QuizBlueprint, QuizPrompt } from "@/types/quiz-blueprint";
@@ -139,8 +140,14 @@ function buildSlotLine(slot: QuestionBlueprintSlot, index: number): string {
   // so a quiz never gets two near-identical visual questions; the validator
   // rejects a response that deviates from them.
   const plan = slot.gorselPlani;
+  const numbers = plan?.sayilar;
   const planField = plan
-    ? ` | Görsel soru tipi: ${plan.tip} | Görev: ${plan.gorev} (${gorevTanimi(plan).etiket})`
+    ? ` | Görsel soru tipi: ${plan.tip} | Görev: ${plan.gorev} (${gorevTanimi(plan).etiket})` +
+      (numbers
+        ? ` | SİSTEMİN VERDİĞİ SAYILAR (aynen kullan): ${numbers.veriler
+            .map((veri) => `${veri.ad} = ${kesirGosterimi(veri.deger)}`)
+            .join("; ")} | Doğru cevap: ${kesirGosterimi(numbers.cevap)} (${numbers.ipucu})`
+        : "")
     : "";
 
   return (
@@ -421,6 +428,12 @@ function buildGorselSoruBlock(blueprint: QuizBlueprint): string {
       }`,
       "  Kurallar:",
       ...tanim.kurallar.map((satir) => `    - ${satir}`),
+      ...(tanim.hedefSeviyeOrnekleri?.length
+        ? [
+            "  Hedef seviye — gerçek sınav soruları (bu kalitede ve zorlukta yaz; sayılarını ve bağlamlarını KOPYALAMA):",
+            ...tanim.hedefSeviyeOrnekleri.map((satir) => `    - ${satir}`),
+          ]
+        : []),
       ...gorevBloklari,
     ].join("\n");
   });
@@ -552,16 +565,46 @@ function buildOutputFormatBlock(): string {
   ].join("\n");
 }
 
-/** One batch's position within the full quiz (see `buildQuizPromptBatches`). */
+/** One batch's position within the full quiz (see `buildQuizPromptForSlots`). */
 interface QuizPromptBatchScope {
   batchIndex: number;
   batchCount: number;
-  /** 0-based index of this batch's first question in the full quiz. */
-  startIndex: number;
+  /** 1-based numbers, in the full quiz, of the questions this batch writes (not necessarily contiguous on a retry). */
+  questionNumbers: number[];
   totalQuestions: number;
   topic: string;
-  /** Knowledge Pack pattern assignments computed once over the FULL quiz, sliced to this batch. */
+  /** Knowledge Pack pattern assignments computed once over the FULL quiz, picked for this batch. */
   assignments?: SlotPatternAssignment[];
+  /** Per question in this batch: why the previous attempt at it was rejected (empty on a first attempt). */
+  feedback?: string[][];
+}
+
+/** [4,5,6] → "4-6", [2,5,6] → "2, 5 ve 6" */
+function formatQuestionNumbers(numbers: number[]): string {
+  const contiguous = numbers.every((number, index) => index === 0 || number === numbers[index - 1] + 1);
+  if (numbers.length === 1) return String(numbers[0]);
+  if (contiguous) return `${numbers[0]}-${numbers[numbers.length - 1]}`;
+  return `${numbers.slice(0, -1).join(", ")} ve ${numbers[numbers.length - 1]}`;
+}
+
+/**
+ * On a retry, tells the model exactly why each of its questions was
+ * rejected last time (e.g. "the code computed 2 3/4 but you marked 3 1/4"),
+ * so the next attempt fixes that specific problem instead of guessing.
+ */
+function buildRetryFeedbackBlock(scope: QuizPromptBatchScope): string | undefined {
+  const lines = (scope.feedback ?? []).flatMap((messages, index) =>
+    messages.length > 0
+      ? [`  ${index + 1}. soru önceki denemede şu nedenlerle reddedildi:`, ...messages.map((message) => `    - ${message}`)]
+      : []
+  );
+  if (lines.length === 0) return undefined;
+  return [
+    "ÖNCEKİ DENEMENİN GERİ BİLDİRİMİ (ZORUNLU):",
+    "Bu soruları daha önce yazdın ama sistem aşağıdaki nedenlerle reddetti. Soruları bu sorunları gidererek, " +
+      "gerekirse sayıları ve senaryoyu değiştirerek YENİDEN yaz:",
+    ...lines,
+  ].join("\n");
 }
 
 // Parallel batches can't see each other's questions; giving each batch
@@ -578,8 +621,6 @@ const BATCH_CONTEXT_AREAS = [
 ];
 
 function buildBatchBlock(scope: QuizPromptBatchScope, questionCount: number): string {
-  const first = scope.startIndex + 1;
-  const last = scope.startIndex + questionCount;
   const areas = [0, 1].map(
     (offset) => BATCH_CONTEXT_AREAS[(scope.batchIndex * 2 + offset) % BATCH_CONTEXT_AREAS.length]
   );
@@ -587,8 +628,8 @@ function buildBatchBlock(scope: QuizPromptBatchScope, questionCount: number): st
   return [
     "PARÇALI ÜRETİM (ZORUNLU):",
     `Bu sınav toplam ${scope.totalQuestions} sorudan oluşuyor ve ${scope.batchCount} parça hâlinde, aynı anda ` +
-      `farklı yazarlar tarafından yazılıyor. Sen ${scope.batchIndex + 1}. parçayı, yani sınavın ${first}-${last}. ` +
-      "sorularını yazıyorsun.",
+      `farklı yazarlar tarafından yazılıyor. Sen ${scope.batchIndex + 1}. parçayı, yani sınavın ` +
+      `${formatQuestionNumbers(scope.questionNumbers)}. ${questionCount === 1 ? "sorusunu" : "sorularını"} yazıyorsun.`,
     `- Aşağıdaki SORU PLANI yalnızca senin sorularını içerir ve 1'den başlayarak numaralandırılmıştır; "questions" ` +
       `dizin tam olarak ${questionCount} öğe içermelidir.`,
     "- Diğer parçalarla aynı senaryoyu, sayıları veya bağlamı tekrar etmemek için bu parçadaki soruların " +
@@ -610,6 +651,8 @@ function buildInstructions(
 
   if (batch) {
     blocks.push(buildBatchBlock(batch, blueprint.slots.length));
+    const feedback = buildRetryFeedbackBlock(batch);
+    if (feedback) blocks.push(feedback);
   }
 
   blocks.push(
@@ -700,26 +743,50 @@ export function buildQuizPromptBatches(
   packContext: QuizGeneratorPackContext | undefined,
   maxBatchSize: number
 ): QuizPrompt[] {
-  const sizes = splitIntoBatchSizes(blueprint.slots.length, maxBatchSize);
-  if (sizes.length <= 1) return [buildQuizPrompt(blueprint, packContext)];
+  const groups = splitIntoSlotGroups(blueprint.slots.length, maxBatchSize);
+  if (groups.length <= 1) return [buildQuizPrompt(blueprint, packContext)];
+  return groups.map((slotIndices, batchIndex) =>
+    buildQuizPromptForSlots(blueprint, packContext, slotIndices, { batchIndex, batchCount: groups.length })
+  );
+}
 
+/** [[0,1,2],[3,4,5],[6,7],[8,9]] for 10 slots in batches of at most 3. */
+export function splitIntoSlotGroups(count: number, maxBatchSize: number): number[][] {
+  let start = 0;
+  return splitIntoBatchSizes(count, maxBatchSize).map((size) => {
+    const group = Array.from({ length: size }, (_, offset) => start + offset);
+    start += size;
+    return group;
+  });
+}
+
+/**
+ * Builds the prompt for an arbitrary subset of the blueprint's slots — a
+ * batch on the first attempt, or only the still-missing questions of a
+ * batch on a retry (with `feedback` explaining why each was rejected).
+ * The returned `QuizPrompt` carries only those slots, so the validator
+ * checks exactly them; Knowledge Pack patterns are still assigned over the
+ * whole quiz.
+ */
+export function buildQuizPromptForSlots(
+  blueprint: QuizBlueprint,
+  packContext: QuizGeneratorPackContext | undefined,
+  slotIndices: number[],
+  options: { batchIndex: number; batchCount: number; feedback?: string[][] }
+): QuizPrompt {
   const assignments = packContext
     ? computeQuestionPatternCoverage(blueprint.slots, packContext.projection.questionPatterns).assignments
     : undefined;
-
-  let startIndex = 0;
-  return sizes.map((size, batchIndex) => {
-    const slots = blueprint.slots.slice(startIndex, startIndex + size);
-    const batchBlueprint: QuizBlueprint = { ...blueprint, slots, totalQuestions: slots.length };
-    const scope: QuizPromptBatchScope = {
-      batchIndex,
-      batchCount: sizes.length,
-      startIndex,
-      totalQuestions: blueprint.slots.length,
-      topic: blueprint.topic,
-      assignments: assignments?.slice(startIndex, startIndex + size),
-    };
-    startIndex += size;
-    return { ...batchBlueprint, instructions: buildInstructions(batchBlueprint, packContext, scope) };
-  });
+  const slots = slotIndices.map((index) => blueprint.slots[index]);
+  const subset: QuizBlueprint = { ...blueprint, slots, totalQuestions: slots.length };
+  const scope: QuizPromptBatchScope = {
+    batchIndex: options.batchIndex,
+    batchCount: options.batchCount,
+    questionNumbers: slotIndices.map((index) => index + 1),
+    totalQuestions: blueprint.slots.length,
+    topic: blueprint.topic,
+    assignments: assignments ? slotIndices.map((index) => assignments[index]) : undefined,
+    feedback: options.feedback,
+  };
+  return { ...subset, instructions: buildInstructions(subset, packContext, scope) };
 }
