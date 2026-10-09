@@ -214,13 +214,26 @@ Blueprint slot, the model picks the most suitable `tip` itself and returns
 Each tip has several tasks, each with its own schema, rules and example:
 `sayi_dogrusu` → siralama, hedefeEnYakin, isaretliKesir, kesriGoster;
 `kesir_kartlari` → ifadeDegerlendirme, turuBul, gosterimDonusumu;
-`gercek_hayat_senaryo` → karsilastirma, kalaniBulma, coklugunKesri, cokAdimliCikarim.
+`gercek_hayat_senaryo` → karsilastirma, kalaniBulma, coklugunKesri, bolmeEnFazla,
+birimOlcekleme, parcaButun, kesirSiralama, olabilirCikarim, denklikOlamaz,
+cokAdimliCikarim (araliklar exists but is excluded from plans).
+Each scenario task is one problem family from
+`references/senaryo-kalite-referans-v2.md` (Aile 1 → parcaButun, 2+3 →
+kesirSiralama, 4 → coklugunKesri incl. the exam context, 5 → bolmeEnFazla,
+6 → karsilastirma, 7 → olabilirCikarim, M2 → denklikOlamaz; M1 "step
+ordering" needs a step-list display and is not implemented yet).
 The Blueprint (`gorselSoruPlaniAta`) assigns a tip + task to every
 `gorselSoru` slot, weighted toward multi-step work: simple visual-reading
 questions (`sayi_dogrusu`, `kesir_kartlari`) get ⌊n/3⌋ slots, at most 2
 (1 in a 5-question quiz), placed on the easiest slots and from different
-tips; every other slot is a multi-step numeric scenario, each task used once
-before any repeats. Fraction tips/tasks are only
+tips; every other slot is a multi-step scenario, each family used once
+before any repeats, and each context topic (`konu`: market, tarım, spor…)
+avoided if an earlier scenario in the quiz already used it.
+Inference tasks (`kesirSiralama`, `olabilirCikarim`, `denklikOlamaz`,
+`senaryo-cikarim.ts`) follow the same "data is the source of truth" rule:
+code builds the data, the correct answer and error-model distractors; the
+model writes only the text, which must contain the planned values, names,
+key phrases and stem wording and must not reveal the answer. Fraction tips/tasks are only
 assigned when the topic or outcomes mention fractions. The prompt shows
 only the assigned tasks, and the validator rejects a response that deviates
 from the plan. Scenario questions must carry ≥2 `islemAdimlari`, and a

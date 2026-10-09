@@ -141,6 +141,7 @@ function buildSlotLine(slot: QuestionBlueprintSlot, index: number): string {
   // rejects a response that deviates from them.
   const plan = slot.gorselPlani;
   const numbers = plan?.sayilar;
+  const inference = plan?.cikarim;
   const planField = plan
     ? ` | Görsel soru tipi: ${plan.tip} | Görev: ${plan.gorev} (${gorevTanimi(plan).etiket})` +
       (numbers
@@ -152,6 +153,19 @@ function buildSlotLine(slot: QuestionBlueprintSlot, index: number): string {
             ? ` | Senaryoda mutlaka geçmeli: ${numbers.anahtarIfadeler.map((grup) => `"${grup[0]}"`).join(", ")}`
             : "") +
           " | Şıkları sistem üretir."
+        : "") +
+      (inference
+        ? ` | Bağlam: ${inference.baglam} | SİSTEMİN VERDİĞİ VERİLER (aynen, aynı yazımla kullan): ${inference.veriler
+            .map((veri) => `${veri.ad} = ${kesirGosterimi(veri.deger)}`)
+            .join("; ")}` +
+          (inference.adlar.length ? ` | Adlar (aynen kullan): ${inference.adlar.join(", ")}` : "") +
+          ` | Doğru cevap: ${inference.secenekler.find((secenek) => !secenek.hata)?.metin ?? ""} (${inference.ipucu})` +
+          ` | Örnek soru kökü: "${inference.ornekSoru}"` +
+          (inference.anahtarIfadeler.length
+            ? ` | Senaryoda mutlaka geçmeli: ${inference.anahtarIfadeler.map((grup) => `"${grup[0]}"`).join(", ")}`
+            : "") +
+          ` | Soru kökünde geçmeli: ${inference.kokIfadeleri.map((grup) => `"${grup[0]}"`).join(", ")}` +
+          " | Şıkları ve cevabı sistem üretir; cevabı metinde verme."
         : "")
     : "";
 

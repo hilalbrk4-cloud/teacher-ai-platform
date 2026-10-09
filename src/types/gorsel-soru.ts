@@ -202,10 +202,26 @@ export const SENARYO_GOREVLERI = [
   "kalaniBulma",
   "coklugunKesri",
   "karsilastirma",
+  "parcaButun",
+  "kesirSiralama",
+  "olabilirCikarim",
+  "denklikOlamaz",
   "cokAdimliCikarim",
 ] as const;
 
 export type SenaryoGorevi = (typeof SENARYO_GOREVLERI)[number];
+
+/**
+ * Cevabı bir sayı değil bir sıralama ya da seçim olan görevler: bağlamı,
+ * verileri, doğru cevabı ve şıkları kod kurar (bkz. `SenaryoCikarimPlani`);
+ * model yalnızca senaryo metnini ve soru kökünü yazar.
+ */
+export const CIKARIM_GOREVLERI = ["kesirSiralama", "olabilirCikarim", "denklikOlamaz"] as const;
+
+export type CikarimGorevi = (typeof CIKARIM_GOREVLERI)[number];
+
+/** Modelin hesap adımlarını yazdığı, kodun bu hesabı yeniden yaptığı görevler. */
+export type SayisalGorevi = Exclude<SenaryoGorevi, "cokAdimliCikarim" | CikarimGorevi>;
 
 export const SENARYO_SAHNELERI = ["market", "mutfak", "sinif", "park", "yolculuk", "genel"] as const;
 
@@ -251,6 +267,8 @@ export type GorselSoruIcerigi = {
 export interface SenaryoSayilari {
   /** Kodun seçtiği gerçekçi bağlam (ör. terzi ve kumaş); model senaryoyu bu bağlamda yazar. */
   baglam: string;
+  /** Bağlamın konusu (ör. "market", "tarım"); aynı quizde aynı konu tekrar etmesin diye. */
+  konu?: string;
   /** Bu bağlam için doğal Türkçeyle yazılmış örnek soru kökü. */
   ornekSoru: string;
   /** Şıklarda sayının yanına yazılan birim (ör. "kg", "sayfa"); sayılan nesnelerde yok. */
@@ -272,7 +290,33 @@ export interface SenaryoSayilari {
   secenekler: { deger: Kesir; hata?: string }[];
 }
 
-/** Blueprint'in bir `gorselSoru` sırasına atadığı tip, görev ve (sayısal senaryolarda) sayılar. */
+/**
+ * Çıkarım görevlerinde (sıralama, "olabilir", "olamaz") kodun kurduğu plan:
+ * doğru cevap ve her çeldirici koddan gelir, model yalnızca metni yazar;
+ * kod metnin bu verileri ve ifadeleri içerdiğini denetler.
+ */
+export interface SenaryoCikarimPlani {
+  baglam: string;
+  /** Bağlamın konusu (ör. "tarım"); aynı quizde aynı konu tekrar etmesin diye. */
+  konu: string;
+  ornekSoru: string;
+  /** Senaryoda aynen (aynı yazımla) geçmesi gereken sayılar. */
+  veriler: { ad: string; deger: Kesir }[];
+  /** Senaryoda geçmesi gereken adlar (ürün, kişi…); şıklar bu adlarla yazılır. */
+  adlar: string[];
+  /** Senaryoda geçmesi gereken bilgiler; her grup aynı bilginin kabul edilen yazımlarıdır. */
+  anahtarIfadeler: string[][];
+  /** Soru kökünde geçmesi gereken ifadeler (ör. "büyükten küçüğe", "olamaz"). */
+  kokIfadeleri: string[][];
+  /** Doğru cevaba nasıl ulaşıldığı (prompt'ta modele gösterilir). */
+  ipucu: string;
+  /** Öğrenciye gösterilecek çözüm; koddan üretilir. */
+  cozum: string;
+  /** Şıklar, gösterilecek sırayla; doğru şıkta `hata` yoktur. */
+  secenekler: { metin: string; hata?: string }[];
+}
+
+/** Blueprint'in bir `gorselSoru` sırasına atadığı tip, görev ve (senaryolarda) kodun kurduğu plan. */
 export type GorselSoruPlani = {
   [K in GorselSoruTipi]: { tip: K; gorev: GorselSoruGorevHaritasi[K] };
-}[GorselSoruTipi] & { sayilar?: SenaryoSayilari };
+}[GorselSoruTipi] & { sayilar?: SenaryoSayilari; cikarim?: SenaryoCikarimPlani };

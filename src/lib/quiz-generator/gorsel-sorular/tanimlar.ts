@@ -8,9 +8,12 @@ import {
   type GorselSoruTanimi,
 } from "@/lib/quiz-generator/gorsel-sorular/ortak";
 import { sayiDogrusuTanimi } from "@/lib/quiz-generator/gorsel-sorular/sayi-dogrusu";
+import { cikarimPlaniUret } from "@/lib/quiz-generator/gorsel-sorular/senaryo-cikarim";
 import { senaryoSayilariUret } from "@/lib/quiz-generator/gorsel-sorular/senaryo-sayilari";
 import {
+  CIKARIM_GOREVLERI,
   GORSEL_SORU_TIPLERI,
+  type CikarimGorevi,
   type SenaryoGorevi,
   type GorselSoruGorevHaritasi,
   type GorselSoruIcerigi,
@@ -78,18 +81,27 @@ const BASIT_OKUMA_TIPLERI: readonly GorselSoruTipi[] = ["sayi_dogrusu", "kesir_k
 const EN_FAZLA_BASIT_OKUMA = 2;
 
 /**
- * Çok adımlı senaryo görevlerinin tercih sırası: en çok işlem adımı olan
- * önce gelir (iki kesir işlemi + karşılaştırma/kalan, sonra bölme +
- * yuvarlama, sonra birim bulma + ölçekleme).
+ * Çok adımlı senaryo görevlerinin (problem ailelerinin) sırası. Her görev
+ * ayrı bir ailedir (references/senaryo-kalite-referans-v2.md); sıra, ardışık
+ * soruların farklı becerileri sınaması için hesap ağırlıklı aileler ile
+ * çıkarım ailelerini dönüşümlü dizer. Başlangıç noktası konudan türetilir.
  */
 const COK_ADIMLI_GOREV_SIRASI: readonly SenaryoGorevi[] = [
   "karsilastirma",
-  "kalaniBulma",
+  "parcaButun",
   "coklugunKesri",
+  "olabilirCikarim",
+  "kalaniBulma",
+  "kesirSiralama",
   "bolmeEnFazla",
+  "denklikOlamaz",
   "birimOlcekleme",
   "cokAdimliCikarim",
 ];
+
+function cikarimGoreviMi(gorev: SenaryoGorevi): gorev is CikarimGorevi {
+  return (CIKARIM_GOREVLERI as readonly string[]).includes(gorev);
+}
 
 const ZORLUK_SIRASI: Record<QuestionBlueprintSlot["difficulty"], number> = { easy: 0, medium: 1, hard: 2 };
 
@@ -101,9 +113,11 @@ const ZORLUK_SIRASI: Record<QuestionBlueprintSlot["difficulty"], number> = { eas
  *   soruların üçte biri kadardır, en fazla 2 (5 soruda 1, 6+ soruda 2).
  *   Blueprint'in en kolay işaretlediği sıralara verilir; iki tane varsa
  *   farklı tiplerdendir.
- * - Kalan sıralar çok adımlı senaryo görevleridir: önce her görev birer kez
- *   (en çok adımlı olandan başlayarak) kullanılır; tekrar eden görev
- *   sıraya özgü tohumla farklı sayılar alır.
+ * - Kalan sıralar çok adımlı senaryo görevleridir (her biri ayrı bir problem
+ *   ailesi): önce her aile birer kez kullanılır; tekrar eden aile sıraya
+ *   özgü tohumla farklı sayılar alır.
+ * - Bağlam konuları (market, tarım, spor…) quizde mümkün olduğunca tekrar
+ *   etmez: her senaryo, öncekilerin konularından farklı bir bağlam seçer.
  * - Kesir tipleri/görevleri yalnızca konu veya kazanımlar kesirlerle
  *   ilgiliyse atanır; aksi hâlde yalnızca derse bağımsız görevler kalır.
  * - Seçimler konudan türetilen sabit bir tohumla döndürülür: aynı plan her
@@ -142,6 +156,7 @@ export function gorselSoruPlaniAta(
 
   let basitSira = 0;
   let cokAdimliSira = 0;
+  const kullanilanKonular = new Set<string>();
   return slots.map((slot) => {
     if (slot.type !== "gorselSoru") return slot;
     let plan: GorselSoruPlani;
@@ -157,12 +172,19 @@ export function gorselSoruPlaniAta(
       // tümü kullanılmadan hiçbiri tekrar etmez.
       const gorev = cokAdimliGorevler[(cokAdimliSira + baslangic) % cokAdimliGorevler.length];
       cokAdimliSira += 1;
-      // Sayısal senaryolarda sayıları kod seçer; model yalnızca senaryoyu yazar.
-      const sayilar =
-        gorev !== "cokAdimliCikarim"
-          ? senaryoSayilariUret(gorev as Exclude<SenaryoGorevi, "cokAdimliCikarim">, baslangic + slot.order * 7919)
-          : undefined;
-      plan = { tip: "gercek_hayat_senaryo", gorev, ...(sayilar ? { sayilar } : {}) };
+      // Sayıları, cevabı ve şıkları kod seçer; model yalnızca senaryoyu yazar.
+      const tohumu = baslangic + slot.order * 7919;
+      if (gorev === "cokAdimliCikarim") {
+        plan = { tip: "gercek_hayat_senaryo", gorev };
+      } else if (cikarimGoreviMi(gorev)) {
+        const cikarim = cikarimPlaniUret(gorev, tohumu, kullanilanKonular);
+        kullanilanKonular.add(cikarim.konu);
+        plan = { tip: "gercek_hayat_senaryo", gorev, cikarim };
+      } else {
+        const sayilar = senaryoSayilariUret(gorev, tohumu, kullanilanKonular);
+        if (sayilar.konu) kullanilanKonular.add(sayilar.konu);
+        plan = { tip: "gercek_hayat_senaryo", gorev, sayilar };
+      }
     }
     return { ...slot, gorselPlani: plan };
   });

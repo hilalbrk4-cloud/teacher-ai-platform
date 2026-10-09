@@ -6,7 +6,7 @@ import {
   tamSayiMi,
   type Oran,
 } from "@/lib/quiz-generator/gorsel-sorular/kesir-aritmetigi";
-import type { Kesir, SenaryoGorevi, SenaryoSayilari } from "@/types/gorsel-soru";
+import type { Kesir, SayisalGorevi, SenaryoSayilari } from "@/types/gorsel-soru";
 
 /**
  * Sayısal senaryo görevleri için BAĞLAMI, SAYILARI ve ŞIKLARI kod seçer.
@@ -28,16 +28,16 @@ import type { Kesir, SenaryoGorevi, SenaryoSayilari } from "@/types/gorsel-soru"
  * rastgelelik kullanmaz).
  */
 
-type SayisalGorev = Exclude<SenaryoGorevi, "cokAdimliCikarim">;
+type SayisalGorev = SayisalGorevi;
 
-interface Rastgele {
+export interface Rastgele {
   sec<T>(dizi: readonly T[]): T;
   aralik(min: number, max: number): number;
   karistir<T>(dizi: T[]): T[];
 }
 
 /** Küçük, tohumlanabilir sözde rastgele üreteç (mulberry32). */
-function rastgeleOlustur(tohum: number): Rastgele {
+export function rastgeleOlustur(tohum: number): Rastgele {
   let durum = tohum >>> 0;
   const sonraki = () => {
     durum = (durum + 0x6d2b79f5) >>> 0;
@@ -60,7 +60,7 @@ function rastgeleOlustur(tohum: number): Rastgele {
   };
 }
 
-function ebob(a: number, b: number): number {
+export function ebob(a: number, b: number): number {
   return b === 0 ? a : ebob(b, a % b);
 }
 
@@ -122,6 +122,8 @@ function secenekleriKur(r: Rastgele, cevap: Oran, celdiriciler: Celdirici[]): Se
 // ---------------------------------------------------------------------------
 
 interface BolmeBaglami {
+  /** Bağlamın konusu: aynı quizde aynı konu tekrar etmesin (bkz. `senaryoSayilariUret`). */
+  konu: string;
   baglam: string;
   ornekSoru: string;
   birim: string;
@@ -138,6 +140,7 @@ interface BolmeBaglami {
 
 const EN_FAZLA_BAGLAMLARI: readonly BolmeBaglami[] = [
   {
+    konu: "atölye",
     baglam: "Bir terzi, belirli uzunluktaki bir kumaştan aynı modelde gömlekler dikecek; her gömleğe aynı uzunlukta kumaş gider.",
     ornekSoru: "Buna göre terzi bu kumaşla en fazla kaç gömlek dikebilir?",
     birim: "metre",
@@ -147,6 +150,7 @@ const EN_FAZLA_BAGLAMLARI: readonly BolmeBaglami[] = [
     toplamBicim: "bilesik",
   },
   {
+    konu: "hediye",
     baglam: "Bir kırtasiyeci, bir top kurdeleyi kesip hediye paketlerini süsleyecek; her pakete aynı uzunlukta kurdele kullanılır.",
     ornekSoru: "Buna göre bu kurdeleyle en fazla kaç paket süslenebilir?",
     birim: "metre",
@@ -155,6 +159,7 @@ const EN_FAZLA_BAGLAMLARI: readonly BolmeBaglami[] = [
     parca: (r) => sadeKesir(r, [3, 4, 5, 6], false),
   },
   {
+    konu: "mutfak",
     baglam: "Bir kafede sürahideki süt, eşit miktarda olacak şekilde bardaklara dökülecek.",
     ornekSoru: "Buna göre sürahideki sütle en fazla kaç bardak doldurulabilir?",
     birim: "litre",
@@ -166,6 +171,7 @@ const EN_FAZLA_BAGLAMLARI: readonly BolmeBaglami[] = [
 
 const EN_AZ_BAGLAMLARI: readonly BolmeBaglami[] = [
   {
+    konu: "piknik",
     baglam: "Bir sınıfın pikniği için belirli miktarda ayran gerekiyor; ayran eşit hacimli büyük şişelerde satılıyor.",
     ornekSoru: "Buna göre ihtiyacı karşılamak için en az kaç şişe ayran alınmalıdır?",
     birim: "litre",
@@ -176,6 +182,7 @@ const EN_AZ_BAGLAMLARI: readonly BolmeBaglami[] = [
     parca: (r) => r.sec([o(3, 2), o(5, 2), o(9, 4)]),
   },
   {
+    konu: "boya",
     baglam: "Bir usta, bir duvarı boyamak için belirli miktarda boya kullanacak; boya eşit miktarlı kutularda satılıyor.",
     ornekSoru: "Buna göre usta en az kaç kutu boya almalıdır?",
     birim: "kilogram",
@@ -210,6 +217,7 @@ function bolmeEnFazla(r: Rastgele): SenaryoSayilari {
       ];
   return {
     baglam: b.baglam,
+    konu: b.konu,
     ornekSoru: b.ornekSoru,
     veriler: [
       { ad: b.toplamAdi, deger: kesir(toplam, b.toplamBicim) },
@@ -224,6 +232,8 @@ function bolmeEnFazla(r: Rastgele): SenaryoSayilari {
 }
 
 interface OlceklemeBaglami {
+  /** Bağlamın konusu: aynı quizde aynı konu tekrar etmesin (bkz. `senaryoSayilariUret`). */
+  konu: string;
   baglam: (k1: number) => string;
   ornekSoru: (k2: number) => string;
   birim: string;
@@ -236,6 +246,7 @@ interface OlceklemeBaglami {
 
 const OLCEKLEME_BAGLAMLARI: readonly OlceklemeBaglami[] = [
   {
+    konu: "harita",
     baglam: () =>
       "Bir krokide okul, kütüphane ve kafe aynı yol üzerinde gösterilmiştir; krokideki her kare gerçekte aynı uzunluğu gösterir. Okul ile kütüphane arasının kaç kare, kütüphane ile kafe arasının kaç kare olduğu verilir.",
     ornekSoru: () => "Buna göre kütüphane ile kafe arası kaç kilometredir?",
@@ -248,6 +259,7 @@ const OLCEKLEME_BAGLAMLARI: readonly OlceklemeBaglami[] = [
     birimDeger: (r) => sadeKesir(r, [4, 5], true),
   },
   {
+    konu: "market",
     baglam: (k1) => `Bir markette aynı ağırlıktaki pirinç paketleri satılıyor; ${k1} paketin toplam ağırlığı verilir.`,
     // Gerçek çıktıda "3 paket 3/5 kg" çıktı; pirinç paketi 1 kg’dan hafif olmaz.
     ornekSoru: (k2) => `Buna göre ${k2} paket pirinç kaç kilogramdır?`,
@@ -258,6 +270,7 @@ const OLCEKLEME_BAGLAMLARI: readonly OlceklemeBaglami[] = [
     birimDeger: (r) => sadeKesir(r, [2, 4], true),
   },
   {
+    konu: "ev",
     baglam: (k1) => `Bir musluktan her dakika eşit miktarda su akıyor; ${k1} dakikada akan su miktarı verilir.`,
     ornekSoru: (k2) => `Buna göre musluktan ${k2} dakikada kaç litre su akar?`,
     birim: "litre",
@@ -277,6 +290,7 @@ function birimOlcekleme(r: Rastgele): SenaryoSayilari {
   const cevap = carp(birim, o(k2));
   return {
     baglam: b.baglam(k1),
+    konu: b.konu,
     ornekSoru: b.ornekSoru(k2),
     birim: b.birim,
     anahtarIfadeler: b.anahtarIfadeler,
@@ -296,6 +310,8 @@ function birimOlcekleme(r: Rastgele): SenaryoSayilari {
 }
 
 interface CoklukBaglami {
+  /** Bağlamın konusu: aynı quizde aynı konu tekrar etmesin (bkz. `senaryoSayilariUret`). */
+  konu: string;
   baglam: string;
   ornekSoru: string;
   birim?: string;
@@ -313,6 +329,7 @@ const TUMUN_KESRI = [["tüm", "bütün", "yine"]];
 
 const KALAN_BAGLAMLARI: readonly CoklukBaglami[] = [
   {
+    konu: "market",
     baglam: "Bir manav sabah belirli miktarda elma aldı; öğleden önce elmaların bir kısmını, öğleden sonra yine TÜM elmaların bir kısmını sattı.",
     ornekSoru: "Buna göre akşam manavda kaç kilogram elma kalmıştır?",
     birim: "kg",
@@ -323,6 +340,7 @@ const KALAN_BAGLAMLARI: readonly CoklukBaglami[] = [
     anahtarIfadeler: TUMUN_KESRI,
   },
   {
+    konu: "kitap",
     // "Eylem 200 sayfalık bir kitabın pazartesi günü tüm kitabın 1/4’ünü okudu" gibi bozuk cümleler çıktı:
     // kitap önce kendi cümlesinde tanıtılmalı.
     baglam:
@@ -336,6 +354,7 @@ const KALAN_BAGLAMLARI: readonly CoklukBaglami[] = [
     anahtarIfadeler: TUMUN_KESRI,
   },
   {
+    konu: "para",
     baglam: "Bir öğrenci harçlığının bir kısmını kitaba, yine TÜM harçlığının bir kısmını kırtasiye malzemesine harcadı.",
     ornekSoru: "Buna göre öğrencinin harçlığından kaç lira kalmıştır?",
     birim: "TL",
@@ -349,6 +368,19 @@ const KALAN_BAGLAMLARI: readonly CoklukBaglami[] = [
 
 const ARDISIK_BAGLAMLARI: readonly CoklukBaglami[] = [
   {
+    // references/senaryo-kalite-referans-v2.md — Aile 4 (kesrin kesri): "kalanın yarısı", tümün yarısı sanılırsa yanlış çıkar.
+    konu: "sınav",
+    baglam:
+      "Bir öğrenci bir sınavda soruların bir kısmını doğru yaptı; doğru yapamadığı (KALAN) soruların bir kısmını boş bıraktı, geri kalanını yanlış yaptı.",
+    ornekSoru: "Buna göre öğrenci kaç soruyu yanlış yapmıştır?",
+    butunAdi: "sınavdaki soru sayısı",
+    birinciAdi: "doğru yapılan, tüm soruların kesri",
+    ikinciAdi: "boş bırakılan, doğru yapılamayan (kalan) soruların kesri",
+    aralik: [12, 40],
+    anahtarIfadeler: [["kalan", "doğru yapamadığı", "doğru yapmadığı"]],
+  },
+  {
+    konu: "okul",
     baglam: "Bir sınıftaki öğrencilerin bir kısmı okula servisle geliyor; servisle GELMEYENLERİN bir kısmı bisikletle, geri kalanı yürüyerek geliyor.",
     ornekSoru: "Buna göre bu sınıfta okula yürüyerek gelen kaç öğrenci vardır?",
     butunAdi: "sınıftaki öğrenci sayısı",
@@ -358,6 +390,7 @@ const ARDISIK_BAGLAMLARI: readonly CoklukBaglami[] = [
     anahtarIfadeler: [["gelmeyen", "geriye kalan", "kalanların"]],
   },
   {
+    konu: "tarım",
     baglam: "Bir fidanlıktaki fidanların bir kısmı çamdır; çam OLMAYANLARIN bir kısmı ıhlamur, geri kalanı meşedir.",
     ornekSoru: "Buna göre fidanlıkta kaç meşe fidanı vardır?",
     butunAdi: "fidan sayısı",
@@ -367,6 +400,7 @@ const ARDISIK_BAGLAMLARI: readonly CoklukBaglami[] = [
     anahtarIfadeler: [["olmayan", "geriye kalan", "kalanların"]],
   },
   {
+    konu: "kitap",
     baglam: "Bir okul kütüphanesine gelen kitapların bir kısmı romandır; roman OLMAYANLARIN bir kısmı hikâye, geri kalanı şiir kitabıdır.",
     ornekSoru: "Buna göre kütüphaneye kaç şiir kitabı gelmiştir?",
     butunAdi: "gelen kitap sayısı",
@@ -399,6 +433,7 @@ function kalaniBulma(r: Rastgele): SenaryoSayilari {
     const ilkKalan = cikar(w, birinci);
     return {
       baglam: b.baglam,
+      konu: b.konu,
       ornekSoru: b.ornekSoru,
       birim: b.birim,
       anahtarIfadeler: b.anahtarIfadeler,
@@ -431,6 +466,7 @@ function coklugunKesri(r: Rastgele): SenaryoSayilari {
     if (cevap.pay <= 0) continue;
     return {
       baglam: b.baglam,
+      konu: b.konu,
       ornekSoru: b.ornekSoru,
       birim: b.birim,
       anahtarIfadeler: b.anahtarIfadeler,
@@ -451,6 +487,8 @@ function coklugunKesri(r: Rastgele): SenaryoSayilari {
 }
 
 interface KarsilastirmaBaglami {
+  /** Bağlamın konusu: aynı quizde aynı konu tekrar etmesin (bkz. `senaryoSayilariUret`). */
+  konu: string;
   baglam: string;
   ornekSoru: string;
   birim: string;
@@ -460,6 +498,7 @@ interface KarsilastirmaBaglami {
 
 const KARSILASTIRMA_BAGLAMLARI: readonly KarsilastirmaBaglami[] = [
   {
+    konu: "kitap",
     baglam: "Elif ve Can, sayfa sayıları farklı iki kitap okuyor; her biri kendi kitabının bir kısmını okudu.",
     ornekSoru: "Buna göre Elif, Can'dan kaç sayfa fazla okumuştur?",
     birim: "sayfa",
@@ -467,6 +506,7 @@ const KARSILASTIRMA_BAGLAMLARI: readonly KarsilastirmaBaglami[] = [
     aralik: [60, 240],
   },
   {
+    konu: "para",
     baglam: "Ayşe ve Mert, harçlıklarının bir kısmını biriktiriyor; harçlıkları farklıdır.",
     ornekSoru: "Buna göre Ayşe, Mert'ten kaç lira fazla biriktirmiştir?",
     birim: "TL",
@@ -474,6 +514,7 @@ const KARSILASTIRMA_BAGLAMLARI: readonly KarsilastirmaBaglami[] = [
     aralik: [40, 200],
   },
   {
+    konu: "tarım",
     baglam: "İki çiftçi, büyüklükleri farklı tarlalarının bir kısmına buğday ekti.",
     ornekSoru: "Buna göre birinci çiftçi, ikinci çiftçiden kaç dönüm fazla buğday ekmiştir?",
     birim: "dönüm",
@@ -497,6 +538,7 @@ function karsilastirma(r: Rastgele): SenaryoSayilari {
     if (cevap.pay <= 0) continue;
     return {
       baglam: b.baglam,
+      konu: b.konu,
       ornekSoru: b.ornekSoru,
       birim: b.birim,
       veriler: [
@@ -525,6 +567,7 @@ function araliklar(r: Rastgele): SenaryoSayilari {
   return {
     baglam:
       "Bir koşu pistine engeller dizilecek; ilk engelin başlangıç çizgisine, son engelin bitiş çizgisine uzaklığı ve ardışık iki engel arasındaki uzaklık eşittir.",
+    konu: "spor",
     ornekSoru: "Buna göre piste toplam kaç engel yerleştirilmiştir?",
     veriler: [
       { ad: "pistin uzunluğu (metre)", deger: kesir(uzunluk, "bilesik") },
@@ -540,7 +583,86 @@ function araliklar(r: Rastgele): SenaryoSayilari {
   };
 }
 
+interface ParcaButunBaglami {
+  konu: string;
+  baglam: string;
+  ornekSoru: string;
+  kisiAdi: string;
+  parcaAdi: string;
+  /** Bütünün bölündüğü eş parça sayısı için gerçekçi değerler. */
+  parcaSayilari: readonly number[];
+}
+
+// references/senaryo-kalite-referans-v2.md — Aile 1 (parça-bütün / servis):
+// "5 arkadaş" denince 5 sayıp kendisini unutmak asıl tuzaktır.
+const PARCA_BUTUN_BAGLAMLARI: readonly ParcaButunBaglami[] = [
+  {
+    konu: "kutlama",
+    baglam:
+      "Bir çocuk arkadaşlarını doğum gününe davet ediyor; pasta eş dilimlere bölünüyor ve KENDİSİ DÂHİL herkese aynı sayıda dilim veriliyor.",
+    ornekSoru: "Buna göre yenen pasta, bütün pastanın kaçta kaçıdır?",
+    kisiAdi: "davet edilen arkadaş sayısı",
+    parcaAdi: "pastanın bölündüğü eş dilim sayısı",
+    parcaSayilari: [12, 16, 18, 20, 24],
+  },
+  {
+    konu: "mutfak",
+    baglam:
+      "Bir öğrenci arkadaşlarıyla pizza yiyor; pizza eş dilimlere bölünmüş ve KENDİSİ DÂHİL herkes aynı sayıda dilim yiyor.",
+    ornekSoru: "Buna göre yenen pizza, bütün pizzanın kaçta kaçıdır?",
+    kisiAdi: "öğrencinin yanındaki arkadaş sayısı",
+    parcaAdi: "pizzanın bölündüğü eş dilim sayısı",
+    parcaSayilari: [12, 16, 18, 24],
+  },
+  {
+    konu: "spor",
+    baglam:
+      "Bir antrenör, bir koli sudan takımındaki oyunculara ve KENDİSİNE aynı sayıda şişe ayırıyor.",
+    ornekSoru: "Buna göre ayrılan su şişeleri, kolinin kaçta kaçıdır?",
+    kisiAdi: "takımdaki oyuncu sayısı",
+    parcaAdi: "kolideki su şişesi sayısı",
+    parcaSayilari: [16, 20, 24, 30],
+  },
+];
+
+function parcaButun(r: Rastgele): SenaryoSayilari {
+  for (;;) {
+    const b = r.sec(PARCA_BUTUN_BAGLAMLARI);
+    const kisi = r.aralik(3, 7);
+    const herKise = r.sec([1, 2]);
+    const parca = r.sec(b.parcaSayilari);
+    const yenen = (kisi + 1) * herKise;
+    // Cevap 1'den küçük olmalı ve sadeleştirme gerektirmeli (referanstaki 6/12 = 1/2 gibi).
+    if (yenen >= parca || ebob(yenen, parca) === 1) continue;
+    const cevap = o(yenen, parca);
+    return {
+      baglam: b.baglam + (herKise > 1 ? " Kişi başına düşen parça sayısı rakamla yazılır (ör. 2'şer)." : " Herkese birer parça düşer."),
+      konu: b.konu,
+      ornekSoru: b.ornekSoru,
+      anahtarIfadeler: [["kendisi dahil", "kendisi dâhil", "kendisi de", "kendisine de", "kendine de", "kendisi için de", "kendisine"]],
+      veriler: [
+        { ad: b.kisiAdi, deger: kesir(o(kisi)) },
+        { ad: b.parcaAdi, deger: kesir(o(parca)) },
+        ...(herKise > 1 ? [{ ad: "kişi başına düşen parça sayısı", deger: kesir(o(herKise)) }] : []),
+      ],
+      cevap: kesir(cevap),
+      ipucu:
+        `${kisi} + 1 (kendisi) = ${kisi + 1} kişi` +
+        (herKise > 1 ? `; ${kisi + 1} × ${herKise} = ${yenen} parça` : "") +
+        `; ${yenen} ÷ ${parca} = ${metin(cevap)}`,
+      secenekler: secenekleriKur(r, cevap, [
+        { deger: o(kisi * herKise, parca), hata: "birEksik" }, // kendisini saymayı unutmak
+        { deger: cikar(o(1), cevap), hata: "yanlisIslem" }, // yeneni değil kalanı bulmak
+        herKise > 1
+          ? { deger: o(kisi + 1, parca), hata: "adimAtlama" } // kişi başına düşen parçayı unutmak
+          : { deger: o(kisi + 2, parca), hata: "birFazla" },
+      ]),
+    };
+  }
+}
+
 const URETICILER: Record<SayisalGorev, (r: Rastgele) => SenaryoSayilari> = {
+  parcaButun,
   bolmeEnFazla,
   birimOlcekleme,
   araliklar,
@@ -549,12 +671,26 @@ const URETICILER: Record<SayisalGorev, (r: Rastgele) => SenaryoSayilari> = {
   karsilastirma,
 };
 
-export function senaryoSayilariUret(gorev: SayisalGorev, tohum: number): SenaryoSayilari {
+/** Bir görevin, kaçınılacak konulardan farklı bir bağlam bulmak için en fazla deneyeceği tohum sayısı. */
+const KONU_DENEME_SINIRI = 40;
+
+/**
+ * `kacinilacakKonular`: quizdeki önceki senaryoların konuları; mümkünse
+ * farklı bir konu seçilir (aynı quizde hep market ya da hep harçlık olmasın).
+ * Görevin farklı konulu bağlamı kalmadıysa konu tekrarına izin verilir.
+ */
+export function senaryoSayilariUret(
+  gorev: SayisalGorev,
+  tohum: number,
+  kacinilacakKonular: ReadonlySet<string> = new Set()
+): SenaryoSayilari {
   // Cevap, senaryoya yazılacak bir sayıya eşit çıkarsa (ör. sonuç 3 ve
   // verilerden biri "3 paket") cevap metinde verilmiş olur: o tohum atlanır.
   for (let deneme = 0; ; deneme += 1) {
     const plan = URETICILER[gorev](rastgeleOlustur(tohum + deneme * 1013));
     const cevap = oranYap(plan.cevap);
-    if (!plan.veriler.some((veri) => esitMi(oranYap(veri.deger), cevap))) return plan;
+    if (plan.veriler.some((veri) => esitMi(oranYap(veri.deger), cevap))) continue;
+    if (deneme < KONU_DENEME_SINIRI && plan.konu && kacinilacakKonular.has(plan.konu)) continue;
+    return plan;
   }
 }

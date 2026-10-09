@@ -11,9 +11,10 @@ import {
   gorselSoruCevapMetni,
 } from "@/lib/quiz-generator/gorsel-sorular/tanimlar";
 import { esitMi, oranYap, tamSayiMi } from "@/lib/quiz-generator/gorsel-sorular/kesir-aritmetigi";
+import { cikarimPlaniUret } from "@/lib/quiz-generator/gorsel-sorular/senaryo-cikarim";
 import { senaryoSayilariUret } from "@/lib/quiz-generator/gorsel-sorular/senaryo-sayilari";
 import { mockQuizGenerationService } from "@/lib/quiz-generator/mock-generation-service";
-import { GORSEL_SORU_TIPLERI, type GorselSoruPlani, type GorselSoruTipi } from "@/types/gorsel-soru";
+import { CIKARIM_GOREVLERI, GORSEL_SORU_TIPLERI, type GorselSoruPlani, type GorselSoruTipi } from "@/types/gorsel-soru";
 import type { QuizFormInput } from "@/types/quiz-generator";
 
 type Veri = Record<string, unknown>;
@@ -22,10 +23,15 @@ function klonla<T>(value: T): T {
   return JSON.parse(JSON.stringify(value)) as T;
 }
 
-/** Bir görevin planı; sayısal senaryolarda örneğin kendi plan sayılarıyla (bağlam, cevap, kodun şıkları). */
+/** Bir görevin planı; senaryolarda örneğin kendi planıyla (bağlam, veriler, cevap, kodun şıkları). */
 function ornekPlan(tip: GorselSoruTipi, gorev: string): GorselSoruPlani {
-  const sayilar = gorevTanimi({ tip, gorev } as GorselSoruPlani).ornekSayilari;
-  return { tip, gorev, ...(sayilar ? { sayilar: klonla(sayilar) } : {}) } as GorselSoruPlani;
+  const { ornekSayilari: sayilar, ornekCikarim: cikarim } = gorevTanimi({ tip, gorev } as GorselSoruPlani);
+  return {
+    tip,
+    gorev,
+    ...(sayilar ? { sayilar: klonla(sayilar) } : {}),
+    ...(cikarim ? { cikarim: klonla(cikarim) } : {}),
+  } as GorselSoruPlani;
 }
 
 const TUM_PLANLAR: GorselSoruPlani[] = GORSEL_SORU_TIPLERI.flatMap((tip) =>
@@ -98,8 +104,8 @@ describe("görsel soru planı (Blueprint)", () => {
         const basit = plan.filter((item) => item.tip !== "gercek_hayat_senaryo");
         expect(basit).toHaveLength(Math.min(2, Math.floor(questionCount / 3)));
         const senaryolar = plan.filter((item) => item.tip === "gercek_hayat_senaryo");
-        // Kesir konusunda her senaryo, sayıları kodun seçtiği çok adımlı bir görevdir.
-        expect(senaryolar.every((item) => item.gorev !== "cokAdimliCikarim" && item.sayilar)).toBe(true);
+        // Kesir konusunda her senaryonun verilerini, cevabını ve şıklarını kod kurar.
+        expect(senaryolar.every((item) => item.gorev !== "cokAdimliCikarim" && (item.sayilar || item.cikarim))).toBe(true);
       }
     }
   });
@@ -138,7 +144,15 @@ describe("görsel soru planı (Blueprint)", () => {
           .map((plan) => plan.gorev)
       );
     const besinci = tumSenaryoGorevleri("5. Sınıf");
-    expect([...besinci].sort()).toEqual(["coklugunKesri", "kalaniBulma", "karsilastirma"]);
+    expect([...besinci].sort()).toEqual([
+      "coklugunKesri",
+      "denklikOlamaz",
+      "kalaniBulma",
+      "karsilastirma",
+      "kesirSiralama",
+      "olabilirCikarim",
+      "parcaButun",
+    ]);
     const altinci = tumSenaryoGorevleri("6. Sınıf");
     expect(altinci.has("bolmeEnFazla") && altinci.has("birimOlcekleme")).toBe(true);
     expect(altinci.has("cokAdimliCikarim")).toBe(false);
@@ -441,7 +455,7 @@ describe("gercek_hayat_senaryo", () => {
 });
 
 describe("senaryo planı (bağlam, sayılar, şıklar kod tarafından)", () => {
-  const SAYISAL = ["bolmeEnFazla", "birimOlcekleme", "araliklar", "kalaniBulma", "coklugunKesri", "karsilastirma"] as const;
+  const SAYISAL = ["bolmeEnFazla", "birimOlcekleme", "araliklar", "kalaniBulma", "coklugunKesri", "karsilastirma", "parcaButun"] as const;
   const SAYILAN = new Set(["bolmeEnFazla", "araliklar", "kalaniBulma", "coklugunKesri", "karsilastirma"]);
 
   it.each(SAYISAL)("%s: 300 tohumda koşulları sağlayan sayılar ve 4 farklı şık üretir", (gorev) => {
@@ -464,6 +478,59 @@ describe("senaryo planı (bağlam, sayılar, şıklar kod tarafından)", () => {
       expect(plan.ornekSoru.trim().endsWith("?")).toBe(true);
     }
   });
+
+  // Çıkarım görevlerinde doğru şık, planın verilerinden bağımsız olarak yeniden hesaplanır.
+  const metniKesir = (metin: string) => {
+    const eslesme = metin.match(/^(?:(\d+) )?(\d+)\/(\d+)/);
+    if (!eslesme) throw new Error(`kesir okunamadı: ${metin}`);
+    const [, tam, pay, payda] = eslesme;
+    return oranYap({ pay: (tam ? Number(tam) * Number(payda) : 0) + Number(pay), payda: Number(payda) });
+  };
+  const ondalik = (deger: { pay: number; payda: number }) => deger.pay / deger.payda;
+
+  it.each(CIKARIM_GOREVLERI)("%s: 300 tohumda 4 farklı şık üretir; doğru şık verilerden bağımsız hesapla doğrulanır", (gorev) => {
+    for (let tohum = 1; tohum <= 300; tohum += 1) {
+      const plan = cikarimPlaniUret(gorev, tohum * 7919);
+      expect(plan.secenekler).toHaveLength(4);
+      expect(new Set(plan.secenekler.map((secenek) => secenek.metin)).size).toBe(4);
+      const dogrular = plan.secenekler.filter((secenek) => secenek.hata === undefined);
+      expect(dogrular).toHaveLength(1);
+      expect(plan.ornekSoru.trim().endsWith("?")).toBe(true);
+      const dogru = dogrular[0].metin;
+      const degerler = plan.veriler.map((veri) => oranYap(veri.deger));
+
+      if (gorev === "kesirSiralama") {
+        const buyuktenKucuge = plan.ornekSoru.includes("büyükten küçüğe");
+        const sirali = plan.adlar
+          .map((ad, i) => ({ ad, d: ondalik(degerler[i]), i }))
+          .sort((a, b) => (buyuktenKucuge ? b.d - a.d : a.d - b.d) || a.i - b.i);
+        const beklenen = sirali
+          .map((oge, i) => {
+            const ad = oge.ad.charAt(0).toLocaleUpperCase("tr-TR") + oge.ad.slice(1);
+            if (i === 0) return ad;
+            return (sirali[i - 1].d === oge.d ? " = " : buyuktenKucuge ? " > " : " < ") + ad;
+          })
+          .join("");
+        expect(dogru).toBe(beklenen);
+      } else if (gorev === "olabilirCikarim") {
+        const [alt, ust] = plan.veriler[1].ad.includes("(en büyük)")
+          ? [ondalik(degerler[0]), ondalik(degerler[1])]
+          : [ondalik(degerler[1]), Infinity];
+        const uygunlar = plan.secenekler.filter((secenek) => {
+          const d = ondalik(metniKesir(secenek.metin));
+          return d > alt && d < ust;
+        });
+        expect(uygunlar.map((secenek) => secenek.metin)).toEqual([dogru]);
+      } else {
+        // denklikOlamaz: doğru şık, hiçbir bileşik kesre eşit olmayan TEK şıktır.
+        const esitOlmayanlar = plan.secenekler.filter(
+          (secenek) => !degerler.some((deger) => esitMi(deger, metniKesir(secenek.metin)))
+        );
+        expect(esitOlmayanlar.map((secenek) => secenek.metin)).toEqual([dogru]);
+      }
+    }
+  });
+
 
   it("çeldiriciler yaygın hataların hesaplanmış sonuçlarıdır (örnek: 'en fazla' görevinde yanlış yöne yuvarlama)", () => {
     for (let tohum = 1; tohum <= 100; tohum += 1) {

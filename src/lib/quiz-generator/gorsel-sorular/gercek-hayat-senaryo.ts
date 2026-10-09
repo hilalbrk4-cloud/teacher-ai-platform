@@ -36,13 +36,17 @@ import {
   type JsonSemasi,
 } from "@/lib/quiz-generator/gorsel-sorular/ortak";
 import {
+  CIKARIM_GOREVLERI,
   SENARYO_GOREVLERI,
   SENARYO_SAHNELERI,
+  type CikarimGorevi,
   type GercekHayatSenaryoVerisi,
   type GorselSoruPlani,
   type Kesir,
   type MetinSecenegi,
   type SenaryoGorevi,
+  type SayisalGorevi,
+  type SenaryoCikarimPlani,
   type SenaryoSahnesi,
   type SenaryoSayilari,
 } from "@/types/gorsel-soru";
@@ -70,7 +74,11 @@ export const HATA_TURLERI = [
   "yakinDeger",
 ] as const;
 
-type SayisalGorev = Exclude<SenaryoGorevi, "cokAdimliCikarim">;
+type SayisalGorev = SayisalGorevi;
+
+function cikarimGoreviMi(gorev: SenaryoGorevi): gorev is CikarimGorevi {
+  return (CIKARIM_GOREVLERI as readonly string[]).includes(gorev);
+}
 
 // ---------------------------------------------------------------------------
 // Ortak yardımcılar
@@ -369,6 +377,21 @@ const SAYISAL_KURALLAR: Record<SayisalGorev, SayisalGorevKurali> = {
         ? undefined
         : "Bir çokluğun kesri (çokluk × kesir) hesaplanmalıdır.",
   },
+  parcaButun: {
+    tamSayiSonuc: false,
+    yapi: ({ hesap }) => {
+      // Aile 1'in asıl inceliği: kişi sayısına kendisi de eklenir (… + 1).
+      const kendisiEklendi = hesap.some(
+        (adim) =>
+          adim.islem === "topla" &&
+          adim.girdiler.some((girdi) => girdi.veridenMi && esitMi(girdi.deger, { pay: 1, payda: 1 }))
+      );
+      if (!kendisiEklendi) return "Kişi sayısına kendisi de eklenmelidir (arkadaş sayısı + 1).";
+      return hesap[hesap.length - 1].islem === "bol"
+        ? undefined
+        : "Son adım, kullanılan parça sayısının toplam parça sayısına bölünmesi olmalıdır.";
+    },
+  },
   karsilastirma: {
     tamSayiSonuc: true,
     yapi: ({ hesap }) =>
@@ -526,6 +549,110 @@ function dogrulaSayisal(
 }
 
 // ---------------------------------------------------------------------------
+// Çıkarım görevleri (sıralama, "olabilir", "olamaz"): cevabı ve şıkları kod kurar
+// ---------------------------------------------------------------------------
+
+function dogrulaCikarim(
+  gorev: CikarimGorevi,
+  raw: Record<string, unknown>,
+  ortak: { senaryo: string; soru: string },
+  path: string,
+  sorunlar: Sorunlar,
+  plan?: SenaryoCikarimPlani
+): Sonuc {
+  // references/senaryo-kalite-referans-v2.md, Bölüm 5: doğru cevabı ve
+  // şıkları kod hesaplar; plansız bir çıkarım sorusu kabul edilmez.
+  if (!plan) {
+    sorunlar.push({ path, message: "Bu görevin verileri, cevabı ve şıkları sistem tarafından planlanmalıdır." });
+    return undefined;
+  }
+  const metin = `${ortak.senaryo} ${ortak.soru}`;
+  const normal = metniNormallestir(metin);
+
+  const eksik = plan.veriler.find((veri) => !senaryodaGeciyorMu(metin, oranYap(veri.deger)));
+  if (eksik) {
+    sorunlar.push({
+      path: `${path}.senaryo`,
+      message: `Sistemin verdiği ${kesirGosterimi(eksik.deger)} (${eksik.ad}) senaryoda geçmiyor; verilen sayıları aynen kullan.`,
+    });
+    return undefined;
+  }
+  // Planda olmayan bir sayı, şıklarla ya da cevapla çelişebilir (öğe sayısı ve 1 serbesttir).
+  const planDegerleri = plan.veriler.map((veri) => oranYap(veri.deger));
+  const serbest = [1, plan.veriler.length];
+  const fazla = [
+    ...metindekiKesirler(metin).map((bulunan) => ({ metin: bulunan.metin, deger: oranYap(bulunan.kesir) })),
+    ...metindekiTamSayilar(metin).map((n) => ({ metin: String(n), deger: { pay: n, payda: 1 } })),
+  ].find(
+    (sayi) =>
+      !planDegerleri.some((deger) => esitMi(deger, sayi.deger)) &&
+      !(tamSayiMi(sayi.deger) && serbest.includes(sayi.deger.pay))
+  );
+  if (fazla) {
+    sorunlar.push({
+      path: `${path}.senaryo`,
+      message: `Metindeki ${fazla.metin} sistemin verdiği verilerden biri değil; yalnızca verilen sayıları yaz.`,
+    });
+    return undefined;
+  }
+  const eksikAd = plan.adlar.find((ad) => !normal.includes(metniNormallestir(ad)));
+  if (eksikAd) {
+    sorunlar.push({ path: `${path}.senaryo`, message: `Senaryoda "${eksikAd}" adı aynen geçmeli; şıklar bu adlarla yazılır.` });
+    return undefined;
+  }
+  const eksikIfade = plan.anahtarIfadeler.find((grup) => !grup.some((ifade) => normal.includes(ifade)));
+  if (eksikIfade) {
+    sorunlar.push({
+      path: `${path}.senaryo`,
+      message: `Senaryo şu bilgiyi açıkça içermeli: "${eksikIfade[0]}". Bağlam cümlesini atlama.`,
+    });
+    return undefined;
+  }
+  const kok = metniNormallestir(ortak.soru);
+  const eksikKok = plan.kokIfadeleri.find((grup) => !grup.some((ifade) => kok.includes(ifade)));
+  if (eksikKok) {
+    sorunlar.push({ path: `${path}.soru`, message: `Soru kökü "${eksikKok[0]}" ifadesini içermeli (örnek soru kökünü izle).` });
+    return undefined;
+  }
+  // Cevabı metinde vermemek: sıralama işaretleri ya da kartların arka yüzleri yazılmaz.
+  if (gorev === "kesirSiralama" && /[<>]/.test(ortak.senaryo)) {
+    sorunlar.push({ path: `${path}.senaryo`, message: "Senaryo sıralamayı (<, >) vermemeli; sıralamayı öğrenci bulur." });
+    return undefined;
+  }
+  if (gorev === "denklikOlamaz" && metindekiKesirler(ortak.senaryo).some((bulunan) => bulunan.kesir.tam !== undefined)) {
+    sorunlar.push({
+      path: `${path}.senaryo`,
+      message: "Senaryoda tam sayılı kesir yazılmamalı; dönüşümü öğrenci yapar (yalnızca bileşik kesirler verilir).",
+    });
+    return undefined;
+  }
+  const dil = dilHatasi(ortak.senaryo, ortak.soru);
+  if (dil) {
+    sorunlar.push({ path: `${path}.senaryo`, message: `Dil hatası: ${dil}.` });
+    return undefined;
+  }
+
+  const secenekler = plan.secenekler.map((secenek, index) => ({
+    id: secenekHarfi(index),
+    metin: secenek.metin,
+    dogru: secenek.hata === undefined,
+  }));
+  const dogru = secenekler.find((secenek) => secenek.dogru);
+  if (!dogru) {
+    sorunlar.push({ path, message: "Planın şıkları arasında doğru cevap yok." });
+    return undefined;
+  }
+  const veri: GercekHayatSenaryoVerisi = {
+    gorev,
+    sahne: sahneOku(raw.sahne),
+    senaryo: ortak.senaryo,
+    secenekler: secenekler.map(({ id, metin: secenekMetni }) => ({ id, metin: secenekMetni })),
+    dogruSecenekId: dogru.id,
+  };
+  return { soru: ortak.soru, cozum: plan.cozum, veri };
+}
+
+// ---------------------------------------------------------------------------
 // Metinsel görev (kesir dışı konular): cevap hesaplanamaz
 // ---------------------------------------------------------------------------
 
@@ -578,6 +705,9 @@ function dogrula(raw: unknown, path: string, sorunlar: Sorunlar, plan?: GorselSo
   if (!gorev || !senaryo || !soru) return undefined;
   if (!ortakMetinDenetimi(senaryo, soru, path, sorunlar)) return undefined;
 
+  if (cikarimGoreviMi(gorev)) {
+    return dogrulaCikarim(gorev, raw, { senaryo, soru }, path, sorunlar, plan?.cikarim);
+  }
   if (gorev !== "cokAdimliCikarim") {
     return dogrulaSayisal(gorev, raw, { senaryo, soru }, path, sorunlar, plan?.sayilar);
   }
@@ -636,6 +766,25 @@ const SAYISAL_SEMA_ACIKLAMASI = [
   "ŞIKLARI SİSTEM ÜRETİR: çeldiriciler, yaygın öğrenci hatalarının hesaplanmış sonuçlarıdır. Sen şık yazmazsın.",
 ];
 
+function cikarimSema(gorev: CikarimGorevi): JsonSemasi {
+  // Şık ve hesap alanı yok: veriler, doğru cevap ve şıklar plandan gelir.
+  return jsonNesne({
+    gorev: jsonGorev(gorev),
+    sahne: jsonSecim(SENARYO_SAHNELERI),
+    senaryo: JSON_METIN,
+    soru: JSON_METIN,
+  });
+}
+
+const CIKARIM_SEMA_ACIKLAMASI = [
+  '"senaryo": SORU PLANI\'ndaki "Bağlam"ı kullanarak, verilen sayıların HEPSİNİ (aynı yazımla, rakamla) ve yalnızca ' +
+    'onları içeren 2-4 cümlelik akıcı bir metin. "Adlar" verildiyse bu adları aynen kullan.',
+  '"soru": "Örnek soru kökü"ne benzeyen tek ve net bir soru cümlesi (sonu "?" ile biter); planda "Soru kökünde geçmeli" ' +
+    "denen ifadeyi içermeli.",
+  "ŞIKLARI VE DOĞRU CEVABI SİSTEM ÜRETİR: çeldiriciler, yaygın öğrenci hatalarının sonuçlarıdır. Sen şık, hesap ya da " +
+    "cevap yazmazsın; cevabı (sıralamayı, dönüşümü) metinde VERMEZSİN.",
+];
+
 function metinselSema(gorev: SenaryoGorevi): JsonSemasi {
   return jsonNesne({
     gorev: jsonGorev(gorev),
@@ -674,6 +823,19 @@ function sayisalGorev(
     kesirKonusuGerekir: true,
     semaAciklamasi: [...SAYISAL_SEMA_ACIKLAMASI, ...(semaEki ?? [])],
     jsonSemasi: sayisalSema(gorev),
+  };
+}
+
+function cikarimGorev(
+  gorev: CikarimGorevi,
+  tanim: Omit<GorselSoruGorevTanimi<"gercek_hayat_senaryo">, "gorev" | "jsonSemasi" | "kesirKonusuGerekir" | "semaAciklamasi">
+): GorselSoruGorevTanimi<"gercek_hayat_senaryo"> {
+  return {
+    ...tanim,
+    gorev,
+    kesirKonusuGerekir: true,
+    semaAciklamasi: CIKARIM_SEMA_ACIKLAMASI,
+    jsonSemasi: cikarimSema(gorev),
   };
 }
 
@@ -992,6 +1154,176 @@ const gorevler: GorselSoruTanimi<"gercek_hayat_senaryo">["gorevler"] = {
       ],
     },
   }),
+  parcaButun: sayisalGorev("parcaButun", {
+    etiket: "Parça-bütün (kendisi dâhil)",
+    aciklama:
+      "Bir bütün (pasta, pizza, koli) eş parçalara bölünür; davet edilenler ve KENDİSİ aynı sayıda parça alır. Öğrenci " +
+      "kişi sayısını (kendisi dâhil) bulur, kullanılan parça sayısını hesaplar ve bütünün kaçta kaçı olduğunu bulur.",
+    kurallar: [
+      "\"Kendisi dâhil\" bilgisi senaryoda açıkça yazılmalı; sorunun tuzağı kendisini saymayı unutmaktır.",
+      "Kişi başına düşen parça sayısı birden fazlaysa rakamla yazılır (ör. 2'şer dilim).",
+    ],
+    ornek: {
+      tip: "gercek_hayat_senaryo",
+      veri: {
+        gorev: "parcaButun",
+        sahne: "mutfak",
+        senaryo:
+          "Ece doğum gününe 5 arkadaşını davet etti. Pastayı 16 eş dilime böldü ve kendisi dâhil herkese 2'şer dilim verdi.",
+        soru: "Buna göre yenen pasta, bütün pastanın kaçta kaçıdır?",
+        hesap: [
+          { id: "a1", aciklama: "Pasta yiyen kişi sayısı (Ece dâhil)", islem: "topla", girdiler: [veriden(k(5)), veriden(k(1))], sonuc: k(6) },
+          { id: "a2", aciklama: "Yenen dilim sayısı", islem: "carp", girdiler: [adimdan("a1"), veriden(k(2))], sonuc: k(12) },
+          { id: "a3", aciklama: "Yenen pastanın kesri", islem: "bol", girdiler: [adimdan("a2"), veriden(k(16))], sonuc: k(3, 4) },
+        ],
+      },
+    },
+    ornekSayilari: {
+      baglam:
+        "Bir çocuk arkadaşlarını doğum gününe davet ediyor; pasta eş dilimlere bölünüyor ve KENDİSİ DÂHİL herkese aynı sayıda dilim veriliyor.",
+      konu: "kutlama",
+      ornekSoru: "Buna göre yenen pasta, bütün pastanın kaçta kaçıdır?",
+      anahtarIfadeler: [["kendisi dahil", "kendisi dâhil", "kendisi de", "kendisine de", "kendine de", "kendisi için de", "kendisine"]],
+      veriler: [
+        { ad: "davet edilen arkadaş sayısı", deger: s(5) },
+        { ad: "pastanın bölündüğü eş dilim sayısı", deger: s(16) },
+        { ad: "kişi başına düşen parça sayısı", deger: s(2) },
+      ],
+      cevap: s(3, 4),
+      ipucu: "5 + 1 (kendisi) = 6 kişi; 6 × 2 = 12 dilim; 12 ÷ 16 = 3/4",
+      secenekler: [
+        { deger: s(5, 8), hata: "birEksik" },
+        { deger: s(3, 4) },
+        { deger: s(1, 4), hata: "yanlisIslem" },
+        { deger: s(3, 8), hata: "adimAtlama" },
+      ],
+    },
+  }),
+  kesirSiralama: cikarimGorev("kesirSiralama", {
+    etiket: "Farklı paydalı kesirleri sıralama",
+    aciklama:
+      "Aynı bütünün (tarla, parkur, eşit büyüklükte pizzalar) farklı paydalı kesirleri verilir; öğrenci paydaları " +
+      "eşitleyerek (eşitlikleri de görerek) miktarları sıralar. Payda büyüdükçe kesrin büyüdüğünü sanmak tipik hatadır.",
+    kurallar: [
+      "Kesirlerin AYNI bütüne (ya da eşit büyüklükteki bütünlere) ait olduğu senaryoda açıkça yazılmalı.",
+      "Sıralamayı ya da eşitliği metinde verme; kesirleri planda yazıldığı gibi (sadeleştirmeden) yaz.",
+    ],
+    ornek: {
+      tip: "gercek_hayat_senaryo",
+      veri: {
+        gorev: "kesirSiralama",
+        sahne: "park",
+        senaryo: "Bir çiftçi tarlasının 3/10'una domates, 2/5'ine biber, 8/20'sine salatalık ekti.",
+        soru: "Buna göre ekili alanların büyükten küçüğe doğru sıralanışı aşağıdakilerden hangisidir?",
+      },
+    },
+    ornekCikarim: {
+      baglam: "Bir çiftçi tarlasının bir kısmına domates, bir kısmına biber, bir kısmına salatalık ekti.",
+      konu: "tarım",
+      ornekSoru: "Buna göre ekili alanların büyükten küçüğe doğru sıralanışı aşağıdakilerden hangisidir?",
+      veriler: [
+        { ad: "domates ekilen alan (tarlanın kesri)", deger: s(3, 10) },
+        { ad: "biber ekilen alan (tarlanın kesri)", deger: s(2, 5) },
+        { ad: "salatalık ekilen alan (tarlanın kesri)", deger: s(8, 20) },
+      ],
+      adlar: ["domates", "biber", "salatalık"],
+      anahtarIfadeler: [["tarla"]],
+      kokIfadeleri: [["büyükten küçüğe", "çoktan aza", "en çoktan", "en büyükten", "fazladan aza"]],
+      ipucu: "paydalar 20'de eşitlenir: domates 3/10 = 6/20, biber 2/5 = 8/20, salatalık 8/20 = 8/20; büyükten küçüğe: Biber = Salatalık > Domates",
+      cozum: "Paydalar 20'de eşitlenir: domates 3/10 = 6/20, biber 2/5 = 8/20, salatalık 8/20 = 8/20. Büyükten küçüğe: Biber = Salatalık > Domates.",
+      secenekler: [
+        { metin: "Biber > Salatalık > Domates", hata: "esitligiGormeme" },
+        { metin: "Biber = Salatalık > Domates" },
+        { metin: "Salatalık > Domates > Biber", hata: "paydaYanilgisi" },
+        { metin: "Domates > Salatalık = Biber", hata: "tersYon" },
+      ],
+    },
+  }),
+  olabilirCikarim: cikarimGorev("olabilirCikarim", {
+    etiket: "\"Olabilir\" çıkarımı (eşitsizlik)",
+    aciklama:
+      "Üç nesneden en küçüğü ve en büyüğü belirtilir, ikisinin ölçüsü verilir; öğrenci bilinmeyen ölçünün hangi aralıkta " +
+      "olması gerektiğini çıkarır ve bileşik kesirle verilen şıkları bu aralıkla karşılaştırır.",
+    kurallar: [
+      "\"En küçük/en büyük\" bilgileri (en hafif, en ağır…) senaryoda açıkça yazılmalı; sorulan nesnenin ölçüsü YAZILMAZ.",
+    ],
+    ornek: {
+      tip: "gercek_hayat_senaryo",
+      veri: {
+        gorev: "olabilirCikarim",
+        sahne: "sinif",
+        senaryo:
+          "A, B ve C adlı üç küre var. B en hafif, C en ağır küredir. A küresinin kütlesi 5 kg, B küresinin kütlesi 4 kg'dır.",
+        soru: "Buna göre C küresinin kütlesi kaç kilogram olabilir?",
+      },
+    },
+    ornekCikarim: {
+      baglam: "A, B ve C adlı üç küre var. B en hafif, C en ağır küredir. Sorulan ölçü metinde verilmez; yalnızca verilen iki ölçü yazılır.",
+      konu: "ölçüm",
+      ornekSoru: "Buna göre C küresinin kütlesi kaç kilogram olabilir?",
+      veriler: [
+        { ad: "B küresinin kütlesi (en küçük), kg", deger: s(4) },
+        { ad: "A küresinin kütlesi, kg", deger: s(5) },
+      ],
+      adlar: [],
+      anahtarIfadeler: [["en hafif"], ["en ağır"]],
+      kokIfadeleri: [["olabilir"]],
+      ipucu: "C küresinin kütlesi, A için verilen 5 kg değerinden fazla olmalıdır; 16/3 = 5 1/3, 9/2 = 4 1/2, 15/3 = 5, 7/2 = 3 1/2; yalnızca 16/3 uygun",
+      cozum:
+        "C küresinin kütlesi, A için verilen 5 kg değerinden fazla olmalıdır. Şıklar tam sayılı kesre çevrilir: 16/3 = 5 1/3, " +
+        "9/2 = 4 1/2, 15/3 = 5, 7/2 = 3 1/2. Bu koşulu yalnızca 16/3 sağlar.",
+      secenekler: [
+        { metin: "9/2 kg", hata: "eksikKosul" },
+        { metin: "16/3 kg" },
+        { metin: "15/3 kg", hata: "sinirDahil" },
+        { metin: "7/2 kg", hata: "yanlisYon" },
+      ],
+    },
+  }),
+  denklikOlamaz: cikarimGorev("denklikOlamaz", {
+    etiket: "Denklik ve \"olamaz\" (bileşik ↔ tam sayılı kesir)",
+    aciklama:
+      "Bileşik kesirler verilir; öğrenci her birini tam sayılı kesre çevirir ve şıklardan hangisinin bunlardan HİÇBİRİNE " +
+      "eşit olmadığını eleyerek bulur.",
+    kurallar: [
+      "Senaryoda yalnızca bileşik kesirler yazılır; tam sayılı karşılıklarını (cevabı) metinde verme.",
+    ],
+    ornek: {
+      tip: "gercek_hayat_senaryo",
+      veri: {
+        gorev: "denklikOlamaz",
+        sahne: "sinif",
+        senaryo:
+          "Bir oyunda her kartın ön yüzünde bir bileşik kesir, arka yüzünde aynı sayının tam sayılı kesir gösterimi " +
+          "yazılıdır. Masadaki kartların ön yüzlerinde 11/4, 7/3 ve 9/5 yazmaktadır.",
+        soru: "Buna göre aşağıdakilerden hangisi bu kartlardan birinin arka yüzü olamaz?",
+      },
+    },
+    ornekCikarim: {
+      baglam:
+        "Bir oyunda her kartın ön yüzünde bir bileşik kesir, arka yüzünde aynı sayının tam sayılı kesir gösterimi yazılıdır. Masadaki kartların yalnızca ön yüzleri görünmektedir.",
+      konu: "oyun",
+      ornekSoru: "Buna göre aşağıdakilerden hangisi bu kartlardan birinin arka yüzü olamaz?",
+      veriler: [
+        { ad: "1. kartın ön yüzündeki kesir", deger: s(11, 4) },
+        { ad: "2. kartın ön yüzündeki kesir", deger: s(7, 3) },
+        { ad: "3. kartın ön yüzündeki kesir", deger: s(9, 5) },
+      ],
+      adlar: [],
+      anahtarIfadeler: [["ön yüz"], ["arka yüz"]],
+      kokIfadeleri: [["olamaz"]],
+      ipucu: "11/4 = 2 3/4, 7/3 = 2 1/3, 9/5 = 1 4/5; 3 2/4 bunların hiçbirine eşit değil (11/4 için bölüm ile kalan yer değiştirmiş)",
+      cozum:
+        "Bileşik kesirler tam sayılı kesre çevrilir: 11/4 = 2 3/4, 7/3 = 2 1/3, 9/5 = 1 4/5. 3 2/4 bunların hiçbirine " +
+        "eşit değildir; 11/4 çevrilirken bölüm ile kalan yer değiştirmiş.",
+      secenekler: [
+        { metin: "2 3/4", hata: "dogruDonusum" },
+        { metin: "3 2/4" },
+        { metin: "2 1/3", hata: "dogruDonusum" },
+        { metin: "1 4/5", hata: "dogruDonusum" },
+      ],
+    },
+  }),
   cokAdimliCikarim: {
     gorev: "cokAdimliCikarim",
     etiket: "Çok adımlı çıkarım",
@@ -1072,6 +1404,11 @@ export const gercekHayatSenaryoTanimi: GorselSoruTanimi<"gercek_hayat_senaryo"> 
     "7) MEB kazanımına ve sınıf düzeyine uygundur: 5. sınıfta kesirlerle toplama-çıkarma ve bir çokluğun kesri; " +
       "kesirlerle çarpma ve bölme 6. sınıftan itibaren. Sayılar seviyeye göre makul büyüklükte tutulur.",
     "Sahne tamamen dekoratiftir ve hiçbir bilgi taşımaz: soru, sahne gösterilmese bile eksiksiz çözülebilmeli.",
+    // references/senaryo-kalite-referans-v2.md — Bölüm 4 (çeşitlilik kuralları).
+    "ÇEŞİTLİLİK: Her senaryo sorusu farklı bir PROBLEM AİLESİNDEN gelir (parça-bütün, kesrin kesri, en fazla/en az, " +
+      "karşılaştırma/fazlalık, sıralama, \"olabilir\", \"olamaz\"…) ve farklı bir bağlamdadır; aile ve bağlamı sistem " +
+      "atar. Aynı quizdeki sorularda kişi adlarını, nesneleri ve cümle kalıplarını TEKRARLAMA (her soruda başka adlar, " +
+      "başka bir açılış cümlesi kullan).",
   ],
   ortakSemaAciklamasi: [
     `"sahne": Senaryoya en uygun dekoratif sahne; şunlardan biri: ${SENARYO_SAHNELERI.join(", ")}.`,
@@ -1090,6 +1427,13 @@ export const gercekHayatSenaryoTanimi: GorselSoruTanimi<"gercek_hayat_senaryo"> 
       "çizgisine uzaklığı ile ardışık iki engel arasındaki mesafe 1 3/4 metre olacak şekilde engeller " +
       "yerleştirilmiştir. Buna göre bu piste toplam kaç engel yerleştirilmiştir?\" A) 10 B) 11 C) 13 D) 14 → C. " +
       "49/2 ÷ 7/4 = 14 aralık, uçlarda engel olmadığı için 13 engel; D (14) ±1 tuzağına düşenler için.",
+    // references/senaryo-kalite-referans-v2.md — Bölüm 1 ve 3.
+    "Kesrin kesri: \"Ece 24 soruluk sınavda soruların 3/4'ünü doğru yapmış, kalan soruların yarısını boş bırakmıştır. " +
+      "Ece kaç soruyu yanlış yapmıştır?\" → 24 × 3/4 = 18, kalan 6, yarısı 3 boş → 3 yanlış. \"Kalanın\" kelimesi kritik.",
+    "Parça-bütün: \"Bir çocuk 5 arkadaşını davet eder, pastayı 12 eş dilime böler ve kendisi dâhil herkese birer dilim " +
+      "verir. Yenen pasta, pastanın kaçta kaçıdır?\" → 6/12 = 1/2. Tuzak: kendisini saymamak (5/12).",
+    "Olabilir: \"B en hafif (4 kg), C en ağır küredir; A 5 kg'dır. C'nin kütlesi hangisi olabilir?\" → yalnızca 5'ten " +
+      "büyük seçenek (16/3 = 5 1/3); 15/3 = 5 eşit olduğu için olamaz.",
   ],
   gorevler,
   dogrula,

@@ -74,8 +74,13 @@ function buildMockGorselSoru(slot: QuestionBlueprintSlot, id: string, audit: Que
   // The registry example has its own fixed numbers, so it is validated with
   // its own example plan numbers, not the ones generated for this slot.
   const atanan = slot.gorselPlani ?? VARSAYILAN_PLAN;
-  const ornekSayilari = gorevTanimi(atanan).ornekSayilari;
-  const plan = { tip: atanan.tip, gorev: atanan.gorev, ...(ornekSayilari ? { sayilar: ornekSayilari } : {}) } as GorselSoruPlani;
+  const { ornekSayilari, ornekCikarim } = gorevTanimi(atanan);
+  const plan = {
+    tip: atanan.tip,
+    gorev: atanan.gorev,
+    ...(ornekSayilari ? { sayilar: ornekSayilari } : {}),
+    ...(ornekCikarim ? { cikarim: ornekCikarim } : {}),
+  } as GorselSoruPlani;
   const dogrulanmis = dogrulaGorselSoru(gorevTanimi(plan).ornek, `mock.${plan.tip}`, [], plan);
   if (!dogrulanmis) {
     throw new Error(`Registry örneği kendi doğrulayıcısından geçemedi: ${plan.tip}/${plan.gorev}`);
