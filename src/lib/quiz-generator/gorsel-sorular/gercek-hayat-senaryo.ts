@@ -13,7 +13,6 @@ import {
 import {
   JSON_BOS_OLABILIR_METIN,
   JSON_KESIR,
-  JSON_MANTIKSAL,
   JSON_METIN,
   dogruSecenegiDogrula,
   isRecord,
@@ -29,7 +28,6 @@ import {
   okuMetin,
   okuSecim,
   secenekHarfi,
-  tekrarlananSecenekleriAyikla,
   yokMu,
   type GorselSoruDogrulamaSonucu,
   type GorselSoruGorevTanimi,
@@ -71,8 +69,6 @@ export const HATA_TURLERI = [
   "birimHatasi",
   "yakinDeger",
 ] as const;
-
-type HataTuru = (typeof HATA_TURLERI)[number];
 
 type SayisalGorev = Exclude<SenaryoGorevi, "cokAdimliCikarim">;
 
@@ -317,8 +313,6 @@ interface SayisalGorevKurali {
   tamSayiSonuc: boolean;
   /** Her ara sonuç da tam sayı olmalı mı (ör. kişi sayıları)? */
   araSonuclarTamSayi?: boolean;
-  /** En az bir çeldirici bu hata türlerinden birini temsil etmeli. */
-  zorunluHata?: readonly HataTuru[];
   /** Görevin gerektirdiği işlem yapısı; ihlal varsa hata mesajı döner. */
   yapi(soru: { hesap: HesapAdimi[]; soru: string; senaryo: string }): string | undefined;
 }
@@ -345,7 +339,6 @@ const SAYISAL_KURALLAR: Record<SayisalGorev, SayisalGorevKurali> = {
   },
   araliklar: {
     tamSayiSonuc: true,
-    zorunluHata: ["birFazla", "birEksik"],
     yapi: ({ hesap, senaryo }) => {
       // Kurgu sabittir: uçlarda nesne yok. Senaryo bunu açıkça söylemeli.
       const metin = metniNormallestir(senaryo);
@@ -362,9 +355,11 @@ const SAYISAL_KURALLAR: Record<SayisalGorev, SayisalGorevKurali> = {
     },
   },
   kalaniBulma: {
-    tamSayiSonuc: false,
+    tamSayiSonuc: true,
     yapi: ({ hesap }) =>
-      hesap.some((adim) => adim.islem === "cikar") ? undefined : "Kalan, bütünden çıkarılarak bulunmalıdır.",
+      hesap.filter((adim) => adim.islem === "carp").length >= 2 && hesap.some((adim) => adim.islem === "cikar")
+        ? undefined
+        : "Her parça bütünle çarpılarak bulunmalı (iki çarpma), sonra bütünden çıkarılmalıdır.",
   },
   coklugunKesri: {
     tamSayiSonuc: true,
@@ -375,19 +370,13 @@ const SAYISAL_KURALLAR: Record<SayisalGorev, SayisalGorevKurali> = {
         : "Bir çokluğun kesri (çokluk × kesir) hesaplanmalıdır.",
   },
   karsilastirma: {
-    tamSayiSonuc: false,
+    tamSayiSonuc: true,
     yapi: ({ hesap }) =>
-      hesap[hesap.length - 1].islem === "cikar"
+      hesap.filter((adim) => adim.islem === "carp").length >= 2 && hesap[hesap.length - 1].islem === "cikar"
         ? undefined
-        : "Karşılaştırmanın sonucu bir fark (çıkarma) olarak hesaplanmalıdır.",
+        : "Her miktar kendi bütünüyle çarpılarak bulunmalı (iki çarpma), sonuç bir fark (çıkarma) olmalıdır.",
   },
 };
-
-interface SayisalSecenek {
-  id: string;
-  deger: Kesir;
-  hata?: HataTuru;
-}
 
 function hesaptanCozum(hesap: HesapAdimi[], birim: string | undefined): string {
   const adimlar = hesap.map((adim) => {
@@ -401,66 +390,77 @@ function hesaptanCozum(hesap: HesapAdimi[], birim: string | undefined): string {
   return `${adimlar.join(" ")} Cevap: ${oranMetni(son)}${birim ? ` ${birim}` : ""}.`;
 }
 
+/** Gerçek çıktılarda görülen ya da sık yapılan dil bilgisi hataları. */
+const DIL_HATALARI: readonly [RegExp, string][] = [
+  [/(^|[^a-zçğıöşü])kesiri([^a-zçğıöşü]|$)/, '"kesiri" değil "kesri" yazılmalı'],
+  [/(^|[^a-zçğıöşü])kesirin([^a-zçğıöşü]|$)/, '"kesirin" değil "kesrin" yazılmalı'],
+  [/(^|[^a-zçğıöşü])kesire([^a-zçğıöşü]|$)/, '"kesire" değil "kesre" yazılmalı'],
+  [/\d\s*\/\s*\d+\s+(ü|u|ı|i|si|sı|sü|su|ini|ını|ünü|unu)([^a-zçğıöşü]|$)/, "kesirden sonraki ek kesme işaretiyle bitişik yazılmalı (ör. 3/4'ü)"],
+  [/oranında/, '"... oranında" yerine "...\'ü kadar" gibi doğal bir ifade kullanılmalı'],
+];
+
+function dilHatasi(...metinler: string[]): string | undefined {
+  const metin = metniNormallestir(metinler.join(" "));
+  return DIL_HATALARI.find(([desen]) => desen.test(metin))?.[1];
+}
+
 function dogrulaSayisal(
   gorev: SayisalGorev,
   raw: Record<string, unknown>,
-  ortak: { senaryo: string; soru: string; dogruSecenekId: string },
+  ortak: { senaryo: string; soru: string },
   path: string,
   sorunlar: Sorunlar,
-  planlananSayilar?: SenaryoSayilari
+  plan?: SenaryoSayilari
 ): Sonuc {
+  // Bağlamı, sayıları ve şıkları kod planlar; plansız bir sayısal senaryo
+  // (ör. eski bir kayıttan) cevabı garanti edilemeyeceği için kabul edilmez.
+  if (!plan) {
+    sorunlar.push({ path, message: "Bu görevin bağlamı, sayıları ve şıkları sistem tarafından planlanmalıdır." });
+    return undefined;
+  }
   const kural = SAYISAL_KURALLAR[gorev];
-  const hesap = hesabiDogrula(raw.hesap, ortak.senaryo, `${path}.hesap`, sorunlar);
-  const secenekler = okuKimlikliDizi<SayisalSecenek>(
-    raw.secenekler,
-    `${path}.secenekler`,
-    sorunlar,
-    SECENEK_SINIRI,
-    (oge, id, ogePath) => {
-      const deger = okuKesir(oge.deger, `${ogePath}.deger`, sorunlar);
-      if (!deger) return undefined;
-      const hata = yokMu(oge.hata) ? undefined : okuSecim(oge, "hata", HATA_TURLERI, ogePath, sorunlar);
-      if (!yokMu(oge.hata) && !hata) return undefined;
-      return { id, deger, hata };
-    }
-  );
-  if (!hesap || !secenekler) return undefined;
-
+  // Öğrencinin gördüğü metin = senaryo + soru kökü. Bazı veriler (ör. "6
+  // dakikada kaç litre?") planın örnek soru kökü gereği kökte geçer; sayı
+  // denetimleri bu yüzden ikisini birlikte tarar.
+  const metin = `${ortak.senaryo} ${ortak.soru}`;
+  const hesap = hesabiDogrula(raw.hesap, metin, `${path}.hesap`, sorunlar);
+  if (!hesap) return undefined;
   const sonuc = hesap[hesap.length - 1].sonuc;
-  const birim = okuIstegeBagliMetin(raw, "birim");
 
-  // Sayıları kod seçtiyse: senaryo bu sayıları kullanmalı ve hesap, kodun
-  // önceden bildiği cevaba ulaşmalı — senaryonun anlattığı işlem ile
-  // planlanan işlem ancak böyle birebir örtüşür.
-  if (planlananSayilar) {
-    const eksik = planlananSayilar.veriler.find((veri) => !senaryodaGeciyorMu(ortak.senaryo, oranYap(veri.deger)));
-    if (eksik) {
-      sorunlar.push({
-        path: `${path}.senaryo`,
-        message: `Sistemin verdiği ${kesirGosterimi(eksik.deger)} (${eksik.ad}) senaryoda geçmiyor; verilen sayıları aynen kullan.`,
-      });
-      return undefined;
-    }
-    const beklenen = oranYap(planlananSayilar.cevap);
-    if (!esitMi(sonuc, beklenen)) {
-      sorunlar.push({
-        path: `${path}.hesap`,
-        message:
-          `Hesabın sonucu ${oranMetni(sonuc)}, ama bu sayılarla doğru cevap ${oranMetni(beklenen)} ` +
-          `(${planlananSayilar.ipucu}). Senaryoyu ve hesabı bu ilişkiye göre kur.`,
-      });
-      return undefined;
-    }
+  // Senaryo planın sayılarını kullanmalı ve hesap, kodun önceden bildiği
+  // cevaba ulaşmalı — senaryonun anlattığı işlem ile planlanan işlem ancak
+  // böyle birebir örtüşür.
+  const eksik = plan.veriler.find((veri) => !senaryodaGeciyorMu(metin, oranYap(veri.deger)));
+  if (eksik) {
+    sorunlar.push({
+      path: `${path}.senaryo`,
+      message: `Sistemin verdiği ${kesirGosterimi(eksik.deger)} (${eksik.ad}) senaryoda geçmiyor; verilen sayıları aynen kullan.`,
+    });
+    return undefined;
+  }
+  const beklenen = oranYap(plan.cevap);
+  if (!esitMi(sonuc, beklenen)) {
+    sorunlar.push({
+      path: `${path}.hesap`,
+      message:
+        `Hesabın sonucu ${oranMetni(sonuc)}, ama bu sayılarla doğru cevap ${oranMetni(beklenen)} ` +
+        `(${plan.ipucu}). Senaryoyu ve hesabı bu ilişkiye göre kur.`,
+    });
+    return undefined;
   }
 
+  // Çok adımlılık: en az bir çarpma ya da bölme ve görevin ek mantık adımı.
+  if (!hesap.some((adim) => adim.islem === "carp" || adim.islem === "bol")) {
+    sorunlar.push({ path: `${path}.hesap`, message: "Çözüm en az bir çarpma veya bölme işlemi içermelidir." });
+    return undefined;
+  }
   const yapiHatasi = kural.yapi({ hesap, soru: ortak.soru, senaryo: ortak.senaryo });
   if (yapiHatasi) {
     sorunlar.push({ path: `${path}.hesap`, message: yapiHatasi });
     return undefined;
   }
-  // Tam sayı çıkması gereken yerde (kişi, gömlek, engel) kesirli sonuç kabul edilmez.
-  const tamSayiGerekli = kural.tamSayiSonuc || raw.sonucTamSayiOlmali === true;
-  if (tamSayiGerekli && !tamSayiMi(sonuc)) {
+  // Tam sayı çıkması gereken yerde (kişi, gömlek, kutu) kesirli sonuç kabul edilmez.
+  if (kural.tamSayiSonuc && !tamSayiMi(sonuc)) {
     sorunlar.push({ path: `${path}.hesap`, message: `Sonuç tam sayı olmalı, ${oranMetni(sonuc)} çıktı.` });
     return undefined;
   }
@@ -475,7 +475,7 @@ function dogrulaSayisal(
     }
   }
   // Kalite ölçütü 1: cevap metinde açıkça verilmez.
-  if (senaryodaGeciyorMu(ortak.senaryo, sonuc)) {
+  if (senaryodaGeciyorMu(metin, sonuc)) {
     sorunlar.push({
       path: `${path}.senaryo`,
       message: `Cevap (${oranMetni(sonuc)}) senaryoda zaten geçiyor; öğrenci işlem yapmadan cevabı okuyabilir.`,
@@ -483,62 +483,34 @@ function dogrulaSayisal(
     return undefined;
   }
 
-  const tekrarsiz = tekrarlananSecenekleriAyikla(
-    secenekler,
-    (secenek) => oranMetni(oranYap(secenek.deger)),
-    ortak.dogruSecenekId
-  );
-  if (tekrarsiz.length < SECENEK_SINIRI.min) {
-    sorunlar.push({ path: `${path}.secenekler`, message: "Değerce aynı şıklar çıkarıldıktan sonra en az 3 şık kalmalıdır." });
+  const dil = dilHatasi(ortak.senaryo, ortak.soru);
+  if (dil) {
+    sorunlar.push({ path: `${path}.senaryo`, message: `Dil hatası: ${dil}.` });
     return undefined;
   }
 
-  // Doğru şıkkı kod belirler; model başka bir şıkkı işaretlediyse soru reddedilir.
-  const koddakiDogru = tekrarsiz.find((secenek) => esitMi(oranYap(secenek.deger), sonuc));
-  const isaretli = tekrarsiz.find((secenek) => secenek.id === ortak.dogruSecenekId);
-  if (!koddakiDogru || (isaretli && koddakiDogru.id !== isaretli.id)) {
+  // Bağlamın asıl inceliği (ör. krokide "her kare aynı uzunluk", "tüm
+  // elmaların" / "gelmeyenlerin") yazılmazsa soru eksik ya da iki anlamlı kalır.
+  const normal = metniNormallestir(metin);
+  const eksikIfade = plan.anahtarIfadeler?.find((grup) => !grup.some((ifade) => normal.includes(ifade)));
+  if (eksikIfade) {
     sorunlar.push({
-      path: `${path}.dogruSecenekId`,
-      message: koddakiDogru
-        ? `Model ${isaretli ? kesirGosterimi(isaretli.deger) : "?"} şıkkını işaretledi; kodun hesapladığı cevap ${oranMetni(sonuc)} (şık ${koddakiDogru.id}).`
-        : `Kodun hesapladığı cevap (${oranMetni(sonuc)}) şıkların hiçbirinde yok.`,
+      path: `${path}.senaryo`,
+      message: `Senaryo şu bilgiyi açıkça içermeli: "${eksikIfade[0]}" (veya ${eksikIfade.slice(1).map((i) => `"${i}"`).join(", ")}). Bağlam cümlesini atlama.`,
     });
     return undefined;
   }
-  const tutarli = dogruSecenegiDogrula(
-    tekrarsiz,
-    ortak.dogruSecenekId,
-    (secenek) => esitMi(oranYap(secenek.deger), sonuc),
-    path,
-    sorunlar
-  );
-  if (!tutarli) return undefined;
 
-  // Kalite ölçütü 3: her çeldirici adlandırılmış bir öğrenci hatasını temsil eder.
-  const celdiriciler = tekrarsiz.filter((secenek) => secenek.id !== ortak.dogruSecenekId);
-  const etiketsiz = celdiriciler.find((secenek) => !secenek.hata);
-  if (etiketsiz) {
-    sorunlar.push({ path: `${path}.secenekler`, message: `Çeldirici ${etiketsiz.id} bir hata türüyle etiketlenmelidir.` });
-    return undefined;
-  }
-  const birlik = { pay: 1, payda: 1 };
-  // "Bir fazla/eksik" yalnızca sayılan cevaplarda (tam sayı) anlamlıdır; 4/5 için "bir eksik" −1/5 olmaz.
-  for (const secenek of tamSayiMi(sonuc) ? celdiriciler : []) {
-    const beklenen =
-      secenek.hata === "birFazla" ? islemUygula("topla", [sonuc, birlik]) : secenek.hata === "birEksik" ? islemUygula("cikar", [sonuc, birlik]) : undefined;
-    if (beklenen && !esitMi(oranYap(secenek.deger), beklenen)) {
-      sorunlar.push({
-        path: `${path}.secenekler`,
-        message: `Çeldirici ${secenek.id} "${secenek.hata}" olarak etiketlenmiş ama değeri ${oranMetni(beklenen)} değil.`,
-      });
-      return undefined;
-    }
-  }
-  if (kural.zorunluHata && !celdiriciler.some((secenek) => secenek.hata && kural.zorunluHata?.includes(secenek.hata))) {
-    sorunlar.push({
-      path: `${path}.secenekler`,
-      message: `En az bir çeldirici şu hatalardan birini temsil etmeli: ${kural.zorunluHata.join(", ")}.`,
-    });
+  // Şıkları ve doğru cevabı kod üretir: her çeldirici, adı konmuş bir
+  // öğrenci hatasının hesaplanmış sonucudur (bkz. senaryo-sayilari.ts).
+  const secenekler = plan.secenekler.map((secenek, index) => ({
+    id: secenekHarfi(index),
+    metin: `${kesirGosterimi(secenek.deger)}${plan.birim ? ` ${plan.birim}` : ""}`,
+    dogru: secenek.hata === undefined,
+  }));
+  const dogru = secenekler.find((secenek) => secenek.dogru);
+  if (!dogru) {
+    sorunlar.push({ path, message: "Planın şıkları arasında doğru cevap yok." });
     return undefined;
   }
 
@@ -546,14 +518,11 @@ function dogrulaSayisal(
     gorev,
     sahne: sahneOku(raw.sahne),
     senaryo: ortak.senaryo,
-    secenekler: tekrarsiz.map((secenek) => ({
-      id: secenek.id,
-      metin: `${kesirGosterimi(secenek.deger)}${birim ? ` ${birim}` : ""}`,
-    })),
-    dogruSecenekId: ortak.dogruSecenekId,
+    secenekler: secenekler.map(({ id, metin }) => ({ id, metin })),
+    dogruSecenekId: dogru.id,
   };
   // Çözüm metni modelden değil, doğrulanmış hesaptan üretilir.
-  return { soru: ortak.soru, cozum: hesaptanCozum(hesap, birim), veri };
+  return { soru: ortak.soru, cozum: hesaptanCozum(hesap, plan.birim), veri };
 }
 
 // ---------------------------------------------------------------------------
@@ -606,14 +575,16 @@ function dogrula(raw: unknown, path: string, sorunlar: Sorunlar, plan?: GorselSo
   const gorev = okuSecim(raw, "gorev", SENARYO_GOREVLERI, path, sorunlar);
   const senaryo = okuMetin(raw, "senaryo", path, sorunlar);
   const soru = okuMetin(raw, "soru", path, sorunlar);
-  const dogruSecenekId = okuMetin(raw, "dogruSecenekId", path, sorunlar);
-  if (!gorev || !senaryo || !soru || !dogruSecenekId) return undefined;
+  if (!gorev || !senaryo || !soru) return undefined;
   if (!ortakMetinDenetimi(senaryo, soru, path, sorunlar)) return undefined;
 
-  const ortak = { senaryo, soru, dogruSecenekId };
-  return gorev === "cokAdimliCikarim"
-    ? dogrulaMetinsel(raw, ortak, path, sorunlar)
-    : dogrulaSayisal(gorev, raw, ortak, path, sorunlar, plan?.sayilar);
+  if (gorev !== "cokAdimliCikarim") {
+    return dogrulaSayisal(gorev, raw, { senaryo, soru }, path, sorunlar, plan?.sayilar);
+  }
+  // Metinsel görevde şıkları model yazar; doğru şıkkı da o işaretler.
+  const dogruSecenekId = okuMetin(raw, "dogruSecenekId", path, sorunlar);
+  if (!dogruSecenekId) return undefined;
+  return dogrulaMetinsel(raw, { senaryo, soru, dogruSecenekId }, path, sorunlar);
 }
 
 function dogruCevapMetni(veri: GercekHayatSenaryoVerisi): string {
@@ -629,7 +600,7 @@ function dogruCevapMetni(veri: GercekHayatSenaryoVerisi): string {
 const BOS_OLABILIR_KESIR: JsonSemasi = { anyOf: [JSON_KESIR, { type: "null" }] };
 
 function sayisalSema(gorev: SayisalGorev): JsonSemasi {
-  // Hesap şıklardan ÖNCE yazılır: model önce çözer, sonra şıkları sonuca göre kurar.
+  // Şık alanı yok: şıkları ve doğru cevabı kod üretir (bkz. senaryo-sayilari.ts).
   return jsonNesne({
     gorev: jsonGorev(gorev),
     sahne: jsonSecim(SENARYO_SAHNELERI),
@@ -644,36 +615,25 @@ function sayisalSema(gorev: SayisalGorev): JsonSemasi {
         sonuc: JSON_KESIR,
       })
     ),
-    sonucTamSayiOlmali: JSON_MANTIKSAL,
-    birim: JSON_BOS_OLABILIR_METIN,
-    secenekler: jsonDizi(
-      jsonNesne({ id: JSON_METIN, deger: JSON_KESIR, hata: { anyOf: [jsonSecim(HATA_TURLERI), { type: "null" }] } })
-    ),
-    dogruSecenekId: JSON_METIN,
   });
 }
 
 const SAYISAL_SEMA_ACIKLAMASI = [
-  '"hesap": ŞIKLARDAN ÖNCE yaz. Çözümün 2-8 adımı; her adım {"id","aciklama","islem","girdiler","sonuc"}. ' +
-    `"islem" şunlardan biri: ${ISLEMLER.join(", ")}. topla/carp en az 2, cikar/bol tam 2, yuvarlama 1 girdi alır.`,
+  '"senaryo": SORU PLANI\'ndaki "Bağlam"ı kullanarak, verilen sayıların HEPSİNİ ve yalnızca onları içeren 2-4 ' +
+    "cümlelik, akıcı bir metin. Sayıları rakamla ve planda verilen yazımla yaz.",
+  '"soru": "Örnek soru kökü"ne benzeyen tek ve net bir soru cümlesi (sonu "?" ile biter).',
+  '"hesap": Çözümün 2-8 adımı; her adım {"id","aciklama","islem","girdiler","sonuc"}. ' +
+    `"islem" şunlardan biri: ${ISLEMLER.join(", ")}. topla/carp en az 2, cikar/bol tam 2, yuvarlama 1 girdi alır. ` +
+    '"aciklama" adımın ne bulduğunu söyleyen kısa, doğal bir Türkçe ifade (ör. "Bir gömleğe düşen kumaş").',
   '"girdiler": her girdi {"adimId","deger"}. Senaryodaki bir sayıysa "adimId": null ve "deger" o sayı ' +
     '({"tam","pay","payda"}; tam sayılar için payda 1, ör. 28 → {"tam":null,"pay":28,"payda":1}; 2 2/5 → ' +
     '{"tam":2,"pay":2,"payda":5}). Önceki bir adımın sonucuysa "adimId" o adımın id\'si ve "deger": null.',
-  '"sonuc": o adımda SENİN bulduğun sonuç. SİSTEM HER ADIMI KESİN KESİR ARİTMETİĞİYLE KENDİSİ HESAPLAR ve doğru ' +
-    'cevabı kendisi bulur; işaretlediğin şık bu cevapla tutmazsa soru reddedilir. Son adımın sonucu sorunun cevabıdır.',
-  'Her "sonuc"u yazmadan önce işlemi açıkça yap: toplama/çıkarmada paydaları eşitle; çarpmada pay×pay, payda×payda; ' +
-    "bölmede ikinci kesri ters çevirip çarp; tam sayılı kesri önce bileşik kesre çevir. Girdilerin sırası önemlidir: " +
-    '"cikar" ve "bol" için birinci girdi eksilen/bölünendir.',
-  "SAYILARI GERİYE DOĞRU KUR: önce cevabı ve adımlardaki sade değerleri SEÇ, senaryoya yazacağın verileri " +
-    "bunlardan HESAPLA. Ör. 13 engel istiyorsan: 14 aralık × 7/4 m = 49/2 m → senaryoya \"49/2 metre\" ve \"1 3/4 " +
-    "metre\" yaz. İleri doğru rastgele sayı seçip hesabın tutmasını umma; sayılan nesneler tam sayı çıkmalı.",
-  "Hesaptaki her sayı senaryoda RAKAMLA yazılmış olmalı (yalnızca ±1 düzeltmesindeki 1 serbesttir).",
-  '"sonucTamSayiOlmali": Cevap sayılan bir nesneyse (kişi, gömlek, engel, kutu…) true.',
-  '"birim": Şıklardaki birim (ör. "km", "kg", "metre") ya da null.',
-  '"secenekler": 3-5 öğe; her öğe {"id","deger","hata"}. "deger" bir sayı/kesir ({"tam","pay","payda"}). Doğru ' +
-    `şıkta "hata": null. Her çeldiricide "hata" şunlardan biri: ${HATA_TURLERI.join(", ")}. "birFazla"/"birEksik" ` +
-    "etiketli çeldirici doğru cevabın TAM 1 fazlası/eksiği olmalı (sistem kontrol eder).",
-  '"dogruSecenekId": Değeri hesabın son sonucuna eşit olan şıkkın id\'si.',
+  '"sonuc": o adımda bulduğun sonuç. SİSTEM HER ADIMI KESİN KESİR ARİTMETİĞİYLE KENDİSİ HESAPLAR; son adımın ' +
+    'sonucu planda verilen "Doğru cevap"a eşit olmalı, aksi hâlde soru reddedilir.',
+  'Girdilerin sırası önemlidir: "cikar" ve "bol" için birinci girdi eksilen/bölünendir.',
+  "Hesaptaki her sayı senaryoda RAKAMLA yazılmış olmalı (yalnızca ±1 düzeltmesindeki 1 serbesttir) ve senaryodaki " +
+    "her sayı hesapta kullanılmalı.",
+  "ŞIKLARI SİSTEM ÜRETİR: çeldiriciler, yaygın öğrenci hatalarının hesaplanmış sonuçlarıdır. Sen şık yazmazsın.",
 ];
 
 function metinselSema(gorev: SenaryoGorevi): JsonSemasi {
@@ -717,18 +677,22 @@ function sayisalGorev(
   };
 }
 
+/** Plan sayılarındaki kesirler için (null yerine eksik `tam`). */
+function s(pay: number, payda = 1, tam?: number): Kesir {
+  return tam !== undefined ? { tam, pay, payda } : { pay, payda };
+}
+
 const gorevler: GorselSoruTanimi<"gercek_hayat_senaryo">["gorevler"] = {
   bolmeEnFazla: sayisalGorev("bolmeEnFazla", {
     etiket: "Kesir bölmesi ve \"en fazla / en az\"",
     aciklama:
-      "Bir miktar, kesirli bir paya bölünür (kumaştan gömlek, şişeden bardak…). Sonuç tam çıkmıyorsa \"en fazla\" " +
-      "sorusunda aşağı, \"en az\" sorusunda yukarı yuvarlanır.",
+      "Bir miktar, kesirli eş parçalara bölünür (kumaştan gömlek, sürahiden bardak, şişelerle ihtiyaç…). Bölüm tam " +
+      "çıkmaz: \"en fazla\" sorusunda artan parçaya yetmez (aşağı yuvarlanır), \"en az\" sorusunda ihtiyacın tamamı " +
+      "karşılanmalıdır (yukarı yuvarlanır).",
     enAzSinif: 6,
     kurallar: [
-      "Hesap: önce bol (toplam ÷ bir parçaya giden), sonra son adım yuvarlama: \"en fazla\" → asagiYuvarla, \"en " +
-        "az\" → yukariYuvarla (bölüm tam çıksa bile).",
-      "Geriye doğru kur: cevabı (ör. 4 gömlek) ve bir parçayı (8/5 m) seç; toplam = 4 × 8/5 + bir parçadan az bir " +
-        "artık (ör. 2/5) = 34/5 m. Çeldiricilerden biri yuvarlamayı yanlış yöne yapmak olmalı.",
+      "Hesap: önce bol (toplam ÷ bir parça), sonra son adım yuvarlama: \"en fazla\" → asagiYuvarla, \"en az\" → " +
+        "yukariYuvarla. Soru kökü planın örnek soru kökündeki \"en fazla\"/\"en az\" ifadesini korumalı.",
     ],
     ornek: {
       tip: "gercek_hayat_senaryo",
@@ -736,12 +700,13 @@ const gorevler: GorselSoruTanimi<"gercek_hayat_senaryo">["gorevler"] = {
         gorev: "bolmeEnFazla",
         sahne: "genel",
         senaryo:
-          "Bir terzi aldığı 34/5 metrelik kumaşla gömlek dikecektir. Gömleklerin her biri için 8/5 metre kumaş kullanılacaktır.",
-        soru: "Buna göre terzi aldığı kumaşla en fazla kaç gömlek dikebilir?",
+          "Bir terzi, 34/5 metrelik bir kumaştan aynı modelde gömlekler dikecektir. Gömleklerin her biri için 8/5 metre " +
+          "kumaş kullanılmaktadır.",
+        soru: "Buna göre terzi bu kumaşla en fazla kaç gömlek dikebilir?",
         hesap: [
           {
             id: "a1",
-            aciklama: "Toplam kumaş, bir gömleğe giden kumaşa bölünür",
+            aciklama: "Kumaşın kaç gömleğe yettiği",
             islem: "bol",
             girdiler: [veriden(k(34, 5)), veriden(k(8, 5))],
             sonuc: k(1, 4, 4),
@@ -754,30 +719,34 @@ const gorevler: GorselSoruTanimi<"gercek_hayat_senaryo">["gorevler"] = {
             sonuc: k(4),
           },
         ],
-        sonucTamSayiOlmali: true,
-        birim: null,
-        secenekler: [
-          { id: "A", deger: k(3), hata: "birEksik" },
-          { id: "B", deger: k(4), hata: null },
-          { id: "C", deger: k(5), hata: "birFazla" },
-          { id: "D", deger: k(1, 4, 4), hata: "yuvarlama" },
-        ],
-        dogruSecenekId: "B",
       },
+    },
+    ornekSayilari: {
+      baglam: "Bir terzi, belirli uzunluktaki bir kumaştan aynı modelde gömlekler dikecek; her gömleğe aynı uzunlukta kumaş gider.",
+      ornekSoru: "Buna göre terzi bu kumaşla en fazla kaç gömlek dikebilir?",
+      veriler: [
+        { ad: "kumaşın uzunluğu (metre)", deger: s(34, 5) },
+        { ad: "bir gömleğe giden kumaş (metre)", deger: s(8, 5) },
+      ],
+      cevap: s(4),
+      ipucu: "34/5 ÷ 8/5 = 4 1/4 → artan bir parçaya yetmez: en fazla 4",
+      secenekler: [
+        { deger: s(3), hata: "birEksik" },
+        { deger: s(4) },
+        { deger: s(1, 4, 4), hata: "yuvarlama" },
+        { deger: s(5), hata: "yuvarlama" },
+      ],
     },
   }),
   birimOlcekleme: sayisalGorev("birimOlcekleme", {
     etiket: "Birim bulma ve ölçekleme",
     aciklama:
       "Verilen bir toplamdan bir birimin değeri bulunur (bölme), sonra başka bir birim sayısına uygulanır (çarpma): " +
-      "kroki, eş parçalar, paketler.",
+      "kroki, eş paketler, musluktan akan su.",
     enAzSinif: 6,
     kurallar: [
       "İki adım zorunlu ve bu sırayla: önce bir birimin değeri = verilen miktar ÷ onun birim sayısı (bol), sonra " +
-        "istenen miktar = bir birimin değeri × istenen birim sayısı (carp). Tek bir bölme veya tek bir çarpma YETMEZ.",
-      "Geriye doğru kur: bir birimin değerini (ör. 6/5 km) ve iki birim sayısını (2 ve 3) seç; senaryoya 2 × 6/5 = " +
-        "2 2/5 km'yi yaz, cevap 3 × 6/5 = 3 3/5 km olur.",
-      "Çeldiriciler birbirine yakın olmalı ve adım atlamayı yansıtmalı (yalnızca birim değeri, birim bulmadan çarpmak).",
+        "istenen miktar = bir birimin değeri × istenen birim sayısı (carp).",
     ],
     ornek: {
       tip: "gercek_hayat_senaryo",
@@ -805,16 +774,26 @@ const gorevler: GorselSoruTanimi<"gercek_hayat_senaryo">["gorevler"] = {
             sonuc: k(3, 5, 3),
           },
         ],
-        sonucTamSayiOlmali: false,
-        birim: "km",
-        secenekler: [
-          { id: "A", deger: k(1, 5, 1), hata: "adimAtlama" },
-          { id: "B", deger: k(2, 5, 3), hata: "yakinDeger" },
-          { id: "C", deger: k(3, 5, 3), hata: null },
-          { id: "D", deger: k(1, 5, 7), hata: "adimAtlama" },
-        ],
-        dogruSecenekId: "C",
       },
+    },
+    ornekSayilari: {
+      baglam:
+        "Bir krokide okul, kütüphane ve kafe aynı yol üzerinde gösterilmiştir; krokideki her kare gerçekte aynı uzunluğu gösterir.",
+      ornekSoru: "Buna göre kütüphane ile kafe arası kaç kilometredir?",
+      birim: "km",
+      veriler: [
+        { ad: "okul ile kütüphane arasındaki gerçek uzaklık (2 kare, km)", deger: s(2, 5, 2) },
+        { ad: "okul ile kütüphane arasındaki kare sayısı", deger: s(2) },
+        { ad: "kütüphane ile kafe arasındaki kare sayısı", deger: s(3) },
+      ],
+      cevap: s(3, 5, 3),
+      ipucu: "bir birim = 2 2/5 ÷ 2 = 1 1/5; 3 birim = 3 3/5",
+      secenekler: [
+        { deger: s(1, 5, 1), hata: "adimAtlama" },
+        { deger: s(2, 5, 3), hata: "yanlisIslem" },
+        { deger: s(3, 5, 3) },
+        { deger: s(1, 5, 7), hata: "adimAtlama" },
+      ],
     },
   }),
   araliklar: sayisalGorev("araliklar", {
@@ -831,15 +810,10 @@ const gorevler: GorselSoruTanimi<"gercek_hayat_senaryo">["gorevler"] = {
       "geçerken başlangıç/bitiş durumuna göre 1 ekler ya da çıkarır.",
     enAzSinif: 6,
     kurallar: [
-      "Kurgu SABİTTİR (referans soru gibi): bir uzunluk boyunca nesneler (engel, fidan, direk, bayrak) dizilir; ilk " +
-        "nesnenin BAŞLANGIÇ çizgisine, son nesnenin BİTİŞ çizgisine uzaklığı da ardışık iki nesne arasındaki uzaklığa " +
-        "eşittir. Bu cümle senaryoda \"başlangıç\" ve \"bitiş\" sözcükleriyle AÇIKÇA yazılmalı. Kesme/parçalama " +
-        "(\"kaç parça/börek çıkar\") kurgusu KULLANMA; o bir aralık sorusu değildir.",
-      "Hesap tam iki adımdır: aralık sayısı = uzunluk ÷ aralık (bol); nesne sayısı = aralık sayısı − 1 (cikar); bu " +
-        "adımda ikinci girdi senaryoda olmayan sabit 1'dir ({\"tam\":null,\"pay\":1,\"payda\":1}).",
-      "Geriye doğru kur: önce aralık sayısını (tam sayı, ör. 14) ve aralık uzunluğunu (ör. 7/4) seç; uzunluk = 14 × " +
-        "7/4 = 49/2. Aralık sayısı MUTLAKA tam sayı çıkmalı.",
-      "Çeldiricilerden biri ±1 düzeltmesini unutmak olmalı (birFazla veya birEksik).",
+      "Kurgu SABİTTİR (referans soru gibi): ilk nesnenin BAŞLANGIÇ çizgisine, son nesnenin BİTİŞ çizgisine uzaklığı da " +
+        "ardışık iki nesne arasındaki uzaklığa eşittir; bu, senaryoda \"başlangıç\" ve \"bitiş\" sözcükleriyle açıkça " +
+        "yazılmalı.",
+      "Hesap tam iki adımdır: aralık sayısı = uzunluk ÷ aralık (bol); nesne sayısı = aralık sayısı − 1 (cikar).",
     ],
     ornek: {
       tip: "gercek_hayat_senaryo",
@@ -860,74 +834,85 @@ const gorevler: GorselSoruTanimi<"gercek_hayat_senaryo">["gorevler"] = {
           },
           {
             id: "a2",
-            aciklama: "Başlangıçta ve bitişte engel olmadığından engel sayısı aralık sayısından 1 eksiktir",
+            aciklama: "Uçlarda engel olmadığından engel sayısı aralık sayısından 1 eksiktir",
             islem: "cikar",
             girdiler: [adimdan("a1"), veriden(k(1))],
             sonuc: k(13),
           },
         ],
-        sonucTamSayiOlmali: true,
-        birim: null,
-        secenekler: [
-          { id: "A", deger: k(12), hata: "birEksik" },
-          { id: "B", deger: k(13), hata: null },
-          { id: "C", deger: k(14), hata: "birFazla" },
-          { id: "D", deger: k(15), hata: "yanlisIslem" },
-        ],
-        dogruSecenekId: "B",
       },
+    },
+    ornekSayilari: {
+      baglam:
+        "Bir koşu pistine engeller dizilecek; ilk engelin başlangıç çizgisine, son engelin bitiş çizgisine uzaklığı ve ardışık iki engel arasındaki uzaklık eşittir.",
+      ornekSoru: "Buna göre piste toplam kaç engel yerleştirilmiştir?",
+      veriler: [
+        { ad: "pistin uzunluğu (metre)", deger: s(49, 2) },
+        { ad: "iki engel arası uzaklık (metre)", deger: s(3, 4, 1) },
+      ],
+      cevap: s(13),
+      ipucu: "14 aralık; uçlarda engel yok → 14 − 1 = 13",
+      secenekler: [
+        { deger: s(12), hata: "birEksik" },
+        { deger: s(13) },
+        { deger: s(14), hata: "birFazla" },
+        { deger: s(15), hata: "yanlisIslem" },
+      ],
     },
   }),
   kalaniBulma: sayisalGorev("kalaniBulma", {
-    etiket: "Kalanı bulma",
+    etiket: "Kalanı bulma (bir çokluğun kesirleri)",
     aciklama:
-      "Bir bütünden farklı paydalı parçalar kullanılır; öğrenci önce kullanılanı toplar, sonra bütünden çıkarır.",
-    kurallar: ["En az iki parça kullanılmalı ve paydaları farklı olmalı."],
+      "Bir çokluğun (kilogram, sayfa, lira) iki farklı kesri kullanılır; öğrenci her parçayı bulur (çarpma), " +
+      "toplar ve bütünden çıkarır.",
+    kurallar: [
+      "İki kesrin de TÜM çokluğun kesri olduğu senaryoda açıkça anlaşılmalı (ör. \"yine tüm elmaların 3/8'ini\"); " +
+        "\"kalanın\" ifadesi bu görevde KULLANILMAZ.",
+    ],
     ornek: {
       tip: "gercek_hayat_senaryo",
       veri: {
         gorev: "kalaniBulma",
-        sahne: "mutfak",
+        sahne: "market",
         senaryo:
-          "Bir pastane sabah 2 kilogram çikolata aldı. Öğlene kadar bu çikolatanın 1/4 kilogramını kek yapımında, " +
-          "5/8 kilogramını da kurabiye yapımında kullandı.",
-        soru: "Akşam için kaç kilogram çikolata kalmıştır?",
+          "Bir manav sabah 32 kilogram elma aldı. Öğleden önce elmaların 1/4'ünü, öğleden sonra ise yine tüm elmaların " +
+          "3/8'ini sattı.",
+        soru: "Buna göre akşam manavda kaç kilogram elma kalmıştır?",
         hesap: [
-          {
-            id: "a1",
-            aciklama: "Kullanılan çikolata",
-            islem: "topla",
-            girdiler: [veriden(k(1, 4)), veriden(k(5, 8))],
-            sonuc: k(7, 8),
-          },
-          {
-            id: "a2",
-            aciklama: "Kalan çikolata",
-            islem: "cikar",
-            girdiler: [veriden(k(2)), adimdan("a1")],
-            sonuc: k(1, 8, 1),
-          },
+          { id: "a1", aciklama: "Öğleden önce satılan elma", islem: "carp", girdiler: [veriden(k(32)), veriden(k(1, 4))], sonuc: k(8) },
+          { id: "a2", aciklama: "Öğleden sonra satılan elma", islem: "carp", girdiler: [veriden(k(32)), veriden(k(3, 8))], sonuc: k(12) },
+          { id: "a3", aciklama: "Gün içinde satılan elma", islem: "topla", girdiler: [adimdan("a1"), adimdan("a2")], sonuc: k(20) },
+          { id: "a4", aciklama: "Akşam kalan elma", islem: "cikar", girdiler: [veriden(k(32)), adimdan("a3")], sonuc: k(12) },
         ],
-        sonucTamSayiOlmali: false,
-        birim: "kg",
-        secenekler: [
-          { id: "A", deger: k(7, 8), hata: "adimAtlama" },
-          { id: "B", deger: k(1, 8, 1), hata: null },
-          { id: "C", deger: k(3, 8, 1), hata: "adimAtlama" },
-          { id: "D", deger: k(1, 2, 1), hata: "yanlisIslem" },
-        ],
-        dogruSecenekId: "B",
       },
+    },
+    ornekSayilari: {
+      baglam:
+        "Bir manav sabah belirli miktarda elma aldı; öğleden önce elmaların bir kısmını, öğleden sonra yine TÜM elmaların bir kısmını sattı.",
+      ornekSoru: "Buna göre akşam manavda kaç kilogram elma kalmıştır?",
+      birim: "kg",
+      veriler: [
+        { ad: "sabah alınan elma (kg)", deger: s(32) },
+        { ad: "öğleden önce satılan, tüm elmaların kesri", deger: s(1, 4) },
+        { ad: "öğleden sonra satılan, tüm elmaların kesri", deger: s(3, 8) },
+      ],
+      cevap: s(12),
+      ipucu: "32 × 1/4 = 8; 32 × 3/8 = 12; kalan 12",
+      secenekler: [
+        { deger: s(20), hata: "adimAtlama" },
+        { deger: s(12) },
+        { deger: s(15), hata: "yanlisIslem" }, // 32 − 8 = 24; 24 × 3/8 = 9; 24 − 9
+        { deger: s(24), hata: "adimAtlama" },
+      ],
     },
   }),
   coklugunKesri: sayisalGorev("coklugunKesri", {
-    etiket: "Bir çokluğun kesrini bulma",
+    etiket: "Bir çokluğun kesrini art arda bulma",
     aciklama:
-      "Bir çokluğun kesirleri art arda alınır (ör. önce bir kısmı, sonra kalanın bir kesri); öğrenci istenen sayıyı bulur.",
+      "Önce bir çokluğun bir kesri alınır, sonra KALANIN bir kesri alınır; öğrenci geriye kalanı bulur.",
     kurallar: [
-      "Tek adımlı \"24'ün 1/3'ü kaçtır?\" YASAK; en az iki kesir işlemi ardışık uygulanmalı.",
-      "Her ara sonuç tam sayı çıkmalı (kişi, nesne sayısı); sistem her adımı kontrol eder. Geriye doğru kur: toplamı " +
-        "tüm paydaların katı seç (ör. 3/7 ve kalanın 1/4'ü için 28: 28 × 3/7 = 12, 16 × 1/4 = 4).",
+      "İkinci kesrin TÜM çokluğun değil, KALANIN kesri olduğu senaryoda açıkça yazılmalı (ör. \"servisle gelmeyenlerin " +
+        "1/4'ü\"); bu ayrım sorunun asıl inceliğidir.",
     ],
     ornek: {
       tip: "gercek_hayat_senaryo",
@@ -935,58 +920,76 @@ const gorevler: GorselSoruTanimi<"gercek_hayat_senaryo">["gorevler"] = {
         gorev: "coklugunKesri",
         sahne: "sinif",
         senaryo:
-          "Bir sınıfta 28 öğrenci var. Öğrencilerin 3/7'si okula servisle geliyor. Servisle gelmeyenlerin 1/4'ü " +
-          "bisikletle, geri kalanı yürüyerek geliyor.",
-        soru: "Bu sınıfta okula yürüyerek gelen kaç öğrenci vardır?",
+          "Bir sınıfta 28 öğrenci vardır. Öğrencilerin 3/7'si okula servisle gelir. Servisle gelmeyenlerin 1/4'ü " +
+          "bisikletle, geri kalanı yürüyerek gelir.",
+        soru: "Buna göre bu sınıfta okula yürüyerek gelen kaç öğrenci vardır?",
         hesap: [
           { id: "a1", aciklama: "Servisle gelenler", islem: "carp", girdiler: [veriden(k(28)), veriden(k(3, 7))], sonuc: k(12) },
           { id: "a2", aciklama: "Servisle gelmeyenler", islem: "cikar", girdiler: [veriden(k(28)), adimdan("a1")], sonuc: k(16) },
           { id: "a3", aciklama: "Bisikletle gelenler", islem: "carp", girdiler: [adimdan("a2"), veriden(k(1, 4))], sonuc: k(4) },
           { id: "a4", aciklama: "Yürüyerek gelenler", islem: "cikar", girdiler: [adimdan("a2"), adimdan("a3")], sonuc: k(12) },
         ],
-        sonucTamSayiOlmali: true,
-        birim: null,
-        secenekler: [
-          { id: "A", deger: k(4), hata: "adimAtlama" },
-          { id: "B", deger: k(12), hata: null },
-          { id: "C", deger: k(16), hata: "adimAtlama" },
-          { id: "D", deger: k(21), hata: "yanlisIslem" },
-        ],
-        dogruSecenekId: "B",
       },
+    },
+    ornekSayilari: {
+      baglam:
+        "Bir sınıftaki öğrencilerin bir kısmı okula servisle geliyor; servisle GELMEYENLERİN bir kısmı bisikletle, geri kalanı yürüyerek geliyor.",
+      ornekSoru: "Buna göre bu sınıfta okula yürüyerek gelen kaç öğrenci vardır?",
+      veriler: [
+        { ad: "sınıftaki öğrenci sayısı", deger: s(28) },
+        { ad: "servisle gelenler, tüm öğrencilerin kesri", deger: s(3, 7) },
+        { ad: "bisikletle gelenler, servisle gelmeyenlerin kesri", deger: s(1, 4) },
+      ],
+      cevap: s(12),
+      ipucu: "28 × 3/7 = 12; kalan 16; 16 × 1/4 = 4; geriye 12",
+      secenekler: [
+        { deger: s(4), hata: "adimAtlama" },
+        { deger: s(9), hata: "yanlisIslem" },
+        { deger: s(12) },
+        { deger: s(16), hata: "adimAtlama" },
+      ],
     },
   }),
   karsilastirma: sayisalGorev("karsilastirma", {
-    etiket: "İşlem gerektiren karşılaştırma",
+    etiket: "Çokluğun kesirleriyle karşılaştırma",
     aciklama:
-      "Karşılaştırılacak miktarlar hazır verilmez; öğrenci önce her birini bir işlemle bulur, sonra farkı hesaplar.",
+      "İki kişinin miktarları, farklı bütünlerin kesirleri olarak verilir; öğrenci her miktarı bulur (çarpma), sonra " +
+      "farkı hesaplar. Büyük kesir her zaman büyük miktar demek değildir.",
     kurallar: [
-      "İki kesri doğrudan karşılaştırtma (\"5/6 mı 1/2 mi büyük?\" YASAK).",
-      "Soru kimin daha fazla olduğunu değil, farkın ne kadar olduğunu sormalı; son adım çıkarma olmalı.",
+      "Soru kökü planın örnek soru kökündeki karşılaştırma yönünü (kimin kimden fazla olduğunu) aynen korumalı.",
     ],
     ornek: {
       tip: "gercek_hayat_senaryo",
       veri: {
         gorev: "karsilastirma",
-        sahne: "park",
-        senaryo:
-          "Elif ve Can okul bahçesindeki çiçekleri sulamak için eşit büyüklükteki kovalarını dolduruyor. Elif " +
-          "kovasının önce 1/4'ünü, sonra 1/2'sini daha doldurdu. Can ise kovasını tek seferde 5/8'ine kadar doldurdu.",
-        soru: "İki kovadaki su miktarlarının farkı kovanın kaçta kaçıdır?",
+        sahne: "sinif",
+        senaryo: "Elif 120 sayfalık kitabının 3/4'ünü, Can ise 96 sayfalık kitabının 5/8'ini okudu.",
+        soru: "Buna göre Elif, Can'dan kaç sayfa fazla okumuştur?",
         hesap: [
-          { id: "a1", aciklama: "Elif'in kovasındaki su", islem: "topla", girdiler: [veriden(k(1, 4)), veriden(k(1, 2))], sonuc: k(3, 4) },
-          { id: "a2", aciklama: "İki kova arasındaki fark", islem: "cikar", girdiler: [adimdan("a1"), veriden(k(5, 8))], sonuc: k(1, 8) },
+          { id: "a1", aciklama: "Elif'in okuduğu sayfa", islem: "carp", girdiler: [veriden(k(120)), veriden(k(3, 4))], sonuc: k(90) },
+          { id: "a2", aciklama: "Can'ın okuduğu sayfa", islem: "carp", girdiler: [veriden(k(96)), veriden(k(5, 8))], sonuc: k(60) },
+          { id: "a3", aciklama: "İkisinin okuduğu sayfa farkı", islem: "cikar", girdiler: [adimdan("a1"), adimdan("a2")], sonuc: k(30) },
         ],
-        sonucTamSayiOlmali: false,
-        birim: "kova",
-        secenekler: [
-          { id: "A", deger: k(1, 8), hata: null },
-          { id: "B", deger: k(3, 8), hata: "adimAtlama" },
-          { id: "C", deger: k(1, 4), hata: "yakinDeger" },
-          { id: "D", deger: k(3, 4), hata: "adimAtlama" },
-        ],
-        dogruSecenekId: "A",
       },
+    },
+    ornekSayilari: {
+      baglam: "Elif ve Can, sayfa sayıları farklı iki kitap okuyor; her biri kendi kitabının bir kısmını okudu.",
+      ornekSoru: "Buna göre Elif, Can'dan kaç sayfa fazla okumuştur?",
+      birim: "sayfa",
+      veriler: [
+        { ad: "Elif'in kitabının sayfa sayısı", deger: s(120) },
+        { ad: "Elif'in okuduğu kısım (kendi kitabının kesri)", deger: s(3, 4) },
+        { ad: "Can'ın kitabının sayfa sayısı", deger: s(96) },
+        { ad: "Can'ın okuduğu kısım (kendi kitabının kesri)", deger: s(5, 8) },
+      ],
+      cevap: s(30),
+      ipucu: "120 × 3/4 = 90; 96 × 5/8 = 60; fark 30",
+      secenekler: [
+        { deger: s(24), hata: "yanlisIslem" },
+        { deger: s(30) },
+        { deger: s(90), hata: "adimAtlama" },
+        { deger: s(150), hata: "yanlisIslem" },
+      ],
     },
   }),
   cokAdimliCikarim: {
@@ -1049,10 +1052,14 @@ export const gercekHayatSenaryoTanimi: GorselSoruTanimi<"gercek_hayat_senaryo"> 
   kesirKonusuGerekir: false,
   // references/senaryo-kalite-referans.md — Bölüm 2 kontrol listesi.
   kurallar: [
-    "SORU PLANI satırında \"SİSTEMİN VERDİĞİ SAYILAR\" varsa: sayıları sistem, koşulları sağlayacak şekilde seçmiştir. " +
-      "Senaryoyu YALNIZCA bu sayılarla ve aynı yazımla kur (±1 düzeltmesindeki 1 dışında başka sayı ekleme), " +
-      "\"hesap\" bu sayılarla \"Doğru cevap\"a ulaşmalı ve bu cevap doğru şık olmalı. Senin görevin sayı seçmek değil; " +
-      "bu sayılara gerçekçi bir bağlam, doğru işlem adımları ve öğrenci hatalarına dayanan çeldiriciler yazmaktır.",
+    "SORU PLANI satırında \"Bağlam\" ve \"SİSTEMİN VERDİĞİ SAYILAR\" varsa: bağlamı, sayıları ve şıkları sistem seçmiştir. " +
+      "Senin görevin, BU bağlamda (başka bir bağlam uydurmadan) ve YALNIZCA bu sayılarla, aynı yazımla akıcı bir " +
+      "senaryo metni, örnek soru köküne benzeyen tek bir soru ve \"Doğru cevap\"a ulaşan bir hesap yazmaktır. Kişi ve " +
+      "nesne adlarını değiştirebilirsin; yeni bilgi ya da sayı ekleyemezsin.",
+    "DİL: Metin ve soru akıcı, doğal ve dil bilgisi açısından kusursuz olmalı. Kesirden sonraki ek kesme işaretiyle " +
+      "yazılır: 3/4'ü, 2/5'i, 1/2'si, 3/8'ini. \"Kesiri/kesirin/kesire\" değil \"kesri/kesrin/kesre\". Birimler " +
+      "tam yazılır (metre, kilogram, litre). \"Bulunmaktadır\" gibi ağır ifadeleri yığma; \"oranında\" gibi yapay " +
+      "ifadeler kullanma. Sistem sık yapılan yazım hatalarını kontrol eder.",
     "1) Cevap metinde açıkça verilmez; öğrenci en az bir işlem (bölme, çarpma, birim bulma, aralık sayma…) yapmak " +
       "zorundadır. Tek adımlı \"hangisi büyük?\" soruları KABUL EDİLMEZ. Sistem cevabın senaryoda geçip geçmediğini kontrol eder.",
     "2) En az bir kesir işlemi içerir (toplama, çıkarma, çarpma, bölme ya da tam sayılı ↔ bileşik kesir dönüşümü).",

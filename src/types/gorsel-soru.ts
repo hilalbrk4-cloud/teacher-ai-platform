@@ -249,10 +249,27 @@ export type GorselSoruIcerigi = {
  * denetler.
  */
 export interface SenaryoSayilari {
+  /** Kodun seçtiği gerçekçi bağlam (ör. terzi ve kumaş); model senaryoyu bu bağlamda yazar. */
+  baglam: string;
+  /** Bu bağlam için doğal Türkçeyle yazılmış örnek soru kökü. */
+  ornekSoru: string;
+  /** Şıklarda sayının yanına yazılan birim (ör. "kg", "sayfa"); sayılan nesnelerde yok. */
+  birim?: string;
+  /**
+   * Senaryoda MUTLAKA geçmesi gereken bilgiler: her grup, aynı bilginin
+   * kabul edilen yazımlarıdır (ör. ["her kare", "her bir kare"]). Bunlar
+   * olmadan soru eksik veya iki anlamlı kalır.
+   */
+  anahtarIfadeler?: string[][];
   veriler: { ad: string; deger: Kesir }[];
   cevap: Kesir;
   /** Sayılar arasındaki ilişki (ör. "34/5 ÷ 8/5 = 4 1/4 → en fazla 4"). */
   ipucu: string;
+  /**
+   * Şıklar, gösterilecek sırayla. Doğru şıkta `hata` yoktur; her çeldirici,
+   * adı verilen bir öğrenci hatasının hesaplanmış sonucudur.
+   */
+  secenekler: { deger: Kesir; hata?: string }[];
 }
 
 /** Blueprint'in bir `gorselSoru` sırasına atadığı tip, görev ve (sayısal senaryolarda) sayılar. */

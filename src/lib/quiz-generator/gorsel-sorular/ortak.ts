@@ -6,6 +6,7 @@ import type {
   GorselStratejisi,
   Kesir,
   SecenekKimligi,
+  SenaryoSayilari,
 } from "@/types/gorsel-soru";
 
 /** `QuizValidationIssue` ile yapısal olarak aynı; aynı diziye eklenebilir. */
@@ -59,6 +60,11 @@ export interface GorselSoruGorevTanimi<K extends GorselSoruTipi> {
   kurallar: readonly string[];
   /** Prompt'a birebir konan, kendi doğrulayıcısından geçen örnek çıktı. */
   ornek: { tip: K; veri: Record<string, unknown> };
+  /**
+   * Sayısal senaryo görevlerinde örneğin dayandığı plan sayıları (bağlam,
+   * veriler, cevap, kodun ürettiği şıklar); örnek bu planla doğrulanır.
+   */
+  ornekSayilari?: SenaryoSayilari;
   /**
    * `veri` için OpenAI structured outputs (strict) uyumlu JSON Schema:
    * her alan zorunlu, isteğe bağlı alanlar `null` alabilir, fazladan alan yok.
@@ -211,6 +217,13 @@ export function okuKesir(
   const tamVar = !yokMu(value.tam) && value.tam !== 0;
   const tam = tamVar ? okuTamSayi(value, "tam", path, sorunlar, KESIR_TAM_SINIRI) : undefined;
   if (pay === undefined || payda === undefined || (tamVar && tam === undefined)) return undefined;
+  // Paydası 1 olan tam sayılı kesir anlamsızdır; model tam sayıyı bazen
+  // {tam:35,pay:35,payda:1} diye yazıyor (35 + 35 = 70 okunurdu).
+  if (tam !== undefined && payda === 1) {
+    if (pay === tam || pay === 0) return { pay: tam, payda: 1 };
+    sorunlar.push({ path, message: `Tam sayılar {"tam": null, "pay": n, "payda": 1} biçiminde yazılmalıdır.` });
+    return undefined;
+  }
   return tam !== undefined ? { tam, pay, payda } : { pay, payda };
 }
 

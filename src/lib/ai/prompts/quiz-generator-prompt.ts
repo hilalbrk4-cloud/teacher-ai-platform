@@ -144,9 +144,14 @@ function buildSlotLine(slot: QuestionBlueprintSlot, index: number): string {
   const planField = plan
     ? ` | Görsel soru tipi: ${plan.tip} | Görev: ${plan.gorev} (${gorevTanimi(plan).etiket})` +
       (numbers
-        ? ` | SİSTEMİN VERDİĞİ SAYILAR (aynen kullan): ${numbers.veriler
+        ? ` | Bağlam: ${numbers.baglam} | SİSTEMİN VERDİĞİ SAYILAR (aynen kullan): ${numbers.veriler
             .map((veri) => `${veri.ad} = ${kesirGosterimi(veri.deger)}`)
-            .join("; ")} | Doğru cevap: ${kesirGosterimi(numbers.cevap)} (${numbers.ipucu})`
+            .join("; ")} | Doğru cevap: ${kesirGosterimi(numbers.cevap)}${numbers.birim ? ` ${numbers.birim}` : ""} ` +
+          `(${numbers.ipucu}) | Örnek soru kökü: "${numbers.ornekSoru}"` +
+          (numbers.anahtarIfadeler?.length
+            ? ` | Senaryoda mutlaka geçmeli: ${numbers.anahtarIfadeler.map((grup) => `"${grup[0]}"`).join(", ")}`
+            : "") +
+          " | Şıkları sistem üretir."
         : "")
     : "";
 
