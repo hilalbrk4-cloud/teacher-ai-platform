@@ -213,8 +213,9 @@ export function buildQuizBlueprint(input: QuizFormInput): QuizBlueprint {
     totalQuestions: count,
     includeAnswerKey: input.includeAnswerKey,
     includeExplanations: input.includeExplanations,
-    // Step 8: visual-question plan. Runs after ordering so the first visual
-    // questions a student meets use distinct tips (see `gorselSoruPlaniAta`).
+    // Step 8: visual-question plan. Runs after ordering so the easiest slots
+    // get the (at most two) simple visual-reading questions and the rest are
+    // multi-step scenarios (see `gorselSoruPlaniAta`).
     slots: gorselSoruPlaniAta(orderSlots(unorderedSlots, input.quizType), {
       subject: input.subject,
       topic: input.topic,

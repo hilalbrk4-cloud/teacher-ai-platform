@@ -71,19 +71,43 @@ function tohum(metin: string): number {
   return deger;
 }
 
+/** Tek bir görsel okuma işi olan tipler (konum okuma, kart türü, sembol eşleştirme). */
+const BASIT_OKUMA_TIPLERI: readonly GorselSoruTipi[] = ["sayi_dogrusu", "kesir_kartlari"];
+
+/** Bir quizde en fazla bu kadar basit görsel okuma sorusu olur. */
+const EN_FAZLA_BASIT_OKUMA = 2;
+
+/**
+ * Çok adımlı senaryo görevlerinin tercih sırası: en çok işlem adımı olan
+ * önce gelir (iki kesir işlemi + karşılaştırma/kalan, sonra bölme +
+ * yuvarlama, sonra birim bulma + ölçekleme).
+ */
+const COK_ADIMLI_GOREV_SIRASI: readonly SenaryoGorevi[] = [
+  "karsilastirma",
+  "kalaniBulma",
+  "coklugunKesri",
+  "bolmeEnFazla",
+  "birimOlcekleme",
+  "cokAdimliCikarim",
+];
+
+const ZORLUK_SIRASI: Record<QuestionBlueprintSlot["difficulty"], number> = { easy: 0, medium: 1, hard: 2 };
+
 /**
  * Blueprint'in son adımı: her `gorselSoru` sırasına bir tip ve görev atar.
  *
- * - Önce her uygun tip birer kez kullanılır; böylece tip sayısı yettiği
- *   sürece bir quizde her tipten en fazla bir soru olur.
- * - Soru sayısı tip sayısını aşarsa tekrar eden tipe her seferinde FARKLI
- *   bir görev verilir (ör. ikinci sayı doğrusu sorusu "sıralama" yerine
- *   "verilen kesri gösterme") — emoji/tema değişikliği çeşitlilik sayılmaz.
+ * Zorluk dengesi: quiz çok adımlı senaryolar ağırlıklıdır.
+ * - Basit görsel okuma soruları (sayı doğrusu, kesir kartları) görsel
+ *   soruların üçte biri kadardır, en fazla 2 (5 soruda 1, 6+ soruda 2).
+ *   Blueprint'in en kolay işaretlediği sıralara verilir; iki tane varsa
+ *   farklı tiplerdendir.
+ * - Kalan sıralar çok adımlı senaryo görevleridir: önce her görev birer kez
+ *   (en çok adımlı olandan başlayarak) kullanılır; tekrar eden görev
+ *   sıraya özgü tohumla farklı sayılar alır.
  * - Kesir tipleri/görevleri yalnızca konu veya kazanımlar kesirlerle
  *   ilgiliyse atanır; aksi hâlde yalnızca derse bağımsız görevler kalır.
- * - Hangi tipin/görevin önce geleceği konudan türetilen sabit bir tohumla
- *   döndürülür: aynı plan her zaman aynı sonucu verir, farklı konular farklı
- *   görevlerle başlar.
+ * - Seçimler konudan türetilen sabit bir tohumla döndürülür: aynı plan her
+ *   zaman aynı sonucu verir, farklı konular farklı görevlerle başlar.
  */
 export function gorselSoruPlaniAta(
   slots: QuestionBlueprintSlot[],
@@ -92,24 +116,55 @@ export function gorselSoruPlaniAta(
   const metinler = [baglam.topic, ...slots.map((slot) => slot.learningOutcome)];
   const kesirKonusu = isFractionTopic(baglam.subject, metinler);
   const sinif = sinifDuzeyi(baglam.gradeLevel);
-  const tipler = GORSEL_SORU_TIPLERI.filter((tip) => kesirKonusu || !gorselSoruTanimi(tip).kesirKonusuGerekir);
   const baslangic = tohum(metinler.join("|"));
 
-  let sira = 0;
+  const basitTipler = BASIT_OKUMA_TIPLERI.filter(
+    (tip) =>
+      (kesirKonusu || !gorselSoruTanimi(tip).kesirKonusuGerekir) && tipinGorevleri(tip, kesirKonusu, sinif).length > 0
+  );
+  const senaryoGorevleri = tipinGorevleri("gercek_hayat_senaryo", kesirKonusu, sinif);
+  const cokAdimliGorevler = COK_ADIMLI_GOREV_SIRASI.filter((gorev) => senaryoGorevleri.includes(gorev));
+
+  const gorselSiralar = slots.filter((slot) => slot.type === "gorselSoru");
+  const basitSayisi =
+    basitTipler.length === 0
+      ? 0
+      : cokAdimliGorevler.length === 0
+        ? gorselSiralar.length
+        : Math.min(EN_FAZLA_BASIT_OKUMA, Math.floor(gorselSiralar.length / 3));
+  // En kolay işaretlenen sıralar basit okuma olur (eşitlikte quizdeki sıraya göre).
+  const basitSiralar = new Set(
+    [...gorselSiralar]
+      .sort((a, b) => ZORLUK_SIRASI[a.difficulty] - ZORLUK_SIRASI[b.difficulty] || a.order - b.order)
+      .slice(0, basitSayisi)
+      .map((slot) => slot.order)
+  );
+
+  let basitSira = 0;
+  let cokAdimliSira = 0;
   return slots.map((slot) => {
     if (slot.type !== "gorselSoru") return slot;
-    const tipIndex = (sira + baslangic) % tipler.length;
-    const tip = tipler[tipIndex];
-    const tekrar = Math.floor(sira / tipler.length);
-    const gorevler = tipinGorevleri(tip, kesirKonusu, sinif);
-    const gorev = gorevler[(tekrar + baslangic + tipIndex) % gorevler.length];
-    sira += 1;
-    // Sayısal senaryolarda sayıları kod seçer; model yalnızca senaryoyu yazar.
-    const sayilar =
-      tip === "gercek_hayat_senaryo" && gorev !== "cokAdimliCikarim"
-        ? senaryoSayilariUret(gorev as Exclude<SenaryoGorevi, "cokAdimliCikarim">, baslangic + slot.order * 7919)
-        : undefined;
-    return { ...slot, gorselPlani: { tip, gorev, ...(sayilar ? { sayilar } : {}) } as GorselSoruPlani };
+    let plan: GorselSoruPlani;
+    if (basitSiralar.has(slot.order)) {
+      const tipIndex = (basitSira + baslangic) % basitTipler.length;
+      const tip = basitTipler[tipIndex];
+      const gorevler = tipinGorevleri(tip, kesirKonusu, sinif);
+      const tekrar = Math.floor(basitSira / basitTipler.length);
+      plan = { tip, gorev: gorevler[(tekrar + baslangic + tipIndex) % gorevler.length] } as GorselSoruPlani;
+      basitSira += 1;
+    } else {
+      // Görevler tercih sırasıyla, konuya göre kaydırılmış bir başlangıçla döner;
+      // tümü kullanılmadan hiçbiri tekrar etmez.
+      const gorev = cokAdimliGorevler[(cokAdimliSira + baslangic) % cokAdimliGorevler.length];
+      cokAdimliSira += 1;
+      // Sayısal senaryolarda sayıları kod seçer; model yalnızca senaryoyu yazar.
+      const sayilar =
+        gorev !== "cokAdimliCikarim"
+          ? senaryoSayilariUret(gorev as Exclude<SenaryoGorevi, "cokAdimliCikarim">, baslangic + slot.order * 7919)
+          : undefined;
+      plan = { tip: "gercek_hayat_senaryo", gorev, ...(sayilar ? { sayilar } : {}) };
+    }
+    return { ...slot, gorselPlani: plan };
   });
 }
 

@@ -216,8 +216,11 @@ Each tip has several tasks, each with its own schema, rules and example:
 `kesir_kartlari` → ifadeDegerlendirme, turuBul, gosterimDonusumu;
 `gercek_hayat_senaryo` → karsilastirma, kalaniBulma, coklugunKesri, cokAdimliCikarim.
 The Blueprint (`gorselSoruPlaniAta`) assigns a tip + task to every
-`gorselSoru` slot: each suitable tip is used once before any repeats, and
-a repeated tip always gets a different task. Fraction tips/tasks are only
+`gorselSoru` slot, weighted toward multi-step work: simple visual-reading
+questions (`sayi_dogrusu`, `kesir_kartlari`) get ⌊n/3⌋ slots, at most 2
+(1 in a 5-question quiz), placed on the easiest slots and from different
+tips; every other slot is a multi-step numeric scenario, each task used once
+before any repeats. Fraction tips/tasks are only
 assigned when the topic or outcomes mention fractions. The prompt shows
 only the assigned tasks, and the validator rejects a response that deviates
 from the plan. Scenario questions must carry ≥2 `islemAdimlari`, and a

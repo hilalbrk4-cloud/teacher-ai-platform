@@ -91,18 +91,38 @@ function planlar(form: QuizFormInput): GorselSoruPlani[] {
 }
 
 describe("görsel soru planı (Blueprint)", () => {
-  it("tip sayısı yettiğinde her tipten en fazla bir soru atar", () => {
-    const tipler = planlar(FORM).map((plan) => plan.tip);
-    expect(new Set(tipler).size).toBe(3);
+  it("basit görsel okuma soruları üçte bir, en fazla 2; kalanı çok adımlı sayısal senaryodur", () => {
+    for (let questionCount = 1; questionCount <= 12; questionCount += 1) {
+      for (const gradeLevel of ["5. Sınıf", "6. Sınıf"]) {
+        const plan = planlar({ ...FORM, gradeLevel, questionCount, difficulty: "mixed" });
+        const basit = plan.filter((item) => item.tip !== "gercek_hayat_senaryo");
+        expect(basit).toHaveLength(Math.min(2, Math.floor(questionCount / 3)));
+        const senaryolar = plan.filter((item) => item.tip === "gercek_hayat_senaryo");
+        // Kesir konusunda her senaryo, sayıları kodun seçtiği çok adımlı bir görevdir.
+        expect(senaryolar.every((item) => item.gorev !== "cokAdimliCikarim" && item.sayilar)).toBe(true);
+      }
+    }
   });
 
-  it("tip tekrar ettiğinde görev de değişir (emoji değil görev çeşitliliği)", () => {
-    const altı = planlar({ ...FORM, questionCount: 6 });
-    for (const tip of GORSEL_SORU_TIPLERI) {
-      const gorevler = altı.filter((plan) => plan.tip === tip).map((plan) => plan.gorev);
-      expect(gorevler).toHaveLength(2);
-      expect(new Set(gorevler).size).toBe(2);
-    }
+  it("iki basit okuma sorusu farklı tiplerdendir; çok adımlı görevler tümü kullanılmadan tekrar etmez", () => {
+    const plan = planlar({ ...FORM, gradeLevel: "6. Sınıf", questionCount: 8 });
+    const basit = plan.filter((item) => item.tip !== "gercek_hayat_senaryo");
+    expect(new Set(basit.map((item) => item.tip)).size).toBe(2);
+    const gorevler = plan.filter((item) => item.tip === "gercek_hayat_senaryo").map((item) => item.gorev);
+    expect(gorevler).toHaveLength(6);
+    expect(new Set(gorevler.slice(0, 5)).size).toBe(5);
+  });
+
+  it("basit okuma soruları Blueprint'in en kolay işaretlediği sıralara verilir", () => {
+    const slots = buildQuizBlueprint({ ...FORM, questionCount: 6, difficulty: "mixed" }).slots;
+    const sira = { easy: 0, medium: 1, hard: 2 } as const;
+    const basitZorluk = slots
+      .filter((slot) => slot.gorselPlani && slot.gorselPlani.tip !== "gercek_hayat_senaryo")
+      .map((slot) => sira[slot.difficulty]);
+    const senaryoZorluk = slots
+      .filter((slot) => slot.gorselPlani?.tip === "gercek_hayat_senaryo")
+      .map((slot) => sira[slot.difficulty]);
+    expect(Math.max(...basitZorluk)).toBeLessThanOrEqual(Math.min(...senaryoZorluk));
   });
 
   it("kesir dışı konularda yalnızca derse bağımsız tip ve görevleri atar", () => {
