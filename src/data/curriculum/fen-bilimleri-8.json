@@ -1,0 +1,946 @@
+{
+ "id": "fen-bilimleri-8",
+ "subject": "Fen Bilimleri",
+ "subjectId": "fen-bilimleri",
+ "grade": 8,
+ "program": "onceki",
+ "source": {
+  "file": "FEN BİLİMLERİ  (3-8. SINIFLAR) TASLAK ÇERÇEVE YILLIK PLAN+++.xlsx",
+  "sheet": "FEN BİLİMLERİ 8"
+ },
+ "units": [
+  {
+   "id": "mevsimler-ve-iklim",
+   "name": "Mevsimler ve İklim",
+   "topics": [
+    {
+     "id": "mevsimler-ve-iklim--mevsimlerin-olusumu",
+     "name": "Mevsimlerin Oluşumu",
+     "outcomeCodes": [
+      "F.8.1.1.1"
+     ]
+    },
+    {
+     "id": "mevsimler-ve-iklim--iklim-ve-hava-hareketleri",
+     "name": "İklim ve Hava Hareketleri",
+     "outcomeCodes": [
+      "F.8.1.2.1",
+      "F.8.1.2.2"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "dna-ve-genetik-kod",
+   "name": "Dna ve Genetik Kod",
+   "topics": [
+    {
+     "id": "dna-ve-genetik-kod--dna-ve-genetik-kod",
+     "name": "DNA ve Genetik Kod",
+     "outcomeCodes": [
+      "F.8.2.1.1",
+      "F.8.2.1.2",
+      "F.8.2.1.3",
+      "F.8.2.2.1"
+     ]
+    },
+    {
+     "id": "dna-ve-genetik-kod--kalitim",
+     "name": "Kalıtım",
+     "outcomeCodes": [
+      "F.8.2.1.2",
+      "F.8.2.1.3",
+      "F.8.2.2.1",
+      "F.8.2.2.2",
+      "F.8.2.2.3"
+     ]
+    },
+    {
+     "id": "dna-ve-genetik-kod--mutasyon-ve-modifikasyon",
+     "name": "Mutasyon ve Modifikasyon",
+     "outcomeCodes": [
+      "F.8.2.3.1",
+      "F.8.2.3.2",
+      "F.8.2.3.3",
+      "F.8.2.4.1"
+     ]
+    },
+    {
+     "id": "dna-ve-genetik-kod--adaptasyon-cevreye-uyum",
+     "name": "Adaptasyon (Çevreye Uyum)",
+     "outcomeCodes": [
+      "F.8.2.3.1",
+      "F.8.2.3.2",
+      "F.8.2.3.3",
+      "F.8.2.4.1"
+     ]
+    },
+    {
+     "id": "dna-ve-genetik-kod--biyoteknoloji",
+     "name": "Biyoteknoloji",
+     "outcomeCodes": [
+      "F.8.2.5.1",
+      "F.8.2.5.2",
+      "F.8.2.5.3"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "basinc",
+   "name": "Basınç",
+   "topics": [
+    {
+     "id": "basinc--basinc",
+     "name": "Basınç",
+     "outcomeCodes": [
+      "F.8.3.1.1",
+      "F.8.3.1.2",
+      "F.8.3.1.3"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "madde-ve-endustri",
+   "name": "Madde ve Endüstri",
+   "topics": [
+    {
+     "id": "madde-ve-endustri--periyodik-sistem",
+     "name": "Periyodik Sistem",
+     "outcomeCodes": [
+      "F.8.4.1.1",
+      "F.8.4.1.2",
+      "F.8.4.2.1"
+     ]
+    },
+    {
+     "id": "madde-ve-endustri--fiziksel-ve-kimyasal-degisimler",
+     "name": "Fiziksel ve Kimyasal Değişimler",
+     "outcomeCodes": [
+      "F.8.4.1.2",
+      "F.8.4.2.1",
+      "F.8.4.3.1"
+     ]
+    },
+    {
+     "id": "madde-ve-endustri--kimyasal-tepkimeler",
+     "name": "Kimyasal Tepkimeler",
+     "outcomeCodes": [
+      "F.8.4.2.1",
+      "F.8.4.3.1",
+      "F.8.4.4.1",
+      "F.8.4.4.2",
+      "F.8.4.4.3"
+     ]
+    },
+    {
+     "id": "madde-ve-endustri--asitler-ve-bazlar",
+     "name": "Asitler ve Bazlar",
+     "outcomeCodes": [
+      "F.8.4.3.1",
+      "F.8.4.4.1",
+      "F.8.4.4.2",
+      "F.8.4.4.3",
+      "F.8.4.4.4",
+      "F.8.4.4.5",
+      "F.8.4.4.6",
+      "F.8.4.4.7",
+      "F.8.4.5.1",
+      "F.8.4.5.2"
+     ]
+    },
+    {
+     "id": "madde-ve-endustri--maddenin-isi-ile-etkilesimi",
+     "name": "Maddenin Isı ile Etkileşimi",
+     "outcomeCodes": [
+      "F.8.4.4.7",
+      "F.8.4.5.1",
+      "F.8.4.5.2",
+      "F.8.4.5.3",
+      "F.8.4.5.4",
+      "F.8.4.6.1"
+     ]
+    },
+    {
+     "id": "madde-ve-endustri--turkiye-de-kimya-endustrisi",
+     "name": "Türkiye’de Kimya Endüstrisi",
+     "outcomeCodes": [
+      "F.8.4.5.3",
+      "F.8.4.5.4",
+      "F.8.4.6.1",
+      "F.8.4.6.2"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "basit-makineler",
+   "name": "Basit Makineler",
+   "topics": [
+    {
+     "id": "basit-makineler--basit-makineler",
+     "name": "Basit Makineler",
+     "outcomeCodes": [
+      "F.8.5.1.1",
+      "F.8.5.1.2"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "enerji-donusumleri-ve-cevre-bilimi",
+   "name": "Enerji Dönüşümleri ve Çevre Bilimi",
+   "topics": [
+    {
+     "id": "enerji-donusumleri-ve-cevre-bilimi--besin-zinciri-ve-enerji-akisi",
+     "name": "Besin Zinciri ve Enerji Akışı",
+     "outcomeCodes": [
+      "F.8.6.1.1",
+      "F.8.6.2.1"
+     ]
+    },
+    {
+     "id": "enerji-donusumleri-ve-cevre-bilimi--enerji-donusumleri",
+     "name": "Enerji Dönüşümleri",
+     "outcomeCodes": [
+      "F.8.6.1.1",
+      "F.8.6.2.1",
+      "F.8.6.2.2",
+      "F.8.6.2.3",
+      "F.8.6.3.1"
+     ]
+    },
+    {
+     "id": "enerji-donusumleri-ve-cevre-bilimi--madde-donguleri-ve-cevre-sorunlari",
+     "name": "Madde Döngüleri ve Çevre Sorunları",
+     "outcomeCodes": [
+      "F.8.6.2.3",
+      "F.8.6.3.1",
+      "F.8.6.3.2",
+      "F.8.6.3.3",
+      "F.8.6.4.1",
+      "F.8.6.4.2"
+     ]
+    },
+    {
+     "id": "enerji-donusumleri-ve-cevre-bilimi--surdurulebilir-kalkinma",
+     "name": "Sürdürülebilir Kalkınma",
+     "outcomeCodes": [
+      "F.8.6.3.3",
+      "F.8.6.4.1",
+      "F.8.6.4.2",
+      "F.8.6.4.3",
+      "F.8.6.4.4",
+      "F.8.6.4.5"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "elektrik-yukleri-ve-elektrik-enerjisi",
+   "name": "Elektrik Yükleri ve Elektrik Enerjisi",
+   "topics": [
+    {
+     "id": "elektrik-yukleri-ve-elektrik-enerjisi--elektrik-yukleri-ve-elektriklenme",
+     "name": "Elektrik Yükleri ve Elektriklenme",
+     "outcomeCodes": [
+      "F.8.7.1.1",
+      "F.8.7.1.2",
+      "F.8.7.1.3",
+      "F.8.7.2.1"
+     ]
+    },
+    {
+     "id": "elektrik-yukleri-ve-elektrik-enerjisi--elektrik-yuklu-cisimler",
+     "name": "Elektrik Yüklü Cisimler",
+     "outcomeCodes": [
+      "F.8.7.1.3",
+      "F.8.7.2.1",
+      "F.8.7.2.2",
+      "F.8.7.3.1"
+     ]
+    },
+    {
+     "id": "elektrik-yukleri-ve-elektrik-enerjisi--elektrik-enerjisinin-donusumu",
+     "name": "Elektrik Enerjisinin Dönüşümü",
+     "outcomeCodes": [
+      "F.8.7.2.2",
+      "F.8.7.3.1",
+      "F.8.7.3.2",
+      "F.8.7.3.3",
+      "F.8.7.3.4",
+      "F.8.7.3.5",
+      "F.8.7.3.6"
+     ]
+    }
+   ]
+  }
+ ],
+ "outcomes": {
+  "F.8.1.1.1": {
+   "code": "F.8.1.1.1",
+   "text": "Mevsimlerin oluşumuna yönelik tahminlerde bulunur.",
+   "components": [
+    "Dünya’nın dönme ekseni olduğuna değinilir.",
+    "Dünya’nın dönme ekseni ile Güneş etrafındaki dolanma düzlemi arasındaki ilişkiye değinilir.",
+    "Işığın birim yüzeye düşen enerji miktarının mevsimler üzerindeki etkisine değinilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "F.8.1.2.1": {
+   "code": "F.8.1.2.1",
+   "text": "İklim ve hava olayları arasındaki farkı açıklar.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "F.8.1.2.2": {
+   "code": "F.8.1.2.2",
+   "text": "İklim biliminin (klimatoloji) bir bilim dalı olduğunu ve bu alanda çalışan uzmanlara iklim bilimci (klimatolog) adı verildiğini söyler.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "F.8.2.1.1": {
+   "code": "F.8.2.1.1",
+   "text": "Nükleotid, gen, DNA ve kromozom kavramlarını açıklayarak bu kavramlar arasında ilişki kurar.",
+   "components": [
+    "Bazların isimleri verilirken pürin ve pirimidin ayrımına girilmez."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "F.8.2.1.2": {
+   "code": "F.8.2.1.2",
+   "text": "DNA’nın yapısını model üzerinde gösterir.",
+   "components": [
+    "Hidrojen, glikozit, ester, fosfodiester bağlarına girilmez.",
+    "DNA’daki hataların onarılıp onarılmadığı belirtilir.",
+    "DNA’daki nükleotid hesaplamaları verilmez."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "F.8.2.1.3": {
+   "code": "F.8.2.1.3",
+   "text": "DNA’nın kendini nasıl eşlediğini ifade eder.",
+   "components": [
+    "Replikasyon ifadesi kullanılmaz.",
+    "Eşlenme deneyleri anlatılmaz.",
+    "Eşlenme ile ilgili hesaplama sorularına girilmez."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "F.8.2.2.1": {
+   "code": "F.8.2.2.1",
+   "text": "Kalıtım ile ilgili kavramları tanımlar.",
+   "components": [
+    "Gen, fenotip, genotip, saf döl ve melez döl kavramlarına değinilir.",
+    "Baskın ve çekinik gen kavramlarına değinilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "F.8.2.2.2": {
+   "code": "F.8.2.2.2",
+   "text": "Tek karakter çaprazlamaları ile ilgili problemler çözerek sonuçlar hakkında yorum yapar.",
+   "components": [
+    "Çaprazlamalarda sadece bezelye karakterleri kullanılır.",
+    "Diğer canlılarda da karakterlerin aktarımının benzer olduğu vurgulanır.",
+    "İnsanda çocuğun cinsiyetinin babadan gelen eşey kromozomu ile belirlendiği vurgulanır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "F.8.2.2.3": {
+   "code": "F.8.2.2.3",
+   "text": "Akraba evliliklerinin genetik sonuçlarını tartışır.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.2.3.1": {
+   "code": "F.8.2.3.1",
+   "text": "Örneklerden yola çıkarak mutasyonu açıklar.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.2.3.2": {
+   "code": "F.8.2.3.2",
+   "text": "Örneklerden yola çıkarak modifikasyonu açıklar.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.2.3.3": {
+   "code": "F.8.2.3.3",
+   "text": "Mutasyonla modifikasyon arasındaki farklar ile ilgili çıkarımda bulunur.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.2.4.1": {
+   "code": "F.8.2.4.1",
+   "text": "Canlıların yaşadıkları çevreye uyumlarını gözlem yaparak açıklar.",
+   "components": [
+    "Adaptasyonların kalıtsal olduğu vurgulanır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.2.5.1": {
+   "code": "F.8.2.5.1",
+   "text": "Genetik mühendisliğini ve biyoteknolojiyi ilişkilendirir.",
+   "components": [
+    "Islah, aşılama, gen aktarımı, klonlama, gen tedavisi örnekleri üzerinde durulur."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.2.5.2": {
+   "code": "F.8.2.5.2",
+   "text": "Biyoteknolojik uygulamalar kapsamında oluşturulan ikilemlerle bu uygulamaların insanlık için yararlı ve zararlı yönlerini tartışır.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.2.5.3": {
+   "code": "F.8.2.5.3",
+   "text": "Gelecekteki genetik mühendisliği ve biyoteknoloji uygulamalarının neler olabileceği hakkında tahminde bulunur.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.3.1.1": {
+   "code": "F.8.3.1.1",
+   "text": "Katı basıncını etkileyen değişkenleri deneyerek keşfeder.",
+   "components": [
+    "Basınç birimi olarak Pascal verilir. Matematiksel bağıntılara girilmez."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.3.1.2": {
+   "code": "F.8.3.1.2",
+   "text": "Sıvı basıncını etkileyen değişkenleri tahmin eder ve tahminlerini test eder.",
+   "components": [
+    "Gazların da sıvılara benzer şekilde basınç uyguladıkları belirtilir. Açık hava basıncı örneklendirilir.",
+    "Matematiksel bağıntılara girilmez.",
+    "Gaz basıncını etkileyen değişkenlere girilmez."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.3.1.3": {
+   "code": "F.8.3.1.3",
+   "text": "Katı, sıvı ve gazların basınç özelliklerinin günlük yaşam ve teknolojideki uygulamalarına örnekler verir.",
+   "components": [
+    "Sıvı basıncı ile ilgili Pascal prensibinin uygulamalarından örnekler verilir.",
+    "Bilimsel bilgi türü olarak ilke ve prensiplere vurgu yapılır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.4.1.1": {
+   "code": "F.8.4.1.1",
+   "text": "Periyodik sistemde, grup ve periyotların nasıl oluşturulduğunu açıklar.",
+   "components": [
+    "Periyodik sisteme duyulan ihtiyaç ve periyodik sistemin oluşturulma süreci ayrıntıya girilmeden vurgulanır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.4.1.2": {
+   "code": "F.8.4.1.2",
+   "text": "Elementleri periyodik tablo üzerinde metal, yarımetal ve ametal olarak sınıflandırır.",
+   "components": [
+    "Elementlerin özelliklerine girilmez.",
+    "Soygazların üzerinde durulur."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.4.2.1": {
+   "code": "F.8.4.2.1",
+   "text": "Fiziksel ve kimyasal değişim arasındaki farkları, çeşitli olayları gözlemleyerek açıklar.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.4.3.1": {
+   "code": "F.8.4.3.1",
+   "text": "Bileşiklerin kimyasal tepkime sonucunda oluştuğunu bilir.",
+   "components": [
+    "Kimyasal tepkime denklemlerine formüller kullanılarak girilmez."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.4.4.1": {
+   "code": "F.8.4.4.1",
+   "text": "Asit ve bazların genel özelliklerini ifade eder.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.4.4.2": {
+   "code": "F.8.4.4.2",
+   "text": "Asit ve bazlara günlük yaşamdan örnekler verir.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.4.4.3": {
+   "code": "F.8.4.4.3",
+   "text": "Günlük hayatta ulaşılabilecek malzemeleri asit-baz ayracı olarak kullanır.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.4.4.4": {
+   "code": "F.8.4.4.4",
+   "text": "Maddelerin asitlik ve bazlık durumlarına ilişkin pH değerlerini kullanarak çıkarımda bulunur.",
+   "components": [
+    "Konu ile ilgili deney yolu ile çıkarımlarda bulunmaları sağlanır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.4.4.5": {
+   "code": "F.8.4.4.5",
+   "text": "Asit ve bazların çeşitli maddeler üzerindeki etkilerini gözlemler.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.4.4.6": {
+   "code": "F.8.4.4.6",
+   "text": "Asit ve bazların temizlik malzemesi olarak kullanılması esnasında oluşabilecek tehlikelerle ilgili gerekli tedbirleri alır.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.4.4.7": {
+   "code": "F.8.4.4.7",
+   "text": "Asit yağmurlarının önlenmesine yönelik çözüm önerileri sunar.",
+   "components": [
+    "Asit yağmurlarının oluşum sebepleri ve sonuçlarına değinilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.4.5.1": {
+   "code": "F.8.4.5.1",
+   "text": "Isınmanın maddenin cinsine, kütlesine ve/veya sıcaklık değişimine bağlı olduğunu deney yaparak keşfeder.",
+   "components": [
+    "Q=m.c. Δt bağıntısına girilmez.",
+    "Bağımlı, bağımsız ve kontrol edilen değişkenler örneklerle açıklanır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.4.5.2": {
+   "code": "F.8.4.5.2",
+   "text": "Hâl değiştirmek için gerekli ısının maddenin cinsi ve kütlesiyle ilişkili olduğunu deney yaparak keşfeder.",
+   "components": [
+    "Saf maddelerin hâl değişimi sırasında sıcaklığının sabit kaldığına değinilir.",
+    "Matematiksel hesaplamalara girilmez."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.4.5.3": {
+   "code": "F.8.4.5.3",
+   "text": "Maddelerin hâl değişimi ve ısınma grafiğini çizerek yorumlar.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.4.5.4": {
+   "code": "F.8.4.5.4",
+   "text": "Günlük yaşamda meydana gelen hâl değişimleri ile ısı alışverişini ilişkilendirir.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.4.6.1": {
+   "code": "F.8.4.6.1",
+   "text": "Geçmişten günümüze Türkiye’deki kimya endüstrisinin gelişimini araştırır.",
+   "components": [
+    "Ülkemizdeki kimya endüstrisinin gelişimine katkı sağlayan resmi / özel kurum ve sivil toplum kuruluşlarının yaptığı çalışmalara değinilir.",
+    "İthal ve ihraç edilen kimyasal ürünlerden birkaç önemli örnek verilerek Türkiye kimya endüstrisinin işleyişine değinilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.4.6.2": {
+   "code": "F.8.4.6.2",
+   "text": "Kimya endüstrisinde meslek dallarını araştırır ve gelecekteki yeni meslek alanları hakkında öneriler sunar.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.5.1.1": {
+   "code": "F.8.5.1.1",
+   "text": "Basit makinelerin sağladığı avantajları örnekler üzerinden açıklar.",
+   "components": [
+    "Basit makinelerden, sabit makara, hareketli makara, palanga, kaldıraç, eğik düzlem ve çıkrık üzerinde durulur.",
+    "Dişli çarklar, vida ve kasnakların da birer basit makine olduğu görsellerle belirtilir, ayrıntıya girilmez.",
+    "Basit makinelerde işten kazanç olmadığı vurgulanır.",
+    "Matematiksel bağıntılara girilmez."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.5.1.2": {
+   "code": "F.8.5.1.2",
+   "text": "Basit makinelerden yararlanarak günlük yaşamda iş kolaylığı sağlayacak bir düzenek tasarlar.",
+   "components": [
+    "Öncelikle tasarımını çizimle ifade etmesi istenir. Şartlar uygunsa üç boyutlu modele dönüştürmesi istenebilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.6.1.1": {
+   "code": "F.8.6.1.1",
+   "text": "Besin zincirindeki üretici, tüketici, ayrıştırıcılara örnekler verir.",
+   "components": [
+    "Parazit besin zincirlerine değinilmez.",
+    "Ekoloji piramitlerinde enerji aktarımı, vücut büyüklüğü, birey sayısı ve biyolojik birikim vurgulanır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.6.2.1": {
+   "code": "F.8.6.2.1",
+   "text": "Bitkilerde besin üretiminde fotosentezin önemini fark eder.",
+   "components": [
+    "Fotosentezde karbondioksit ve su kullanıldığı, besin ve oksijen üretildiği vurgulanır. Kimyasal denklemine girilmez.",
+    "Fotosentezin yapay ışıkta da meydana gelebileceği vurgulanır.",
+    "Fotosentez yapan canlıların üretici olduğu ifade edilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.6.2.2": {
+   "code": "F.8.6.2.2",
+   "text": "Fotosentez hızını etkileyen faktörler ile ilgili çıkarımlarda bulunur.",
+   "components": [
+    "Işık rengi, karbondioksit miktarı, su miktarı, ışık şiddeti ve sıcaklık vurgulanır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.6.2.3": {
+   "code": "F.8.6.2.3",
+   "text": "Canlılarda solunumun önemini belirtir.",
+   "components": [
+    "Solunumun kimyasal denklemine girilmez.",
+    "Bitkilerin gece ve gündüz solunum yaptığına değinilir.",
+    "Oksijenli ve oksijensiz solunum evrelerine girilmeden verilir fakat açığa çıkan enerji miktarları sayısal olarak belirtilmez.",
+    "ATP’nin yapısına girilmeden isminden bahsedilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.6.3.1": {
+   "code": "F.8.6.3.1",
+   "text": "Madde döngülerini şema üzerinde göstererek açıklar.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.6.3.2": {
+   "code": "F.8.6.3.2",
+   "text": "Madde döngülerinin yaşam açısından önemini sorgular.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.6.3.3": {
+   "code": "F.8.6.3.3",
+   "text": "Küresel iklim değişikliklerinin nedenlerini ve olası sonuçlarını tartışır.",
+   "components": [
+    "Sera etkisi açıklanır.",
+    "Küresel iklim değişikliği bağlamında çevre sorunlarının Dünya'nın geleceğine ve insan yaşamına nasıl bir etkisi olabileceği sorgulanır.",
+    "Çevre sorunlarının dünyanın geleceğine nasıl bir etkisinin olabileceğine yönelik öngörüleri sanatsal yollarla ifade etmeleri istenir.",
+    "Öğrencilerin ekolojik ayak izini hesaplaması (uzantısı edu, org ve mil gibi güvenli sitelerden yararlanılabilinir) sağlanır.",
+    "Dünya ülkelerinin küresel iklim değişikliğini önlemek için aldıkları önlemlere (ör. Kyoto Protokolü) değinilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.6.4.1": {
+   "code": "F.8.6.4.1",
+   "text": "Kaynakların kullanımında tasarruflu davranmaya özen gösterir.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.6.4.2": {
+   "code": "F.8.6.4.2",
+   "text": "Kaynakların tasarruflu kullanımına yönelik proje tasarlar.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.6.4.3": {
+   "code": "F.8.6.4.3",
+   "text": "Geri dönüşüm için katı atıkların ayrıştırılmasının önemini açıklar.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.6.4.4": {
+   "code": "F.8.6.4.4",
+   "text": "Geri dönüşümün ülke ekonomisine katkısına ilişkin araştırma verilerini kullanarak çözüm önerileri sunar.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.6.4.5": {
+   "code": "F.8.6.4.5",
+   "text": "Kaynakların tasarruflu kullanılmaması durumunda gelecekte karşılaşılabilecek problemleri belirterek çözüm önerileri sunar.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.7.1.1": {
+   "code": "F.8.7.1.1",
+   "text": "Elektriklenmeyi, bazı doğa olayları ve teknolojideki uygulama örnekleri ile açıklar.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.7.1.2": {
+   "code": "F.8.7.1.2",
+   "text": "Elektrik yüklerini sınıflandırarak aynı ve farklı cins elektrik yüklerinin birbirlerine etkisini açıklar.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.7.1.3": {
+   "code": "F.8.7.1.3",
+   "text": "Deneyler yaparak elektriklenme çeşitlerini fark eder.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.7.2.1": {
+   "code": "F.8.7.2.1",
+   "text": "Cisimleri, sahip oldukları elektrik yükleri bakımından sınıflandırır.",
+   "components": [
+    "Özellikle nötr cismin, yüksüz cisim anlamına gelmediği; nötr cisimlerde pozitif ve negatif yük miktarlarının eşit olduğu vurgusu yapılır. Elektroskopun yük ölçümünde kullanıldığı belirtilir, çalışma prensibine girilmez."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.7.2.2": {
+   "code": "F.8.7.2.2",
+   "text": "Topraklamayı açıklar.",
+   "components": [
+    "Topraklamanın günlük yaşam ve teknolojideki uygulamaları dikkate alınarak can ve mal güvenliği açısından önemine vurgu yapılır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.7.3.1": {
+   "code": "F.8.7.3.1",
+   "text": "Elektrik enerjisinin ısı, ışık ve hareket enerjisine dönüştüğü uygulamalara örnekler verir.",
+   "components": [
+    "Güvenlik açısından elektrik sigortasının önemi üzerinde durulur.",
+    "Robotların, elektrik enerjisinin, hareket enerjisine dönüşümü temel alınarak geliştirildiği vurgulanır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.7.3.2": {
+   "code": "F.8.7.3.2",
+   "text": "Elektirik enerjisinin ısı, ışık veya hareket enerjisine dönüşümü temel alan bir model tasarlar.",
+   "components": [
+    "Öncelikle tasarımlarını çizimle ifade etmeleri istenir. Şartlar uygunsa üç boyutlu modele dönüştürmesi istenebilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.7.3.3": {
+   "code": "F.8.7.3.3",
+   "text": "Güç santrallerinde elektrik enerjisinin nasıl üretildiğini açıklar.",
+   "components": [
+    "Güç santrallerinden hidroelektrik, termik, rüzgâr, jeotermal ve nükleer santrallere değinilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.7.3.4": {
+   "code": "F.8.7.3.4",
+   "text": "Güç santrallerinin avantaj ve dezavantajları konusunda fikirler üretir.",
+   "components": [
+    "Güç santrallerinin yarar-zarar ve riskler yönünden değerlendirilmesine yönelik fikir üretmeleri ve bu fikirlerini savunmaları istenir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.7.3.5": {
+   "code": "F.8.7.3.5",
+   "text": "Elektrik enerjisinin bilinçli ve tasarruflu kullanılmasının aile ve ülke ekonomisi bakımından önemini tartışır.",
+   "components": [
+    "Enerji verimliliği konusunda ülkemizdeki resmî kurumlar ve sivil toplum kuruluşları tarafından yapılan çalışmalar ve elektrik enerjisi kullanımı bakımından yapılması gerekenler belirtilir.",
+    "Kaçak elektrik kullanımının ülke ekonomisine verdiği zarar vurgulanır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.8.7.3.6": {
+   "code": "F.8.7.3.6",
+   "text": "Evlerde elektriği tasarruflu kullanmaya özen gösterir.",
+   "components": [
+    "Öğrencilerden elektrik faturasını azaltmaya yönelik uzun süreli çalışmalar yapmaları istenir, süreç izlenir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  }
+ }
+}

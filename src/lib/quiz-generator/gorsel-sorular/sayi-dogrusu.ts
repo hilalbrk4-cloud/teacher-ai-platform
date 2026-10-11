@@ -642,6 +642,8 @@ const gorevler: GorselSoruTanimi<"sayi_dogrusu">["gorevler"] = {
     gorev: "siralama",
     etiket: "Kesirleri sıralama",
     aciklama: "Öğrenci, her biri kendi sayı doğrusunda gösterilen kesirleri konumlarını yorumlayarak sıralar.",
+    // TYMM (CLAUDE.md, referans v2): tek adımlı okuma/eşleştirme görevi; yeni nesil plana alınmaz.
+    plandanCikarildi: true,
     kesirKonusuGerekir: true,
     semaAciklamasi: [
       AYRI_ISARETCI_ACIKLAMASI + " 2-4 işaretçi.",
@@ -689,6 +691,8 @@ const gorevler: GorselSoruTanimi<"sayi_dogrusu">["gorevler"] = {
     aciklama:
       "Öğrenci, kendi sayı doğrularında gösterilen kesirlerden verilen bir hedef kesre (ör. 1/2 veya 1) en yakın " +
       "olanı bulur; bunun için kesirleri hedefle karşılaştırması gerekir.",
+    // TYMM (CLAUDE.md, referans v2): tek adımlı okuma/eşleştirme görevi; yeni nesil plana alınmaz.
+    plandanCikarildi: true,
     kesirKonusuGerekir: true,
     semaAciklamasi: [
       AYRI_ISARETCI_ACIKLAMASI + " 3-4 işaretçi; pay 1 olmak zorunda değil.",
@@ -737,6 +741,8 @@ const gorevler: GorselSoruTanimi<"sayi_dogrusu">["gorevler"] = {
     aciklama:
       "Tek bir sayı doğrusunda işaretlenmiş noktanın hangi kesri gösterdiğini, birimin kaç parçaya bölündüğünü " +
       "okuyarak bulur.",
+    // TYMM (CLAUDE.md, referans v2): tek adımlı okuma/eşleştirme görevi; yeni nesil plana alınmaz.
+    plandanCikarildi: true,
     kesirKonusuGerekir: true,
     semaAciklamasi: [
       ORTAK_ISARETCI_ACIKLAMASI + " Tam olarak 1 işaretçi.",
@@ -782,6 +788,8 @@ const gorevler: GorselSoruTanimi<"sayi_dogrusu">["gorevler"] = {
       "Tek bir sayı doğrusunda birkaç nokta işaretlidir; öğrenci verilen kesrin hangi noktada olduğunu bulur. Hedef " +
       "kesir, doğrunun bölmesinden farklı ama denk bir paydayla verilirse (ör. 8'e bölünmüş doğruda 3/4) öğrenci " +
       "denk kesir düşünmek zorunda kalır.",
+    // TYMM (CLAUDE.md, referans v2): tek adımlı okuma/eşleştirme görevi; yeni nesil plana alınmaz.
+    plandanCikarildi: true,
     kesirKonusuGerekir: true,
     semaAciklamasi: [
       ORTAK_ISARETCI_ACIKLAMASI + " 3-4 işaretçi.",

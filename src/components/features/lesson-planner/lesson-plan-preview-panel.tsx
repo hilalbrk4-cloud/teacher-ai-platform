@@ -3,19 +3,42 @@ import { CheckCircle2, ClipboardList, Sparkles } from "lucide-react";
 import { LessonPlanContinueWithAi } from "@/components/features/lesson-planner/lesson-plan-continue-with-ai";
 import { LessonPlanLoadingState } from "@/components/features/lesson-planner/lesson-plan-loading-state";
 import { LessonPlanQualityCard } from "@/components/features/lesson-planner/lesson-plan-quality-card";
-import { LessonPlanSectionBlock } from "@/components/features/lesson-planner/lesson-plan-section";
+import {
+  LessonPlanSectionBlock,
+  type LessonPlanSectionPhase,
+} from "@/components/features/lesson-planner/lesson-plan-section";
+import { LessonPlanSkillsCard } from "@/components/features/lesson-planner/lesson-plan-skills-card";
 import { SectionTitle } from "@/components/shared/section-title";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
+import { fiveETimeRanges, isFiveEPhase, lessonPlanModel, lessonPlanSectionOrder } from "@/lib/lesson-planner/five-e";
 import { cn } from "@/lib/utils";
 import type { Dictionary } from "@/types/i18n";
-import { LESSON_PLAN_SECTION_ORDER } from "@/types/lesson-planner";
+import { LESSON_PLAN_5E_PHASES } from "@/types/lesson-planner";
 import type {
   LessonPlan,
   LessonPlanFormInput,
   LessonPlanGenerationStatus,
   LessonPlanSectionKey,
+  LessonPlanTimeRange,
 } from "@/types/lesson-planner";
+
+/** 5E aşaması olan bölümler için aşama ve dakika aralığı rozetlerinin metni. */
+function sectionPhase(
+  t: Dictionary,
+  key: LessonPlanSectionKey,
+  timeRange: LessonPlanTimeRange | undefined
+): LessonPlanSectionPhase | undefined {
+  if (!isFiveEPhase(key)) return undefined;
+  const preview = t.lessonPlanner.preview;
+  return {
+    badge: preview.phaseBadge(LESSON_PLAN_5E_PHASES.indexOf(key) + 1),
+    focus: t.lessonPlanner.phaseFocus[key],
+    timeRange: timeRange
+      ? { text: preview.timeRange(timeRange.start, timeRange.end), label: preview.timeRangeLabel(timeRange.start, timeRange.end) }
+      : undefined,
+  };
+}
 
 interface LessonPlanPreviewPanelProps {
   t: Dictionary;
@@ -42,6 +65,8 @@ export function LessonPlanPreviewPanel({
 }: LessonPlanPreviewPanelProps) {
   const preview = t.lessonPlanner.preview;
   const hasStartedFilling = Boolean(form.subject.trim() || form.gradeLevel.trim() || form.topic.trim());
+  const formModel = lessonPlanModel(form.refinements);
+  const outlineRanges = formModel === "5e" && form.duration > 0 ? fiveETimeRanges(form.duration) : undefined;
 
   if (plan && (status === "success" || status === "loading")) {
     const isRegenerating = status === "loading";
@@ -76,6 +101,11 @@ export function LessonPlanPreviewPanel({
           <div className="flex flex-col gap-4 px-4 pb-4 lg:px-5 lg:pb-5">
             <div className="flex flex-wrap gap-1.5">
               <Badge variant="secondary">{preview.summaryDuration(plan.duration)}</Badge>
+              {plan.model === "5e" ? (
+                <Badge variant="outline" className="border-primary/25 bg-primary/5 text-primary">
+                  {preview.fiveEBadge}
+                </Badge>
+              ) : null}
             </div>
 
             {isRegenerating ? (
@@ -98,6 +128,7 @@ export function LessonPlanPreviewPanel({
                   key={section.key}
                   index={index + 1}
                   title={t.lessonPlanner.sections[section.key]}
+                  phase={sectionPhase(t, section.key, section.timeRange)}
                   content={section.content}
                   state="result"
                   editable={isEditMode && !isRegenerating}
@@ -106,6 +137,8 @@ export function LessonPlanPreviewPanel({
                   copyLabel={t.lessonPlanner.result.actions.copySection}
                 />
               ))}
+
+              {plan.skills ? <LessonPlanSkillsCard t={t} skills={plan.skills} curriculum={plan.curriculum} /> : null}
             </div>
           </div>
         </Card>
@@ -155,6 +188,11 @@ export function LessonPlanPreviewPanel({
               {form.gradeLevel.trim() ? <Badge variant="secondary">{form.gradeLevel}</Badge> : null}
               {form.topic.trim() ? <Badge variant="secondary">{form.topic}</Badge> : null}
               <Badge variant="secondary">{preview.summaryDuration(form.duration)}</Badge>
+              {formModel === "5e" ? (
+                <Badge variant="outline" className="border-primary/25 bg-primary/5 text-primary">
+                  {preview.fiveEBadge}
+                </Badge>
+              ) : null}
             </div>
           ) : (
             <div className="flex items-start gap-2.5 rounded-lg border border-dashed border-border px-3.5 py-3 animate-in fade-in-0 duration-200">
@@ -174,11 +212,12 @@ export function LessonPlanPreviewPanel({
           </div>
 
           <div className="flex flex-col gap-2.5">
-            {LESSON_PLAN_SECTION_ORDER.map((key, index) => (
+            {lessonPlanSectionOrder(formModel).map((key, index) => (
               <LessonPlanSectionBlock
                 key={key}
                 index={index + 1}
                 title={t.lessonPlanner.sections[key]}
+                phase={sectionPhase(t, key, isFiveEPhase(key) ? outlineRanges?.[key] : undefined)}
                 state={status === "loading" ? "loading" : "outline"}
                 pendingText={preview.sectionPendingText}
               />

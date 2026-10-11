@@ -14,11 +14,16 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
+import { CurriculumOutcomePicker } from "@/components/features/curriculum/curriculum-outcome-picker";
+import { CurriculumTopicCombobox } from "@/components/features/curriculum/curriculum-topic-combobox";
 import { LessonPlanField } from "@/components/features/lesson-planner/lesson-plan-field";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useCurriculumGrade } from "@/hooks/use-curriculum-grade";
+import { CURRICULUM_SUBJECTS, curriculumGradeOptions, findCurriculumEntry } from "@/lib/curriculum/catalog";
 import { cn } from "@/lib/utils";
+import type { CurriculumOutcome, CurriculumTopic, CurriculumUnit } from "@/types/curriculum";
 import type { Dictionary } from "@/types/i18n";
 import type {
   LessonPlanFormErrors,
@@ -53,6 +58,10 @@ interface LessonPlanFormProps {
   status: LessonPlanGenerationStatus;
   onFieldChange: <K extends keyof LessonPlanFormInput>(key: K, value: LessonPlanFormInput[K]) => void;
   onToggleRefinement: (id: LessonPlanRefinementId) => void;
+  onSelectCurriculumTopic: (selection: { gradeId: string; unitId: string; topicId: string; topicName: string }) => void;
+  onFreeTopic: (topic: string) => void;
+  onToggleCurriculumOutcome: (outcome: CurriculumOutcome) => void;
+  onSetCurriculumOutcomes: (outcomes: CurriculumOutcome[]) => void;
   onSubmit: () => void;
 }
 
@@ -63,12 +72,32 @@ export function LessonPlanForm({
   status,
   onFieldChange,
   onToggleRefinement,
+  onSelectCurriculumTopic,
+  onFreeTopic,
+  onToggleCurriculumOutcome,
+  onSetCurriculumOutcomes,
   onSubmit,
 }: LessonPlanFormProps) {
   const [showAdvanced, setShowAdvanced] = React.useState(false);
   const copy = t.lessonPlanner.form;
   const isLoading = status === "loading";
   const hasErrors = Object.keys(errors).length > 0;
+  const curriculumCopy = t.curriculum;
+
+  // Ders + sınıf havuzdaki bir programla eşleşirse konu alanı müfredat listesine dönüşür.
+  const curriculumEntry = findCurriculumEntry(form.subject, form.gradeLevel);
+  const curriculumGrade = useCurriculumGrade(curriculumEntry?.id);
+  const gradeData = curriculumGrade.status === "ready" ? curriculumGrade.data : undefined;
+  const selection = form.curriculum && gradeData && form.curriculum.gradeId === gradeData.id ? form.curriculum : null;
+  const selectedUnit = selection ? gradeData?.units.find((unit) => unit.id === selection.unitId) : undefined;
+  const selectedTopic = selection ? selectedUnit?.topics.find((topic) => topic.id === selection.topicId) : undefined;
+  const gradeOptions = curriculumGradeOptions(form.subject);
+  const showNoCurriculumHint = Boolean(form.subject.trim() && form.gradeLevel.trim() && !curriculumEntry);
+
+  function handleSelectTopic(unit: CurriculumUnit, topic: CurriculumTopic) {
+    if (!gradeData) return;
+    onSelectCurriculumTopic({ gradeId: gradeData.id, unitId: unit.id, topicId: topic.id, topicName: topic.name });
+  }
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -100,9 +129,16 @@ export function LessonPlanForm({
             value={form.subject}
             onChange={(event) => onFieldChange("subject", event.target.value)}
             placeholder={copy.fields.subject.placeholder}
+            list="lp-subject-options"
+            autoComplete="off"
             aria-invalid={Boolean(errors.subject)}
             aria-describedby={errors.subject ? "lp-subject-error" : undefined}
           />
+          <datalist id="lp-subject-options">
+            {CURRICULUM_SUBJECTS.map((subject) => (
+              <option key={subject} value={subject} />
+            ))}
+          </datalist>
         </LessonPlanField>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -112,9 +148,16 @@ export function LessonPlanForm({
               value={form.gradeLevel}
               onChange={(event) => onFieldChange("gradeLevel", event.target.value)}
               placeholder={copy.fields.gradeLevel.placeholder}
+              list="lp-grade-options"
+              autoComplete="off"
               aria-invalid={Boolean(errors.gradeLevel)}
               aria-describedby={errors.gradeLevel ? "lp-grade-error" : undefined}
             />
+            <datalist id="lp-grade-options">
+              {gradeOptions.map((grade) => (
+                <option key={grade} value={grade} />
+              ))}
+            </datalist>
           </LessonPlanField>
 
           <LessonPlanField id="lp-duration" label={copy.fields.duration.label} required error={errors.duration}>
@@ -135,24 +178,70 @@ export function LessonPlanForm({
           </LessonPlanField>
         </div>
 
-        <LessonPlanField id="lp-topic" label={copy.fields.topic.label} required error={errors.topic}>
-          <Input
-            id="lp-topic"
-            value={form.topic}
-            onChange={(event) => onFieldChange("topic", event.target.value)}
-            placeholder={copy.fields.topic.placeholder}
-            aria-invalid={Boolean(errors.topic)}
-            aria-describedby={errors.topic ? "lp-topic-error" : undefined}
-          />
+        <LessonPlanField
+          id="lp-topic"
+          label={copy.fields.topic.label}
+          required
+          error={errors.topic}
+          hint={
+            curriculumGrade.status === "loading"
+              ? curriculumCopy.topicLoading
+              : curriculumGrade.status === "error"
+                ? curriculumCopy.topicLoadError
+                : showNoCurriculumHint
+                  ? curriculumCopy.noCurriculumHint
+                  : undefined
+          }
+        >
+          {gradeData ? (
+            <CurriculumTopicCombobox
+              t={t}
+              id="lp-topic"
+              grade={gradeData}
+              value={form.topic}
+              selectedTopicId={selectedTopic?.id}
+              invalid={Boolean(errors.topic)}
+              describedBy={errors.topic ? "lp-topic-error" : undefined}
+              onSelect={handleSelectTopic}
+              onFreeText={onFreeTopic}
+            />
+          ) : (
+            <Input
+              id="lp-topic"
+              value={form.topic}
+              onChange={(event) => onFieldChange("topic", event.target.value)}
+              placeholder={copy.fields.topic.placeholder}
+              aria-invalid={Boolean(errors.topic)}
+              aria-describedby={errors.topic ? "lp-topic-error" : undefined}
+            />
+          )}
         </LessonPlanField>
 
-        <LessonPlanField id="lp-objectives" label={copy.fields.objectives.label} required error={errors.objectives}>
+        {gradeData && selectedUnit && selectedTopic && selection ? (
+          <CurriculumOutcomePicker
+            t={t}
+            grade={gradeData}
+            unit={selectedUnit}
+            topic={selectedTopic}
+            selectedCodes={selection.outcomeCodes}
+            onToggle={onToggleCurriculumOutcome}
+            onSetAll={onSetCurriculumOutcomes}
+          />
+        ) : null}
+
+        <LessonPlanField
+          id="lp-objectives"
+          label={copy.fields.objectives.label}
+          required
+          error={errors.objectives}
+          hint={selection && selection.outcomeCodes.length > 0 ? curriculumCopy.objectivesHint : undefined}
+        >
           <Textarea
             id="lp-objectives"
             value={form.objectives}
             onChange={(event) => onFieldChange("objectives", event.target.value)}
             placeholder={copy.fields.objectives.placeholder}
-            rows={3}
+            rows={selection && selection.outcomeCodes.length > 0 ? 5 : 3}
             aria-invalid={Boolean(errors.objectives)}
             aria-describedby={errors.objectives ? "lp-objectives-error" : undefined}
           />

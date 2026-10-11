@@ -1,0 +1,1467 @@
+{
+ "id": "fen-bilimleri-3",
+ "subject": "Fen Bilimleri",
+ "subjectId": "fen-bilimleri",
+ "grade": 3,
+ "program": "tymm",
+ "source": {
+  "file": "FEN BİLİMLERİ  (3-8. SINIFLAR) TASLAK ÇERÇEVE YILLIK PLAN+++.xlsx",
+  "sheet": "FEN BİLİMLERİ 3 (TYMM)"
+ },
+ "units": [
+  {
+   "id": "bilimsel-kesif-yolculugu",
+   "name": "Bilimsel Keşif Yolculuğu",
+   "topics": [
+    {
+     "id": "bilimsel-kesif-yolculugu--bilimsel-bilgiye-ulasma-yollari",
+     "name": "Bilimsel Bilgiye Ulaşma Yolları",
+     "outcomeCodes": [
+      "FB.3.1.1",
+      "FB.3.1.2"
+     ]
+    },
+    {
+     "id": "bilimsel-kesif-yolculugu--bilim-insanlarinin-ozellikleri",
+     "name": "Bilim İnsanlarının Özellikleri",
+     "outcomeCodes": [
+      "FB.3.1.1",
+      "FB.3.1.2"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "canlilar-dunyasina-yolculuk",
+   "name": "Canlılar Dünyasına Yolculuk",
+   "topics": [
+    {
+     "id": "canlilar-dunyasina-yolculuk--canlilarin-siniflandirilmasi",
+     "name": "Canlıların Sınıflandırılması",
+     "outcomeCodes": [
+      "FB.3.2.1"
+     ]
+    },
+    {
+     "id": "canlilar-dunyasina-yolculuk--duyu-organlarinin-islevleri",
+     "name": "Duyu Organlarının İşlevleri",
+     "outcomeCodes": [
+      "FB.3.2.2",
+      "FB.3.2.3"
+     ]
+    },
+    {
+     "id": "canlilar-dunyasina-yolculuk--canlilarin-yasam-donguleri",
+     "name": "Canlıların Yaşam Döngüleri",
+     "outcomeCodes": [
+      "FB.3.2.2",
+      "FB.3.2.3"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "yer-bilimciler-is-basinda",
+   "name": "Yer Bilimciler İş Başında",
+   "topics": [
+    {
+     "id": "yer-bilimciler-is-basinda--kayaclar-madenler-ve-mineraller",
+     "name": "Kayaçlar, Madenler ve Mineraller",
+     "outcomeCodes": [
+      "FB.3.3.1",
+      "FB.3.3.2"
+     ]
+    },
+    {
+     "id": "yer-bilimciler-is-basinda--fosil-olusumu",
+     "name": "Fosil Oluşumu",
+     "outcomeCodes": [
+      "FB.3.3.1",
+      "FB.3.3.2"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "maddeyi-taniyalim-karistirip-ayiralim",
+   "name": "Maddeyi Tanıyalım, Karıştırıp Ayıralım",
+   "topics": [
+    {
+     "id": "maddeyi-taniyalim-karistirip-ayiralim--maddenin-kati-sivi-ve-gaz-hali",
+     "name": "Maddenin Katı, Sıvı ve Gaz Hâli",
+     "outcomeCodes": [
+      "FB.3.4.1",
+      "FB.3.4.2"
+     ]
+    },
+    {
+     "id": "maddeyi-taniyalim-karistirip-ayiralim--karisimlar-ve-karisimlarin-ayrilmasi",
+     "name": "Karışımlar ve Karışımların Ayrılması",
+     "outcomeCodes": [
+      "FB.3.4.1",
+      "FB.3.4.2",
+      "FB.3.4.3"
+     ]
+    },
+    {
+     "id": "maddeyi-taniyalim-karistirip-ayiralim--atiklarin-ayristirilmasi",
+     "name": "Atıkların Ayrıştırılması",
+     "outcomeCodes": [
+      "FB.3.4.2",
+      "FB.3.4.3"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "hareketi-kesfediyorum",
+   "name": "Hareketi Keşfediyorum",
+   "topics": [
+    {
+     "id": "hareketi-kesfediyorum--varliklarin-hareketleri",
+     "name": "Varlıkların Hareketleri",
+     "outcomeCodes": [
+      "FB.3.5.1"
+     ]
+    },
+    {
+     "id": "hareketi-kesfediyorum--kuvvet-ve-etkileri",
+     "name": "Kuvvet ve Etkileri",
+     "outcomeCodes": [
+      "FB.3.5.2"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "yasamimizi-kolaylastiran-elektrik",
+   "name": "Yaşamımızı Kolaylaştıran Elektrik",
+   "topics": [
+    {
+     "id": "yasamimizi-kolaylastiran-elektrik--elektrikli-arac-gerec",
+     "name": "Elektrikli Araç Gereç",
+     "outcomeCodes": [
+      "FB.3.6.1",
+      "FB.3.6.2"
+     ]
+    },
+    {
+     "id": "yasamimizi-kolaylastiran-elektrik--elektrikli-arac-gerecin-guvenli-kullanimi",
+     "name": "Elektrikli Araç Gerecin Güvenli Kullanımı",
+     "outcomeCodes": [
+      "FB.3.6.1",
+      "FB.3.6.2"
+     ]
+    },
+    {
+     "id": "yasamimizi-kolaylastiran-elektrik--elektrigin-tasarruflu-kullanimi",
+     "name": "Elektriğin Tasarruflu Kullanımı",
+     "outcomeCodes": [
+      "FB.3.6.3"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "topragi-taniyorum-tarimi-kesfediyorum",
+   "name": "Toprağı Tanıyorum, Tarımı Keşfediyorum",
+   "topics": [
+    {
+     "id": "topragi-taniyorum-tarimi-kesfediyorum--toprak-olusumu-ve-yapisi",
+     "name": "Toprak Oluşumu ve Yapısı",
+     "outcomeCodes": [
+      "FB.3.7.1",
+      "FB.3.7.2"
+     ]
+    },
+    {
+     "id": "topragi-taniyorum-tarimi-kesfediyorum--bitki-yetistirme",
+     "name": "Bitki Yetiştirme",
+     "outcomeCodes": [
+      "FB.3.7.1",
+      "FB.3.7.2"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "canlilarin-yasam-alanlarina-yolculuk",
+   "name": "Canlıların Yaşam Alanlarına Yolculuk",
+   "topics": [
+    {
+     "id": "canlilarin-yasam-alanlarina-yolculuk--yasam-alanlari",
+     "name": "Yaşam Alanları",
+     "outcomeCodes": [
+      "FB.3.8.1",
+      "FB.3.8.2"
+     ]
+    },
+    {
+     "id": "canlilarin-yasam-alanlarina-yolculuk--canli-cesitliligi",
+     "name": "Canlı Çeşitliliği",
+     "outcomeCodes": [
+      "FB.3.8.1",
+      "FB.3.8.2"
+     ]
+    },
+    {
+     "id": "canlilarin-yasam-alanlarina-yolculuk--yasam-alanlarinin-korunmasinin-canli-cesitliligine-etkisi",
+     "name": "Yaşam Alanlarının Korunmasının Canlı Çeşitliliğine Etkisi",
+     "outcomeCodes": [
+      "FB.3.8.3"
+     ]
+    }
+   ]
+  }
+ ],
+ "outcomes": {
+  "FB.3.1.1": {
+   "code": "FB.3.1.1",
+   "text": "Bilimsel bilgiye ulaşma yollarını sorgulayabilme",
+   "components": [
+    "Merak ettiği bilimsel bir konuyu tanımlar.",
+    "İlgili konu hakkında sorular sorar.",
+    "Sorularını cevaplamaya yönelik bilgi toplar.",
+    "Bilimsel bilgiye ulaşma yollarının uygunluğunu değerlendirir.",
+    "Toplanan bilgiler üzerinden bilimsel bilgiye ulaşma yollarına ilişkin çıkarım yapar."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.1",
+     "label": "Kendini Tanıma (Öz Farkındalık)"
+    },
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D9",
+     "label": "Merhamet"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Öğrenme çıktılarının değerlendirilmesinde akran değerlendirme formu, performans görevi ve öğrenci ürün dosyası kullanılabilir. Öğrencilerin bilimsel bilgiye ulaşma yolları hakkındaki çıkarımları akran değerlendirme formu ile değerlendirilebilir. Öğrencilerin bilim insanlarının özelliklerini gösteren bir posteri performans görevi olarak hazırlamaları sağlanabilir. Bu görevin değerlendirilmesinde analitik dereceli puanlama anahtarı kullanılabilir. Tüm bu çalışmalar öğrencinin ürün dosyasına eklenebilir."
+   ]
+  },
+  "FB.3.1.2": {
+   "code": "FB.3.1.2",
+   "text": "Bilim insanlarının özelliklerini genelleyebilme",
+   "components": [
+    "Bilim insanları hakkında bilgi toplar.",
+    "Bilim insanlarının ortak özelliklerini belirler.",
+    "Bilim insanlarının ortak olmayan özelliklerini belirler.",
+    "Örüntüler üzerinden bilim insanlarının özellikleri hakkında önermede bulunur."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.1",
+     "label": "Kendini Tanıma (Öz Farkındalık)"
+    },
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D9",
+     "label": "Merhamet"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Öğrenme çıktılarının değerlendirilmesinde akran değerlendirme formu, performans görevi ve öğrenci ürün dosyası kullanılabilir. Öğrencilerin bilimsel bilgiye ulaşma yolları hakkındaki çıkarımları akran değerlendirme formu ile değerlendirilebilir. Öğrencilerin bilim insanlarının özelliklerini gösteren bir posteri performans görevi olarak hazırlamaları sağlanabilir. Bu görevin değerlendirilmesinde analitik dereceli puanlama anahtarı kullanılabilir. Tüm bu çalışmalar öğrencinin ürün dosyasına eklenebilir."
+   ]
+  },
+  "FB.3.2.1": {
+   "code": "FB.3.2.1",
+   "text": "Canlıları; mikroskopla görülebilen canlılar, mantarlar, bitkiler ve hayvanlar olarak sınıflandırabilme",
+   "components": [
+    "Canlıların benzer ve farklı niteliklerini belirler.",
+    "Canlıları niteliklerine göre ayırır.",
+    "Canlıları gruplandırır.",
+    "Canlıları etiketler."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D13",
+     "label": "Sağlıklı Yaşam"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB9",
+     "label": "Sanat Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Öğrenme çıktılarının değerlendirilmesinde çalışma yaprağı, gözlem formu, akran değerlendirme formu, performans görevi ve öğrenci ürün dosyası kullanılabilir. Öğrencilerin canlıların sınıflandırılmasına ilişkin verileri kaydetmeleri için çalışma yaprakları ve gözlem formları kullanılabilir. Ayrıca duyu organlarının işlevleri ile ilgili etkinliklerde veriler çalışma yaprağına kaydedilebilir. Öğrencilerin birbirini değerlendirmesi akran değerlendirme formu ile gerçekleştirilebilir. Öğrencilere bir bitki veya hayvanın yaşam döngüsü ile ilgili özgün görseller oluşturma ya da yaşam döngüsünü konu alan rol oynama becerileri performans görevi olarak verilebilir. Tüm bu çalışmalar, öğrencinin ürün dosyasına eklenebilir."
+   ]
+  },
+  "FB.3.2.2": {
+   "code": "FB.3.2.2",
+   "text": "Canlıların çevrelerini farklı yollarla algılamaları konusunda bilimsel çıkarım yapabilme",
+   "components": [
+    "Canlıların çevrelerini algılama biçimlerine ilişkin nitelikleri tanımlar.",
+    "Duyu organlarının işlevleri ile ilgili veri toplayarak kaydeder.",
+    "Canlıların çevrelerini farklı biçimlerde algılamalarına ilişkin verileri yorumlayarak değerlendirir."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D13",
+     "label": "Sağlıklı Yaşam"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB9",
+     "label": "Sanat Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Öğrenme çıktılarının değerlendirilmesinde çalışma yaprağı, gözlem formu, akran değerlendirme formu, performans görevi ve öğrenci ürün dosyası kullanılabilir. Öğrencilerin canlıların sınıflandırılmasına ilişkin verileri kaydetmeleri için çalışma yaprakları ve gözlem formları kullanılabilir. Ayrıca duyu organlarının işlevleri ile ilgili etkinliklerde veriler çalışma yaprağına kaydedilebilir. Öğrencilerin birbirini değerlendirmesi akran değerlendirme formu ile gerçekleştirilebilir. Öğrencilere bir bitki veya hayvanın yaşam döngüsü ile ilgili özgün görseller oluşturma ya da yaşam döngüsünü konu alan rol oynama becerileri performans görevi olarak verilebilir. Tüm bu çalışmalar, öğrencinin ürün dosyasına eklenebilir."
+   ]
+  },
+  "FB.3.2.3": {
+   "code": "FB.3.2.3",
+   "text": "Canlıların yaşam döngülerini açıklamada tümevarımsal akıl yürütebilme",
+   "components": [],
+   "sdb": [
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D13",
+     "label": "Sağlıklı Yaşam"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    },
+    {
+     "code": "D19",
+     "label": "Vatanseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB9",
+     "label": "Sanat Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Öğrenme çıktılarının değerlendirilmesinde çalışma yaprağı, gözlem formu, akran değerlendirme formu, performans görevi ve öğrenci ürün dosyası kullanılabilir. Öğrencilerin canlıların sınıflandırılmasına ilişkin verileri kaydetmeleri için çalışma yaprakları ve gözlem formları kullanılabilir. Ayrıca duyu organlarının işlevleri ile ilgili etkinliklerde veriler çalışma yaprağına kaydedilebilir. Öğrencilerin birbirini değerlendirmesi akran değerlendirme formu ile gerçekleştirilebilir. Öğrencilere bir bitki veya hayvanın yaşam döngüsü ile ilgili özgün görseller oluşturma ya da yaşam döngüsünü konu alan rol oynama becerileri performans görevi olarak verilebilir. Tüm bu çalışmalar, öğrencinin ürün dosyasına eklenebilir.",
+    "Öğrenme çıktılarının değerlendirilmesinde çalışma yaprağı, gözlem formu, akran değerlendirme formu, performans görevi ve öğrenci ürün dosyası kullanılabilir. Öğrencilere bir bitki veya hayvanın yaşam döngüsü ile ilgili özgün görseller oluşturma ya da yaşam döngüsünü konu alan rol oynama becerileri performans görevi olarak verilebilir. Kayaç, mineral, maden arasındaki ilişkiler kavram haritası ile değerlendirilebilir. Tüm bu çalışmalar öğrencinin ürün dosyasına eklenebilir."
+   ]
+  },
+  "FB.3.3.1": {
+   "code": "FB.3.3.1",
+   "text": "Kayaçlar, madenler ve mineraller ile ilgili tümdengelimsel akıl yürütebilme",
+   "components": [
+    "Kayaçlar, madenler ve mineralleri belirler.",
+    "Kayaçlar, madenler ve mineraller arasında ilişki kurar.",
+    "Kayaçlar, madenler ve mineraller arasında genelden genele veya genelden özele çıkarım yapar."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D13",
+     "label": "Sağlıklı Yaşam"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    },
+    {
+     "code": "D19",
+     "label": "Vatanseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB9",
+     "label": "Sanat Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Öğrenme çıktılarının değerlendirilmesinde çalışma yaprağı, gözlem formu, akran değerlendirme formu, performans görevi ve öğrenci ürün dosyası kullanılabilir. Öğrencilere bir bitki veya hayvanın yaşam döngüsü ile ilgili özgün görseller oluşturma ya da yaşam döngüsünü konu alan rol oynama becerileri performans görevi olarak verilebilir. Kayaç, mineral, maden arasındaki ilişkiler kavram haritası ile değerlendirilebilir. Tüm bu çalışmalar öğrencinin ürün dosyasına eklenebilir.",
+    "Öğrenme çıktılarının değerlendirilmesinde kavram haritası, performans görevi, öğrenci ürün dosyası kullanılabilir. Kayaç, mineral, maden arasındaki ilişkiler kavram haritası ile değerlendirilebilir. Fosillerin oluşum sürecini oluşturan aşamaları gösterecekleri poster ve hikâyeler performans görevi olarak öğrencilere verilebilir. Öğrenme çıktılarının değerlendirilmesinde grup değerlendirme formu, V diyagramı, performans görevi ve öğrenci ürün dosyası kullanılabilir. Maddenin hâllerini keşfetme süreci grup değerlendirme formuyla; karışımların ayrılması deneyi V diyagramıyla değerlendirilebilir. Tüm bu çalışmalar öğrencinin ürün dosyasına eklenebilir."
+   ]
+  },
+  "FB.3.3.2": {
+   "code": "FB.3.3.2",
+   "text": "Fosil oluşumu ile ilgili bilgileri sentezleyebilme",
+   "components": [
+    "Fosil oluşumunu gösteren sürecin bütün ve parçalarını belirler.",
+    "Süreci oluşturan aşamalar arasında ilişki kurar.",
+    "Fosillerin oluşum sürecini oluşturan aşamaları uygun sırayla bir bütün hâline getirir."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D19",
+     "label": "Vatanseverlik"
+    },
+    {
+     "code": "D5",
+     "label": "Duyarlılık"
+    },
+    {
+     "code": "D12",
+     "label": "Sabır"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D17",
+     "label": "Tasarruf"
+    },
+    {
+     "code": "D18",
+     "label": "Temizlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB8",
+     "label": "Sürdürülebilirlik Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Öğrenme çıktılarının değerlendirilmesinde kavram haritası, performans görevi, öğrenci ürün dosyası kullanılabilir. Kayaç, mineral, maden arasındaki ilişkiler kavram haritası ile değerlendirilebilir. Fosillerin oluşum sürecini oluşturan aşamaları gösterecekleri poster ve hikâyeler performans görevi olarak öğrencilere verilebilir. Öğrenme çıktılarının değerlendirilmesinde grup değerlendirme formu, V diyagramı, performans görevi ve öğrenci ürün dosyası kullanılabilir. Maddenin hâllerini keşfetme süreci grup değerlendirme formuyla; karışımların ayrılması deneyi V diyagramıyla değerlendirilebilir. Tüm bu çalışmalar öğrencinin ürün dosyasına eklenebilir."
+   ]
+  },
+  "FB.3.4.1": {
+   "code": "FB.3.4.1",
+   "text": "Çevresindeki maddeleri hâllerine göre sınıflandırabilme",
+   "components": [
+    "Çevresindeki maddelerin niteliklerini tanımlar.",
+    "Çevresindeki maddeleri niteliklerine göre ayırır.",
+    "Çevresindeki maddeleri hâllerine göre gruplandırır.",
+    "Maddeleri hâllerine göre katı, sıvı ve gaz olarak etiketler."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D19",
+     "label": "Vatanseverlik"
+    },
+    {
+     "code": "D5",
+     "label": "Duyarlılık"
+    },
+    {
+     "code": "D12",
+     "label": "Sabır"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D17",
+     "label": "Tasarruf"
+    },
+    {
+     "code": "D18",
+     "label": "Temizlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB8",
+     "label": "Sürdürülebilirlik Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Öğrenme çıktılarının değerlendirilmesinde kavram haritası, performans görevi, öğrenci ürün dosyası kullanılabilir. Kayaç, mineral, maden arasındaki ilişkiler kavram haritası ile değerlendirilebilir. Fosillerin oluşum sürecini oluşturan aşamaları gösterecekleri poster ve hikâyeler performans görevi olarak öğrencilere verilebilir. Öğrenme çıktılarının değerlendirilmesinde grup değerlendirme formu, V diyagramı, performans görevi ve öğrenci ürün dosyası kullanılabilir. Maddenin hâllerini keşfetme süreci grup değerlendirme formuyla; karışımların ayrılması deneyi V diyagramıyla değerlendirilebilir. Tüm bu çalışmalar öğrencinin ürün dosyasına eklenebilir.",
+    "Öğrenme çıktılarının değerlendirilmesinde grup değerlendirme formu, V diyagramı, performans görevi ve öğrenci ürün dosyası kullanılabilir. Maddenin hâllerini keşfetme süreci grup değerlendirme formuyla; karışımların ayrılması deneyi V diyagramıyla değerlendirilebilir. Tüm bu çalışmalar öğrencinin ürün dosyasına eklenebilir.",
+    "Öğrenme çıktılarının değerlendirilmesinde grup değerlendirme formu, V diyagramı, performans görevi ve öğrenci ürün dosyası kullanılabilir. Maddenin hâllerini keşfetme süreci grup değerlendirme formuyla; karışımların ayrılması deneyi V diyagramıyla; atıkların ayrıştırılmasına ilişkin çözüm performans göreviyle değerlendirilebilir. Tüm bu çalışmalar öğrencinin ürün dosyasına eklenebilir."
+   ]
+  },
+  "FB.3.4.2": {
+   "code": "FB.3.4.2",
+   "text": "Günlük yaşamda karşılaştığı karışımların ayrılmasında kullanılabilecek uygun yöntemleri kullanarak deney yapabilme",
+   "components": [],
+   "sdb": [
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D5",
+     "label": "Duyarlılık"
+    },
+    {
+     "code": "D12",
+     "label": "Sabır"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D17",
+     "label": "Tasarruf"
+    },
+    {
+     "code": "D18",
+     "label": "Temizlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB8",
+     "label": "Sürdürülebilirlik Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Öğrenme çıktılarının değerlendirilmesinde grup değerlendirme formu, V diyagramı, performans görevi ve öğrenci ürün dosyası kullanılabilir. Maddenin hâllerini keşfetme süreci grup değerlendirme formuyla; karışımların ayrılması deneyi V diyagramıyla; atıkların ayrıştırılmasına ilişkin çözüm performans göreviyle değerlendirilebilir. Tüm bu çalışmalar öğrencinin ürün dosyasına eklenebilir."
+   ]
+  },
+  "FB.3.4.3": {
+   "code": "FB.3.4.3",
+   "text": "Atıkların ayrıştırılmasına ilişkin problem çözebilme",
+   "components": [
+    "Atıkların ayrıştırılmasına ilişkin problemi yapılandırır.",
+    "Atıkların ayrıştırılmasına ilişkin problemi özetler.",
+    "Atıkların ayrıştırılmasına ilişkin çözüm önerilerini gözleme ya da veriye dayalı tahmin eder.",
+    "Atıkların ayrıştırılmasına ilişkin problemin çözümüne yönelik önermeler üzerinden akıl yürütür.",
+    "Atıkların ayrıştırılmasına ilişkin problemin çözümüne yönelik yansıtmada/değerlendirmede bulunur."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    },
+    {
+     "code": "SDB1.1",
+     "label": "Kendini Tanıma (Öz Farkındalık)"
+    },
+    {
+     "code": "SDB1.3",
+     "label": "Kendini Uyarlama (Öz Yansıtma)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D5",
+     "label": "Duyarlılık"
+    },
+    {
+     "code": "D12",
+     "label": "Sabır"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D17",
+     "label": "Tasarruf"
+    },
+    {
+     "code": "D18",
+     "label": "Temizlik"
+    },
+    {
+     "code": "D13",
+     "label": "Sağlıklı Yaşam"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB8",
+     "label": "Sürdürülebilirlik Okuryazarlığı"
+    },
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    }
+   ],
+   "assessment": [
+    "Öğrenme çıktılarının değerlendirilmesinde grup değerlendirme formu, V diyagramı, performans görevi ve öğrenci ürün dosyası kullanılabilir. Maddenin hâllerini keşfetme süreci grup değerlendirme formuyla; karışımların ayrılması deneyi V diyagramıyla; atıkların ayrıştırılmasına ilişkin çözüm performans göreviyle değerlendirilebilir. Tüm bu çalışmalar öğrencinin ürün dosyasına eklenebilir.",
+    "Öğrenme çıktılarının değerlendirilmesinde grup değerlendirme formu, V diyagramı, performans görevi, kontrol listesi, öz değerlendirme formu ve öğrenci ürün dosyası kullanılabilir. Öğrencilerin atıkların ayrıştırılmasına ilişkin çözüm performans göreviyle değerlendirilebilir. Varlıkların hareket durumları için yapılan listelerin değerlendirilmesinde kontrol listesi kullanılabilir. Öğrenciler varlıkların hareket durumlarına ilişkin performans görevi olarak poster hazırlayabilir. Bu görevin değerlendirilmesinde analitik dereceli puanlama anahtarı kullanılabilir. Hareketli cisimlerin neden olabileceği tehlikelere karşı gösterdiği davranışlarla ilgili öz değerlendirme formu kullanılabilir. Tüm bu çalışmalar öğrencinin ürün dosyasına eklenebilir."
+   ]
+  },
+  "FB.3.5.1": {
+   "code": "FB.3.5.1",
+   "text": "Varlıkların hareket durumlarını gözleme dayalı tahmin edebilme",
+   "components": [
+    "Varlıkların hareket durumlarına ilişkin ön gözlem ve/veya deneyimlerini ilişkilendirir.",
+    "Varlıkların hareket durumlarına ilişkin çıkarım yapar.",
+    "Varlıkların hareket durumlarının sonuçlarına ilişkin yargıda bulunur."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    },
+    {
+     "code": "SDB1.1",
+     "label": "Kendini Tanıma (Öz Farkındalık)"
+    },
+    {
+     "code": "SDB1.3",
+     "label": "Kendini Uyarlama (Öz Yansıtma)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D5",
+     "label": "Duyarlılık"
+    },
+    {
+     "code": "D12",
+     "label": "Sabır"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D17",
+     "label": "Tasarruf"
+    },
+    {
+     "code": "D18",
+     "label": "Temizlik"
+    },
+    {
+     "code": "D13",
+     "label": "Sağlıklı Yaşam"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB8",
+     "label": "Sürdürülebilirlik Okuryazarlığı"
+    },
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    }
+   ],
+   "assessment": [
+    "Öğrenme çıktılarının değerlendirilmesinde grup değerlendirme formu, V diyagramı, performans görevi, kontrol listesi, öz değerlendirme formu ve öğrenci ürün dosyası kullanılabilir. Öğrencilerin atıkların ayrıştırılmasına ilişkin çözüm performans göreviyle değerlendirilebilir. Varlıkların hareket durumları için yapılan listelerin değerlendirilmesinde kontrol listesi kullanılabilir. Öğrenciler varlıkların hareket durumlarına ilişkin performans görevi olarak poster hazırlayabilir. Bu görevin değerlendirilmesinde analitik dereceli puanlama anahtarı kullanılabilir. Hareketli cisimlerin neden olabileceği tehlikelere karşı gösterdiği davranışlarla ilgili öz değerlendirme formu kullanılabilir. Tüm bu çalışmalar öğrencinin ürün dosyasına eklenebilir."
+   ]
+  },
+  "FB.3.5.2": {
+   "code": "FB.3.5.2",
+   "text": "Kuvvetin varlıklar üzerindeki etkilerini bilimsel gözleme dayalı tahmin edebilme",
+   "components": [
+    "Varlıkların hareketinin ve şekil değiştirmesinin nedenine ilişkin ön bilgi ve deneyimleriyle önerme oluşturur.",
+    "Varlıkların hareketinin ve şekil değiştirmesinin nedenine ilişkin gözleme dayalı olan önermeleri karşılaştırır.",
+    "Kuvvetin varlıkların hareketine ve şekil değiştirmesine etkilerine ilişkin tahminlerini temellendirmek için gözlem verilerinden sonuç çıkarır.",
+    "Kuvvetin varlıkların hareketine ve şekil değiştirmesine etkileri ile ilgili gözlemlenmemiş duruma ilişkin tahminde bulunur.",
+    "Kuvvetin varlıkların hareketine ve şekil değiştirmesine etkileri ile ilgili tahminlerinin geçerliliğini sorgular."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.1",
+     "label": "Kendini Tanıma (Öz Farkındalık)"
+    },
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB1.3",
+     "label": "Kendini Uyarlama (Öz Yansıtma)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    },
+    {
+     "code": "SDB2.3",
+     "label": "Sosyal Farkındalık"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D13",
+     "label": "Sağlıklı Yaşam"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D17",
+     "label": "Tasarruf"
+    },
+    {
+     "code": "D19",
+     "label": "Vatanseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB7",
+     "label": "Veri Okuryazarlığı"
+    },
+    {
+     "code": "OB8",
+     "label": "Sürdürülebilirlik Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Öğrenme çıktılarının değerlendirilmesinde grup değerlendirme formu, V diyagramı, performans görevi, kontrol listesi, öz değerlendirme formu ve öğrenci ürün dosyası kullanılabilir. Öğrencilerin atıkların ayrıştırılmasına ilişkin çözüm performans göreviyle değerlendirilebilir. Varlıkların hareket durumları için yapılan listelerin değerlendirilmesinde kontrol listesi kullanılabilir. Öğrenciler varlıkların hareket durumlarına ilişkin performans görevi olarak poster hazırlayabilir. Bu görevin değerlendirilmesinde analitik dereceli puanlama anahtarı kullanılabilir. Hareketli cisimlerin neden olabileceği tehlikelere karşı gösterdiği davranışlarla ilgili öz değerlendirme formu kullanılabilir. Tüm bu çalışmalar öğrencinin ürün dosyasına eklenebilir.",
+    "Öğrenme çıktılarının değerlendirilmesinde anlam çözümleme tablosu, çalışma yaprağı, performans görevi, öz değerlendirme formu, öğrenci ürün dosyası kullanılabilir. Elektrikli olan ve olmayan araç gerecin niteliklerine ilişkin toplanan verileri kaydetmek için anlam çözümleme tablosu kullanılabilir. Elektriğin güvenli kullanımı ile ilgili çalışma yaprağı ve öz değerlendirme formu kullanılabilir. Öğrencilerin elektriğin tasarruflu kullanımı ile ilgili çalışmaları performans görevi olarak değerlendirilebilir. Öğrencilerin elektriği tasarruflu kullanma durumları öz değerlendirme formu ile değerlendirilebilir. Tüm bu çalışmalar öğrencinin ürün dosyasına eklenebilir."
+   ]
+  },
+  "FB.3.6.1": {
+   "code": "FB.3.6.1",
+   "text": "Bazı araç gerecin elektrikli olduğuna ilişkin bilimsel çıkarım yapabilme",
+   "components": [],
+   "sdb": [
+    {
+     "code": "SDB1.1",
+     "label": "Kendini Tanıma (Öz Farkındalık)"
+    },
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB1.3",
+     "label": "Kendini Uyarlama (Öz Yansıtma)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    },
+    {
+     "code": "SDB2.3",
+     "label": "Sosyal Farkındalık"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D13",
+     "label": "Sağlıklı Yaşam"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D17",
+     "label": "Tasarruf"
+    },
+    {
+     "code": "D19",
+     "label": "Vatanseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB7",
+     "label": "Veri Okuryazarlığı"
+    },
+    {
+     "code": "OB8",
+     "label": "Sürdürülebilirlik Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Öğrenme çıktılarının değerlendirilmesinde anlam çözümleme tablosu, çalışma yaprağı, performans görevi, öz değerlendirme formu, öğrenci ürün dosyası kullanılabilir. Elektrikli olan ve olmayan araç gerecin niteliklerine ilişkin toplanan verileri kaydetmek için anlam çözümleme tablosu kullanılabilir. Elektriğin güvenli kullanımı ile ilgili çalışma yaprağı ve öz değerlendirme formu kullanılabilir. Öğrencilerin elektriğin tasarruflu kullanımı ile ilgili çalışmaları performans görevi olarak değerlendirilebilir. Öğrencilerin elektriği tasarruflu kullanma durumları öz değerlendirme formu ile değerlendirilebilir. Tüm bu çalışmalar öğrencinin ürün dosyasına eklenebilir."
+   ]
+  },
+  "FB.3.6.2": {
+   "code": "FB.3.6.2",
+   "text": "Elektrikli araç gerecin güvenli kullanımı ile ilgili eleştirel düşünebilme",
+   "components": [
+    "Elektrikli araç gerecin güvenli kullanımı ile ilgili verilen bir olay/konu/problem veya durumu sorgular.",
+    "Elektrikli araç gerecin kullanımında güvenliğin sağlanabileceğine yönelik akıl yürütür.",
+    "Akıl yürütmeyle ulaştığı çıkarımları yansıtır."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB1.3",
+     "label": "Kendini Uyarlama (Öz Yansıtma)"
+    },
+    {
+     "code": "SDB2.3",
+     "label": "Sosyal Farkındalık"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D17",
+     "label": "Tasarruf"
+    },
+    {
+     "code": "D19",
+     "label": "Vatanseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB7",
+     "label": "Veri Okuryazarlığı"
+    },
+    {
+     "code": "OB8",
+     "label": "Sürdürülebilirlik Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Öğrenme çıktılarının değerlendirilmesinde anlam çözümleme tablosu, çalışma yaprağı, performans görevi, öz değerlendirme formu, öğrenci ürün dosyası kullanılabilir. Elektrikli olan ve olmayan araç gerecin niteliklerine ilişkin toplanan verileri kaydetmek için anlam çözümleme tablosu kullanılabilir. Elektriğin güvenli kullanımı ile ilgili çalışma yaprağı ve öz değerlendirme formu kullanılabilir. Öğrencilerin elektriğin tasarruflu kullanımı ile ilgili çalışmaları performans görevi olarak değerlendirilebilir. Öğrencilerin elektriği tasarruflu kullanma durumları öz değerlendirme formu ile değerlendirilebilir. Tüm bu çalışmalar öğrencinin ürün dosyasına eklenebilir.",
+    "Öğrenme çıktılarının değerlendirilmesinde anlam çözümleme tablosu, çalışma yaprağı, performans görevi, öz değerlendirme formu, öğrenci ürün dosyası kullanılabilir. Elektrikli olan ve olmayan araç gerecin niteliklerine ilişkin toplanan verileri kaydetmek için anlam çözümleme tablosu kullanılabilir. Elektriğin güvenli kullanımı ile ilgili çalışma yaprağı ve öz değerlendirme formu kullanılabilir. Öğrencilerin elektriğin tasarruflu kullanımı ile ilgili çalışmaları performans görevi olarak değerlendirilebilir. Öğrencilerin elektriği tasarruflu kullanma durumları öz değerlendirme formu ile değerlendirilebilir. Toprağın yapısına ilişkin veriler çalışma kâğıdına kaydedilebilir. Tüm bu çalışmalar öğrencinin ürün dosyasına eklenebilir."
+   ]
+  },
+  "FB.3.6.3": {
+   "code": "FB.3.6.3",
+   "text": "Elektriği tasarruflu kullanma konusunda bilimsel veriye dayalı tahmin edebilme",
+   "components": [
+    "Elektriği tasarruflu kullanma konusunda verilere ve/veya ön bilgilere dayalı önerme oluşturur.",
+    "Elektriği tasarruflu kullanma üzerine nicel ölçüm verilerine dayalı önermelerini gerekçelendirir.",
+    "Hesaplamalarına dayalı olarak tahmin eder.",
+    "Tahminlerin geçerliliğini sorgular."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB1.3",
+     "label": "Kendini Uyarlama (Öz Yansıtma)"
+    },
+    {
+     "code": "SDB2.3",
+     "label": "Sosyal Farkındalık"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D17",
+     "label": "Tasarruf"
+    },
+    {
+     "code": "D19",
+     "label": "Vatanseverlik"
+    },
+    {
+     "code": "D5",
+     "label": "Duyarlılık"
+    },
+    {
+     "code": "D9",
+     "label": "Merhamet"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB7",
+     "label": "Veri Okuryazarlığı"
+    },
+    {
+     "code": "OB8",
+     "label": "Sürdürülebilirlik Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Öğrenme çıktılarının değerlendirilmesinde anlam çözümleme tablosu, çalışma yaprağı, performans görevi, öz değerlendirme formu, öğrenci ürün dosyası kullanılabilir. Elektrikli olan ve olmayan araç gerecin niteliklerine ilişkin toplanan verileri kaydetmek için anlam çözümleme tablosu kullanılabilir. Elektriğin güvenli kullanımı ile ilgili çalışma yaprağı ve öz değerlendirme formu kullanılabilir. Öğrencilerin elektriğin tasarruflu kullanımı ile ilgili çalışmaları performans görevi olarak değerlendirilebilir. Öğrencilerin elektriği tasarruflu kullanma durumları öz değerlendirme formu ile değerlendirilebilir. Toprağın yapısına ilişkin veriler çalışma kâğıdına kaydedilebilir. Tüm bu çalışmalar öğrencinin ürün dosyasına eklenebilir."
+   ]
+  },
+  "FB.3.7.1": {
+   "code": "FB.3.7.1",
+   "text": "Toprak oluşumunu ve yapısını bilimsel olarak gözlemleyebilme",
+   "components": [
+    "Toprağın oluşumuna ve yapısına ilişkin nitelikleri tanımlar.",
+    "Toprağın yapısına ilişkin veri toplayarak kaydeder.",
+    "Toprağın yapısına ilişkin topladığı verileri açıklar."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB1.3",
+     "label": "Kendini Uyarlama (Öz Yansıtma)"
+    },
+    {
+     "code": "SDB2.3",
+     "label": "Sosyal Farkındalık"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D17",
+     "label": "Tasarruf"
+    },
+    {
+     "code": "D19",
+     "label": "Vatanseverlik"
+    },
+    {
+     "code": "D5",
+     "label": "Duyarlılık"
+    },
+    {
+     "code": "D9",
+     "label": "Merhamet"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB7",
+     "label": "Veri Okuryazarlığı"
+    },
+    {
+     "code": "OB8",
+     "label": "Sürdürülebilirlik Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Öğrenme çıktılarının değerlendirilmesinde anlam çözümleme tablosu, çalışma yaprağı, performans görevi, öz değerlendirme formu, öğrenci ürün dosyası kullanılabilir. Elektrikli olan ve olmayan araç gerecin niteliklerine ilişkin toplanan verileri kaydetmek için anlam çözümleme tablosu kullanılabilir. Elektriğin güvenli kullanımı ile ilgili çalışma yaprağı ve öz değerlendirme formu kullanılabilir. Öğrencilerin elektriğin tasarruflu kullanımı ile ilgili çalışmaları performans görevi olarak değerlendirilebilir. Öğrencilerin elektriği tasarruflu kullanma durumları öz değerlendirme formu ile değerlendirilebilir. Toprağın yapısına ilişkin veriler çalışma kâğıdına kaydedilebilir. Tüm bu çalışmalar öğrencinin ürün dosyasına eklenebilir.",
+    "Öğrenme çıktılarının değerlendirilmesinde çalışma kâğıdı, performans görevi, öğrenci ürün dosyası kullanılabilir. Öğrencilerin toprağın yapısına ilişkin veri toplayarak çalışma kâğıdına kaydetmeleri sağlanabilir. Sınıf içi/sınıf dışı uygulamalarla yetiştirilen bitkiler için bir bitki güncesi tutulması performans görevi olarak verilebilir. Bu görev analitik veya bütüncül dereceli puanlama anahtarı ile değerlendirilebilir. Tüm bu çalışmalar öğrencinin ürün dosyasına eklenebilir."
+   ]
+  },
+  "FB.3.7.2": {
+   "code": "FB.3.7.2",
+   "text": "Bir bitkinin yetişmesi için gerekenleri genelleyebilme",
+   "components": [
+    "Çevresinde bulunan tarım ürünlerinin nasıl yetiştirildiği konusunda araştırma yaparak bilgi toplar.",
+    "Bitki yetiştirmek için gerekli ortak özellikleri belirler.",
+    "Farklı bitkilerin yetiştirilmesinde ortak olmayan özellikleri belirler.",
+    "Bir bitki yetiştirmek için yapılması gerekenler konusunda önermede bulunur."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D5",
+     "label": "Duyarlılık"
+    },
+    {
+     "code": "D9",
+     "label": "Merhamet"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB7",
+     "label": "Veri Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Öğrenme çıktılarının değerlendirilmesinde çalışma kâğıdı, performans görevi, öğrenci ürün dosyası kullanılabilir. Öğrencilerin toprağın yapısına ilişkin veri toplayarak çalışma kâğıdına kaydetmeleri sağlanabilir. Sınıf içi/sınıf dışı uygulamalarla yetiştirilen bitkiler için bir bitki güncesi tutulması performans görevi olarak verilebilir. Bu görev analitik veya bütüncül dereceli puanlama anahtarı ile değerlendirilebilir. Tüm bu çalışmalar öğrencinin ürün dosyasına eklenebilir.",
+    "Öğrenme çıktılarının değerlendirilmesinde çalışma kâğıdı, performans görevi, öğrenci ürün dosyası kullanılabilir. Sınıf içi/sınıf dışı uygulamalarla yetiştirilen bitkiler için bir bitki güncesi tutulması performans görevi olarak verilebilir. Bu görev analitik veya bütüncül dereceli puanlama anahtarı ile değerlendirilebilir. Tüm bu çalışmalar öğrencinin ürün dosyasına eklenebilir. Öğrenme çıktılarının değerlendirilmesinde performans görevi, öğrenme günlüğü ve öğrenci ürün dosyası kullanılabilir. Kanıt kullanma becerisi performans göreviyle; canlı çeşitliliği öğrenme günlüğüyle; yaşam alanlarının korunmasının canlı çeşitliliğine etkisi performans göreviyle değerlendirilebilir."
+   ]
+  },
+  "FB.3.8.1": {
+   "code": "FB.3.8.1",
+   "text": "Canlıların yaşam alanlarının özelliklerini belirlemeye yönelik kanıt kullanabilme",
+   "components": [
+    "Canlıların yaşam alanlarının özelliklerine ilişkin veri toplayarak kaydeder.",
+    "Canlıların yaşam alanlarına ilişkin veri setleri oluşturur.",
+    "Canlıların yaşam alanlarının özelliklerine ilişkin veriye dayalı açıklama yapar."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D5",
+     "label": "Duyarlılık"
+    },
+    {
+     "code": "D9",
+     "label": "Merhamet"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB7",
+     "label": "Veri Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Öğrenme çıktılarının değerlendirilmesinde çalışma kâğıdı, performans görevi, öğrenci ürün dosyası kullanılabilir. Sınıf içi/sınıf dışı uygulamalarla yetiştirilen bitkiler için bir bitki güncesi tutulması performans görevi olarak verilebilir. Bu görev analitik veya bütüncül dereceli puanlama anahtarı ile değerlendirilebilir. Tüm bu çalışmalar öğrencinin ürün dosyasına eklenebilir. Öğrenme çıktılarının değerlendirilmesinde performans görevi, öğrenme günlüğü ve öğrenci ürün dosyası kullanılabilir. Kanıt kullanma becerisi performans göreviyle; canlı çeşitliliği öğrenme günlüğüyle; yaşam alanlarının korunmasının canlı çeşitliliğine etkisi performans göreviyle değerlendirilebilir.",
+    "Öğrenme çıktılarının değerlendirilmesinde performans görevi, öğrenme günlüğü ve öğrenci ürün dosyası kullanılabilir. Kanıt kullanma becerisi performans göreviyle; canlı çeşitliliği öğrenme günlüğüyle; yaşam alanlarının korunmasının canlı çeşitliliğine etkisi performans göreviyle değerlendirilebilir."
+   ]
+  },
+  "FB.3.8.2": {
+   "code": "FB.3.8.2",
+   "text": "Yaşam alanındaki canlı çeşitliliğini operasyonel olarak tanımlayabilme",
+   "components": [
+    "Yaşam alanının özelliklerini tanımlar.",
+    "Yaşam alanındaki canlı çeşitliliği ile ilgili ölçüm yapar.",
+    "Canlı çeşitliliğinin tanımını yapar.",
+    "Merak ettiği konuyu tanımlar.",
+    "İlgili konu hakkında sorular sorar.",
+    "İlgili konu hakkında bilgi toplar.",
+    "Toplanan bilgilerin doğruluğunu değerlendirir.",
+    "Toplanan bilgiler üzerinde çıkarım yapar."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D5",
+     "label": "Duyarlılık"
+    },
+    {
+     "code": "D9",
+     "label": "Merhamet"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB7",
+     "label": "Veri Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Öğrenme çıktılarının değerlendirilmesinde performans görevi, öğrenme günlüğü ve öğrenci ürün dosyası kullanılabilir. Kanıt kullanma becerisi performans göreviyle; canlı çeşitliliği öğrenme günlüğüyle; yaşam alanlarının korunmasının canlı çeşitliliğine etkisi performans göreviyle değerlendirilebilir."
+   ]
+  },
+  "FB.3.8.3": {
+   "code": "FB.3.8.3",
+   "text": "Yaşam alanlarının korunması için yapılacakları sorgulayabilme",
+   "components": [
+    "Merak ettiği konuyu tanımlar.",
+    "İlgili konu hakkında sorular sorar.",
+    "İlgili konu hakkında bilgi toplar.",
+    "Toplanan bilgilerin doğruluğunu değerlendirir.",
+    "Toplanan bilgiler üzerinde çıkarım yapar."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D5",
+     "label": "Duyarlılık"
+    },
+    {
+     "code": "D9",
+     "label": "Merhamet"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB7",
+     "label": "Veri Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Öğrenme çıktılarının değerlendirilmesinde performans görevi, öğrenme günlüğü ve öğrenci ürün dosyası kullanılabilir. Kanıt kullanma becerisi performans göreviyle; canlı çeşitliliği öğrenme günlüğüyle; yaşam alanlarının korunmasının canlı çeşitliliğine etkisi performans göreviyle değerlendirilebilir."
+   ]
+  }
+ }
+}

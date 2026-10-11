@@ -66,6 +66,41 @@ Example refinements:
 - `Derse giriş etkinliği öner`
 - `Kaynaştırma öğrencisi için uyarlama ekle`
 
+### 5E Model (TYMM)
+
+When `5E modeline göre hazırla` is selected, the plan has no Giriş / Gelişme / Sonuç / Ölçme sections. The lesson flow is these five phase sections:
+
+1. Girme
+2. Keşfetme
+3. Açıklama
+4. Derinleştirme
+5. Değerlendirme
+
+- **Time ranges:** each phase has a minute range computed by code (weights 10/30/20/25/15, at least 2 minutes per phase). The ranges always sum exactly to the lesson duration; for 40 minutes they are 00–04, 04–16, 16–24, 24–34 and 34–40. The model never sets the times.
+- **Required content:** Değerlendirme must contain a numbered "Çıkış Bileti", and Keşfetme carries the EduPilot Spark activity. The validator rejects a plan that lacks either and regenerates once.
+- **TYMM Beceriler Örgüsü:** every plan, 5E or classic, carries KB / SDB / Eğilimler / Değerler labels. They are chosen from fixed lists in `src/lib/lesson-planner/tymm-skills.ts`; numbered program codes are never invented.
+- **Preview:** each phase card shows a phase badge and a minute-range badge, both before and after generation. The skills appear as a badge card under the plan.
+
+### MEB Curriculum Pool (Müfredat Havuzu)
+
+**Data**
+- Source: the MEB framework annual plan workbooks in `references/*.xlsx`.
+- Coverage: Fen, Matematik, Sosyal Bilgiler, Türkçe, İnkılap Tarihi and İngilizce, grades 2–8, 26 grade files in total.
+- Run `npm run curriculum:parse` (`scripts/parse-all-curricula.ts`) to regenerate `src/data/curriculum/`: one JSON file per grade, plus `index.json` and the generated `registry.ts`. Never edit these files by hand.
+- The parser classifies columns by header text (TYMM, the previous program and English headers), recognises outcome codes by pattern, splits rows that span two units, repairs truncated codes and normalizes SDB/D/OB labels.
+- Each grade file is tagged `tymm` or `onceki` (previous program: kazanım + açıklama, no SDB/D/OB).
+
+**Form flow**
+1. When Ders + Sınıf match the pool, the Konu field becomes a searchable combobox grouped by unit. Free text is still allowed.
+2. Selecting a topic opens the "MEB TYMM Resmi Öğrenme Çıktıları" picker.
+3. Each selected outcome adds a `KOD — metin` line to the objectives textarea; unselecting removes it. The teacher's own lines are kept.
+4. The picker previews the SDB, Değerler and OB items that will be included.
+
+**Pipeline**
+- The client sends only IDs and codes.
+- The server resolves them against the pool (`resolveCurriculumSelection`), dropping unknown or foreign codes, and passes the result to `buildLessonPlanPrompt(input, { curriculum })`.
+- After generation, `applyOfficialCurriculum` attaches the official codes, SDB, Değerler and OB to the plan in code. They appear in the TYMM Beceriler Örgüsü card and in the Word export.
+
 ### Primary Action
 
 Button: `Ders Planını Oluştur`
@@ -239,6 +274,73 @@ only the assigned tasks, and the validator rejects a response that deviates
 from the plan. Scenario questions must carry ≥2 `islemAdimlari`, and a
 single-fraction answer that already appears in the scenario is rejected.
 
+### TYMM rules (CLAUDE.md, `references/senaryo-kalite-referans-v2.md`)
+
+- "Görsel yeni nesil" (fraction topics): EVERY question gets a functional
+  visual — all `gorselSoru` slots are planned visual tips (tips matching the
+  topic first, at most twice, then the others once). Text-only scenarios are
+  used only for non-fraction topics. The pure-definition card task
+  (`ifadeDegerlendirme`) is excluded from plans.
+- Each planned task draws its context from a sector pool (inşaat, enerji,
+  lojistik, tarım, laboratuvar, teknoloji, ulaşım, meteoroloji, perakende…);
+  every context requires its own sector keyword in the text, so the model
+  cannot reuse the prompt example of another sector, and the context-pool
+  constraint keeps every question of a quiz (up to 8) in a different context.
+
+- Single-step reading/matching tasks are excluded from plans
+  (`plandanCikarildi`): all four emoji `sayi_dogrusu` tasks, `kesir_kartlari`
+  `turuBul` / `gosterimDonusumu`. The only "simple" slot left is the card
+  reasoning task (`ifadeDegerlendirme`), at most once per quiz.
+- Scenario questions draw no decorative scene (`gorselStratejisi: "yok"`):
+  a visual must carry data that is only readable from it.
+- HEDEF-model tasks: `etap_dogrusu/etapFarki` (number line with differently
+  partitioned units, K/L points, two-stage difference), `alan_izgara/damlamaUcu`
+  (empty ratio ÷ unit fraction, grade 6) and `bosAlanOlcusu`,
+  `cetvel_olcum/kamaBolme` (read length ÷ fraction, "at most", grade 6) and
+  `kalanParca`, `daire_kesir/kalanPaylasim` (remaining ÷ guests, grade 6). The
+  rejected models (grid "empty part", ruler "how much longer", pie "how much
+  is left") were removed.
+- `daire_kesir/boyaKarisimi` replaced the pizza slice count: the circle is a
+  paint-mixture diagram (count compartments × fraction × litres per compartment).
+- Context pool constraint: planned visual tips retry seeds and then other
+  tasks of the same tip until they find a context topic (`konu`) not yet used
+  in the quiz; ruler tasks have three contexts (çıta, kurdele, kablo). For
+  quizzes up to 8 questions no topic repeats (test-covered).
+- `etap_dogrusu` is drawn at 1:1 pixel scale from the measured container
+  width (min 260 px, horizontal scroll below that), so labels keep their size
+  on mobile.
+- The prompt states the three TYMM rules; distractors include the required
+  misconceptions (adding numerators and denominators, counting lines instead
+  of intervals, ratio to the remainder).
+
+### Planned visual model tips (`references/gorsel-tip-haritasi.md`)
+
+Five drawn models: `daire_kesir` (pizza/pie; pattern:
+`references/daire-kesir-demo.html`), `kesir_cubugu` (bar strips),
+`alan_izgara` (area grid), `tablo_kesir` (fraction table), `cetvel_olcum`
+(ruler). Each follows "the visual is drawn from data, code computes the
+answer, inconsistency is rejected":
+
+- The Blueprint builds two plans per question: `cizim` (the drawing data)
+  and `cikarim` (values the text must contain, the correct answer and
+  error-model distractors). Generators live next to each definition
+  (`daire-kesir.ts`, `kesir-cubugu.ts`, …).
+- The model writes only `{gorev, senaryo, soru}`. `planliGorselDogrula`
+  (`planli-gorsel.ts`) rejects text that misses a planned value, name or key
+  phrase, contains an unplanned number (would leak the answer or contradict
+  the drawing), or fails the language check. Options and the solution come
+  from the plan, so the drawing and the answer cannot disagree.
+- Counts that are visible in the drawing (slices, parts, squares, positions,
+  table values) are never written in the text; the student reads them and
+  then performs at least one more operation.
+- Distribution: simple reading questions ⌊n/3⌋ (max 2); of the remaining
+  slots at most half are planned visual tips (each tip at most twice,
+  interleaved with scenarios); a tip whose topic words appear in the
+  outcomes (pizza/paylaşma, şerit, alan/ızgara, tablo/veri, ölçme/cetvel) is
+  preferred, otherwise the tip order is shuffled per topic seed.
+- `planli-gorsel.test.ts`: for 300 seeds per task, the correct option is
+  recomputed independently from the drawing data.
+
 ### Scenario questions: arithmetic is guaranteed by code
 
 Quality target: `references/senaryo-kalite-referans.md` (its 7-point checklist
@@ -290,3 +392,82 @@ and three reference questions are in the prompt).
 To add a tip: add its key to `GORSEL_SORU_TIPLERI` and its data type to
 `GorselSoruVeriHaritasi`, write its definition, then register its
 component — TypeScript's mapped types fail the build if any step is missed.
+
+# Rubric Generator (Rubrik Oluşturucu)
+
+Route: `/ai-tools/rubric-generator`. The Dashboard card already pointed to this route, so the Dashboard itself was not changed.
+
+## Form (left panel)
+- **Ders, Sınıf, Konu:** connected to the curriculum pool (`src/data/curriculum/`). It uses the same topic combobox and outcome picker as the Lesson Planner, from `components/features/curriculum/`.
+- **Outcomes:** selecting a topic preselects all of its official outcomes; the teacher can narrow the selection.
+- **Görev türü:** proje, sunum, deney, grup, portfolyo.
+- **Rubrik tipi:** analitik, bütüncül, akran/öz.
+- **Skala:** 3 (Geliştirilmeli → Mükemmel) or 4 (Yetersiz → Çok İyi).
+
+## Dual-view data model (`src/types/rubric.ts`)
+
+Each criterion has two texts:
+- `teacherCriterion`: formal, third person, with one level descriptor per level.
+- `studentFriendlyCriterion`: a "sen dili" yes/no question plus a hint.
+
+Each criterion also has `skillCodes` (official codes from the pool) and `conceptualSkills` (KB labels, no codes).
+
+**Scoring (computed by code, not by the model):**
+- Weights are normalized to multiples of 5 that sum to exactly 100.
+- Level points go up to each criterion's weight.
+- Holistic rubrics use score bands (for example 0–25 / 26–50 / 51–75 / 76–100).
+
+## Validation (`src/lib/rubric/schema.ts`)
+- Strict json_schema; `skillCodes` is an enum of the allowed codes, and the field is omitted entirely when no curriculum topic is selected.
+- Teacher text may not contain questions or "sen" forms.
+- Student questions must end with "?" and contain no codes and no "öğrenci".
+- Each criterion must have exactly `scale` levels, and they must be distinct.
+- Every selected outcome must be covered by some criterion, and at least one SDB and one Değer must be used.
+- A rejected response is regenerated once, with the issues fed back.
+
+## Preview (right panel)
+- Base UI Tabs:
+  - "Öğretmen Rubriği (Resmî MEB Formatı)": TYMM summary (unused pool codes dimmed), plus a table or criterion cards depending on the panel width (container query).
+  - "Öğrenci Dostu Kontrol Listesi (Öz/Akran)": checkbox card; öz/akran rubrics get Ben and Akranım columns.
+
+## Exports (`src/lib/rubric/rubric-docx.ts`)
+- **Official rubric:** landscape A4 with the MEB header, info table, TYMM table, scored scale, student/total line, and 3 zümre signatures plus "Uygundur / Okul Müdürü".
+- **Student sheet:** landscape A4 split into two identical A5 forms with a dashed cut line; no codes, "sen dili" only.
+
+## API
+- `POST /api/rubrics/generate`.
+- Provider: `RUBRIC_PROVIDER`, falling back to `LESSON_PLAN_PROVIDER`; mock by default.
+- Model: gpt-4o.
+
+## Live Assessment (Canlı Değerlendirme)
+
+A third tab in the rubric preview. While it is open, the rubric form is hidden and the workspace is full width; the teacher can bring the form back with "Rubrik formunu göster".
+
+**Class list**
+- The teacher pastes a list copied from e-Okul or Excel (`src/lib/rubric/live/roster.ts`).
+- Separators: tab, `;`, `,`, or plain lines.
+- Columns: sıra no + okul no are recognized; header rows and the gender column are skipped.
+- All-caps names are title-cased.
+- Student IDs depend only on okul no + name, so re-pasting the list keeps existing scores.
+
+**Scoring**
+- Each criterion is a card with keyboard-accessible level buttons (radiogroup), ordered highest to lowest.
+- The total (e.g. "85 / 100") updates live in a sticky header below the app top bar.
+- Holistic rubrics use a single level plus a score clamped to that level's range.
+
+**Feedback** (`generateLiveFeedback`)
+- Rule-based and instant, written in "sen dili", 1–2 sentences.
+- Strengths come from the highest-level criteria; the growth area is the lowest-level criterion together with its student hint from the rubric.
+- The tone is chosen from the overall score ratio.
+- Once the teacher edits the text, it is never overwritten automatically; a "Otomatik metne dön" button restores the generated text.
+
+**Storage**
+- React state is mirrored to localStorage.
+- The roster is stored once and reused across rubrics (`edupilot.liveAssessment.roster`).
+- Scores are stored per rubric (`edupilot.liveAssessment.session.<rubricId>`).
+- Storage failures (private mode, blocked storage) are ignored safely.
+
+**Excel export**
+- `exceljs` is loaded on click.
+- Columns: No, Ad Soyad, K1…Kn points (max in header), Toplam, Durum, Geri Bildirim.
+- Includes a class average row, frozen header and name columns, and landscape page setup.

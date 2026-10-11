@@ -13,11 +13,27 @@ export type LessonPlanProvider = "mock" | "openai";
 
 const DEFAULT_PROVIDER: LessonPlanProvider = "mock";
 
-/** Single source of truth for the OpenAI model used to generate lesson plans. */
-export const OPENAI_LESSON_PLAN_MODEL = "gpt-4o-mini";
+/**
+ * Single source of truth for the OpenAI model used to generate lesson plans.
+ * Upgraded from "gpt-4o-mini" to "gpt-4o" with the TYMM/5E restructure: on
+ * the mini model 5E plans dropped the EduPilot Spark activity, scheduled
+ * multi-day observations inside a 12-minute phase and suggested unrealistic
+ * materials; the larger model follows the classroom-reality rules reliably.
+ */
+export const OPENAI_LESSON_PLAN_MODEL = "gpt-4o";
 
-/** Maximum time (ms) to wait for the OpenAI request before treating it as a timeout. */
-export const LESSON_PLAN_REQUEST_TIMEOUT_MS = 30_000;
+/**
+ * Maximum time (ms) to wait for ONE OpenAI request before treating it as a
+ * timeout. 5E plans (five phases, exit ticket, skills) are longer than the
+ * classic layout and occasionally exceeded 30s.
+ */
+export const LESSON_PLAN_REQUEST_TIMEOUT_MS = 60_000;
+
+/**
+ * A response that fails validation (e.g. a 5E plan without an exit ticket)
+ * is regenerated once, with the validation issues fed back to the model.
+ */
+export const LESSON_PLAN_MAX_ATTEMPTS = 2;
 
 /**
  * Reads which generation service should be used. Falls back to "mock"
@@ -99,3 +115,23 @@ export function getQuizProvider(): QuizProvider {
   const raw = process.env.QUIZ_PROVIDER?.trim().toLowerCase();
   return raw === "openai" ? "openai" : DEFAULT_QUIZ_PROVIDER;
 }
+
+export type RubricProvider = "mock" | "openai";
+
+/**
+ * Rubric Generator provider. `RUBRIC_PROVIDER` wins when set; otherwise it
+ * follows `LESSON_PLAN_PROVIDER` so an environment that already generates
+ * lesson plans with OpenAI needs no extra configuration. Fails safe to mock.
+ */
+export function getRubricProvider(): RubricProvider {
+  const raw = (process.env.RUBRIC_PROVIDER ?? process.env.LESSON_PLAN_PROVIDER)?.trim().toLowerCase();
+  return raw === "openai" ? "openai" : "mock";
+}
+
+/** Dual-view rubrics (formal + student language per level) need gpt-4o's instruction following. */
+export const OPENAI_RUBRIC_MODEL = "gpt-4o";
+
+export const RUBRIC_REQUEST_TIMEOUT_MS = 60_000;
+
+/** A response that fails validation is regenerated once with the issues fed back. */
+export const RUBRIC_MAX_ATTEMPTS = 2;

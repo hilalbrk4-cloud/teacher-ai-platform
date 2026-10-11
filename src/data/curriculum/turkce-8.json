@@ -1,0 +1,1500 @@
+{
+ "id": "turkce-8",
+ "subject": "Türkçe",
+ "subjectId": "turkce",
+ "grade": 8,
+ "program": "onceki",
+ "source": {
+  "file": "turkce_mufredat.xlsx",
+  "sheet": "Türkçe 8. SINIF MEB YILLIK PLAN"
+ },
+ "units": [
+  {
+   "id": "okuma-kulturu",
+   "name": "Okuma Kültürü",
+   "topics": [
+    {
+     "id": "okuma-kulturu--kagidin-seruveni",
+     "name": "Kağıdın Serüveni",
+     "outcomeCodes": [
+      "T.8.1.14",
+      "T.8.2.1",
+      "T.8.2.2",
+      "T.8.3.1",
+      "T.8.3.5",
+      "T.8.3.9",
+      "T.8.3.14",
+      "T.8.3.25",
+      "T.8.3.28",
+      "T.8.3.30",
+      "T.8.4.2",
+      "T.8.4.15"
+     ]
+    },
+    {
+     "id": "okuma-kulturu--camur-tabletten-elektronik-tablete-kitap",
+     "name": "Çamur Tabletten Elektronik Tablete: Kitap",
+     "outcomeCodes": [
+      "T.8.1.14",
+      "T.8.2.1",
+      "T.8.2.2",
+      "T.8.3.1",
+      "T.8.3.5",
+      "T.8.3.9",
+      "T.8.3.14",
+      "T.8.3.26",
+      "T.8.3.30",
+      "T.8.3.31",
+      "T.8.3.34",
+      "T.8.4.9",
+      "T.8.4.11",
+      "T.8.4.13"
+     ]
+    },
+    {
+     "id": "okuma-kulturu--umutla-umutsuzluk",
+     "name": "Umutla Umutsuzluk",
+     "outcomeCodes": [
+      "T.8.2.1",
+      "T.8.2.2",
+      "T.8.3.1",
+      "T.8.3.5",
+      "T.8.3.7",
+      "T.8.3.9",
+      "T.8.3.14",
+      "T.8.3.25",
+      "T.8.3.30",
+      "T.8.4.2",
+      "T.8.4.9"
+     ]
+    },
+    {
+     "id": "okuma-kulturu--ataturk-bizimle-dinleme-izleme-metni",
+     "name": "Atatürk Bizimle (Dinleme/İzleme Metni)",
+     "outcomeCodes": [
+      "T.8.1.3",
+      "T.8.1.4",
+      "T.8.1.7",
+      "T.8.1.10",
+      "T.8.1.14",
+      "T.8.2.1",
+      "T.8.2.2",
+      "T.8.3.9",
+      "T.8.3.11",
+      "T.8.3.30",
+      "T.8.4.4"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "milli-mucadele-ve-ataturk",
+   "name": "Millî Mücadele ve Atatürk",
+   "topics": [
+    {
+     "id": "milli-mucadele-ve-ataturk--bu-vatan-kimin",
+     "name": "Bu Vatan Kimin?",
+     "outcomeCodes": [
+      "T.8.2.1",
+      "T.8.2.2",
+      "T.8.3.2",
+      "T.8.3.5",
+      "T.8.3.7",
+      "T.8.3.14",
+      "T.8.3.16",
+      "T.8.3.17",
+      "T.8.3.30",
+      "T.8.4.1",
+      "T.8.4.18"
+     ]
+    },
+    {
+     "id": "milli-mucadele-ve-ataturk--215-okkalik-mermi-nasil-kaldirildi",
+     "name": "215 Okkalık Mermi Nasıl Kaldırıldı?",
+     "outcomeCodes": [
+      "T.8.1.11",
+      "T.8.2.1",
+      "T.8.2.2",
+      "T.8.2.3",
+      "T.8.3.1",
+      "T.8.3.3",
+      "T.8.3.5",
+      "T.8.3.15",
+      "T.8.3.28",
+      "T.8.3.29",
+      "T.8.3.33",
+      "T.8.4.4",
+      "T.8.4.13",
+      "T.8.4.18"
+     ]
+    },
+    {
+     "id": "milli-mucadele-ve-ataturk--memleketin-hayati-soz-konusu",
+     "name": "Memleketin Hayatı Söz Konusu",
+     "outcomeCodes": [
+      "T.8.1.13",
+      "T.8.2.1",
+      "T.8.2.2",
+      "T.8.3.1",
+      "T.8.3.5",
+      "T.8.3.14",
+      "T.8.3.19",
+      "T.8.3.30",
+      "T.8.3.31",
+      "T.8.4.4",
+      "T.8.4.13",
+      "T.8.4.17",
+      "T.8.4.18"
+     ]
+    },
+    {
+     "id": "milli-mucadele-ve-ataturk--ataturk-ve-egitim-ogretim-ogretmen-dinleme-izleme-metni",
+     "name": "Atatürk ve Eğitim, Öğretim, Öğretmen (Dinleme/İzleme Metni)",
+     "outcomeCodes": [
+      "T.8.1.4",
+      "T.8.1.14",
+      "T.8.2.1",
+      "T.8.2.2",
+      "T.8.2.4",
+      "T.8.3.18",
+      "T.8.3.25",
+      "T.8.4.4",
+      "T.8.4.6",
+      "T.8.4.18"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "erdemler",
+   "name": "Erdemler",
+   "topics": [
+    {
+     "id": "erdemler--bir-somun-ekmekten-alinan-ders",
+     "name": "Bir Somun Ekmekten Alınan Ders",
+     "outcomeCodes": [
+      "T.8.2.1",
+      "T.8.2.2",
+      "T.8.2.7",
+      "T.8.3.1",
+      "T.8.3.5",
+      "T.8.3.14",
+      "T.8.3.16",
+      "T.8.3.17",
+      "T.8.3.25",
+      "T.8.3.30",
+      "T.8.4.4",
+      "T.8.4.9",
+      "T.8.4.13",
+      "T.8.4.18"
+     ]
+    },
+    {
+     "id": "erdemler--gardasim",
+     "name": "Gardaşım",
+     "outcomeCodes": [
+      "T.8.2.1",
+      "T.8.2.2",
+      "T.8.3.2",
+      "T.8.3.5",
+      "T.8.3.14",
+      "T.8.3.30",
+      "T.8.4.1",
+      "T.8.4.3",
+      "T.8.4.4",
+      "T.8.4.7",
+      "T.8.4.9",
+      "T.8.4.18"
+     ]
+    },
+    {
+     "id": "erdemler--yanlislarimiz",
+     "name": "Yanlışlarımız…",
+     "outcomeCodes": [
+      "T.8.1.10",
+      "T.8.2.1",
+      "T.8.2.2",
+      "T.8.3.1",
+      "T.8.3.5",
+      "T.8.3.14",
+      "T.8.3.26",
+      "T.8.3.30",
+      "T.8.4.11",
+      "T.8.4.12",
+      "T.8.4.13",
+      "T.8.4.18"
+     ]
+    },
+    {
+     "id": "erdemler--mese-ile-saz-dinleme-izleme-metni",
+     "name": "Meşe ile Saz (Dinleme/İzleme Metni)",
+     "outcomeCodes": [
+      "T.8.1.4",
+      "T.8.1.5",
+      "T.8.1.6",
+      "T.8.1.9",
+      "T.8.1.10",
+      "T.8.1.14",
+      "T.8.2.1",
+      "T.8.2.2",
+      "T.8.3.6",
+      "T.8.3.7",
+      "T.8.3.20",
+      "T.8.3.24",
+      "T.8.3.30",
+      "T.8.4.4"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "milli-kulturumuz",
+   "name": "Millî Kültürümüz",
+   "topics": [
+    {
+     "id": "milli-kulturumuz--ergenekon-destani",
+     "name": "Ergenekon Destanı",
+     "outcomeCodes": [
+      "T.8.2.1",
+      "T.8.2.2",
+      "T.8.2.5",
+      "T.8.3.4",
+      "T.8.3.5",
+      "T.8.3.13",
+      "T.8.3.22",
+      "T.8.3.26",
+      "T.8.3.30",
+      "T.8.3.35",
+      "T.8.4.6",
+      "T.8.4.14",
+      "T.8.4.19"
+     ]
+    },
+    {
+     "id": "milli-kulturumuz--turkiye",
+     "name": "Türkiye",
+     "outcomeCodes": [
+      "T.8.1.4",
+      "T.8.1.10",
+      "T.8.2.1",
+      "T.8.2.2",
+      "T.8.2.3",
+      "T.8.3.2",
+      "T.8.3.5",
+      "T.8.3.7",
+      "T.8.3.14",
+      "T.8.3.15",
+      "T.8.3.26",
+      "T.8.3.30",
+      "T.8.4.2",
+      "T.8.4.8",
+      "T.8.4.10",
+      "T.8.4.19"
+     ]
+    },
+    {
+     "id": "milli-kulturumuz--bir-hikaye-yaz-icinde-insan-olsun",
+     "name": "Bir Hikâye Yaz İçinde İnsan Olsun",
+     "outcomeCodes": [
+      "T.8.2.1",
+      "T.8.2.2",
+      "T.8.2.6",
+      "T.8.3.1",
+      "T.8.3.5",
+      "T.8.3.14",
+      "T.8.3.35",
+      "T.8.3.30",
+      "T.8.4.4",
+      "T.8.4.19"
+     ]
+    },
+    {
+     "id": "milli-kulturumuz--turk-halk-edebiyati-asik-veysel-dinleme-izleme-metni",
+     "name": "Türk Halk Edebiyatı: Âşık Veysel (Dinleme/İzleme Metni)",
+     "outcomeCodes": [
+      "T.8.1.4",
+      "T.8.1.12",
+      "T.8.1.14",
+      "T.8.2.1",
+      "T.8.2.2",
+      "T.8.2.3",
+      "T.8.3.3",
+      "T.8.3.7",
+      "T.8.3.18",
+      "T.8.3.21",
+      "T.8.3.23",
+      "T.8.3.28",
+      "T.8.3.30",
+      "T.8.4.4",
+      "T.8.4.7",
+      "T.8.4.13",
+      "T.8.4.19"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bilim-ve-teknoloji",
+   "name": "Bilim ve Teknoloji",
+   "topics": [
+    {
+     "id": "bilim-ve-teknoloji--hezarfen-ahmet-celebi",
+     "name": "Hezarfen Ahmet Çelebi",
+     "outcomeCodes": [
+      "T.8.2.1",
+      "T.8.2.2",
+      "T.8.2.3",
+      "T.8.2.4",
+      "T.8.3.1",
+      "T.8.3.5",
+      "T.8.3.30",
+      "T.8.3.35",
+      "T.8.4.4",
+      "T.8.4.19"
+     ]
+    },
+    {
+     "id": "bilim-ve-teknoloji--yanki-odasi-nedir",
+     "name": "Yankı Odası Nedir?",
+     "outcomeCodes": [
+      "T.8.2.1",
+      "T.8.2.2",
+      "T.8.3.1",
+      "T.8.3.5",
+      "T.8.3.14",
+      "T.8.3.30",
+      "T.8.4.4",
+      "T.8.4.12",
+      "T.8.4.19"
+     ]
+    },
+    {
+     "id": "bilim-ve-teknoloji--hava-nasil-oralarda",
+     "name": "Hava Nasıl Oralarda?",
+     "outcomeCodes": [
+      "T.8.2.1",
+      "T.8.2.2",
+      "T.8.3.1",
+      "T.8.3.5",
+      "T.8.3.14",
+      "T.8.3.21",
+      "T.8.3.30",
+      "T.8.3.31",
+      "T.8.3.32",
+      "T.8.4.5",
+      "T.8.4.19"
+     ]
+    },
+    {
+     "id": "bilim-ve-teknoloji--uzayin-derinliklerine-yolculuk-robotlar-gezegeni-dinleme-izl",
+     "name": "Uzayın Derinliklerine Yolculuk: Robotlar Gezegeni (Dinleme/İzleme Metni)",
+     "outcomeCodes": [
+      "T.8.1.1",
+      "T.8.1.2",
+      "T.8.1.4",
+      "T.8.1.8",
+      "T.8.1.14",
+      "T.8.2.1",
+      "T.8.2.2",
+      "T.8.3.6",
+      "T.8.3.30",
+      "T.8.4.11",
+      "T.8.4.19"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "duygular",
+   "name": "Duygular",
+   "topics": [
+    {
+     "id": "duygular--tepedeki-yalniz-agac",
+     "name": "Tepedeki Yalnız Ağaç",
+     "outcomeCodes": [
+      "T.8.2.1",
+      "T.8.3.1",
+      "T.8.3.5",
+      "T.8.3.12",
+      "T.8.3.14",
+      "T.8.3.25",
+      "T.8.3.35",
+      "T.8.4.4",
+      "T.8.4.5",
+      "T.8.4.16",
+      "T.8.4.20"
+     ]
+    },
+    {
+     "id": "duygular--bu-cagri-sanadir",
+     "name": "Bu Çağrı Sanadır",
+     "outcomeCodes": [
+      "T.8.2.1",
+      "T.8.2.2",
+      "T.8.2.4",
+      "T.8.3.2",
+      "T.8.3.5",
+      "T.8.3.19",
+      "T.8.4.1",
+      "T.8.4.4",
+      "T.8.4.13",
+      "T.8.4.20"
+     ]
+    },
+    {
+     "id": "duygular--umut",
+     "name": "Umut…",
+     "outcomeCodes": [
+      "T.8.2.1",
+      "T.8.2.2",
+      "T.8.3.1",
+      "T.8.3.5",
+      "T.8.3.13",
+      "T.8.3.21",
+      "T.8.3.26",
+      "T.8.3.30",
+      "T.8.4.11",
+      "T.8.4.20"
+     ]
+    },
+    {
+     "id": "duygular--dostluk-dedigin-dinleme-izleme-metni",
+     "name": "Dostluk Dediğin (Dinleme/İzleme Metni)",
+     "outcomeCodes": [
+      "T.8.1.2",
+      "T.8.1.14",
+      "T.8.2.1",
+      "T.8.2.2",
+      "T.8.2.3",
+      "T.8.3.35",
+      "T.8.4.4",
+      "T.8.4.6",
+      "T.8.4.20"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "doga-ve-evren",
+   "name": "Doğa ve Evren",
+   "topics": [
+    {
+     "id": "doga-ve-evren--ardahan-dan-gelen-mektup",
+     "name": "Ardahan’dan Gelen Mektup",
+     "outcomeCodes": [
+      "T.8.2.1",
+      "T.8.2.2",
+      "T.8.2.4",
+      "T.8.3.1",
+      "T.8.3.5",
+      "T.8.3.8",
+      "T.8.3.14",
+      "T.8.3.30",
+      "T.8.4.4",
+      "T.8.4.11"
+     ]
+    },
+    {
+     "id": "doga-ve-evren--bitkiler-nasil-hareket-eder",
+     "name": "Bitkiler Nasıl Hareket Eder?",
+     "outcomeCodes": [
+      "T.8.2.1",
+      "T.8.2.2",
+      "T.8.3.1",
+      "T.8.3.5",
+      "T.8.3.8",
+      "T.8.3.14",
+      "T.8.3.30",
+      "T.8.4.3",
+      "T.8.4.7",
+      "T.8.4.11",
+      "T.8.4.13",
+      "T.8.4.17"
+     ]
+    },
+    {
+     "id": "doga-ve-evren--gazli-gol",
+     "name": "Gazlı Göl",
+     "outcomeCodes": [
+      "T.8.2.1",
+      "T.8.2.2",
+      "T.8.2.3",
+      "T.8.3.1",
+      "T.8.3.5",
+      "T.8.3.8",
+      "T.8.3.14",
+      "T.8.3.27",
+      "T.8.3.30",
+      "T.8.4.4"
+     ]
+    },
+    {
+     "id": "doga-ve-evren--gokyuzunden-mektuplar-kar-kristalleri-dinleme-izleme-metni",
+     "name": "“gökyüzünden Mektuplar “ Kar Kristalleri (Dinleme/İzleme Metni)",
+     "outcomeCodes": [
+      "T.8.1.4",
+      "T.8.1.14",
+      "T.8.2.1",
+      "T.8.2.2",
+      "T.8.2.3",
+      "T.8.2.7",
+      "T.8.3.8",
+      "T.8.3.10",
+      "T.8.3.14",
+      "T.8.3.30",
+      "T.8.4.1",
+      "T.8.4.4",
+      "T.8.4.13"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "saglik-ve-spor",
+   "name": "Sağlık ve Spor",
+   "topics": [
+    {
+     "id": "saglik-ve-spor--kahvaltinin-onemi",
+     "name": "Kahvaltının Önemi",
+     "outcomeCodes": [
+      "T.8.2.1",
+      "T.8.2.2",
+      "T.8.2.3",
+      "T.8.3.1",
+      "T.8.3.5",
+      "T.8.3.9",
+      "T.8.3.14",
+      "T.8.3.30",
+      "T.8.4.3",
+      "T.8.4.4",
+      "T.8.4.16",
+      "T.8.4.17",
+      "T.8.4.19",
+      "T.8.4.20"
+     ]
+    },
+    {
+     "id": "saglik-ve-spor--spor-yap-beynin-formda-kalsin",
+     "name": "Spor Yap, Beynin Formda Kalsın!",
+     "outcomeCodes": [
+      "T.8.2.1",
+      "T.8.2.2",
+      "T.8.3.1",
+      "T.8.3.5",
+      "T.8.3.14",
+      "T.8.3.15",
+      "T.8.3.30",
+      "T.8.3.35",
+      "T.8.4.4",
+      "T.8.4.11",
+      "T.8.4.20"
+     ]
+    },
+    {
+     "id": "saglik-ve-spor--obezite-nedir",
+     "name": "Obezite Nedir?",
+     "outcomeCodes": [
+      "T.8.2.1",
+      "T.8.2.2",
+      "T.8.3.1",
+      "T.8.3.5",
+      "T.8.3.14",
+      "T.8.3.15",
+      "T.8.3.30",
+      "T.8.4.4",
+      "T.8.4.11",
+      "T.8.4.18",
+      "T.8.4.19"
+     ]
+    },
+    {
+     "id": "saglik-ve-spor--ataturk-ve-spor-dinleme-izleme-metni",
+     "name": "Atatürk ve Spor (Dinleme/İzleme Metni)",
+     "outcomeCodes": [
+      "T.8.1.4",
+      "T.8.1.14",
+      "T.8.2.1",
+      "T.8.2.2",
+      "T.8.2.4",
+      "T.8.3.8",
+      "T.8.4.1",
+      "T.8.4.4",
+      "T.8.4.13"
+     ]
+    }
+   ]
+  }
+ ],
+ "outcomes": {
+  "T.8.1.1": {
+   "code": "T.8.1.1",
+   "text": "Dinlediklerinde/izlediklerinde geçen olayların gelişimi ve sonucu hakkında tahminde bulunur.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.1.2": {
+   "code": "T.8.1.2",
+   "text": "Dinlediklerinde/izlediklerinde geçen bilmediği kelimelerin anlamını tahmin eder. Öğrencilerin kelime anlamlarına yönelik tahminleri ile sözlük anlamlarını karşılaştırmaları sağlanır.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.1.3": {
+   "code": "T.8.1.3",
+   "text": "Dinlediklerini/izlediklerini özetler.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.1.4": {
+   "code": "T.8.1.4",
+   "text": "Dinlediklerine/izlediklerine yönelik sorulara cevap verir.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.1.5": {
+   "code": "T.8.1.5",
+   "text": "Dinlediklerinin/izlediklerinin konusunu tespit eder.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.1.6": {
+   "code": "T.8.1.6",
+   "text": "Dinlediklerinin/izlediklerinin ana fikrini/ana duygusunu tespit eder.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.1.7": {
+   "code": "T.8.1.7",
+   "text": "Dinlediklerine/izlediklerine yönelik farklı başlıklar önerir.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.1.8": {
+   "code": "T.8.1.8",
+   "text": "Dinlediği/izlediği hikâye edici metinleri canlandırır.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.1.9": {
+   "code": "T.8.1.9",
+   "text": "Dinlediklerinde/izlediklerinde tutarlılığı sorgular.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.1.10": {
+   "code": "T.8.1.10",
+   "text": "Dinledikleriyle/izledikleriyle ilgili görüşlerini bildirir.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.1.11": {
+   "code": "T.8.1.11",
+   "text": "Dinledikleri/izledikleri medya metinlerini değerlendirir. Medya metinlerinin amacını ve kaynağını sorgulamaları sağlanır.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.1.12": {
+   "code": "T.8.1.12",
+   "text": "Dinlediklerinde/izlediklerinde başvurulan düşünceyi geliştirme yollarını tespit eder. Düşünceyi geliştirme yollarından örneklendirme, tanık gösterme ve sayısal verilerden yararlanma belirlenir.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.1.13": {
+   "code": "T.8.1.13",
+   "text": "Konuşmacının sözlü olmayan mesajlarını kavrar.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.1.14": {
+   "code": "T.8.1.14",
+   "text": "Dinleme stratejilerini uygular. Seçici, yaratıcı, eleştirel, empati kurarak, not alarak dinleme gibi yöntem ve teknikleri uygulamaları sağlanır.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.2.1": {
+   "code": "T.8.2.1",
+   "text": "Hazırlıklı konuşma yapar.",
+   "components": [
+    "Öğrencilerin düşüncelerini mantıksal bir bütünlük içinde sunmaları, görsel, işitsel vb. destekleyici materyaller kullanmaları, sunu hazırlamaları sağlanır.",
+    "Öğrenciler araştırma sonuçlarını sempozyum, panel, forum vb. ortamlarda sunmaya teşvik edilir.",
+    "Öğrencilerin düşüncelerini mantıksal bir bütünlük içinde sunmaları, görsel, işitsel vb. destekleyici materyaller kullanmaları,sunu hazırlamaları sağlanır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.2.2": {
+   "code": "T.8.2.2",
+   "text": "Hazırlıksız konuşma yapar.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.2.3": {
+   "code": "T.8.2.3",
+   "text": "Konuşma stratejilerini uygular. Yaratıcı/güdümlü konuşma, empati kurma, tartışma, ikna etme ve eleştirel konuşma gibi yöntem ve tekniklerinin kullanılması sağlanır.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.2.4": {
+   "code": "T.8.2.4",
+   "text": "Konuşmalarında beden dilini etkili bir şekilde kullanır.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.2.5": {
+   "code": "T.8.2.5",
+   "text": "Kelimeleri anlamlarına uygun kullanır.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.2.6": {
+   "code": "T.8.2.6",
+   "text": "Konuşmalarında yabancı dillerden alınmış, dilimize henüz yerleşmemiş kelimelerin Türkçelerini kullanır.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.2.7": {
+   "code": "T.8.2.7",
+   "text": "Konuşmalarında uygun geçiş ve bağlantı ifadelerini kullanır.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.3.1": {
+   "code": "T.8.3.1",
+   "text": "Noktalama işaretlerine dikkat ederek sesli ve sessiz okur.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.3.2": {
+   "code": "T.8.3.2",
+   "text": "Metni türün özelliklerine uygun biçimde okur. Öğrencilerin seviyelerine uygun, edebî değeri olan şiirleri ve kısa yazıları türünün özelliğine göre okumaları ve ezberlemeleri sağlanır.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.3.3": {
+   "code": "T.8.3.3",
+   "text": "Farklı yazı karakterleri ile yazılmış yazıları okur.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.3.4": {
+   "code": "T.8.3.4",
+   "text": "Okuma stratejilerini kullanır. Göz atarak, özetleyerek, not alarak, tartışarak ve eleştirerek okuma gibi yöntem ve teknikleri kullanmaları sağlanır.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.3.5": {
+   "code": "T.8.3.5",
+   "text": "Bağlamdan yararlanarak bilmediği kelime ve kelime gruplarının anlamını tahmin eder.",
+   "components": [
+    "Öğrencilerin anlamını tahmin ettikleri kelime ve kelime gruplarını öğrenmek için sözlük, atasözleri ve deyimler sözlüğü vb. araçları kullanmaları sağlanır. Öğrencinin öğrendiği kelime ve kelime gruplarından sözlük oluşturması teşvik edilir.",
+    "Öğrencilerin anlamını tahmin ettikleri kelime ve kelime gruplarını öğrenmek için sözlük, atasözleri ve deyimler sözlüğü vb. araçları kullanmaları sağlanır.",
+    "Öğrencinin öğrendiği kelime ve kelime gruplarından sözlük oluşturması teşvik edilir.",
+    "Öğrencilerin tahmin ettikleri kelime ve kelime gruplarını öğrenmek için sözlük, atasözleri ve deyimler sözlüğü vb. araçları kullanmaları sağlanır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.3.6": {
+   "code": "T.8.3.6",
+   "text": "Deyim, atasözü ve özdeyişlerin metne katkısını belirler.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.3.7": {
+   "code": "T.8.3.7",
+   "text": "Metindeki söz sanatlarını tespit eder. Benzetme (teşbih), kişileştirme (teşhis), konuşturma (intak) ve karşıtlık (tezat), abartma (mübalağa) söz sanatlarının belirlenmesi sağlanır.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.3.8": {
+   "code": "T.8.3.8",
+   "text": "Metindeki anlatım bozukluklarını belirler. Dil bilgisi yönünden anlatım bozuklukları üzerinde durulur.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.3.9": {
+   "code": "T.8.3.9",
+   "text": "Fiilimsilerin cümledeki işlevlerini kavrar. Fiilimsilerin türleri fark ettirilir. Ekler ezberletilmez.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.3.10": {
+   "code": "T.8.3.10",
+   "text": "Geçiş ve bağlantı ifadelerinin metnin anlamına olan katkısını değerlendirir. Oysaki, başka bir deyişle, özellikle, kısaca, böylece, ilk olarak ve son olarak ifadeleri üzerinde durulur.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.3.11": {
+   "code": "T.8.3.11",
+   "text": "Metindeki anlatım biçimlerini belirler.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.3.12": {
+   "code": "T.8.3.12",
+   "text": "Görsel ve başlıktan hareketle okuyacağı metnin konusunu tahmin eder.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.3.13": {
+   "code": "T.8.3.13",
+   "text": "Okuduklarını özetler.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.3.14": {
+   "code": "T.8.3.14",
+   "text": "Metinle ilgili soruları cevaplar. Metin içi ve metin dışı anlam ilişkisi kurulur.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.3.15": {
+   "code": "T.8.3.15",
+   "text": "Metinle ilgili sorular sorar.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.3.16": {
+   "code": "T.8.3.16",
+   "text": "Metnin konusunu belirler.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.3.17": {
+   "code": "T.8.3.17",
+   "text": "Metnin ana fikrini/ana duygusunu belirler.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.3.18": {
+   "code": "T.8.3.18",
+   "text": "Metindeki yardımcı fikirleri belirler.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.3.19": {
+   "code": "T.8.3.19",
+   "text": "Metnin içeriğine uygun başlık/başlıklar belirler.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.3.20": {
+   "code": "T.8.3.20",
+   "text": "Okuduğu metinlerdeki hikâye unsurlarını belirler. Olay örgüsü, mekân, zaman, şahıs ve varlık kadrosu, anlatıcı üzerinde durulur.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.3.21": {
+   "code": "T.8.3.21",
+   "text": "Metnin içeriğini yorumlar.",
+   "components": [
+    "Yazarın olaylara bakış açısının tespit edilmesi sağlanır.",
+    "Metindeki öznel ve nesnel yaklaşımların tespit edilmesi sağlanır.",
+    "Metindeki örnek ve ayrıntılara atıf yapılması sağlanır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.3.22": {
+   "code": "T.8.3.22",
+   "text": "Metinde ele alınan sorunlara farklı çözümler üretir.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.3.23": {
+   "code": "T.8.3.23",
+   "text": "Metinler arasında karşılaştırma yapar. Aynı metnin çeviri, farklı baskı vb. özellikleri itibarıyla karşılaştırılması sağlanır.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.3.24": {
+   "code": "T.8.3.24",
+   "text": "Metindeki gerçek ve kurgusal unsurları ayırt eder.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.3.25": {
+   "code": "T.8.3.25",
+   "text": "Okudukları ile ilgili çıkarımlarda bulunur. Neden-sonuç, amaç-sonuç, koşul, karşılaştırma, benzetme, örneklendirme, abartma, nesnel, öznel ve duygu belirten ifadeler üzerinde durulur.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.3.26": {
+   "code": "T.8.3.26",
+   "text": "Metin türlerini ayırt eder.",
+   "components": [
+    "Fıkra (köşe yazısı), makale, deneme, roman, destan türleri üzerinde durulur.",
+    "Metin türlerine ilişkin ayrıntılı bilgi verilmemelidir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.3.27": {
+   "code": "T.8.3.27",
+   "text": "Görsellerle ilgili soruları cevaplar.",
+   "components": [
+    "Çizgi roman ve karikatürleri yorumlayarak görüşlerini bildirmeleri sağlanır.",
+    "Haberi/bilgiyi görsel yorumcuların nasıl ilettikleri üzerinde durulur."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.3.28": {
+   "code": "T.8.3.28",
+   "text": "Metinde önemli noktaların vurgulanış biçimlerini kavrar. Altını çizmenin, koyu veya italik yazmanın, renklendirmenin, farklı punto veya font kullanmanın işlevi vurgulanır.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.3.29": {
+   "code": "T.8.3.29",
+   "text": "Medya metinlerini analiz eder. Medya metinlerinin amaçlarının (kültür aktarma, olay yorumlama, bilgilendirme, eğlendirme, ikna etme) belirlenmesi sağlanır.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.3.30": {
+   "code": "T.8.3.30",
+   "text": "Bilgi kaynaklarını etkili bir şekilde kullanır.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.3.31": {
+   "code": "T.8.3.31",
+   "text": "Bilgi kaynaklarının güvenilirliğini sorgular.",
+   "components": [
+    "Blog ve şahsi internet sayfalarındaki bilgilerin güvenilirliği konusunda çalışmalar yapılır.",
+    "Bilimsel çalışmalarda ağırlıklı olarak “edu” ve “gov” uzantılı sitelerin kullanıldığı vurgulanır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.3.32": {
+   "code": "T.8.3.32",
+   "text": "Grafik, tablo ve çizelgeyle sunulan bilgileri yorumlar.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.3.33": {
+   "code": "T.8.3.33",
+   "text": "Edebî eserin yazılı metni ile medya sunumunu karşılaştırır. Kahramanlar, mekân, zaman ve olay yönünden karşılaştırılması sağlanır.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.3.34": {
+   "code": "T.8.3.34",
+   "text": "Okuduklarında kullanılan düşünceyi geliştirme yollarını belirler.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.3.35": {
+   "code": "T.8.3.35",
+   "text": "Metindeki iş ve işlem basamaklarını kavrar. Kullanım kılavuzları inceletilir.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.4.1": {
+   "code": "T.8.4.1",
+   "text": "Şiir yazar.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.4.2": {
+   "code": "T.8.4.2",
+   "text": "Bilgilendirici metin yazar.",
+   "components": [
+    "Öğrencilerin belirledikleri bir konu ve ana fikir etrafında giriş, gelişme ve sonuç bölümlerinden oluşan bir metin taslağı oluşturmaları, gelişme bölümünde düşünceyi geliştirme yollarını kullanarak görüşlerini ifade etmeleri, görüşlerini destekleyecek kanıtlar sunmaları, sonuç bölümünde ise görüşlerini sonuca bağlamaları sağlanır.",
+    "Öğrenciler günlük hayattan örnekler vermeye teşvik edilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.4.3": {
+   "code": "T.8.4.3",
+   "text": "Hikâye edici metin yazar.",
+   "components": [
+    "Öğrencilerin anlatımın türü ve konusuna göre gerçekçi veya hayalî ögeleri tasarlamaları, uyumlu bir zaman ve mekân kurgusu yapmaları, serim, düğüm ve çözüm bölümlerine yer vermeleri sağlanır.",
+    "Öğrenciler yazım kılavuzundan yararlanmaya, günlük hayattan örnekler vermeye yönlendirilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.4.4": {
+   "code": "T.8.4.4",
+   "text": "Yazma stratejilerini uygular. Not alma, özet çıkarma, eleştirel, yaratıcı, serbest, kelime ve kavram havuzundan seçerek yazma, bir metinden ve duyulardan hareketle yazma gibi yöntem ve tekniklerin kullanılması sağlanır.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.4.5": {
+   "code": "T.8.4.5",
+   "text": "Anlatımı desteklemek için grafik ve tablo kullanır.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.4.6": {
+   "code": "T.8.4.6",
+   "text": "Bir işi işlem basamaklarına göre yazar.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.4.7": {
+   "code": "T.8.4.7",
+   "text": "Yazılarını zenginleştirmek için atasözleri, deyimler ve özdeyişler kullanır.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.4.8": {
+   "code": "T.8.4.8",
+   "text": "Yazılarında mizahi ögeler kullanır.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.4.9": {
+   "code": "T.8.4.9",
+   "text": "Yazılarında anlatım biçimlerini kullanır.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.4.10": {
+   "code": "T.8.4.10",
+   "text": "Yazdıklarında yabancı dillerden alınmış, dilimize henüz yerleşmemiş kelimelerin Türkçelerini kullanır.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.4.11": {
+   "code": "T.8.4.11",
+   "text": "Formları yönergelerine uygun doldurur.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.4.12": {
+   "code": "T.8.4.12",
+   "text": "Kısa metinler yazar. Haber metni, günlük ve anı yazmaya teşvik edilir.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.4.13": {
+   "code": "T.8.4.13",
+   "text": "Yazdıklarının içeriğine uygun başlık belirler.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.4.14": {
+   "code": "T.8.4.14",
+   "text": "Araştırmalarının sonuçlarını yazılı olarak sunar.",
+   "components": [
+    "Öğrencilerin taslak hazırlamaları, taslaklarında giriş, gelişme, sonuç bölümlerine yer vermeleri sağlanır.",
+    "Kaynak gösterme hakkında bilgi verilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.4.15": {
+   "code": "T.8.4.15",
+   "text": "Yazılarında uygun geçiş ve bağlantı ifadelerini kullanır. Oysaki, başka bir deyişle, özellikle, ilk olarak ve son olarak ifadelerinin kullanılması sağlanır.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.4.16": {
+   "code": "T.8.4.16",
+   "text": "Yazdıklarını düzenler.",
+   "components": [
+    "Dil bilgisine dayalı anlatım bozuklukları bakımından yazdıklarını gözden geçirmesi ve düzeltmesi sağlanır.",
+    "Metinde yer alan yazım ve noktalama kuralları ile sınırlı tutulur."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.4.17": {
+   "code": "T.8.4.17",
+   "text": "Yazdıklarını paylaşır. Öğrenciler yazdıklarını sınıf ve okul panosu ile sosyal medya ortamlarında paylaşmaya, şiir ve kompozisyon yarışmalarına katılmaya teşvik edilir.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.4.18": {
+   "code": "T.8.4.18",
+   "text": "Cümlenin ögelerini ayırt eder.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.4.19": {
+   "code": "T.8.4.19",
+   "text": "Cümle türlerini tanır. Kavramsal tanımlamalara girilmez.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "T.8.4.20": {
+   "code": "T.8.4.20",
+   "text": "Fiillerin çatı özelliklerinin anlama olan katkısını kavrar. Kavram tanımlarına girilmeden anlamsal farklılıklara değinilir.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  }
+ }
+}

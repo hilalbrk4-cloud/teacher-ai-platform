@@ -1,9 +1,11 @@
-import { LESSON_PLAN_SECTION_ORDER } from "@/types/lesson-planner";
 import type {
   LessonPlan,
   LessonPlanPrompt,
   LessonPlanSectionKey,
+  LessonPlanSkills,
 } from "@/types/lesson-planner";
+import { applyOfficialCurriculum } from "@/lib/curriculum/apply";
+import { isFiveEPhase } from "@/lib/lesson-planner/five-e";
 import { createLessonPlannerId } from "@/lib/lesson-planner/id";
 import type {
   GenerateLessonPlanOptions,
@@ -51,12 +53,21 @@ function toBulletList(raw: string | undefined, fallback: string[]): string {
 }
 
 function buildDersBilgileri(prompt: LessonPlanPrompt): string {
-  return [
+  const lines = [
     `Ders: ${prompt.subject}`,
     `Sınıf düzeyi: ${prompt.gradeLevel}`,
     `Konu: ${prompt.topic}`,
     `Süre: ${prompt.durationMinutes} dakika`,
-  ].join("\n");
+  ];
+  const ranges = prompt.phaseTimeRanges;
+  if (ranges) {
+    lines.push(
+      `5E akışı: Girme ${ranges.girme.start}-${ranges.girme.end} dk, Keşfetme ${ranges.kesfetme.start}-${ranges.kesfetme.end} dk, ` +
+        `Açıklama ${ranges.aciklama.start}-${ranges.aciklama.end} dk, Derinleştirme ${ranges.derinlestirme.start}-${ranges.derinlestirme.end} dk, ` +
+        `Değerlendirme ${ranges.degerlendirme.start}-${ranges.degerlendirme.end} dk`
+    );
+  }
+  return lines.join("\n");
 }
 
 function buildOgrenmeHedefleri(prompt: LessonPlanPrompt): string {
@@ -119,21 +130,6 @@ function buildGelisme(prompt: LessonPlanPrompt, seed: number): string {
     : "";
 
   const sparkBlock = `\n\n${buildSparkBlock(prompt, seed)}`;
-
-  if (prompt.refinements.includes("fiveE")) {
-    return (
-      [
-        `Girme: Öğrencilerin ${prompt.topic} hakkındaki ön bilgileri kısa bir soruyla ortaya çıkarılır.`,
-        `Keşfetme: Öğrenciler, rehberli bir etkinlik ile konuyu kendi deneyimleriyle keşfeder.`,
-        `Açıklama: Öğretmen, ${prompt.subject} dersine uygun terminolojiyle konuyu açıklar ve örneklerle pekiştirir.`,
-        `Derinleştirme: Öğrenciler, öğrendiklerini yeni bir örnek veya problem üzerinde uygular.`,
-        `Değerlendirme: Öğrencilerin kavrayış düzeyi kısa sorularla kontrol edilir.`,
-      ].join("\n\n") +
-      groupWorkNote +
-      sparkBlock
-    );
-  }
-
   const strategy = TEACHING_STRATEGIES[(seed + 3) % TEACHING_STRATEGIES.length];
 
   return (
@@ -144,6 +140,50 @@ function buildGelisme(prompt: LessonPlanPrompt, seed: number): string {
     sparkBlock
   );
 }
+
+/** 5E aşamaları (TYMM): klasik Gelişme yerine beş ayrı bölüm; imza etkinliği Keşfetme'de, çıkış bileti Değerlendirme'de. */
+function buildFiveEPhase(key: LessonPlanSectionKey, prompt: LessonPlanPrompt, seed: number): string {
+  switch (key) {
+    case "girme":
+      return (
+        `Öğrencilere "${prompt.topic} olmasaydı ne değişirdi?" sorusu sorulur; sıra arkadaşıyla 1 dakika konuşup ` +
+        "tahminlerini söylerler. Tahminler tahtanın köşesine yazılır, doğru cevap henüz verilmez."
+      );
+    case "kesfetme":
+      return (
+        "Ön-arka sıralar birleşerek 4 kişilik gruplar oluşturur. Her grup, öğretmenin verdiği kısa gözlem görevini " +
+        "yapar ve bulgularını defterine tablo hâlinde kaydeder; öğretmen sıralar arasında dolaşıp yönlendirici " +
+        `sorular sorar.\n\n${buildSparkBlock(prompt, seed)}`
+      );
+    case "aciklama":
+      return (
+        `Kura ile seçilen 2-3 grup bulgularını paylaşır; öğretmen ${prompt.subject} dersine uygun terimlerle ` +
+        `${prompt.topic} kavramını tahtada kısa bir şemayla oluşturur ve Girme'deki tahminlere geri döner.`
+      );
+    case "derinlestirme":
+      return (
+        `Öğrenciler ${prompt.topic} kavramını günlük hayattan yeni bir duruma uygular: ikili olarak kısa bir ` +
+        "problem durumunu çözer ve gerekçelerini yazar."
+      );
+    case "degerlendirme":
+      return [
+        "Süreç gözlemi: Öğretmen gruplar arasında dolaşırken verilerin kaydedilmesine, terimlerin doğru " +
+          "kullanımına ve gerekçeye bakar.",
+        `Çıkış Bileti: Yarım kâğıda 1) ${prompt.topic} konusunu bir cümleyle açıkla. 2) Günlük hayattan bir ` +
+          "örnek ver. 3) Aklında kalan bir soruyu yaz. Biletler kapıda toplanır, ertesi dersin girişinde ortak " +
+          "yanlışlar ele alınır.",
+      ].join("\n\n");
+    default:
+      return "";
+  }
+}
+
+const MOCK_SKILLS: LessonPlanSkills = {
+  conceptual: ["Gözlem yapma", "Çıkarım yapma", "Veri toplama ve kaydetme"],
+  socialEmotional: ["İş birliği", "İletişim"],
+  dispositions: ["Merak", "Sorgulama"],
+  values: ["Sorumluluk"],
+};
 
 function buildSonuc(prompt: LessonPlanPrompt, seed: number): string {
   const closer = CLOSING_OPENERS[seed % CLOSING_OPENERS.length];
@@ -231,7 +271,7 @@ function buildSectionContent(
     case "ogretmenNotlari":
       return buildOgretmenNotlari(prompt);
     default:
-      return "";
+      return buildFiveEPhase(key, prompt, seed);
   }
 }
 
@@ -244,17 +284,19 @@ export const mockLessonPlanGenerationService: LessonPlanGenerationService = {
 
     const seed = Math.floor(Math.random() * 1000);
 
-    return {
+    return applyOfficialCurriculum({
       id: createLessonPlannerId("plan"),
       subject: prompt.subject,
       gradeLevel: prompt.gradeLevel,
       topic: prompt.topic,
       duration: prompt.durationMinutes,
       generatedAt: new Date().toISOString(),
-      sections: LESSON_PLAN_SECTION_ORDER.map((key) => ({
-        key,
-        content: buildSectionContent(key, prompt, seed),
-      })),
-    };
+      model: prompt.model,
+      skills: MOCK_SKILLS,
+      sections: prompt.requiredSections.map((key) => {
+        const timeRange = prompt.phaseTimeRanges && isFiveEPhase(key) ? prompt.phaseTimeRanges[key] : undefined;
+        return { key, content: buildSectionContent(key, prompt, seed), ...(timeRange ? { timeRange } : {}) };
+      }),
+    }, prompt.officialCurriculum);
   },
 };

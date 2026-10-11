@@ -93,7 +93,7 @@ function sahneOku(value: unknown): SenaryoSahnesi {
 }
 
 /** Metindeki kesir OLMAYAN tam sayılar ("28 öğrenci"); "2 2/5" ve "24,5" gibi yazımlar sayılmaz. */
-function metindekiTamSayilar(metin: string): number[] {
+export function metindekiTamSayilar(metin: string): number[] {
   const kesirsiz = metin.replace(/(?:\d+\s+(?:tam\s+)?)?\d+\s*\/\s*\d+/g, " ");
   return Array.from(kesirsiz.matchAll(/\d+(?:[.,]\d+)?/g))
     .map((eslesme) => eslesme[0])
@@ -115,7 +115,7 @@ const SAYI_SOZCUKLERI: Record<number, string> = {
 };
 
 /** Bir değer senaryoda (rakamla, kesir olarak ya da "iki", "yarım", "çeyrek" gibi sözcükle) geçiyor mu? */
-function senaryodaGeciyorMu(senaryo: string, deger: Oran): boolean {
+export function senaryodaGeciyorMu(senaryo: string, deger: Oran): boolean {
   if (metindekiKesirler(senaryo).some((bulunan) => esitMi(oranYap(bulunan.kesir), deger))) return true;
   if (tamSayiMi(deger) && metindekiTamSayilar(senaryo).includes(deger.pay)) return true;
   const metin = metniNormallestir(senaryo);
@@ -422,7 +422,7 @@ const DIL_HATALARI: readonly [RegExp, string][] = [
   [/oranında/, '"... oranında" yerine "...\'ü kadar" gibi doğal bir ifade kullanılmalı'],
 ];
 
-function dilHatasi(...metinler: string[]): string | undefined {
+export function dilHatasi(...metinler: string[]): string | undefined {
   const metin = metniNormallestir(metinler.join(" "));
   return DIL_HATALARI.find(([desen]) => desen.test(metin))?.[1];
 }
@@ -1305,9 +1305,9 @@ const gorevler: GorselSoruTanimi<"gercek_hayat_senaryo">["gorevler"] = {
       konu: "oyun",
       ornekSoru: "Buna göre aşağıdakilerden hangisi bu kartlardan birinin arka yüzü olamaz?",
       veriler: [
-        { ad: "1. kartın ön yüzündeki kesir", deger: s(11, 4) },
-        { ad: "2. kartın ön yüzündeki kesir", deger: s(7, 3) },
-        { ad: "3. kartın ön yüzündeki kesir", deger: s(9, 5) },
+        { ad: "birinci kartın ön yüzündeki kesir", deger: s(11, 4) },
+        { ad: "ikinci kartın ön yüzündeki kesir", deger: s(7, 3) },
+        { ad: "üçüncü kartın ön yüzündeki kesir", deger: s(9, 5) },
       ],
       adlar: [],
       anahtarIfadeler: [["ön yüz"], ["arka yüz"]],
@@ -1380,7 +1380,8 @@ export const gercekHayatSenaryoTanimi: GorselSoruTanimi<"gercek_hayat_senaryo"> 
   // Sahnenin nasıl üretileceğini yalnızca bu alan belirler:
   // "svg" → koddaki SVG sahneleri, "hazirGorsel" → public/gorseller/sahneler/<sahne>.webp,
   // "yapayZeka" → AI ile üretilen görsel (henüz uygulanmadı), "yok" → sahne gösterilmez.
-  gorselStratejisi: "svg",
+  // TYMM (CLAUDE.md): veri taşımayan dekoratif görsel çizilmez; senaryo soruları görselsizdir.
+  gorselStratejisi: "yok",
   kesirKonusuGerekir: false,
   // references/senaryo-kalite-referans.md — Bölüm 2 kontrol listesi.
   kurallar: [
@@ -1399,11 +1400,13 @@ export const gercekHayatSenaryoTanimi: GorselSoruTanimi<"gercek_hayat_senaryo"> 
       "atlama, yanlış yuvarlama); rastgele sayı değil. Şıklar birbirine yakın ve akla yatkın olmalı.",
     "4) Bağlam gerçekçi ve işe dâhildir: çözüm o bağlamdaki bir işleme dayanır. Duygu, merak veya süs cümlesi " +
       `("merak ettiler", "çok eğlendiler") YAZMA. En fazla ${EN_FAZLA_CUMLE} cümle.`,
-    "5) Tek net soru sorulur; birden fazla soru iç içe geçirilmez.",
+    "5) Tek net soru sorulur; birden fazla soru iç içe geçirilmez. Belirsiz bütün ifadeleri kullanılmaz (\"kalan " +
+      "malzemenin yarısı\", \"bir kısmı\"): her kesrin neyin kesri olduğu, \"kalan\" yazılıyorsa neyin kalanı olduğu " +
+      "açıkça yazılır (ör. \"servisle gelmeyen öğrencilerin 1/4'ü\", \"yine tüm elmaların 3/8'i\").",
     "6) \"En fazla / en az / tam olarak\" gibi incelikler uygun yerde, zorlamadan kullanılır.",
     "7) MEB kazanımına ve sınıf düzeyine uygundur: 5. sınıfta kesirlerle toplama-çıkarma ve bir çokluğun kesri; " +
       "kesirlerle çarpma ve bölme 6. sınıftan itibaren. Sayılar seviyeye göre makul büyüklükte tutulur.",
-    "Sahne tamamen dekoratiftir ve hiçbir bilgi taşımaz: soru, sahne gösterilmese bile eksiksiz çözülebilmeli.",
+    "Bu soru görselsizdir (sahne gösterilmez): tüm veriler metinde olmalı ve soru metinden eksiksiz çözülebilmeli.",
     // references/senaryo-kalite-referans-v2.md — Bölüm 4 (çeşitlilik kuralları).
     "ÇEŞİTLİLİK: Her senaryo sorusu farklı bir PROBLEM AİLESİNDEN gelir (parça-bütün, kesrin kesri, en fazla/en az, " +
       "karşılaştırma/fazlalık, sıralama, \"olabilir\", \"olamaz\"…) ve farklı bir bağlamdadır; aile ve bağlamı sistem " +

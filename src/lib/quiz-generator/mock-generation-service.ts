@@ -74,12 +74,13 @@ function buildMockGorselSoru(slot: QuestionBlueprintSlot, id: string, audit: Que
   // The registry example has its own fixed numbers, so it is validated with
   // its own example plan numbers, not the ones generated for this slot.
   const atanan = slot.gorselPlani ?? VARSAYILAN_PLAN;
-  const { ornekSayilari, ornekCikarim } = gorevTanimi(atanan);
+  const { ornekSayilari, ornekCikarim, ornekCizim } = gorevTanimi(atanan);
   const plan = {
     tip: atanan.tip,
     gorev: atanan.gorev,
     ...(ornekSayilari ? { sayilar: ornekSayilari } : {}),
     ...(ornekCikarim ? { cikarim: ornekCikarim } : {}),
+    ...(ornekCizim ? { cizim: ornekCizim } : {}),
   } as GorselSoruPlani;
   const dogrulanmis = dogrulaGorselSoru(gorevTanimi(plan).ornek, `mock.${plan.tip}`, [], plan);
   if (!dogrulanmis) {

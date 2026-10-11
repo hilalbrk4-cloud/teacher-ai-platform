@@ -6,7 +6,7 @@ import {
   TEACHER_COACH_LABELS,
   TEACHING_STRATEGIES,
 } from "@/lib/lesson-planner/teaching-library";
-import { LESSON_PLAN_SECTION_ORDER } from "@/types/lesson-planner";
+import { LESSON_PLAN_5E_SECTION_ORDER } from "@/types/lesson-planner";
 import type { LessonPlanFormInput } from "@/types/lesson-planner";
 
 /**
@@ -88,7 +88,7 @@ export function runLessonPlanPromptDevChecks(): DevCheckResult[] {
   results.push(
     check(
       "selected refinements are included",
-      fullPrompt.instructions.includes("5E modelinin beş aşamasına") &&
+      fullPrompt.instructions.includes("5E AKIŞI") &&
         fullPrompt.instructions.includes("grup çalışması")
     )
   );
@@ -98,9 +98,21 @@ export function runLessonPlanPromptDevChecks(): DevCheckResult[] {
   results.push(
     check(
       "required JSON keys are specified",
-      LESSON_PLAN_SECTION_ORDER.every((key) => fullPrompt.instructions.includes(`"${key}"`))
+      LESSON_PLAN_5E_SECTION_ORDER.every((key) => fullPrompt.instructions.includes(`"${key}"`))
     )
   );
+
+  const ranges = fullPrompt.phaseTimeRanges;
+  results.push(
+    check(
+      "5E phase time ranges are contiguous and sum exactly to the lesson duration",
+      Boolean(ranges) && ranges!.girme.start === 0 && ranges!.degerlendirme.end === FULL_SAMPLE_INPUT.duration
+    )
+  );
+
+  results.push(check("an exit ticket is required in the 5E prompt", fullPrompt.instructions.includes("Çıkış Bileti")));
+
+  results.push(check("TYMM skills framework is required", fullPrompt.instructions.includes("TYMM BECERİLER ÖRGÜSÜ")));
 
   const inputSnapshot = JSON.stringify(FULL_SAMPLE_INPUT);
   buildLessonPlanPrompt(FULL_SAMPLE_INPUT);

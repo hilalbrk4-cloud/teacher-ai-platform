@@ -1,0 +1,920 @@
+{
+ "id": "sosyal-bilgiler-7",
+ "subject": "Sosyal Bilgiler",
+ "subjectId": "sosyal-bilgiler",
+ "grade": 7,
+ "program": "tymm",
+ "source": {
+  "file": "sosyal_mufredat.xlsx",
+  "sheet": "7. SINIF YILLIK PLAN"
+ },
+ "units": [
+  {
+   "id": "birlikte-yasamak",
+   "name": "Birlikte Yaşamak",
+   "topics": [
+    {
+     "id": "birlikte-yasamak--gruplarda-ve-sosyal-hayatta-iletisimin-onemi",
+     "name": "Gruplarda ve Sosyal Hayatta İletişimin Önemi",
+     "outcomeCodes": [
+      "SB.7.1.1"
+     ]
+    },
+    {
+     "id": "birlikte-yasamak--ozel-gereksinimli-bireyler-icin-firsat-esitligi",
+     "name": "Özel Gereksinimli Bireyler İçin Fırsat Eşitliği",
+     "outcomeCodes": [
+      "SB.7.1.2"
+     ]
+    },
+    {
+     "id": "birlikte-yasamak--milli-meseleler-karsisinda-turk-toplumunun-tutum-ve-davranis",
+     "name": "Millî Meseleler Karşısında Türk Toplumunun Tutum ve Davranışları",
+     "outcomeCodes": [
+      "SB.7.1.3"
+     ]
+    },
+    {
+     "id": "birlikte-yasamak--birlikte-yasamak",
+     "name": "Birlikte Yaşamak",
+     "outcomeCodes": [
+      "SB.7.1.3"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "evimiz-dunya",
+   "name": "Evimiz Dünya",
+   "topics": [
+    {
+     "id": "evimiz-dunya--kuresellesmenin-insan-ve-toplum-hayatina-etkisi",
+     "name": "Küreselleşmenin İnsan ve Toplum Hayatına Etkisi",
+     "outcomeCodes": [
+      "SB.7.2.1"
+     ]
+    },
+    {
+     "id": "evimiz-dunya--bolgesel-ve-kuresel-sorunlarin-cozumunde-ulkemizin-rolu",
+     "name": "Bölgesel ve Küresel Sorunların Çözümünde Ülkemizin Rolü",
+     "outcomeCodes": [
+      "SB.7.2.2"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ortak-mirasimiz",
+   "name": "Ortak Mirasımız",
+   "topics": [
+    {
+     "id": "ortak-mirasimiz--osmanli-devleti-nin-cihan-devleti-haline-gelmesini-saglayan-",
+     "name": "Osmanlı Devleti’nin Cihan Devleti Hâline Gelmesini Sağlayan Politikalar",
+     "outcomeCodes": [
+      "SB.7.3.1"
+     ]
+    },
+    {
+     "id": "ortak-mirasimiz--osmanli-devleti-nin-uygulamaya-koydugu-yenilikler",
+     "name": "Osmanlı Devleti’nin Uygulamaya Koyduğu Yenilikler",
+     "outcomeCodes": [
+      "SB.7.3.2"
+     ]
+    },
+    {
+     "id": "ortak-mirasimiz--osmanli-kultur-ve-medeniyeti",
+     "name": "Osmanlı Kültür ve Medeniyeti",
+     "outcomeCodes": [
+      "SB.7.3.3"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "yasayan-demokrasimiz",
+   "name": "Yaşayan Demokrasimiz",
+   "topics": [
+    {
+     "id": "yasayan-demokrasimiz--turkiye-cumhuriyeti-nin-nitelikleri",
+     "name": "Türkiye Cumhuriyeti’nin Nitelikleri",
+     "outcomeCodes": [
+      "SB.7.4.1"
+     ]
+    },
+    {
+     "id": "yasayan-demokrasimiz--turkiye-cumhuriyeti-nin-yonetim-yapisi",
+     "name": "Türkiye Cumhuriyeti’nin Yönetim Yapısı",
+     "outcomeCodes": [
+      "SB.7.4.2"
+     ]
+    },
+    {
+     "id": "yasayan-demokrasimiz--ulkemizde-demokrasinin-gelisimi",
+     "name": "Ülkemizde Demokrasinin Gelişimi",
+     "outcomeCodes": [
+      "SB.7.4.3"
+     ]
+    },
+    {
+     "id": "yasayan-demokrasimiz--demokrasinin-uygulanma-surecinde-karsilasilan-sorunlar",
+     "name": "Demokrasinin Uygulanma Sürecinde Karşılaşılan Sorunlar",
+     "outcomeCodes": [
+      "SB.7.4.4"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "hayatimizdaki-ekonomi",
+   "name": "Hayatımızdaki Ekonomi",
+   "topics": [
+    {
+     "id": "hayatimizdaki-ekonomi--milli-kalkinma-hamleleri",
+     "name": "Millî Kalkınma Hamleleri",
+     "outcomeCodes": [
+      "SB.7.5.1"
+     ]
+    },
+    {
+     "id": "hayatimizdaki-ekonomi--ekonomik-gelismislik-ile-uretim-dagitim-ve-tuketim-arasindak",
+     "name": "Ekonomik Gelişmişlik ile Üretim, Dağıtım ve Tüketim Arasındaki Döngü",
+     "outcomeCodes": [
+      "SB.7.5.2"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "teknoloji-ve-sosyal-bilimler",
+   "name": "TEKNOLOJİ ve SOSYAL BİLİMLER",
+   "topics": [
+    {
+     "id": "teknoloji-ve-sosyal-bilimler--bilimsel-ve-teknolojik-gelismelerin-gelecekteki-hayata-etkis",
+     "name": "Bilimsel ve Teknolojik Gelişmelerin Gelecekteki Hayata Etkisi",
+     "outcomeCodes": [
+      "SB.7.6.1"
+     ]
+    },
+    {
+     "id": "teknoloji-ve-sosyal-bilimler--sosyal-bilimlerin-calisma-alanlari",
+     "name": "Sosyal Bilimlerin Çalışma Alanları",
+     "outcomeCodes": [
+      "SB.7.6.2"
+     ]
+    },
+    {
+     "id": "teknoloji-ve-sosyal-bilimler--toplumsal-hayatta-karsilasilabilecek-problemlere-cozum-uretm",
+     "name": "Toplumsal Hayatta Karşılaşılabilecek Problemlere Çözüm Üretme",
+     "outcomeCodes": [
+      "SB.7.6.3"
+     ]
+    }
+   ]
+  }
+ ],
+ "outcomes": {
+  "SB.7.1.1": {
+   "code": "SB.7.1.1",
+   "text": "Dâhil olduğu gruplarda ve sosyal hayatta etkili iletişimin önemini sorgulayabilme",
+   "components": [
+    "Dâhil olduğu gruplarda ve sosyal hayatta etkili iletişimin önemi ile ilgili merak ettiği konuları tanımlar.",
+    "Dâhil olduğu gruplarda ve sosyal hayatta etkili iletişimin önemi ile ilgili sorular sorar.",
+    "Dâhil olduğu gruplarda ve sosyal hayatta etkili iletişimin önemi ile ilgili bilgi toplar.",
+    "Dâhil olduğu gruplarda ve sosyal hayatta etkili iletişimin önemi ile ilgili topladığı bil gilerin doğruluğunu değerlendirir.",
+    "Yapmış olduğu değerlendirmelerden hareketle olumlu iletişimin önemine yönelik çıkarım yapar."
+   ],
+   "sdb": [
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB2.3",
+     "label": "Sosyal Farkındalık"
+    },
+    {
+     "code": "SDB3.1",
+     "label": "Uyum"
+    },
+    {
+     "code": "SDB3.2",
+     "label": "Esneklik"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D4",
+     "label": "Dostluk"
+    },
+    {
+     "code": "D5",
+     "label": "Duyarlılık"
+    },
+    {
+     "code": "D9",
+     "label": "Merhamet"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    },
+    {
+     "code": "D15",
+     "label": "Sevgi"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    }
+   ],
+   "assessment": [
+    "5N1K, balık kılçığı, gözlem formu, kontrol listesi, anekdot kaydı, derecelendirme ölçeği, açık uçlu sorular, karşılaştırma tabloları, bütüncül dereceli puanlama anahtarı ve performans görevi"
+   ]
+  },
+  "SB.7.1.2": {
+   "code": "SB.7.1.2",
+   "text": "Özel gereksinimli bireyler için fırsat eşitliğini sürdürmeye yönelik fikir üretebilme",
+   "components": [
+    "Özel gereksinimli bireyler için fırsat eşitliğini sürdürmenin önemini fark eder.",
+    "Özel gereksinimli bireyler için fırsat eşitliğini sürdürmeye yönelik benzer girişimleri inceler.",
+    "Özel gereksinimli bireyler için fırsat eşitliğini sürdürmeye yönelik yeni fikirler üretir."
+   ],
+   "sdb": [
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB2.3",
+     "label": "Sosyal Farkındalık"
+    },
+    {
+     "code": "SDB3.1",
+     "label": "Uyum"
+    },
+    {
+     "code": "SDB3.2",
+     "label": "Esneklik"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D4",
+     "label": "Dostluk"
+    },
+    {
+     "code": "D5",
+     "label": "Duyarlılık"
+    },
+    {
+     "code": "D9",
+     "label": "Merhamet"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    },
+    {
+     "code": "D15",
+     "label": "Sevgi"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    }
+   ],
+   "assessment": [
+    "5N1K, balık kılçığı, gözlem formu, kontrol listesi, anekdot kaydı, derecelendirme ölçeği, açık uçlu sorular, karşılaştırma tabloları, bütüncül dereceli puanlama anahtarı ve performans görevi"
+   ]
+  },
+  "SB.7.1.3": {
+   "code": "SB.7.1.3",
+   "text": "Türk toplumunun millî meseleler karşısında gösterdiği tutum ve davranışlara ilişkin çıkarım yapabilme",
+   "components": [
+    "Türk toplumunun millî meseleler karşısında gösterdiği tutum ve davranışlara ilişkin varsayımlarda bulunur.",
+    "Türk toplumunun millî meseleler karşısında gösterdiği tutum ve davranışlara ilişkin örnekleri listeler.",
+    "Türk toplumunun millî meseleler karşısında gösterdiği tutum ve davranışları karşılaştırır.",
+    "Türk toplumunun oluşabilecek farklı millî meseleler karşısında gösterebileceği tutum ve davranışlara ilişkin önermelerde bulunur.",
+    "Türk toplumunun millî meseleler karşısında gösterdiği tutum ve davranışları toplumsal birlikteliğe etkisi açısından değerlendirir."
+   ],
+   "sdb": [
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB2.3",
+     "label": "Sosyal Farkındalık"
+    },
+    {
+     "code": "SDB3.1",
+     "label": "Uyum"
+    },
+    {
+     "code": "SDB3.2",
+     "label": "Esneklik"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D4",
+     "label": "Dostluk"
+    },
+    {
+     "code": "D5",
+     "label": "Duyarlılık"
+    },
+    {
+     "code": "D9",
+     "label": "Merhamet"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    },
+    {
+     "code": "D15",
+     "label": "Sevgi"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    }
+   ],
+   "assessment": []
+  },
+  "SB.7.2.1": {
+   "code": "SB.7.2.1",
+   "text": "Küreselleşmenin insan ve toplum hayatında meydana getirdiği değişimi yorumlayabilme",
+   "components": [
+    "Küreselleşmenin insan ve toplum hayatında meydana getirdiği değişimi inceler.",
+    "Küreselleşmenin insan ve toplum hayatında meydana getirdiği değişimi bağlamdan kopmadan dönüştürür.",
+    "Küreselleşmenin insan ve toplum hayatında meydana getirdiği değişimi nesnel, doğru ve anlamı değiştirmeyecek şekilde yeniden ifade eder.",
+    "Küreselleşmenin insan ve toplum hayatında meydana getirdiği değişime ilişkin örnekler verir.",
+    "Küreselleşmenin insan ve toplum hayatında meydana getirdiği değişimi ifade eder."
+   ],
+   "sdb": [
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB2.3",
+     "label": "Sosyal Farkındalık"
+    }
+   ],
+   "values": [
+    {
+     "code": "D4",
+     "label": "Dostluk"
+    },
+    {
+     "code": "D11",
+     "label": "Özgürlük"
+    },
+    {
+     "code": "D15",
+     "label": "Sevgi"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D20",
+     "label": "Yardımseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    }
+   ],
+   "assessment": [
+    "Kavram haritası, zihin haritası, sınıflama tablosu, kontrol listesi, derecelendirme ölçeği ve performans görevi teknikleri"
+   ]
+  },
+  "SB.7.2.2": {
+   "code": "SB.7.2.2",
+   "text": "Bölgesel ve küresel sorunların çözümünde ülkemizin rolünü özetleyebilme",
+   "components": [
+    "Bölgesel ve küresel sorunların çözümünde ülkemizin rolüne ilişkin çözümleme yapar.",
+    "Bölgesel ve küresel sorunların çözümünde ülkemizin rolüne ilişkin sınıflandırma yapar.",
+    "Bölgesel ve küresel sorunların çözümünde ülkemizin rolünü yorumlar."
+   ],
+   "sdb": [
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB2.3",
+     "label": "Sosyal Farkındalık"
+    }
+   ],
+   "values": [
+    {
+     "code": "D4",
+     "label": "Dostluk"
+    },
+    {
+     "code": "D11",
+     "label": "Özgürlük"
+    },
+    {
+     "code": "D15",
+     "label": "Sevgi"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D20",
+     "label": "Yardımseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    }
+   ],
+   "assessment": [
+    "Kavram haritası, zihin haritası, sınıflama tablosu, kontrol listesi, derecelendirme ölçeği ve performans görevi teknikleri"
+   ]
+  },
+  "SB.7.3.1": {
+   "code": "SB.7.3.1",
+   "text": "Osmanlı Devleti’nin cihan devleti hâline gelmesini sağlayan politikaları sorgulayabilme",
+   "components": [
+    "Osmanlı Devleti’nin cihan devleti hâline gelmesini sağlayan politikalar hakkında merak ettiği konuyu tanımlar.",
+    "Osmanlı Devleti’nin cihan devleti hâline gelmesini sağlayan politikalar hakkında ve rilen kaynaklara dayanarak sorular sorar.",
+    "Osmanlı Devleti’nin cihan devleti hâline gelmesini sağlayan politikalar hakkında verilen kaynaklardan bilgi toplar.",
+    "Osmanlı Devleti’nin cihan devleti hâline gelmesini sağlayan politikalar hakkında topladığı bilgilerin doğruluğunu değerlendirir.",
+    "Edindiği bilgilerden hareketle Osmanlı Devleti’nin cihan devleti hâline gelmesini sağlayan politikalar hakkında çıkarım yapar."
+   ],
+   "sdb": [
+    {
+     "code": "SDB2.3",
+     "label": "Sosyal Farkındalık"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB1.3",
+     "label": "Kendini Uyarlama (Öz Yansıtma)"
+    }
+   ],
+   "values": [
+    {
+     "code": "D14",
+     "label": "Saygı"
+    },
+    {
+     "code": "D15",
+     "label": "Sevgi"
+    },
+    {
+     "code": "D19",
+     "label": "Vatanseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    }
+   ],
+   "assessment": [
+    "Açık uçlu sorular içeren çalışma yaprağı, balık kılçığı, sınıflama tablosu, gözlem formu, kontrol listesi, anektod kaydı, öz-akran değerlendirme formları, bütüncül dereceli puanlama anahtarı ve performans görevi"
+   ]
+  },
+  "SB.7.3.2": {
+   "code": "SB.7.3.2",
+   "text": "Değişen dünya dengeleri karşısında Osmanlı Devleti’nin uyguladığı yenilikleri neden ve sonuçlarıyla yorumlayabilme",
+   "components": [
+    "Değişen dünya dengeleri karşısında Osmanlı Devleti’nin uyguladığı yeniliklerin nedenlerini inceler.",
+    "Değişen dünya dengeleri karşısında Osmanlı Devleti’nin uyguladığı yeniliklerin etkilediği unsurları inceler.",
+    "Değişen dünya dengeleri karşısında Osmanlı Devleti’nin uyguladığı yeniliklerin etkilerini sorgular.",
+    "Değişen dünya dengeleri karşısında Osmanlı Devleti’nin uyguladığı yeniliklerin neden ve sonuçlarını elde ettiği bilgilere dayanarak ifade eder."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "SB.7.3.3": {
+   "code": "SB.7.3.3",
+   "text": "Osmanlı kültür ve medeniyet unsurlarına ilişkin oluşturduğu ürünü paylaşabilme",
+   "components": [
+    "Osmanlı kültür ve medeniyet unsurlarının temel özelliklerine ilişkin kanıtlara dayanarak çıkarım yapar.",
+    "Osmanlı kültür ve medeniyet unsurlarının temel özelliklerine ilişkin kanıtlardaki bilgilerden hareketle görüşünü yansıtan ürün oluşturur.",
+    "Osmanlı kültür ve medeniyet unsurlarının özelliklerine ilişkin görüşlerine dayalı olarak oluşturduğu ürünü paylaşır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "SB.7.4.1": {
+   "code": "SB.7.4.1",
+   "text": "Türkiye Cumhuriyeti’nin temel niteliklerini özetleyebilme",
+   "components": [
+    "Türkiye Cumhuriyeti’nin temel niteliklerini çözümler.",
+    "Türkiye Cumhuriyeti’nin temel niteliklerini sınıflandırır.",
+    "Türkiye Cumhuriyeti’nin temel niteliklerini yorumlar."
+   ],
+   "sdb": [
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB2.3",
+     "label": "Sosyal Farkındalık"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D1",
+     "label": "Adalet"
+    },
+    {
+     "code": "D2",
+     "label": "Aile Bütünlüğü"
+    },
+    {
+     "code": "D5",
+     "label": "Duyarlılık"
+    },
+    {
+     "code": "D19",
+     "label": "Vatanseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB6",
+     "label": "Vatandaşlık Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Kavram haritası, kontrol listesi, gözlem formu, anekdot kaydı, bütüncül dereceli puanlama anahtarı, öz ve akran değerlendirme formu ve performans görevi"
+   ]
+  },
+  "SB.7.4.2": {
+   "code": "SB.7.4.2",
+   "text": "Türkiye Cumhuriyeti Devleti’nin yönetim yapısını çözümleyebilme",
+   "components": [
+    "Türkiye Cumhuriyeti Devleti’nin yönetim yapısını belirler.",
+    "Türkiye Cumhuriyeti Devleti’nin yönetim yapısını oluşturan unsurlar arası ilişkileri belirler."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "SB.7.4.3": {
+   "code": "SB.7.4.3",
+   "text": "Ülkemizdeki demokrasinin gelişimini, demokrasinin temel ilkeleri açısından yorumlayabilme",
+   "components": [
+    "Demokrasinin temel nitelikleri ile ülkemizin demokrasi tarihi arasındaki ilişkiyi gör sel/işitsel/dijital tarihî kaynaklardan inceler.",
+    "Demokrasinin temel nitelikleri ile ülkemizin demokrasi tarihi arasındaki ilişkiyi nes nel, doğru anlamı değiştirmeyecek bir şekilde yeniden ifade eder.",
+    "Demokrasinin temel nitelikleri ile ülkemizin demokrasi tarihi arasındaki ilişkiyi görsel/işitsel/dijital tarihî kaynaklardan inceler."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "SB.7.4.4": {
+   "code": "SB.7.4.4",
+   "text": "Demokrasinin uygulama sürecinde karşılaşılan sorunları özetleyebilme",
+   "components": [
+    "Demokrasinin uygulama sürecinde karşılaşılabilecek sorunları çözümler.",
+    "Demokrasinin uygulama sürecinde karşılaşılabilecek sorunları sınıflandırır.",
+    "Demokrasinin uygulama sürecinde karşılaşılabilecek sorunları yorumlar.",
+    ") Demokrasinin uygulama sürecinde karşılaşılabilecek sorunları çözümler. b) Demokrasinin uygulama sürecinde karşılaşılabilecek sorunları sınıflandırır. c) Demokrasinin uygulama sürecinde karşılaşılabilecek sorunları yorumlar."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "SB.7.5.1": {
+   "code": "SB.7.5.1",
+   "text": "Millî kalkınma hamlelerini neden ve sonuçlarıyla yorumlayabilme",
+   "components": [
+    "Millî kalkınma hamlelerine neden olan unsurları inceler.",
+    "Millî kalkınma hamlelerinin etkilediği unsurları inceler.",
+    "Millî kalkınma hamlelerinin etkilerinin niteliğini sorgular.",
+    "Millî kalkınma hamlelerinin neden ve sonuçlarını bağlamından kopmadan yeniden ifade eder."
+   ],
+   "sdb": [
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D19",
+     "label": "Vatanseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB7",
+     "label": "Veri Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "kontrol listesi, gözlem formu, anekdot kaydı, bütüncül dereceli puanlama anahtarı, açık uçlu sorular ve performans görevi"
+   ]
+  },
+  "SB.7.5.2": {
+   "code": "SB.7.5.2",
+   "text": "Ekonomik gelişmişlik ile üretim, dağıtım ve tüketim döngüsü arasındaki ilişkiyi çözümleyebilme",
+   "components": [
+    "Ekonomik gelişmişlik unsurları ile üretim, dağıtım ve tüketim döngüsünü belirler.",
+    "Ekonomik gelişmişlik unsurları ile üretim dağıtım ve tüketim arasındaki ilişkiyi belirler."
+   ],
+   "sdb": [
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D19",
+     "label": "Vatanseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB7",
+     "label": "Veri Okuryazarlığı"
+    }
+   ],
+   "assessment": []
+  },
+  "SB.7.6.1": {
+   "code": "SB.7.6.1",
+   "text": "Bilimsel ve teknolojik gelişmelerin gelecekteki toplum hayatına etkilerine ilişkin öngörüde bulunabilme",
+   "components": [
+    "Bilimsel ve teknolojik gelişmelerin günümüzdeki toplumsal hayata etkilerine ilişkin kanıt, gözlem ve deneyimleri ilişkilendirir.",
+    "Bilimsel ve teknolojik gelişmelerin toplumsal hayata etkilerine ilişkin kanıt, gözlem ve deneyimleri ilişkilendirerek geleceğe yönelik çıkarımda bulunur."
+   ],
+   "sdb": [
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.3",
+     "label": "Sosyal Farkındalık"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D4",
+     "label": "Dostluk"
+    },
+    {
+     "code": "D5",
+     "label": "Duyarlılık"
+    },
+    {
+     "code": "D11",
+     "label": "Özgürlük"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    }
+   ],
+   "assessment": [
+    "Kontrol listesi, gözlem formu, anekdot kaydı, öz-akran değerlendirme formları, açık uçlu sorular içeren çalışma yaprakları, analitik dereceli puanlama anahtarı ve performans görevi"
+   ]
+  },
+  "SB.7.6.2": {
+   "code": "SB.7.6.2",
+   "text": "Örnek metinler üzerinden sosyal bilimlerin çalışma alanlarına dair genelleme yapabilme",
+   "components": [
+    "Örnek metinler üzerinden sosyal bilimlerin çalışma alanlarına dair bilgi toplar.",
+    "Örnek metinler üzerinden sosyal bilimlerin çalışma alanlarının ortak özelliklerini belirler.",
+    "Örnek metinler üzerinden sosyal bilimlerin çalışma alanlarının farklılıklarını belirler.",
+    "Örnek metinler doğrultusunda sosyal bilimlerin çalışma alanlarına dair örüntüler üzerinden önermelerde bulunur."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "SB.7.6.3": {
+   "code": "SB.7.6.3",
+   "text": "Toplumsal hayatta karşılaşabileceği bir probleme yönelik bilimsel sorgulama yapabilme",
+   "components": [
+    "Toplumsal hayatta karşılaşabileceği bir problemi tanımlar.",
+    "Toplumsal hayatta karşılaşabileceği bir problemin çözümüne dair kullanabileceği bir model geliştirir.",
+    "Toplumsal hayatta karşılaşabileceği bir problemin çözümüne yönelik araştırmayı planlar ve gerçekleştirir.",
+    "Toplumsal hayatta karşılaşabileceği bir problemin çözümüne yönelik verileri analiz eder ve yorumlar.",
+    "Toplumsal hayatta karşılaşabileceği bir problemin çözümüne dair kanıta dayalı açıklama yapar ve probleme çözüm üretir.",
+    "Toplumsal hayatta karşılaşabileceği bir problemin çözümüne dair bilgiyi değerlendirir ve paylaşır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  }
+ }
+}

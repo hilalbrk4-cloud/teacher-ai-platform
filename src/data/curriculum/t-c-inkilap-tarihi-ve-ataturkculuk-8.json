@@ -1,0 +1,560 @@
+{
+ "id": "t-c-inkilap-tarihi-ve-ataturkculuk-8",
+ "subject": "T.C. İnkılap Tarihi ve Atatürkçülük",
+ "subjectId": "t-c-inkilap-tarihi-ve-ataturkculuk",
+ "grade": 8,
+ "program": "onceki",
+ "source": {
+  "file": "inkilap8.xlsx",
+  "sheet": "8. SINIF YILLIK PLAN"
+ },
+ "units": [
+  {
+   "id": "bir-kahraman-doguyor",
+   "name": "Bir Kahraman Doğuyor",
+   "topics": [
+    {
+     "id": "bir-kahraman-doguyor--bir-kahraman-doguyor",
+     "name": "Bir Kahraman Doğuyor",
+     "outcomeCodes": [
+      "İTA.8.1.1",
+      "İTA.8.1.2",
+      "İTA.8.1.3",
+      "İTA.8.1.4"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "milli-uyanis-bagimsizlik-yolunda-atilan-adimlar",
+   "name": "Millî Uyanış: Bağımsızlık Yolunda Atılan Adımlar",
+   "topics": [
+    {
+     "id": "milli-uyanis-bagimsizlik-yolunda-atilan-adimlar--milli-uyanis-bagimsizlik-yolunda-atilan-adimlar",
+     "name": "Millî Uyanış: Bağımsızlık Yolunda Atılan Adımlar",
+     "outcomeCodes": [
+      "İTA.8.2.1",
+      "İTA.8.2.2",
+      "İTA.8.2.3",
+      "İTA.8.2.4",
+      "İTA.8.2.5",
+      "İTA.8.2.6",
+      "İTA.8.2.7",
+      "İTA.8.2.8"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "milli-bir-destan-ya-istiklal-ya-olum",
+   "name": "Millî Bir Destan: ya İstiklal ya Ölüm!",
+   "topics": [
+    {
+     "id": "milli-bir-destan-ya-istiklal-ya-olum--milli-bir-destan-ya-istiklal-ya-olum",
+     "name": "Millî Bir Destan: ya İstiklal ya Ölüm!",
+     "outcomeCodes": [
+      "İTA.8.3.1",
+      "İTA.8.3.2",
+      "İTA.8.3.3",
+      "İTA.8.3.4",
+      "İTA.8.3.5",
+      "İTA.8.3.6",
+      "İTA.8.3.7"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ataturkculuk-ve-cagdaslasan-turkiye",
+   "name": "Atatürkçülük ve Çağdaşlaşan Türkiye",
+   "topics": [
+    {
+     "id": "ataturkculuk-ve-cagdaslasan-turkiye--ataturkculuk-ve-cagdaslasan-turkiye",
+     "name": "Atatürkçülük ve Çağdaşlaşan Türkiye",
+     "outcomeCodes": [
+      "İTA.8.4.1",
+      "İTA.8.4.2",
+      "İTA.8.4.4",
+      "İTA.8.4.5",
+      "İTA.8.4.6",
+      "İTA.8.4.7",
+      "İTA.8.4.8",
+      "İTA.8.4.9"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "demokratiklesme-cabalari",
+   "name": "Demokratikleşme Çabaları",
+   "topics": [
+    {
+     "id": "demokratiklesme-cabalari--demokratiklesme-cabalari",
+     "name": "Demokratikleşme Çabaları",
+     "outcomeCodes": [
+      "İTA.8.5.1",
+      "İTA.8.5.2",
+      "İTA.8.5.3"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ataturk-donemi-turk-dis-politikasi",
+   "name": "Atatürk Dönemi Türk Dış Politikası",
+   "topics": [
+    {
+     "id": "ataturk-donemi-turk-dis-politikasi--ataturk-donemi-turk-dis-politikasi",
+     "name": "Atatürk Dönemi Türk Dış Politikası",
+     "outcomeCodes": [
+      "İTA.8.6.1",
+      "İTA.8.6.2",
+      "İTA.8.6.3"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ataturk-un-olumu-ve-sonrasi",
+   "name": "Atatürk’ün Ölümü ve Sonrası",
+   "topics": [
+    {
+     "id": "ataturk-un-olumu-ve-sonrasi--ataturk-un-olumu-ve-sonrasi",
+     "name": "Atatürk’ün Ölümü ve Sonrası",
+     "outcomeCodes": [
+      "İTA.8.7.1",
+      "İTA.8.7.2",
+      "İTA.8.7.3",
+      "İTA.8.7.4",
+      "İTA.8.7.5"
+     ]
+    }
+   ]
+  }
+ ],
+ "outcomes": {
+  "İTA.8.1.1": {
+   "code": "İTA.8.1.1",
+   "text": "Avrupa’daki gelişmelerin yansımaları bağlamında Osmanlı Devleti’nin yirminci yüzyılın başlarındaki siyasi ve sosyal durumunu kavrar.",
+   "components": [
+    "Fransız İhtilali ile ortaya çıkan siyasi düşüncelere, Avrupa devletlerinin sömürgecilik faaliyetlerine, Tanzimat ve Meşrutiyet dönemlerinin Osmanlı siyasi ve sosyal yapısına etkisine kısaca değinilir.",
+    "Osmanlı Devleti ile Avrupa devletlerinin yirminci yüzyılın başlarındaki durumu harita üzerinde gösterilir.",
+    "Osmanlı Devleti’nin son döneminde siyasi ve sosyal hayatı etkileyen başlıca fikir akımlarına (Osmanlıcılık, İslamcılık, Türkçülük, Batıcılık) kısaca değinilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "İTA.8.1.2": {
+   "code": "İTA.8.1.2",
+   "text": "Mustafa Kemal’in çocukluk ve öğrenim hayatından hareketle onun kişilik özelliklerinin oluşumu hakkında çıkarımlarda bulunur.",
+   "components": [
+    "Mustafa Kemal’in kişilik gelişimi ve yetişmesinde rol oynayan şahsiyetlere değinilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "İTA.8.1.3": {
+   "code": "İTA.8.1.3",
+   "text": "Gençlik döneminde Mustafa Kemal’in fikir hayatını etkileyen önemli kişileri ve olayları kavrar.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "İTA.8.1.4": {
+   "code": "İTA.8.1.4",
+   "text": "Mustafa Kemal’in askerlik hayatı ile ilgili olayları ve olguları onun kişilik özellikleri ile ilişkilendirir.",
+   "components": [
+    "Mustafa Kemal’in Birinci Dünya Savaşı öncesinde yaptığı görev ve hizmetler üzerinde durulur.",
+    "31 Mart Olayı, Trablusgarp Savaşı, Balkan Savaşları’na kısaca değinilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "İTA.8.2.1": {
+   "code": "İTA.8.2.1",
+   "text": "Birinci Dünya Savaşı’nın sebeplerini ve savaşın başlamasına yol açan gelişmeleri kavrar.",
+   "components": [
+    "Savaş öncesinde ülkeler arasındaki bloklaşmalara değinilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "İTA.8.2.2": {
+   "code": "İTA.8.2.2",
+   "text": "Birinci Dünya Savaşı’nda Osmanlı Devleti’nin durumu hakkında çıkarımlarda bulunur.",
+   "components": [
+    "Birinci Dünya Savaşı’nda Osmanlı Devleti’nin savaştığı cepheler taarruz ve savunma özellikleri belirtilerek (Kafkas, Kanal, Çanakkale, Hicaz-Yemen, Irak ve Suriye) harita üzerinde gösterilir.",
+    "Çanakkale Cephesi’ndeki deniz ve kara zaferleri ile Irak Cephesi’ndeki Kut’ül-Amâre Zaferi’ne ve Kafkas Cephesi’ndeki Sarıkamış Harekâtı’na değinilir.",
+    "Mustafa Kemal Paşa ve diğer önemli şahsiyetlerin cephelerdeki görev ve başarıları çeşitli alıntılar üzerinden ele alınır.",
+    "1915 Olayları ve Tehcir Kanunu’na değinilir.",
+    "Birinci Dünya Savaşı’nın sonuçları ele alınır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "İTA.8.2.3": {
+   "code": "İTA.8.2.3",
+   "text": "Mondros Ateşkes Antlaşması’nın imzalanması ve uygulanması karşısında Osmanlı yönetiminin, Mustafa Kemal’in ve halkın tutumunu analiz eder.",
+   "components": [
+    "Mustafa Kemal’in ve halkın tepkisi millî birlik ve beraberlik ile vatanseverlik açısından ele alınır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "İTA.8.2.4": {
+   "code": "İTA.8.2.4",
+   "text": "Kuvâ-yı Millîye’nin oluşum sürecini ve sonrasında meydana gelen gelişmeleri kavrar.",
+   "components": [
+    "Millî cemiyetler ve millî varlığa düşman cemiyetlerin başlıca özelliklerine değinilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "İTA.8.2.5": {
+   "code": "İTA.8.2.5",
+   "text": "Millî Mücadele’nin hazırlık döneminde Mustafa Kemal’in yaptığı çalışmaları analiz eder.",
+   "components": [
+    "Mustafa Kemal’in Samsun’a çıkışı, Havza Genelgesi, Amasya Genelgesi, Erzurum Kongresi, Sivas Kongresi ve Amasya Görüşmeleri ele alınır.",
+    "Millî Mücadele’nin hazırlık aşamasında karşılaşılan sorunlara Mustafa Kemal’in bulduğu çözümyollarına değinilir.",
+    "Millî Mücadele Dönemi’nde basının rolüne kısaca değinilir.",
+    "Millî Mücadele’nin hazırlık aşamasında karşılaşılan sorunlara Mustafa Kemal’in bulduğu çözüm yollarına değinilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "İTA.8.2.6": {
+   "code": "İTA.8.2.6",
+   "text": "Misakımilli’nin kabulünü ve Büyük Millet Meclisinin açılışını vatanın bütünlüğü esası ile “ulusal egemenlik” ve “tam bağımsızlık” ilkeleri ile ilişkilendirir.",
+   "components": [
+    "Birinci Büyük Millet Meclisinin nasıl teşekkül ettiğine kısaca değinilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "İTA.8.2.7": {
+   "code": "İTA.8.2.7",
+   "text": "Büyük Millet Meclisine karşı ayaklanmalar ile ayaklanmaların bastırılması için alınan tedbirleri analiz eder.",
+   "components": [
+    "Hıyanet-i Vataniye Kanunu’nun çıkarılma gerekçelerine ve kanunun uygulanma sürecine değinilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "İTA.8.2.8": {
+   "code": "İTA.8.2.8",
+   "text": "Mustafa Kemal’in ve Türk milletinin Sevr Antlaşması’na karşı tepkilerini değerlendirir.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "İTA.8.3.1": {
+   "code": "İTA.8.3.1",
+   "text": "Millî Mücadele Dönemi’nde Doğu Cephesi ve Güney Cephesi’nde meydana gelen gelişmeleri kavrar.",
+   "components": [
+    "Doğu Cephesi’nde kazanılan başarılar ve bunların siyasi önemi açıklanır.",
+    "Güney Cephesi’nde vatanseverlik duygularıyla hareket eden Türk milletinin örgütlenmesi vurgulanarak millî ve yerel kahramanlara değinilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "İTA.8.3.2": {
+   "code": "İTA.8.3.2",
+   "text": "Millî Mücadele Dönemi’nde Batı Cephesi’nde meydana gelen gelişmeleri kavrar.",
+   "components": [
+    "Kuvâ-yı Millîye birliklerinin faaliyetleri ve düzenli ordunun kurulma süreci ele alınır.",
+    "I. İnönü ve II. İnönü Muharebeleri ile Kütahya-Eskişehir Muharebeleri ele alınır.",
+    "Teşkilat-ı Esasiye Kanunu’nun kabul edilmesi, Londra Konferansı, Afganistan ile Dostluk Antlaşması, İstiklal Marşı’nın kabul edilmesi ve Moskova Antlaşması’na değinilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "İTA.8.3.3": {
+   "code": "İTA.8.3.3",
+   "text": "Millî Mücadele’nin zor bir döneminde Maarif Kongresi yapan Atatürk’ün, millî ve çağdaş eğitime verdiği önemi kavrar.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "İTA.8.3.4": {
+   "code": "İTA.8.3.4",
+   "text": "Türk milletinin millî birlik, beraberlik ve dayanışmasının bir örneği olarak Tekalif-i Millîye Emirleri doğrultusunda yapılan uygulamaları analiz eder.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "İTA.8.3.5": {
+   "code": "İTA.8.3.5",
+   "text": "Sakarya Meydan Savaşı’nın kazanılmasında ve Büyük Taarruz’un başarılı olmasında Mustafa Kemal’in rolüne ilişkin çıkarımlarda bulunur.",
+   "components": [
+    "Kars Antlaşması, Ankara Antlaşması ve Mudanya Ateşkes Antlaşması üzerinde durulur."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "İTA.8.3.6": {
+   "code": "İTA.8.3.6",
+   "text": "Lozan Antlaşması’nın sağladığı kazanımları analiz eder.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "İTA.8.3.7": {
+   "code": "İTA.8.3.7",
+   "text": "Millî Mücadele Dönemi’nin siyasi, sosyal ve kültürel olaylarının sanat ve edebiyat ürünlerine yansımalarına kanıtlar gösterir.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "İTA.8.4.1": {
+   "code": "İTA.8.4.1",
+   "text": "Çağdaşlaşan Türkiye’nin temeli olan Atatürk ilkelerini açıklar.",
+   "components": [
+    "Cumhuriyetçilik, Milliyetçilik, Halkçılık, Devletçilik, Laiklik ve İnkılapçılık ilkeleri kavramsal düzeyde ele alınır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "İTA.8.4.2": {
+   "code": "İTA.8.4.2",
+   "text": "Siyasi alanda meydana gelen gelişmeleri kavrar. iTA.8.4.3. Hukuk alanında meydana gelen gelişmelerin toplumsal hayata yansımalarını kavrar.",
+   "components": [
+    "Saltanatın kaldırılması, Ankara’nın başkent oluşu, Cumhuriyet’in ilan edilmesi, Halifeliğin kaldırılması, Şeriye ve Evkâf Vekâleti’nin kaldırılması ile Erkân-ı Harbiye Vekâleti’nin kaldırılmasının neden ve sonuçları ele alınır.",
+    "1924 Anayasası’nın kabulüne değinilir. a) Hukuki düzenlemelerin gerekçeleri kısaca açıklanır. b) Türk Medeni Kanunu’nun aile yapısında ve kadının toplumsal statüsünde meydana getirdiği değişim vurgulanır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "İTA.8.4.4": {
+   "code": "İTA.8.4.4",
+   "text": "Eğitim ve kültür alanında yapılan inkılapları ve gelişmeleri kavrar.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "İTA.8.4.5": {
+   "code": "İTA.8.4.5",
+   "text": "Toplumsal alanda yapılan inkılapları ve meydana gelen gelişmeleri kavrar.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "İTA.8.4.6": {
+   "code": "İTA.8.4.6",
+   "text": "Ekonomi alanında meydana gelen gelişmeleri kavrar.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "İTA.8.4.7": {
+   "code": "İTA.8.4.7",
+   "text": "Atatürk Dönemi’nde sağlık alanında yapılan çalışmaları devletin temel görevleri ile ilişkilendirir.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "İTA.8.4.8": {
+   "code": "İTA.8.4.8",
+   "text": "Cumhuriyet’in sağladığı kazanımları ve Atatürk’ün Türk milleti için gösterdiği hedeﬂeri analiz eder.",
+   "components": [
+    "Büyük Nutuk ve Onuncu Yıl Nutku ele alınır.",
+    "Atatürk’ün Gençliğe Hitabesi’nden hareketle Cumhuriyet’in korunmasında ve sürekliliğinin sağlanmasında gençliğe verilen görev ve sorumluluklar vurgulanır.",
+    "Atatürk’ün kişilik özelliklerinden; çok yönlülüğü, akılcılığı, bilimselliği ve çağdaşlığı vurgulanır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "İTA.8.4.9": {
+   "code": "İTA.8.4.9",
+   "text": "Atatürk ilke ve inkılaplarını oluşturan temel esasları kavrar.",
+   "components": [
+    "Atatürk ilkeleri; millî tarih bilinci, bağımsızlık ve özgürlük, egemenliğin millete ait olması, millî kültürün geliştirilmesi, Türk milletini çağdaş uygarlık düzeyinin üzerine çıkarma ideali, millî birlik ve beraberlik ile ülke bütünlüğü bağlamında açıklanır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "İTA.8.5.1": {
+   "code": "İTA.8.5.1",
+   "text": "Atatürk Dönemi’ndeki demokratikleşme yolunda atılan adımları açıklar.",
+   "components": [
+    "Cumhuriyet Halk Fırkası, Terakkiperver Cumhuriyet Fırkası ve Serbest Cumhuriyet Fırkası ele alınır.",
+    "Demokratikleşme çabalarına ilişkin olarak Büyük Nutuk’ta yer alan kısımlardan kanıtlar gösterilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "İTA.8.5.2": {
+   "code": "İTA.8.5.2",
+   "text": "Mustafa Kemal’e suikast girişimini analiz eder.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "İTA.8.5.3": {
+   "code": "İTA.8.5.3",
+   "text": "Cumhuriyetin ilk yıllarında Türkiye Cumhuriyetine yönelik tehditleri analiz eder.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "İTA.8.6.1": {
+   "code": "İTA.8.6.1",
+   "text": "Atatürk Dönemi Türk dış politikasının temel ilkelerini ve amaçlarını açıklar.",
+   "components": [
+    "Tam bağımsızlık, gerçekçilik, akılcılık, mütekabiliyet, barış, millî menfaatleri esas alma, Türk ve dünya kamuoyunu dikkate alma ilkeleri, Atatürk dönemi Türk dış politikası çerçevesinde işlenerek Atatürk’ün ileri görüşlülüğü vurgulanır.",
+    "kazanımı ile ilişkilendirilir. İkinci Dünya Savaşı’nın Türkiye’ye etkileri; siyasi, sosyal ve ekonomik yönden ele alınır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "İTA.8.6.2": {
+   "code": "İTA.8.6.2",
+   "text": "Atatürk Dönemi Türk dış politikasında yaşanan gelişmeleri analiz eder.",
+   "components": [
+    "\"a) Lozan Barış Antlaşması, Atatürk dönemi Türk dış politikasının temel ilkeleri ile ilişkilendirilir. b) Yabancı okullar, Dış Borçlar Sorunu, Musul Sorunu, Nüfus Mübadelesi ve Montrö Boğazlar Sözleşmesi Atatürk dönemi Türk dış politikası açısından ele alınır. c) Milletler Cemiyeti’ne girişte izlenen politika vurgulanır. d) Balkan Antantı ve Sadabat Paktı ele alınır.\""
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "İTA.8.6.3": {
+   "code": "İTA.8.6.3",
+   "text": "Atatürk’ün Hatay’ı ülkemize katmak konusunda yaptıklarına ve bu uğurda gösterdiği özveriye kanıtlar gösterir.",
+   "components": [
+    "Atatürk Dönemi Türk dış politikasının temel ilkeleri ile Hatay’ın anavatana katılması ilişkilendirilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "İTA.8.7.1": {
+   "code": "İTA.8.7.1",
+   "text": "Atatürk’ün ölümüne ilişkin yansıma ve değerlendirmelerden hareketle onun fikir ve eserlerinin evrensel değerine ilişkin çıkarımlarda bulunur.",
+   "components": [
+    "Atatürk’ün ölümüne ilişkin yerli ve yabancı basında çıkan haber ve yorumlara değinilir.",
+    "İsmet İnönü’nün cumhurbaşkanı seçilmesine değinilir"
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "İTA.8.7.2": {
+   "code": "İTA.8.7.2",
+   "text": "Atatürk’ün Türk Milleti’ne bıraktığı eserlerinden örnekler verir.",
+   "components": [
+    "Atatürk’ün “En büyük eserim Türkiye Cumhuriyeti’dir.” sözüne ve yazılı eserlerine değinilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "İTA.8.7.3": {
+   "code": "İTA.8.7.3",
+   "text": "Atatürk’ün İkinci Dünya Savaşı öncesi tespitleri ve girişimleri Türkiye’nin savaşta izlediği denge siyaseti ile ilişkilendirilir.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "İTA.8.7.4": {
+   "code": "İTA.8.7.4",
+   "text": "İkinci Dünya Savaşı’ndaki gelişmelerin ve bu savaşın sonuçlarının Türkiye’ye etkilerini analiz eder.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "İTA.8.7.5": {
+   "code": "İTA.8.7.5",
+   "text": "Türkiye’de çok partili siyasi hayata geçişi hızlandıran gelişmeleri, demokrasinin gerekleri açısından analiz eder.",
+   "components": [
+    "Konu işlenişi, 1946 yılında gerçekleştirilen ilk çok partili genel seçime değinilerek bitirilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  }
+ }
+}

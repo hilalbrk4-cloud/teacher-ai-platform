@@ -1,0 +1,699 @@
+{
+ "id": "ingilizce-4",
+ "subject": "İngilizce",
+ "subjectId": "ingilizce",
+ "grade": 4,
+ "program": "onceki",
+ "source": {
+  "file": "İNGİLİZCE (2-8. SINIF) TASLAK YILLIK ÇERÇEVE PLAN.xlsx",
+  "sheet": "4.Sınıf"
+ },
+ "units": [
+  {
+   "id": "1-classroom-rules",
+   "name": "1 Classroom Rules",
+   "topics": [
+    {
+     "id": "1-classroom-rules--1-classroom-rules",
+     "name": "1 Classroom Rules",
+     "outcomeCodes": [
+      "E4.1.L1",
+      "E4.1.L2",
+      "E4.1.L3",
+      "E4.1.L4",
+      "E4.1.S1",
+      "E4.1.S2",
+      "E4.1.S3",
+      "E4.1.S4"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "2-nationality",
+   "name": "2 Nationality",
+   "topics": [
+    {
+     "id": "2-nationality--2-nationality",
+     "name": "2 Nationality",
+     "outcomeCodes": [
+      "E4.2.L1",
+      "E4.2.L2",
+      "E4.2.S1",
+      "E4.2.S2"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "3-cartoon-characters",
+   "name": "3 Cartoon Characters",
+   "topics": [
+    {
+     "id": "3-cartoon-characters--3-cartoon-characters",
+     "name": "3 Cartoon Characters",
+     "outcomeCodes": [
+      "E4.3.L1",
+      "E4.3.L2",
+      "E4.3.S1",
+      "E4.3.S2"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "4-free-time",
+   "name": "4 Free Time",
+   "topics": [
+    {
+     "id": "4-free-time--4-free-time",
+     "name": "4 Free Time",
+     "outcomeCodes": [
+      "E4.4.L1",
+      "E4.4.S1",
+      "E4.4.S2",
+      "E4.4.S3"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "5-my-day",
+   "name": "5 My Day",
+   "topics": [
+    {
+     "id": "5-my-day--5-my-day",
+     "name": "5 My Day",
+     "outcomeCodes": [
+      "E4.5.L1",
+      "E4.5.L2",
+      "E4.5.S1",
+      "E4.5.S2"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "6-fun-with-science",
+   "name": "6 Fun with Science",
+   "topics": [
+    {
+     "id": "6-fun-with-science--6-fun-with-science",
+     "name": "6 Fun with Science",
+     "outcomeCodes": [
+      "E4.6.L1",
+      "E4.6.L2",
+      "E4.6.S1",
+      "E4.6.S2",
+      "E4.6.S3"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "7-jobs",
+   "name": "7 Jobs",
+   "topics": [
+    {
+     "id": "7-jobs--7-jobs",
+     "name": "7 Jobs",
+     "outcomeCodes": [
+      "E4.7.L1",
+      "E4.7.S1"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "8-my-clothes",
+   "name": "8 My Clothes",
+   "topics": [
+    {
+     "id": "8-my-clothes--8-my-clothes",
+     "name": "8 My Clothes",
+     "outcomeCodes": [
+      "E4.8.L1",
+      "E4.8.L2",
+      "E4.8.S1",
+      "E4.8.S2",
+      "E4.8.S3",
+      "E4.8.S4"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "9-my-friends",
+   "name": "9 My Friends",
+   "topics": [
+    {
+     "id": "9-my-friends--9-my-friends",
+     "name": "9 My Friends",
+     "outcomeCodes": [
+      "E4.9.L1",
+      "E4.9.L2",
+      "E4.9.S1",
+      "E4.9.S2",
+      "E4.9.S3"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "10-food-and-drinks",
+   "name": "10 Food and Drinks",
+   "topics": [
+    {
+     "id": "10-food-and-drinks--10-food-and-drinks",
+     "name": "10 Food and Drinks",
+     "outcomeCodes": [
+      "E4.10.L1",
+      "E4.10.L2",
+      "E4.10.L3",
+      "E4.10.S1",
+      "E4.10.S2"
+     ]
+    }
+   ]
+  }
+ ],
+ "outcomes": {
+  "E4.1.L1": {
+   "code": "E4.1.L1",
+   "text": "Students will be able to understand short and clear utterances about requests.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.1.L2": {
+   "code": "E4.1.L2",
+   "text": "Students will be able to understand short and clear utterances about permission.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.1.L3": {
+   "code": "E4.1.L3",
+   "text": "Students will be able to recognize simple classroom instructions.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.1.L4": {
+   "code": "E4.1.L4",
+   "text": "Students will be able to recognize numbers from one to fifty. Speaking",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.1.S1": {
+   "code": "E4.1.S1",
+   "text": "Students will be able to interact with their classmates through asking for and giving permission in short utterances.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.1.S2": {
+   "code": "E4.1.S2",
+   "text": "Students will be able to make requests by using simple utterances.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.1.S3": {
+   "code": "E4.1.S3",
+   "text": "Students will be able to give and respond to simple instructions verbally.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.1.S4": {
+   "code": "E4.1.S4",
+   "text": "Students will be able to count up to fifty.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.2.L1": {
+   "code": "E4.2.L1",
+   "text": "Students will be able to recognize information about other people.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.2.L2": {
+   "code": "E4.2.L2",
+   "text": "Students will be able to identify different people’s nationalities. Speaking",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.2.S1": {
+   "code": "E4.2.S1",
+   "text": "Students will be able to talk about nations and nationalities.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.2.S2": {
+   "code": "E4.2.S2",
+   "text": "Students will be able to talk about locations of cities.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.3.L1": {
+   "code": "E4.3.L1",
+   "text": "Students will be able to get the main idea of a simple oral text about the abilities of the self and others.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.3.L2": {
+   "code": "E4.3.L2",
+   "text": "Students will be able to recognize possessions of others in a clear, short and slow oral text. Speaking",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.3.S1": {
+   "code": "E4.3.S1",
+   "text": "Students will be able to talk about their own and others’ possessions.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.3.S2": {
+   "code": "E4.3.S2",
+   "text": "Students will be able to deliver a simple, brief speech about abilities with an initial preparation.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.4.L1": {
+   "code": "E4.4.L1",
+   "text": "Students will be able to understand the general information in an oral text about likes and dislikes. Speaking",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.4.S1": {
+   "code": "E4.4.S1",
+   "text": "Students will be able to talk about their likes and dislikes.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.4.S2": {
+   "code": "E4.4.S2",
+   "text": "Students will be able to engage in simple conversations about likes and dislikes.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.4.S3": {
+   "code": "E4.4.S3",
+   "text": "Students will be able to ask for clarification in conversations.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.5.L1": {
+   "code": "E4.5.L1",
+   "text": "Students will be able to understand the general and specific information in a short, oral text about daily routines.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.5.L2": {
+   "code": "E4.5.L2",
+   "text": "Students will be able to recognize the time in a short oral text. Speaking",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.5.S1": {
+   "code": "E4.5.S1",
+   "text": "Students will be able to talk about their daily routines.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.5.S2": {
+   "code": "E4.5.S2",
+   "text": "Students will be able to talk about the time.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.6.L1": {
+   "code": "E4.6.L1",
+   "text": "Students will be able to understand and follow simple instructions.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.6.L2": {
+   "code": "E4.6.L2",
+   "text": "Students will be able to recognize phrases/descriptions about locations. Speaking",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.6.S1": {
+   "code": "E4.6.S1",
+   "text": "Students will be able to give short and basic instructions.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.6.S2": {
+   "code": "E4.6.S2",
+   "text": "Students will be able to talk about locations of objects.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.6.S3": {
+   "code": "E4.6.S3",
+   "text": "Students will be able to ask and answer simple clarification questions.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.7.L1": {
+   "code": "E4.7.L1",
+   "text": "Students will be able to identify other people’s jobs and likes in a short, simple oral text. Speaking",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.7.S1": {
+   "code": "E4.7.S1",
+   "text": "Students will be able to talk about other people’s jobs and likes in simple conversations.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.8.L1": {
+   "code": "E4.8.L1",
+   "text": "Students will be able to understand short oral texts about weather conditions and clothing.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.8.L2": {
+   "code": "E4.8.L2",
+   "text": "Students will be able to recognize the names of the seasons and clothes in short oral texts. Speaking",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.8.S1": {
+   "code": "E4.8.S1",
+   "text": "Students will be able to describe the weather conditions.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.8.S2": {
+   "code": "E4.8.S2",
+   "text": "Students will be able to name the seasons.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.8.S3": {
+   "code": "E4.8.S3",
+   "text": "Students will be able to ask and answer simple questions about weather conditions and clothing items in simple conversations.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.8.S4": {
+   "code": "E4.8.S4",
+   "text": "Students will be able to make simple request about borrowing.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.9.L1": {
+   "code": "E4.9.L1",
+   "text": "Students will be able to understand the main point in short, clear, simple messages and announcements (e.g., describing people and their features).",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.9.L2": {
+   "code": "E4.9.L2",
+   "text": "Students will be able to understand short, oral texts about possessions. Speaking",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.9.S1": {
+   "code": "E4.9.S1",
+   "text": "Students will be able to describe their friends and other people (family members, teachers, etc.).",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.9.S2": {
+   "code": "E4.9.S2",
+   "text": "Students will be able to ask and answer questions about other people’s physical characteristics.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.9.S3": {
+   "code": "E4.9.S3",
+   "text": "Students will be able to talk about possessions.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.10.L1": {
+   "code": "E4.10.L1",
+   "text": "Students will be able to recognize simple words and phrases about food and drinks.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.10.L2": {
+   "code": "E4.10.L2",
+   "text": "Students will be able to understand the offers about their basic needs.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.10.L3": {
+   "code": "E4.10.L3",
+   "text": "Students will be able to identify others’ needs and feelings in simple oral texts. Speaking",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.10.S1": {
+   "code": "E4.10.S1",
+   "text": "Students will be able to talk about their basic needs and feelings.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  },
+  "E4.10.S2": {
+   "code": "E4.10.S2",
+   "text": "Students will be able to express others’ feelings and their needs.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Measurement and evaluation methods should be planned by considering the level of the learning outcome and the content of the topic. To ensure a holistic evaluation of the student, both traditional and complementary (alternative) measurement and evaluation methods should be used together, in accordance with the learning outcome and the topic content. In measurement and evaluation practices, assessment should not be limited to outcome-oriented evaluation only; measurement activities aimed at process evaluation should also be planned. The evaluations planned throughout the process are important for identifying and addressing possible deficiencies in teaching and learning. For students who continue their education through inclusion/integration, the Individualized Education Program (IEP) is taken as the basis in measurement and evaluation."
+   ]
+  }
+ }
+}

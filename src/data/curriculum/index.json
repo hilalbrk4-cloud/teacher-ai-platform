@@ -1,0 +1,262 @@
+[
+ {
+  "id": "fen-bilimleri-3",
+  "subject": "Fen Bilimleri",
+  "subjectId": "fen-bilimleri",
+  "grade": 3,
+  "program": "tymm",
+  "unitCount": 8,
+  "topicCount": 20,
+  "outcomeCount": 20
+ },
+ {
+  "id": "fen-bilimleri-4",
+  "subject": "Fen Bilimleri",
+  "subjectId": "fen-bilimleri",
+  "grade": 4,
+  "program": "onceki",
+  "unitCount": 7,
+  "topicCount": 17,
+  "outcomeCount": 43
+ },
+ {
+  "id": "fen-bilimleri-5",
+  "subject": "Fen Bilimleri",
+  "subjectId": "fen-bilimleri",
+  "grade": 5,
+  "program": "tymm",
+  "unitCount": 7,
+  "topicCount": 19,
+  "outcomeCount": 27
+ },
+ {
+  "id": "fen-bilimleri-6",
+  "subject": "Fen Bilimleri",
+  "subjectId": "fen-bilimleri",
+  "grade": 6,
+  "program": "tymm",
+  "unitCount": 8,
+  "topicCount": 18,
+  "outcomeCount": 36
+ },
+ {
+  "id": "fen-bilimleri-7",
+  "subject": "Fen Bilimleri",
+  "subjectId": "fen-bilimleri",
+  "grade": 7,
+  "program": "tymm",
+  "unitCount": 7,
+  "topicCount": 17,
+  "outcomeCount": 35
+ },
+ {
+  "id": "fen-bilimleri-8",
+  "subject": "Fen Bilimleri",
+  "subjectId": "fen-bilimleri",
+  "grade": 8,
+  "program": "onceki",
+  "unitCount": 7,
+  "topicCount": 22,
+  "outcomeCount": 61
+ },
+ {
+  "id": "ingilizce-2",
+  "subject": "İngilizce",
+  "subjectId": "ingilizce",
+  "grade": 2,
+  "program": "tymm",
+  "unitCount": 6,
+  "topicCount": 6,
+  "outcomeCount": 138
+ },
+ {
+  "id": "ingilizce-3",
+  "subject": "İngilizce",
+  "subjectId": "ingilizce",
+  "grade": 3,
+  "program": "tymm",
+  "unitCount": 6,
+  "topicCount": 6,
+  "outcomeCount": 138
+ },
+ {
+  "id": "ingilizce-4",
+  "subject": "İngilizce",
+  "subjectId": "ingilizce",
+  "grade": 4,
+  "program": "onceki",
+  "unitCount": 10,
+  "topicCount": 10,
+  "outcomeCount": 47
+ },
+ {
+  "id": "ingilizce-5",
+  "subject": "İngilizce",
+  "subjectId": "ingilizce",
+  "grade": 5,
+  "program": "tymm",
+  "unitCount": 8,
+  "topicCount": 8,
+  "outcomeCount": 184
+ },
+ {
+  "id": "ingilizce-6",
+  "subject": "İngilizce",
+  "subjectId": "ingilizce",
+  "grade": 6,
+  "program": "tymm",
+  "unitCount": 8,
+  "topicCount": 8,
+  "outcomeCount": 184
+ },
+ {
+  "id": "ingilizce-7",
+  "subject": "İngilizce",
+  "subjectId": "ingilizce",
+  "grade": 7,
+  "program": "onceki",
+  "unitCount": 10,
+  "topicCount": 10,
+  "outcomeCount": 63
+ },
+ {
+  "id": "ingilizce-8",
+  "subject": "İngilizce",
+  "subjectId": "ingilizce",
+  "grade": 8,
+  "program": "onceki",
+  "unitCount": 9,
+  "topicCount": 9,
+  "outcomeCount": 62
+ },
+ {
+  "id": "matematik-5",
+  "subject": "Matematik",
+  "subjectId": "matematik",
+  "grade": 5,
+  "program": "tymm",
+  "unitCount": 9,
+  "topicCount": 20,
+  "outcomeCount": 23
+ },
+ {
+  "id": "matematik-6",
+  "subject": "Matematik",
+  "subjectId": "matematik",
+  "grade": 6,
+  "program": "tymm",
+  "unitCount": 7,
+  "topicCount": 20,
+  "outcomeCount": 24
+ },
+ {
+  "id": "matematik-7",
+  "subject": "Matematik",
+  "subjectId": "matematik",
+  "grade": 7,
+  "program": "tymm",
+  "unitCount": 9,
+  "topicCount": 21,
+  "outcomeCount": 30
+ },
+ {
+  "id": "matematik-8",
+  "subject": "Matematik",
+  "subjectId": "matematik",
+  "grade": 8,
+  "program": "onceki",
+  "unitCount": 5,
+  "topicCount": 12,
+  "outcomeCount": 52
+ },
+ {
+  "id": "sosyal-bilgiler-4",
+  "subject": "Sosyal Bilgiler",
+  "subjectId": "sosyal-bilgiler",
+  "grade": 4,
+  "program": "onceki",
+  "unitCount": 7,
+  "topicCount": 7,
+  "outcomeCount": 33
+ },
+ {
+  "id": "sosyal-bilgiler-5",
+  "subject": "Sosyal Bilgiler",
+  "subjectId": "sosyal-bilgiler",
+  "grade": 5,
+  "program": "tymm",
+  "unitCount": 6,
+  "topicCount": 22,
+  "outcomeCount": 19
+ },
+ {
+  "id": "sosyal-bilgiler-6",
+  "subject": "Sosyal Bilgiler",
+  "subjectId": "sosyal-bilgiler",
+  "grade": 6,
+  "program": "tymm",
+  "unitCount": 8,
+  "topicCount": 29,
+  "outcomeCount": 18
+ },
+ {
+  "id": "sosyal-bilgiler-7",
+  "subject": "Sosyal Bilgiler",
+  "subjectId": "sosyal-bilgiler",
+  "grade": 7,
+  "program": "tymm",
+  "unitCount": 6,
+  "topicCount": 18,
+  "outcomeCount": 17
+ },
+ {
+  "id": "t-c-inkilap-tarihi-ve-ataturkculuk-8",
+  "subject": "T.C. İnkılap Tarihi ve Atatürkçülük",
+  "subjectId": "t-c-inkilap-tarihi-ve-ataturkculuk",
+  "grade": 8,
+  "program": "onceki",
+  "unitCount": 7,
+  "topicCount": 7,
+  "outcomeCount": 38
+ },
+ {
+  "id": "turkce-5",
+  "subject": "Türkçe",
+  "subjectId": "turkce",
+  "grade": 5,
+  "program": "tymm",
+  "unitCount": 6,
+  "topicCount": 24,
+  "outcomeCount": 80
+ },
+ {
+  "id": "turkce-6",
+  "subject": "Türkçe",
+  "subjectId": "turkce",
+  "grade": 6,
+  "program": "tymm",
+  "unitCount": 6,
+  "topicCount": 25,
+  "outcomeCount": 100
+ },
+ {
+  "id": "turkce-7",
+  "subject": "Türkçe",
+  "subjectId": "turkce",
+  "grade": 7,
+  "program": "tymm",
+  "unitCount": 6,
+  "topicCount": 25,
+  "outcomeCount": 102
+ },
+ {
+  "id": "turkce-8",
+  "subject": "Türkçe",
+  "subjectId": "turkce",
+  "grade": 8,
+  "program": "onceki",
+  "unitCount": 8,
+  "topicCount": 32,
+  "outcomeCount": 76
+ }
+]

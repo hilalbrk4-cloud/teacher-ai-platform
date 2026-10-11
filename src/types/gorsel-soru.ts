@@ -12,7 +12,7 @@
  * çıkarılıp sorunun ortak `prompt` / `answerExplanation` alanlarına taşınır.
  */
 
-export const GORSEL_SORU_TIPLERI = ["sayi_dogrusu", "kesir_kartlari", "gercek_hayat_senaryo"] as const;
+export const GORSEL_SORU_TIPLERI = ["sayi_dogrusu", "kesir_kartlari", "gercek_hayat_senaryo", "daire_kesir", "kesir_cubugu", "alan_izgara", "tablo_kesir", "cetvel_olcum", "etap_dogrusu"] as const;
 
 export type GorselSoruTipi = (typeof GORSEL_SORU_TIPLERI)[number];
 
@@ -241,17 +241,182 @@ export interface GercekHayatSenaryoVerisi {
 }
 
 // ---------------------------------------------------------------------------
+// Planlı görsel tipler (references/gorsel-tip-haritasi.md)
+//
+// Çizim verisini, metne girecek değerleri, doğru cevabı ve şıkları KOD kurar
+// (bkz. `planli-gorsel.ts`); model yalnızca senaryo metnini ve soru kökünü
+// yazar. Görsel plandan çizildiği için cevapla her zaman tutarlıdır.
+// ---------------------------------------------------------------------------
+
+/** Planlı görsel tiplerin ortak `veri` alanları; `cizim` tipe özgüdür. */
+interface PlanliGorselOrtak<G extends string> {
+  gorev: G;
+  senaryo: string;
+  secenekler: MetinSecenegi[];
+  dogruSecenekId: string;
+}
+
+// daire_kesir ---------------------------------------------------------------
+
+export const DAIRE_KESIR_GOREVLERI = [
+  "boyaKarisimi",
+  "kalanPaylasim",
+  "ikiPizzaKarsilastir",
+  "toplamIkiPizza",
+  "denklikDegil",
+] as const;
+
+export type DaireKesirGorevi = (typeof DAIRE_KESIR_GOREVLERI)[number];
+
+export const DAIRE_RENKLERI = ["turuncu", "mavi", "yesil", "mor", "pembe"] as const;
+
+export type DaireRengi = (typeof DAIRE_RENKLERI)[number];
+
+/** `dilim` eş parçaya bölünmüş daire; ilk `boyali` dilim dolu çizilir. */
+export interface DaireCizimi {
+  dilim: number;
+  boyali: number;
+  renk: DaireRengi;
+  /** Dairenin üstünde yazan ad (ör. iki pizzanın sahipleri). */
+  ad?: string;
+}
+
+export interface DaireKesirVerisi extends PlanliGorselOrtak<DaireKesirGorevi> {
+  daireler: DaireCizimi[];
+}
+
+// kesir_cubugu --------------------------------------------------------------
+
+export const KESIR_CUBUGU_GOREVLERI = ["esitOlmayanGosterim", "seritFarki", "seritToplami"] as const;
+
+export type KesirCubuguGorevi = (typeof KESIR_CUBUGU_GOREVLERI)[number];
+
+/** `parca` eş parçaya bölünmüş bir şerit; ilk `tarali` parça taralı çizilir. Şeritlerin hepsi aynı uzunluktadır. */
+export interface CubukCizimi {
+  parca: number;
+  tarali: number;
+  /** Şeridin üstünde yazan ad (ör. iki öğrencinin şeritleri). */
+  ad?: string;
+}
+
+export interface KesirCubuguVerisi extends PlanliGorselOrtak<KesirCubuguGorevi> {
+  cubuklar: CubukCizimi[];
+}
+
+// alan_izgara ---------------------------------------------------------------
+
+export const ALAN_IZGARA_GOREVLERI = ["sonradanBoyanan", "damlamaUcu", "bosAlanOlcusu"] as const;
+
+export type AlanIzgaraGorevi = (typeof ALAN_IZGARA_GOREVLERI)[number];
+
+export const IZGARA_RENKLERI = ["mavi", "turuncu", "yesil"] as const;
+
+export type IzgaraRengi = (typeof IZGARA_RENKLERI)[number];
+
+/**
+ * `satir × sutun` eş kareli ızgara. `boyalar` sırayla, satır satır soldan
+ * sağa boyanır (ilk boyanın `sayi` karesi, ardından ikincisininki…).
+ */
+export interface IzgaraCizimi {
+  satir: number;
+  sutun: number;
+  boyalar: { renk: IzgaraRengi; sayi: number }[];
+}
+
+export interface AlanIzgaraVerisi extends PlanliGorselOrtak<AlanIzgaraGorevi> {
+  izgara: IzgaraCizimi;
+}
+
+// tablo_kesir ---------------------------------------------------------------
+
+export const TABLO_KESIR_GOREVLERI = ["esikSay", "enBuyukFark"] as const;
+
+export type TabloKesirGorevi = (typeof TABLO_KESIR_GOREVLERI)[number];
+
+/** İki sütunlu tablo: her satır bir ad ve bir kesir değeri (yazıldığı gibi gösterilir). */
+export interface TabloCizimi {
+  basliklar: [string, string];
+  satirlar: { ad: string; deger: Kesir }[];
+}
+
+export interface TabloKesirVerisi extends PlanliGorselOrtak<TabloKesirGorevi> {
+  tablo: TabloCizimi;
+}
+
+// cetvel_olcum --------------------------------------------------------------
+
+export const CETVEL_OLCUM_GOREVLERI = ["kamaBolme", "kalanParca"] as const;
+
+export type CetvelOlcumGorevi = (typeof CETVEL_OLCUM_GOREVLERI)[number];
+
+/**
+ * `uzunluk` santimetrelik, her santimetresi `bolme` eş parçaya bölünmüş cetvel ve
+ * üstünde ölçülen nesneler. Konumlar santimetre cinsinden kesirdir ve her zaman
+ * bir bölme çizgisine denk gelir (payda = bolme).
+ */
+export interface CetvelCizimi {
+  uzunluk: number;
+  bolme: number;
+  nesneler: { ad: string; baslangic: Kesir; bitis: Kesir }[];
+}
+
+export interface CetvelOlcumVerisi extends PlanliGorselOrtak<CetvelOlcumGorevi> {
+  cetvel: CetvelCizimi;
+}
+
+// etap_dogrusu --------------------------------------------------------------
+
+export const ETAP_DOGRUSU_GOREVLERI = ["etapFarki"] as const;
+
+export type EtapDogrusuGorevi = (typeof ETAP_DOGRUSU_GOREVLERI)[number];
+
+/**
+ * 0'dan bolmeler.length'e kadar sayı doğrusu; i. birim (i ile i+1 arası)
+ * bolmeler[i] eş parçaya bölünür (birimler farklı bölünebilir). Noktalar harfle
+ * adlandırılır (emoji yok) ve her biri bir bölme çizgisine denk gelir.
+ */
+export interface EtapDogrusuCizimi {
+  bolmeler: number[];
+  noktalar: { ad: string; konum: Kesir }[];
+}
+
+export interface EtapDogrusuVerisi extends PlanliGorselOrtak<EtapDogrusuGorevi> {
+  dogru: EtapDogrusuCizimi;
+}
+
+/** Blueprint'in planlı görsel sorular için kurduğu çizim verisi. */
+export type GorselCizimPlani =
+  | { tip: "daire_kesir"; daireler: DaireCizimi[] }
+  | { tip: "kesir_cubugu"; cubuklar: CubukCizimi[] }
+  | { tip: "alan_izgara"; izgara: IzgaraCizimi }
+  | { tip: "tablo_kesir"; tablo: TabloCizimi }
+  | { tip: "cetvel_olcum"; cetvel: CetvelCizimi }
+  | { tip: "etap_dogrusu"; dogru: EtapDogrusuCizimi };
+
+// ---------------------------------------------------------------------------
 
 export interface GorselSoruVeriHaritasi {
   sayi_dogrusu: SayiDogrusuVerisi;
   kesir_kartlari: KesirKartlariVerisi;
   gercek_hayat_senaryo: GercekHayatSenaryoVerisi;
+  daire_kesir: DaireKesirVerisi;
+  kesir_cubugu: KesirCubuguVerisi;
+  alan_izgara: AlanIzgaraVerisi;
+  tablo_kesir: TabloKesirVerisi;
+  cetvel_olcum: CetvelOlcumVerisi;
+  etap_dogrusu: EtapDogrusuVerisi;
 }
 
 export interface GorselSoruGorevHaritasi {
   sayi_dogrusu: SayiDogrusuGorevi;
   kesir_kartlari: KesirKartlariGorevi;
   gercek_hayat_senaryo: SenaryoGorevi;
+  daire_kesir: DaireKesirGorevi;
+  kesir_cubugu: KesirCubuguGorevi;
+  alan_izgara: AlanIzgaraGorevi;
+  tablo_kesir: TabloKesirGorevi;
+  cetvel_olcum: CetvelOlcumGorevi;
+  etap_dogrusu: EtapDogrusuGorevi;
 }
 
 /** `tip` alanına göre ayrışan (discriminated) içerik birliği. */
@@ -319,4 +484,4 @@ export interface SenaryoCikarimPlani {
 /** Blueprint'in bir `gorselSoru` sırasına atadığı tip, görev ve (senaryolarda) kodun kurduğu plan. */
 export type GorselSoruPlani = {
   [K in GorselSoruTipi]: { tip: K; gorev: GorselSoruGorevHaritasi[K] };
-}[GorselSoruTipi] & { sayilar?: SenaryoSayilari; cikarim?: SenaryoCikarimPlani };
+}[GorselSoruTipi] & { sayilar?: SenaryoSayilari; cikarim?: SenaryoCikarimPlani; cizim?: GorselCizimPlani };

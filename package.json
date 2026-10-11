@@ -7,12 +7,15 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "vitest run"
+    "test": "vitest run",
+    "curriculum:parse": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/parse-all-curricula.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "docx": "^9.10.0",
+    "exceljs": "^4.4.0",
     "lucide-react": "^1.25.0",
     "next": "16.2.10",
     "openai": "^6.48.0",
@@ -29,6 +32,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.10",
+    "jszip": "^3.10.2",
     "tailwindcss": "^4",
     "typescript": "^5",
     "vitest": "^4.1.10"

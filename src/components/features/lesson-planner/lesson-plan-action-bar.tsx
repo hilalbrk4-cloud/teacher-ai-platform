@@ -5,6 +5,7 @@ import {
   Copy,
   CopyPlus,
   FileDown,
+  FileText,
   Loader2,
   Pencil,
   Printer,
@@ -23,6 +24,7 @@ interface LessonPlanActionBarProps {
   t: Dictionary;
   isEditMode: boolean;
   isRegenerating: boolean;
+  isExportingWord: boolean;
   onToggleEdit: () => void;
   onSave: () => void;
   onCopyAll: () => void;
@@ -31,12 +33,14 @@ interface LessonPlanActionBarProps {
   onShorten: () => void;
   onExpand: () => void;
   onDuplicate: () => void;
+  onExportWord: () => void;
 }
 
 export function LessonPlanActionBar({
   t,
   isEditMode,
   isRegenerating,
+  isExportingWord,
   onToggleEdit,
   onSave,
   onCopyAll,
@@ -45,6 +49,7 @@ export function LessonPlanActionBar({
   onShorten,
   onExpand,
   onDuplicate,
+  onExportWord,
 }: LessonPlanActionBarProps) {
   const actions = t.lessonPlanner.result.actions;
 
@@ -109,21 +114,23 @@ export function LessonPlanActionBar({
             render={
               <Button
                 type="button"
-                variant="ghost"
+                variant="outline"
                 size="sm"
-                aria-disabled="true"
-                onClick={(event) => event.preventDefault()}
-                className="cursor-not-allowed gap-1.5 opacity-60"
+                onClick={onExportWord}
+                disabled={isRegenerating || isExportingWord}
+                aria-busy={isExportingWord}
+                className="gap-1.5"
               >
-                <FileDown className="size-3.5" aria-hidden="true" />
-                {actions.exportWord}
-                <Badge variant="outline" className="ml-0.5">
-                  {t.lessonPlanner.result.comingSoonBadge}
-                </Badge>
+                {isExportingWord ? (
+                  <Loader2 className="size-3.5 animate-spin" aria-hidden="true" />
+                ) : (
+                  <FileText className="size-3.5" aria-hidden="true" />
+                )}
+                {isExportingWord ? actions.exportingWord : actions.exportWord}
               </Button>
             }
           />
-          <TooltipContent>{t.lessonPlanner.result.exportUnavailableTooltip}</TooltipContent>
+          <TooltipContent>{actions.exportWordTooltip}</TooltipContent>
         </Tooltip>
 
         <Tooltip>

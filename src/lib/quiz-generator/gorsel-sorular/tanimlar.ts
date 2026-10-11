@@ -1,4 +1,9 @@
 import { isFractionTopic } from "@/lib/ai/blueprint/subject";
+import { alanIzgaraPlaniUret, alanIzgaraTanimi } from "@/lib/quiz-generator/gorsel-sorular/alan-izgara";
+import { cetvelOlcumPlaniUret, cetvelOlcumTanimi } from "@/lib/quiz-generator/gorsel-sorular/cetvel-olcum";
+import { daireKesirPlaniUret, daireKesirTanimi } from "@/lib/quiz-generator/gorsel-sorular/daire-kesir";
+import { etapDogrusuPlaniUret, etapDogrusuTanimi } from "@/lib/quiz-generator/gorsel-sorular/etap-dogrusu";
+import { kesirCubuguPlaniUret, kesirCubuguTanimi } from "@/lib/quiz-generator/gorsel-sorular/kesir-cubugu";
 import { gercekHayatSenaryoTanimi } from "@/lib/quiz-generator/gorsel-sorular/gercek-hayat-senaryo";
 import { kesirKartlariTanimi } from "@/lib/quiz-generator/gorsel-sorular/kesir-kartlari";
 import {
@@ -7,13 +12,21 @@ import {
   type GorselSoruSorunu,
   type GorselSoruTanimi,
 } from "@/lib/quiz-generator/gorsel-sorular/ortak";
+import type { PlanliGorselPlan } from "@/lib/quiz-generator/gorsel-sorular/planli-gorsel";
+import { tabloKesirPlaniUret, tabloKesirTanimi } from "@/lib/quiz-generator/gorsel-sorular/tablo-kesir";
 import { sayiDogrusuTanimi } from "@/lib/quiz-generator/gorsel-sorular/sayi-dogrusu";
 import { cikarimPlaniUret } from "@/lib/quiz-generator/gorsel-sorular/senaryo-cikarim";
-import { senaryoSayilariUret } from "@/lib/quiz-generator/gorsel-sorular/senaryo-sayilari";
+import { rastgeleOlustur, senaryoSayilariUret } from "@/lib/quiz-generator/gorsel-sorular/senaryo-sayilari";
 import {
   CIKARIM_GOREVLERI,
   GORSEL_SORU_TIPLERI,
   type CikarimGorevi,
+  type AlanIzgaraGorevi,
+  type CetvelOlcumGorevi,
+  type DaireKesirGorevi,
+  type EtapDogrusuGorevi,
+  type KesirCubuguGorevi,
+  type TabloKesirGorevi,
   type SenaryoGorevi,
   type GorselSoruGorevHaritasi,
   type GorselSoruIcerigi,
@@ -34,6 +47,12 @@ export const GORSEL_SORU_TANIMLARI: { [K in GorselSoruTipi]: GorselSoruTanimi<K>
   sayi_dogrusu: sayiDogrusuTanimi,
   kesir_kartlari: kesirKartlariTanimi,
   gercek_hayat_senaryo: gercekHayatSenaryoTanimi,
+  daire_kesir: daireKesirTanimi,
+  kesir_cubugu: kesirCubuguTanimi,
+  alan_izgara: alanIzgaraTanimi,
+  tablo_kesir: tabloKesirTanimi,
+  cetvel_olcum: cetvelOlcumTanimi,
+  etap_dogrusu: etapDogrusuTanimi,
 };
 
 export function gorselSoruTanimi<K extends GorselSoruTipi>(tip: K): GorselSoruTanimi<K> {
@@ -74,11 +93,16 @@ function tohum(metin: string): number {
   return deger;
 }
 
-/** Tek bir görsel okuma işi olan tipler (konum okuma, kart türü, sembol eşleştirme). */
-const BASIT_OKUMA_TIPLERI: readonly GorselSoruTipi[] = ["sayi_dogrusu", "kesir_kartlari"];
+/**
+ * Model verisiyle çizilen eski tipler. TYMM kuralları (CLAUDE.md) tek adımlı
+ * okuma/eşleştirme görevlerini yasakladığı için bunların tek adımlı görevleri
+ * plandan çıkarıldı (plandanCikarildi); geriye kart muhakemesi
+ * (ifadeDegerlendirme) kalır. Sayı doğrusu artık planlı `etap_dogrusu`dur.
+ */
+const BASIT_OKUMA_TIPLERI: readonly GorselSoruTipi[] = ["kesir_kartlari"];
 
-/** Bir quizde en fazla bu kadar basit görsel okuma sorusu olur. */
-const EN_FAZLA_BASIT_OKUMA = 2;
+/** Bir quizde en fazla bu kadar kart muhakemesi sorusu olur. */
+const EN_FAZLA_BASIT_OKUMA = 1;
 
 /**
  * Çok adımlı senaryo görevlerinin (problem ailelerinin) sırası. Her görev
@@ -103,6 +127,85 @@ function cikarimGoreviMi(gorev: SenaryoGorevi): gorev is CikarimGorevi {
   return (CIKARIM_GOREVLERI as readonly string[]).includes(gorev);
 }
 
+/**
+ * Planlı görsel tipler (references/gorsel-tip-haritasi.md): çizimi, cevabı ve
+ * şıkları kod kurar. `uygunlukSozcukleri`: tip, kazanım ya da konu bu
+ * sözcüklerden birini içerdiğinde "konuya uyan" sayılır (pizza = paylaşma,
+ * tablo = çoklu veri, cetvel = ölçüm, ızgara = alan).
+ */
+interface PlanliGorselKaydi {
+  tip: GorselSoruTipi;
+  uret: (gorev: string, tohum: number) => PlanliGorselPlan;
+  uygunlukSozcukleri: readonly string[];
+}
+
+const PLANLI_GORSEL_TIPLERI: readonly PlanliGorselKaydi[] = [
+  {
+    tip: "daire_kesir",
+    uret: (gorev, tohumu) => daireKesirPlaniUret(gorev as DaireKesirGorevi, tohumu),
+    uygunlukSozcukleri: ["pizza", "pasta", "paylaş", "dilim", "daire", "bütünün parça"],
+  },
+  {
+    tip: "kesir_cubugu",
+    uret: (gorev, tohumu) => kesirCubuguPlaniUret(gorev as KesirCubuguGorevi, tohumu),
+    uygunlukSozcukleri: ["şerit", "bar model", "kurdele", "çikolata", "bileşik", "tam sayılı"],
+  },
+  {
+    tip: "alan_izgara",
+    uret: (gorev, tohumu) => alanIzgaraPlaniUret(gorev as AlanIzgaraGorevi, tohumu),
+    uygunlukSozcukleri: ["alan", "ızgara", "bahçe", "tarla", "kareli", "boya"],
+  },
+  {
+    tip: "tablo_kesir",
+    uret: (gorev, tohumu) => tabloKesirPlaniUret(gorev as TabloKesirGorevi, tohumu),
+    uygunlukSozcukleri: ["tablo", "veri", "çizelge", "grafik"],
+  },
+  {
+    tip: "cetvel_olcum",
+    uret: (gorev, tohumu) => cetvelOlcumPlaniUret(gorev as CetvelOlcumGorevi, tohumu),
+    uygunlukSozcukleri: ["ölç", "cetvel", "uzunluk", "santimetre"],
+  },
+  {
+    tip: "etap_dogrusu",
+    uret: (gorev, tohumu) => etapDogrusuPlaniUret(gorev as EtapDogrusuGorevi, tohumu),
+    uygunlukSozcukleri: ["sayı doğrusu", "konum", "hareket", "etap"],
+  },
+];
+
+/** Planlı bir görselin kullanılmamış bir bağlam konusu bulmak için görev başına deneyeceği tohum sayısı. */
+const BAGLAM_DENEME_SINIRI = 12;
+
+/** Bir quizde aynı planlı görsel tip en fazla bu kadar kullanılır. */
+const EN_FAZLA_AYNI_GORSEL = 2;
+
+/**
+ * "Görsel yeni nesil" sorularının tip sırası (`adet` uzunlukta). Her soruya
+ * işlevsel bir görsel bağlanır: konuya uyan tipler (pizza = paylaşma, tablo =
+ * çoklu veri, cetvel = ölçüm, ızgara = alan…) önce ve en fazla ikişer kez,
+ * ardından diğer tipler birer kez gelir; yalnızca çok uzun quizlerde döngü
+ * başa döner. Sıralar konudan türetilen tohumla karıştırılır (hiçbir tip baskın
+ * olmasın).
+ */
+function planliTipSirasi(
+  metinler: string[],
+  baslangic: number,
+  adet: number,
+  kullanilabilir: (kayit: PlanliGorselKaydi) => boolean
+): PlanliGorselKaydi[] {
+  const metin = metinler.join(" ").toLocaleLowerCase("tr-TR");
+  const r = rastgeleOlustur(baslangic);
+  const tumu = PLANLI_GORSEL_TIPLERI.filter(kullanilabilir);
+  const uyarMi = (kayit: PlanliGorselKaydi) => kayit.uygunlukSozcukleri.some((sozcuk) => metin.includes(sozcuk));
+  const uyanlar = r.karistir(tumu.filter(uyarMi));
+  const digerleri = r.karistir(tumu.filter((kayit) => !uyarMi(kayit)));
+  // Konuya uyanlar EN_FAZLA_AYNI_GORSEL (2) kez, diğerleri birer kez.
+  const temel = [...uyanlar, ...(EN_FAZLA_AYNI_GORSEL > 1 ? uyanlar : []), ...digerleri];
+  const dongu = r.karistir(tumu);
+  return Array.from({ length: tumu.length > 0 ? adet : 0 }, (_, index) =>
+    index < temel.length ? temel[index] : dongu[(index - temel.length) % dongu.length]
+  );
+}
+
 const ZORLUK_SIRASI: Record<QuestionBlueprintSlot["difficulty"], number> = { easy: 0, medium: 1, hard: 2 };
 
 /**
@@ -113,9 +216,11 @@ const ZORLUK_SIRASI: Record<QuestionBlueprintSlot["difficulty"], number> = { eas
  *   soruların üçte biri kadardır, en fazla 2 (5 soruda 1, 6+ soruda 2).
  *   Blueprint'in en kolay işaretlediği sıralara verilir; iki tane varsa
  *   farklı tiplerdendir.
- * - Kalan sıralar çok adımlı senaryo görevleridir (her biri ayrı bir problem
- *   ailesi): önce her aile birer kez kullanılır; tekrar eden aile sıraya
- *   özgü tohumla farklı sayılar alır.
+ * - Kalan sıraların yarısı (yukarı yuvarlanır) planlı görsel tiplerdir
+ *   (daire_kesir…): konuya uyan tipler dönüşümlü, her tip en fazla 2 kez,
+ *   senaryolarla eşit aralıklı karışık. Kalanlar çok adımlı senaryo
+ *   görevleridir (her biri ayrı bir problem ailesi): önce her aile birer kez
+ *   kullanılır; tekrar eden aile sıraya özgü tohumla farklı sayılar alır.
  * - Bağlam konuları (market, tarım, spor…) quizde mümkün olduğunca tekrar
  *   etmez: her senaryo, öncekilerin konularından farklı bir bağlam seçer.
  * - Kesir tipleri/görevleri yalnızca konu veya kazanımlar kesirlerle
@@ -154,8 +259,18 @@ export function gorselSoruPlaniAta(
       .map((slot) => slot.order)
   );
 
+  // Kesir konusunda "görsel yeni nesil" sorularının HEPSİNE işlevsel bir görsel bağlanır
+  // (planlı görsel tipler); görselsiz senaryolar yalnızca planlı tip yoksa (kesir dışı konu) kullanılır.
+  const kalanSiralar = gorselSiralar.filter((slot) => !basitSiralar.has(slot.order));
+  const planliTipler = kesirKonusu
+    ? planliTipSirasi(metinler, baslangic, kalanSiralar.length, (kayit) => tipinGorevleri(kayit.tip, kesirKonusu, sinif).length > 0)
+    : [];
+  const planliSiralar = new Set(planliTipler.length > 0 ? kalanSiralar.map((slot) => slot.order) : []);
+  const tipKullanimi = new Map<GorselSoruTipi, number>();
+
   let basitSira = 0;
   let cokAdimliSira = 0;
+  let planliSira = 0;
   const kullanilanKonular = new Set<string>();
   return slots.map((slot) => {
     if (slot.type !== "gorselSoru") return slot;
@@ -167,6 +282,31 @@ export function gorselSoruPlaniAta(
       const tekrar = Math.floor(basitSira / basitTipler.length);
       plan = { tip, gorev: gorevler[(tekrar + baslangic + tipIndex) % gorevler.length] } as GorselSoruPlani;
       basitSira += 1;
+    } else if (planliSiralar.has(slot.order)) {
+      const kayit = planliTipler[planliSira];
+      planliSira += 1;
+      const kullanim = tipKullanimi.get(kayit.tip) ?? 0;
+      tipKullanimi.set(kayit.tip, kullanim + 1);
+      // Aynı tip tekrar ederse görev de değişir; bağlam havuzu kısıtı: quizde kullanılmış
+      // bir bağlam konusu (ör. iki kez robot süpürge, iki kez pizza) tekrar etmesin diye
+      // önce farklı tohumlar, sonra aynı tipin diğer görevleri denenir.
+      const gorevler = tipinGorevleri(kayit.tip, kesirKonusu, sinif);
+      const adaylar = Array.from({ length: gorevler.length }, (_, kaydir) => gorevler[(kullanim + baslangic + kaydir) % gorevler.length]);
+      const tohumu = baslangic + slot.order * 7919;
+      let secilen: { gorev: string; uretim: PlanliGorselPlan } | undefined;
+      arama: for (const gorev of adaylar) {
+        for (let deneme = 0; deneme < BAGLAM_DENEME_SINIRI; deneme += 1) {
+          const uretim = kayit.uret(gorev, tohumu + deneme * 104729);
+          if (!kullanilanKonular.has(uretim.cikarim.konu)) {
+            secilen = { gorev, uretim };
+            break arama;
+          }
+        }
+      }
+      // Havuz tükendiyse (çok uzun quiz) tekrar kaçınılmazdır: sıradaki görev kullanılır.
+      secilen ??= { gorev: adaylar[0], uretim: kayit.uret(adaylar[0], tohumu) };
+      kullanilanKonular.add(secilen.uretim.cikarim.konu);
+      plan = { tip: kayit.tip, gorev: secilen.gorev, ...secilen.uretim } as GorselSoruPlani;
     } else {
       // Görevler tercih sırasıyla, konuya göre kaydırılmış bir başlangıçla döner;
       // tümü kullanılmadan hiçbiri tekrar etmez.

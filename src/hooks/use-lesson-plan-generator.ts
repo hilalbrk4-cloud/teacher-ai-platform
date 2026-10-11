@@ -2,10 +2,13 @@
 
 import * as React from "react";
 
+import { findCurriculumEntry, outcomeObjectiveLine } from "@/lib/curriculum/catalog";
 import { generateLessonPlanViaApi, LessonPlanApiError } from "@/lib/lesson-planner/lesson-plan-api-client";
 import { shortenLessonPlan, expandLessonPlan } from "@/lib/lesson-planner/content-transforms";
 import { lessonPlanDocumentStore } from "@/lib/lesson-planner/document-store";
+import { downloadLessonPlanDocx } from "@/lib/lesson-planner/export-docx";
 import { createLessonPlannerId } from "@/lib/lesson-planner/id";
+import { TYMM_SKILL_GROUP_ORDER } from "@/lib/lesson-planner/tymm-skills";
 import type {
   LessonPlan,
   LessonPlanDocument,
@@ -32,6 +35,7 @@ const INITIAL_FORM: LessonPlanFormInput = {
   specialNeeds: "",
   additionalNotes: "",
   refinements: [],
+  curriculum: null,
 };
 
 const REQUIRED_FIELDS: LessonPlanRequiredField[] = [
@@ -51,11 +55,20 @@ const FEEDBACK_DURATION_MS = 3200;
 // the same regardless of which provider actually answers it.
 const LOADING_STAGE_INTERVAL_MS = 700;
 
-// Slightly above the server's own OpenAI request timeout (see
-// LESSON_PLAN_REQUEST_TIMEOUT_MS in src/lib/ai/config.ts), so the server
+// Slightly above the server's worst case — LESSON_PLAN_REQUEST_TIMEOUT_MS ×
+// LESSON_PLAN_MAX_ATTEMPTS in src/lib/ai/config.ts (60s × 2) — so the server
 // times out first and returns a proper error instead of the client
 // aborting a request that was about to succeed.
-const CLIENT_REQUEST_TIMEOUT_MS = 35_000;
+const CLIENT_REQUEST_TIMEOUT_MS = 125_000;
+
+/** Hedefler metninden belirtilen resmî kodlarla başlayan satırları kaldırır; öğretmenin kendi satırları korunur. */
+function removeOutcomeLines(objectives: string, codes: readonly string[]): string {
+  return objectives
+    .split("\n")
+    .filter((line) => !codes.some((code) => line.trimStart().startsWith(`${code} — `)))
+    .join("\n")
+    .trim();
+}
 
 function isRequiredField(key: keyof LessonPlanFormInput): key is LessonPlanRequiredField {
   return (REQUIRED_FIELDS as string[]).includes(key);
@@ -94,6 +107,7 @@ export function useLessonPlanGenerator(t: Dictionary) {
   const [plan, setPlan] = React.useState<LessonPlan | null>(null);
   const [savedDocument, setSavedDocument] = React.useState<LessonPlanDocument | null>(null);
   const [isEditMode, setIsEditMode] = React.useState(false);
+  const [isExportingWord, setIsExportingWord] = React.useState(false);
   const [feedback, setFeedback] = React.useState<LessonPlanFeedback | null>(null);
 
   const feedbackTimeoutRef = React.useRef<number | undefined>(undefined);
@@ -113,7 +127,17 @@ export function useLessonPlanGenerator(t: Dictionary) {
 
   const updateField = React.useCallback(
     <K extends keyof LessonPlanFormInput>(key: K, value: LessonPlanFormInput[K]) => {
-      setForm((prev) => ({ ...prev, [key]: value }));
+      setForm((prev) => {
+        const next = { ...prev, [key]: value };
+        // Ders veya sınıf değişip seçili müfredatla artık eşleşmiyorsa seçim ve eklediği resmî satırlar kaldırılır.
+        if ((key === "subject" || key === "gradeLevel") && prev.curriculum) {
+          const entry = findCurriculumEntry(next.subject, next.gradeLevel);
+          if (entry?.id !== prev.curriculum.gradeId) {
+            return { ...next, curriculum: null, objectives: removeOutcomeLines(next.objectives, prev.curriculum.outcomeCodes) };
+          }
+        }
+        return next;
+      });
       setErrors((prev) => {
         if (!isRequiredField(key) || !prev[key]) return prev;
         const next = { ...prev };
@@ -123,6 +147,66 @@ export function useLessonPlanGenerator(t: Dictionary) {
     },
     []
   );
+
+  /** Müfredat listesinden konu seçimi: konu adı forma yazılır, önceki konunun resmî satırları kaldırılır. */
+  const selectCurriculumTopic = React.useCallback(
+    (selection: { gradeId: string; unitId: string; topicId: string; topicName: string }) => {
+      setForm((prev) => ({
+        ...prev,
+        topic: selection.topicName,
+        objectives: prev.curriculum ? removeOutcomeLines(prev.objectives, prev.curriculum.outcomeCodes) : prev.objectives,
+        curriculum: { gradeId: selection.gradeId, unitId: selection.unitId, topicId: selection.topicId, outcomeCodes: [] },
+      }));
+      setErrors((prev) => {
+        if (!prev.topic) return prev;
+        const next = { ...prev };
+        delete next.topic;
+        return next;
+      });
+    },
+    []
+  );
+
+  /** Konu alanına serbest yazım: müfredat seçimi bırakılır, öğretmenin kendi metni korunur. */
+  const setFreeTopic = React.useCallback((topic: string) => {
+    setForm((prev) => ({
+      ...prev,
+      topic,
+      objectives: prev.curriculum ? removeOutcomeLines(prev.objectives, prev.curriculum.outcomeCodes) : prev.objectives,
+      curriculum: null,
+    }));
+  }, []);
+
+  /** Resmî çıktı seçimi: kod seçime, "KOD — metin" satırı hedefler alanına eklenir/çıkarılır. */
+  const toggleCurriculumOutcome = React.useCallback((outcome: { code: string; text: string }) => {
+    setForm((prev) => {
+      if (!prev.curriculum) return prev;
+      const selected = prev.curriculum.outcomeCodes.includes(outcome.code);
+      const outcomeCodes = selected
+        ? prev.curriculum.outcomeCodes.filter((code) => code !== outcome.code)
+        : [...prev.curriculum.outcomeCodes, outcome.code];
+      const objectives = selected
+        ? removeOutcomeLines(prev.objectives, [outcome.code])
+        : [prev.objectives.trim(), outcomeObjectiveLine(outcome)].filter(Boolean).join("\n");
+      return { ...prev, objectives, curriculum: { ...prev.curriculum, outcomeCodes } };
+    });
+    setErrors((prev) => {
+      if (!prev.objectives) return prev;
+      const next = { ...prev };
+      delete next.objectives;
+      return next;
+    });
+  }, []);
+
+  /** Bir konunun çıktılarını topluca seçer ya da hepsini bırakır. */
+  const setCurriculumOutcomes = React.useCallback((outcomes: { code: string; text: string }[]) => {
+    setForm((prev) => {
+      if (!prev.curriculum) return prev;
+      const base = removeOutcomeLines(prev.objectives, prev.curriculum.outcomeCodes);
+      const objectives = [base.trim(), ...outcomes.map(outcomeObjectiveLine)].filter(Boolean).join("\n");
+      return { ...prev, objectives, curriculum: { ...prev.curriculum, outcomeCodes: outcomes.map((outcome) => outcome.code) } };
+    });
+  }, []);
 
   const toggleRefinement = React.useCallback((id: LessonPlanRefinementId) => {
     setForm((prev) => ({
@@ -204,9 +288,19 @@ export function useLessonPlanGenerator(t: Dictionary) {
 
   const copyPlan = React.useCallback(async () => {
     if (!plan) return;
-    const text = plan.sections
-      .map((section) => `${t.lessonPlanner.sections[section.key]}\n${section.content}`)
-      .join("\n\n");
+    const { preview, skills: skillsCopy } = t.lessonPlanner;
+    const sectionTexts = plan.sections.map((section) => {
+      const range = section.timeRange ? ` (${preview.timeRange(section.timeRange.start, section.timeRange.end)})` : "";
+      return `${t.lessonPlanner.sections[section.key]}${range}\n${section.content}`;
+    });
+    if (plan.skills) {
+      const skills = plan.skills;
+      const skillLines = TYMM_SKILL_GROUP_ORDER.filter((group) => skills[group].length > 0).map(
+        (group) => `${skillsCopy.groups[group].short} — ${skillsCopy.groups[group].label}: ${skills[group].join(", ")}`
+      );
+      sectionTexts.push(`${skillsCopy.title}\n${skillLines.join("\n")}`);
+    }
+    const text = sectionTexts.join("\n\n");
     try {
       await navigator.clipboard.writeText(text);
       showFeedback({ type: "success", message: t.lessonPlanner.feedback.copiedAll });
@@ -242,6 +336,20 @@ export function useLessonPlanGenerator(t: Dictionary) {
     showFeedback({ type: "success", message: t.lessonPlanner.feedback.duplicated });
   }, [plan, savedDocument, t, showFeedback]);
 
+  const exportWord = React.useCallback(async () => {
+    if (!plan || isExportingWord) return;
+    setIsExportingWord(true);
+    try {
+      const fileName = await downloadLessonPlanDocx(plan);
+      showFeedback({ type: "success", message: t.lessonPlanner.feedback.exportedWord(fileName) });
+    } catch (error) {
+      console.error("[EduPilot] Word export failed:", error);
+      showFeedback({ type: "error", message: t.lessonPlanner.feedback.exportWordError });
+    } finally {
+      setIsExportingWord(false);
+    }
+  }, [plan, isExportingWord, t, showFeedback]);
+
   return {
     form,
     errors,
@@ -253,6 +361,10 @@ export function useLessonPlanGenerator(t: Dictionary) {
     feedback,
     updateField,
     toggleRefinement,
+    selectCurriculumTopic,
+    setFreeTopic,
+    toggleCurriculumOutcome,
+    setCurriculumOutcomes,
     generate,
     regenerate: generate,
     updateSectionContent,
@@ -263,5 +375,7 @@ export function useLessonPlanGenerator(t: Dictionary) {
     expand,
     save,
     duplicate,
+    exportWord,
+    isExportingWord,
   };
 }

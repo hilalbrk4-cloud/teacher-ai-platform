@@ -1,4 +1,10 @@
-import type { LessonPlanRefinementId, LessonPlanSectionKey } from "@/types/lesson-planner";
+import type {
+  LessonPlan5EPhase,
+  LessonPlanRefinementId,
+  LessonPlanSectionKey,
+  LessonPlanSkills,
+} from "@/types/lesson-planner";
+import type { RubricRequiredField, RubricTaskType, RubricType } from "@/types/rubric";
 import type {
   CognitiveLevel,
   DifficultyLevel,
@@ -92,6 +98,28 @@ export interface Dictionary {
     title: string;
     description: string;
   };
+  curriculum: {
+    topicPlaceholder: string;
+    topicListLabel: string;
+    topicLoading: string;
+    topicLoadError: string;
+    noTopicMatch: (query: string) => string;
+    freeTopicOption: (query: string) => string;
+    fromCurriculum: string;
+    clearSelection: string;
+    noCurriculumHint: string;
+    officialTitleTymm: string;
+    officialTitlePrevious: string;
+    officialDescription: string;
+    selectAll: string;
+    clearAll: string;
+    selectedCount: (count: number) => string;
+    componentsCount: (count: number) => string;
+    autoIncludedTitle: string;
+    autoIncludedEmpty: string;
+    sourceNote: string;
+    objectivesHint: string;
+  };
   lessonPlanner: {
     pageTitle: string;
     pageHelperText: string;
@@ -136,8 +164,21 @@ export interface Dictionary {
       structureHint: string;
       sectionPendingText: string;
       summaryDuration: (minutes: number) => string;
+      fiveEBadge: string;
+      phaseBadge: (index: number) => string;
+      timeRange: (start: number, end: number) => string;
+      timeRangeLabel: (start: number, end: number) => string;
     };
     sections: Record<LessonPlanSectionKey, string>;
+    phaseFocus: Record<LessonPlan5EPhase, string>;
+    skills: {
+      title: string;
+      description: string;
+      groups: Record<keyof LessonPlanSkills, { short: string; label: string }>;
+      literacy: { short: string; label: string };
+      officialOutcomes: string;
+      officialSource: string;
+    };
     result: {
       statusDraft: string;
       statusSaved: string;
@@ -156,6 +197,8 @@ export interface Dictionary {
         shorten: string;
         expand: string;
         exportWord: string;
+        exportingWord: string;
+        exportWordTooltip: string;
         exportPdf: string;
         duplicate: string;
         print: string;
@@ -190,9 +233,128 @@ export interface Dictionary {
       copiedAll: string;
       copiedSection: string;
       copyError: string;
+      exportedWord: (fileName: string) => string;
+      exportWordError: string;
       shortened: string;
       expanded: string;
       validation: string;
+    };
+  };
+  rubricGenerator: {
+    pageTitle: string;
+    pageHelperText: string;
+    hero: { eyebrow: string; highlights: string[] };
+    form: {
+      essentialTitle: string;
+      taskTitle: string;
+      fields: Record<"subject" | "gradeLevel" | "topic" | "taskDescription", { label: string; placeholder: string }>;
+      taskTypeLabel: string;
+      taskTypes: Record<RubricTaskType, { label: string; description: string }>;
+      rubricTypeLabel: string;
+      rubricTypes: Record<RubricType, { label: string; description: string }>;
+      scaleLabel: string;
+      scales: Record<"3" | "4", string>;
+      skillsDescription: string;
+      skillsAutoTitle: string;
+      noCurriculumSkillsHint: string;
+      errors: Record<RubricRequiredField, string>;
+      validationBanner: string;
+      submit: string;
+      submitLoading: string;
+      submitCaption: string;
+    };
+    live: {
+      tab: string;
+      tabShort: string;
+      rosterTitle: string;
+      rosterDescription: string;
+      rosterPlaceholder: string;
+      rosterLoad: string;
+      rosterEdit: string;
+      rosterCancel: string;
+      rosterLoaded: (count: number) => string;
+      rosterEmpty: string;
+      rosterDetected: (count: number) => string;
+      studentsTitle: string;
+      progress: (done: number, total: number) => string;
+      status: { done: string; partial: string; waiting: string };
+      totalLabel: string;
+      outOf: (points: number) => string;
+      levelPoints: (points: number) => string;
+      criterionProgress: (scored: number, total: number) => string;
+      holisticLevelTitle: string;
+      holisticScoreLabel: (min: number, max: number) => string;
+      feedbackTitle: string;
+      feedbackAuto: string;
+      feedbackEdited: string;
+      feedbackRegenerate: string;
+      feedbackAi: string;
+      feedbackAiLoading: string;
+      feedbackAiBadge: string;
+      feedbackAiError: string;
+      feedbackAiPrivacy: string;
+      feedbackPlaceholder: string;
+      previous: string;
+      next: string;
+      reset: string;
+      exportSheet: string;
+      exporting: string;
+      exported: (fileName: string) => string;
+      exportError: string;
+      storageNote: string;
+      showForm: string;
+      hideForm: string;
+    };
+    levels: Record<string, string>;
+    loadingMessages: [string, string, string];
+    preview: {
+      title: string;
+      emptyTitle: string;
+      emptyDescription: string;
+      tabsLabel: string;
+      teacherTab: string;
+      teacherTabShort: string;
+      studentTab: string;
+      studentTabShort: string;
+      criterion: string;
+      weight: string;
+      points: (points: number) => string;
+      total: string;
+      levelRange: (min: number, max: number) => string;
+      holisticTitle: string;
+      holisticCriteriaTitle: string;
+      officialSkillsTitle: string;
+      conceptualSkills: string;
+      noCodesNote: string;
+      studentFormTitle: string;
+      peerFormTitle: string;
+      studentNameLine: string;
+      myTask: string;
+      checkDone: string;
+      checkSelf: string;
+      checkPeer: string;
+      hint: string;
+      holisticSelfTitle: string;
+      reflectionNext: string;
+      peerName: string;
+      peerAdvice: string;
+      studentViewNote: string;
+    };
+    actions: {
+      exportOfficial: string;
+      exportStudent: string;
+      exportStudentHint: string;
+      exporting: string;
+      regenerate: string;
+      regenerating: string;
+    };
+    feedback: {
+      generated: string;
+      generationError: string;
+      requestTimeout: string;
+      validation: string;
+      exported: (fileName: string) => string;
+      exportError: string;
     };
   };
   quizGenerator: {

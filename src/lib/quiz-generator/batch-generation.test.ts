@@ -90,11 +90,15 @@ describe("buildQuizPromptBatches", () => {
   });
 
   it("Blueprint'in görsel soru planı (tip + görev) parçalara bölündüğünde de korunur", () => {
-    const tumu = buildQuizPromptBatches(buildQuizBlueprint({ ...FORM, questionTypes: ["gorselSoru"] }), undefined, 3)
+    const blueprint = buildQuizBlueprint({ ...FORM, questionTypes: ["gorselSoru"] });
+    const tumu = buildQuizPromptBatches(blueprint, undefined, 3)
       .map((parca) => parca.instructions)
       .join("\n");
-    for (const tip of GORSEL_SORU_TIPLERI) {
-      expect(tumu).toContain(`Görsel soru tipi: ${tip}`);
+    // Dağılım kuralı gereği her quizde her tip bulunmaz; plandaki her tip ve görev prompt'ta korunmalıdır.
+    const planlar = blueprint.slots.flatMap((slot) => (slot.gorselPlani ? [slot.gorselPlani] : []));
+    expect(new Set(planlar.map((plan) => plan.tip)).size).toBeGreaterThanOrEqual(3);
+    for (const plan of planlar) {
+      expect(tumu).toContain(`Görsel soru tipi: ${plan.tip} | Görev: ${plan.gorev}`);
     }
   });
 

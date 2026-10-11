@@ -1,16 +1,25 @@
 "use client";
 
-import { Copy } from "lucide-react";
+import { Clock, Copy } from "lucide-react";
 
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 
 type LessonPlanSectionState = "outline" | "loading" | "result";
 
+/** 5E aşaması için gösterilen rozetler: aşama sırası/odağı ve kesin dakika aralığı. */
+export interface LessonPlanSectionPhase {
+  badge: string;
+  focus: string;
+  timeRange?: { text: string; label: string };
+}
+
 interface LessonPlanSectionBlockProps {
   title: string;
   index?: number;
+  phase?: LessonPlanSectionPhase;
   content?: string;
   state: LessonPlanSectionState;
   editable?: boolean;
@@ -24,6 +33,7 @@ interface LessonPlanSectionBlockProps {
 export function LessonPlanSectionBlock({
   title,
   index,
+  phase,
   content,
   state,
   editable = false,
@@ -38,6 +48,7 @@ export function LessonPlanSectionBlock({
       className={cn(
         "rounded-lg border border-border/70 bg-card/60 p-3.5 transition-colors",
         state === "result" && "bg-card ring-1 ring-foreground/5",
+        phase && "border-l-2 border-l-primary/50",
         className
       )}
     >
@@ -69,6 +80,24 @@ export function LessonPlanSectionBlock({
           </Button>
         ) : null}
       </div>
+
+      {phase ? (
+        <div className={cn("mt-1.5 flex flex-wrap items-center gap-1.5", index && "pl-7")}>
+          {phase.timeRange ? (
+            <Badge
+              variant="outline"
+              className="border-primary/25 bg-primary/5 font-semibold tabular-nums text-primary"
+              aria-label={phase.timeRange.label}
+            >
+              <Clock aria-hidden="true" />
+              {phase.timeRange.text}
+            </Badge>
+          ) : null}
+          <Badge variant="secondary" className="font-normal">
+            {phase.badge} · {phase.focus}
+          </Badge>
+        </div>
+      ) : null}
 
       {state === "outline" ? <p className="mt-2 text-xs text-muted-foreground">{pendingText}</p> : null}
 

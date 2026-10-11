@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 import { buildLessonPlanPrompt } from "@/lib/ai/prompts/lesson-planner-prompt";
 import { getServerLessonPlanGenerationService } from "@/lib/ai/services/generation-service-factory";
 import { getSafeLessonPlanErrorMessage } from "@/lib/ai/services/lesson-plan-provider-error";
+import { parseCurriculumSelection, resolveCurriculumSelection } from "@/lib/curriculum/repository";
 import type { LessonPlanFormInput, LessonPlanRefinementId } from "@/types/lesson-planner";
 
 export const runtime = "nodejs";
@@ -64,6 +65,7 @@ function parseFormInput(body: unknown): LessonPlanFormInput | null {
     specialNeeds: readOptionalString(record.specialNeeds),
     additionalNotes: readOptionalString(record.additionalNotes),
     refinements,
+    curriculum: parseCurriculumSelection(record.curriculum),
   };
 }
 
@@ -96,7 +98,9 @@ export async function POST(request: Request) {
   }
 
   try {
-    const prompt = buildLessonPlanPrompt(input);
+    // Seçilen resmî çıktılar havuzdan doğrulanıp çözülür; istemciden gelen metinlere güvenilmez.
+    const curriculum = resolveCurriculumSelection(input.curriculum);
+    const prompt = buildLessonPlanPrompt(input, { curriculum });
     const service = getServerLessonPlanGenerationService();
     const plan = await service.generate(prompt);
     return NextResponse.json({ plan });

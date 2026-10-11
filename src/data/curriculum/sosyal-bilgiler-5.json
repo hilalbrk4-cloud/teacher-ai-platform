@@ -1,0 +1,1070 @@
+{
+ "id": "sosyal-bilgiler-5",
+ "subject": "Sosyal Bilgiler",
+ "subjectId": "sosyal-bilgiler",
+ "grade": 5,
+ "program": "tymm",
+ "source": {
+  "file": "sosyal_mufredat.xlsx",
+  "sheet": "5. SINIF YILLIK PLAN"
+ },
+ "units": [
+  {
+   "id": "birlikte-yasamak",
+   "name": "Birlikte Yaşamak",
+   "topics": [
+    {
+     "id": "birlikte-yasamak--gruplar-ve-roller",
+     "name": "Gruplar ve Roller",
+     "outcomeCodes": [
+      "SB.5.1.1"
+     ]
+    },
+    {
+     "id": "birlikte-yasamak--kulturel-ozelliklere-saygi-ve-birlikte-yasama-kulturu",
+     "name": "Kültürel Özelliklere Saygı ve Birlikte Yaşama Kültürü",
+     "outcomeCodes": [
+      "SB.5.1.2"
+     ]
+    },
+    {
+     "id": "birlikte-yasamak--yardimlasma-ve-dayanisma-faaliyetlerinin-toplumsal-birlige-e",
+     "name": "Yardımlaşma ve Dayanışma Faaliyetlerinin Toplumsal Birliğe Etkisi",
+     "outcomeCodes": [
+      "SB.5.1.3"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "evimiz-dunya",
+   "name": "Evimiz Dünya",
+   "topics": [
+    {
+     "id": "evimiz-dunya--yasadigi-ilin-goreceli-konumu",
+     "name": "Yaşadığı İlin Göreceli Konumu",
+     "outcomeCodes": [
+      "SB.5.2.1"
+     ]
+    },
+    {
+     "id": "evimiz-dunya--yasadigi-ilde-dogal-ve-beseri-cevredeki-degisim",
+     "name": "Yaşadığı İlde Doğal ve Beşerî Çevredeki Değişim",
+     "outcomeCodes": [
+      "SB.5.2.2"
+     ]
+    },
+    {
+     "id": "evimiz-dunya--yasadigi-ilde-meydana-gelebilecek-afetlerin-etkileri",
+     "name": "Yaşadığı İlde Meydana Gelebilecek Afetlerin Etkileri",
+     "outcomeCodes": [
+      "SB.5.2.3"
+     ]
+    },
+    {
+     "id": "evimiz-dunya--ulkemize-komsu-devletler",
+     "name": "Ülkemize Komşu Devletler",
+     "outcomeCodes": [
+      "SB.5.2.4"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ortak-mirasimiz",
+   "name": "Ortak Mirasımız",
+   "topics": [
+    {
+     "id": "ortak-mirasimiz--ortak-miras-ogeleri",
+     "name": "Ortak Miras Ögeleri",
+     "outcomeCodes": [
+      "SB.5.3.1"
+     ]
+    },
+    {
+     "id": "ortak-mirasimiz--anadolu-nun-ilk-yerlesim-yerlerinde-sosyal-hayat",
+     "name": "Anadolu’nun İlk Yerleşim Yerlerinde Sosyal Hayat",
+     "outcomeCodes": [
+      "SB.5.3.2"
+     ]
+    },
+    {
+     "id": "ortak-mirasimiz--mezopotamya-ve-anadolu-medeniyetlerinin-ortak-mirasa-katkila",
+     "name": "Mezopotamya ve Anadolu Medeniyetlerinin Ortak Mirasa Katkıları",
+     "outcomeCodes": [
+      "SB.5.3.3"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "yasayan-demokrasimiz",
+   "name": "Yaşayan Demokrasimiz",
+   "topics": [
+    {
+     "id": "yasayan-demokrasimiz--demokrasi-ve-cumhuriyet-kavraminin-temel-nitelikleri",
+     "name": "Demokrasi ve Cumhuriyet Kavramının Temel Nitelikleri",
+     "outcomeCodes": [
+      "SB.5.4.1"
+     ]
+    },
+    {
+     "id": "yasayan-demokrasimiz--etkin-vatandasin-ozellikleri-ve-onemi",
+     "name": "Etkin Vatandaşın Özellikleri ve Önemi",
+     "outcomeCodes": [
+      "SB.5.4.2"
+     ]
+    },
+    {
+     "id": "yasayan-demokrasimiz--temel-haklar-sorumluluklar-ve-onemi",
+     "name": "Temel Haklar, Sorumluluklar ve Önemi",
+     "outcomeCodes": [
+      "SB.5.4.3"
+     ]
+    },
+    {
+     "id": "yasayan-demokrasimiz--ihtiyac-durumunda-veya-sorunlarin-cozumunde-basvurulabilecek",
+     "name": "İhtiyaç Durumunda veya Sorunların Çözümünde Başvurulabilecek Kurumlar",
+     "outcomeCodes": [
+      "SB.5.4.4"
+     ]
+    },
+    {
+     "id": "yasayan-demokrasimiz--ihtiyac-durumunda-veya",
+     "name": "İhtiyaç Durumunda veya",
+     "outcomeCodes": [
+      "SB.5.4.4"
+     ]
+    },
+    {
+     "id": "yasayan-demokrasimiz--sorunlarin-cozumunde",
+     "name": "Sorunların Çözümünde",
+     "outcomeCodes": [
+      "SB.5.4.4"
+     ]
+    },
+    {
+     "id": "yasayan-demokrasimiz--basvurulabilecek-kurumlar",
+     "name": "Başvurulabilecek Kurumlar",
+     "outcomeCodes": [
+      "SB.5.4.4"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "hayatimizdaki-ekonomi",
+   "name": "Hayatımızdaki Ekonomi",
+   "topics": [
+    {
+     "id": "hayatimizdaki-ekonomi--kaynaklarin-verimli-kullanimi",
+     "name": "Kaynakların Verimli Kullanımı",
+     "outcomeCodes": [
+      "SB.5.5.1"
+     ]
+    },
+    {
+     "id": "hayatimizdaki-ekonomi--butce-olusturma",
+     "name": "Bütçe Oluşturma",
+     "outcomeCodes": [
+      "SB.5.5.2"
+     ]
+    },
+    {
+     "id": "hayatimizdaki-ekonomi--yasadigim-ildeki-ekonomik-faaliyetler",
+     "name": "Yaşadığım İldeki Ekonomik Faaliyetler",
+     "outcomeCodes": [
+      "SB.5.5.3"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "teknoloji-ve-sosyal-bilimler",
+   "name": "Teknoloji ve Sosyal Bilimler",
+   "topics": [
+    {
+     "id": "teknoloji-ve-sosyal-bilimler--teknolojik-gelismelerin-toplum-hayatina-etkileri",
+     "name": "Teknolojik Gelişmelerin Toplum Hayatına Etkileri",
+     "outcomeCodes": [
+      "SB.5.6.1"
+     ]
+    },
+    {
+     "id": "teknoloji-ve-sosyal-bilimler--teknolojik-urunlerin-bilincli-kullanimi",
+     "name": "Teknolojik Ürünlerin Bilinçli Kullanımı",
+     "outcomeCodes": [
+      "SB.5.6.2"
+     ]
+    }
+   ]
+  }
+ ],
+ "outcomes": {
+  "SB.5.1.1": {
+   "code": "SB.5.1.1",
+   "text": "Dâhil olduğu gruplar ve bu gruplardaki rolleri arasındaki ilişkileri çözümleyebilme",
+   "components": [
+    "Dâhil olduğu grupları ve bu gruplardaki rollerini belirler.",
+    "Dâhil olduğu gruplar ile bu gruplardaki rolleri arasındaki ilişkileri belirler."
+   ],
+   "sdb": [
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB2.3",
+     "label": "Sosyal Farkındalık"
+    },
+    {
+     "code": "SDB3.2",
+     "label": "Esneklik"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D15",
+     "label": "Sevgi"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D20",
+     "label": "Yardımseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB5",
+     "label": "Kültür Okuryazarlığı"
+    },
+    {
+     "code": "OB6",
+     "label": "Vatandaşlık Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Karşılaştırma tablosu, Gözlem formu, Derecelendirme ölçeği, Kontrol listesi, Anekdot kaydı, Analitik dereceli puanlama anahtarı, Çalışma yaprakları ve performans görevi"
+   ]
+  },
+  "SB.5.1.2": {
+   "code": "SB.5.1.2",
+   "text": "Kültürel özelliklere saygı duymanın birlikte yaşamaya etkisini yorumlayabilme",
+   "components": [
+    "Kültürel özelliklere saygı duymanın birlikte yaşamaya etkisini örnekler üzerinden inceler..",
+    "Kültürel özelliklere saygı duymanın birlikte yaşamaya etkisini yazılı, görsel veya dijital ürünlere dönüştürür.",
+    "Kültürel özelliklere saygı duymanın birlikte yaşamaya etkisini ifade eder.",
+    "Kültürel özelliklere saygı duymanın birlikte yaşamaya etkisini örnekler üzerinden belirler."
+   ],
+   "sdb": [
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB2.3",
+     "label": "Sosyal Farkındalık"
+    },
+    {
+     "code": "SDB3.2",
+     "label": "Esneklik"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D15",
+     "label": "Sevgi"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D20",
+     "label": "Yardımseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB5",
+     "label": "Kültür Okuryazarlığı"
+    },
+    {
+     "code": "OB6",
+     "label": "Vatandaşlık Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Karşılaştırma tablosu, Gözlem formu, Derecelendirme ölçeği, Kontrol listesi, Anekdot kaydı, Analitik dereceli puanlama anahtarı, Çalışma yaprakları ve performans görevi"
+   ]
+  },
+  "SB.5.1.3": {
+   "code": "SB.5.1.3",
+   "text": "Toplumsal birliği sürdürmeye yönelik yardımlaşma ve dayanışma faaliyetlerine katkı sağlayabilme",
+   "components": [
+    "Toplumsal birliği sürdürmeye yönelik yardımlaşma ve dayanışma faaliyetlerini sorgular.",
+    "Toplumsal birliği sürdürmeye yönelik yardımlaşma ve dayanışma faaliyetleri için sosyal temas oluşturur.",
+    "Toplumsal birliği sürdürmeye yönelik yardımlaşma ve dayanışma faaliyetleri için grup dinamiğini sağlar.",
+    "Toplumsal birliği sürdürmeye yönelik yardımlaşma ve dayanışma faaliyetleri için fikir üretir.",
+    "Toplumsal birliği sürdürmeye yönelik yardımlaşma ve dayanışma faaliyetlerine ilişkin üretilen fikirleri müzakere eder.",
+    "Toplumsal birliği sürdürmeye yönelik yardımlaşma ve dayanışma faaliyetlerine ilişkin üretilen fikri eyleme dönüştürür.",
+    "Toplumsal birliği sürdürmeye yönelik yardımlaşma ve dayanışma faaliyetleri için birlikte çalışabileceği grup üyeleriyle iletişim kurar.",
+    "Toplumsal birliği sürdürmeye yönelik yardımlaşma ve dayanışma faaliyetleri için görev paylaşımında bulunur.",
+    "Toplumsal birliği sürdürmeye yönelik yardımlaşma ve dayanışma faaliyetlerine ilişkin üretilen fikri uygulamak için eyleme geçer."
+   ],
+   "sdb": [
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB2.3",
+     "label": "Sosyal Farkındalık"
+    },
+    {
+     "code": "SDB3.2",
+     "label": "Esneklik"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D15",
+     "label": "Sevgi"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D20",
+     "label": "Yardımseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB5",
+     "label": "Kültür Okuryazarlığı"
+    },
+    {
+     "code": "OB6",
+     "label": "Vatandaşlık Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Karşılaştırma tablosu, Gözlem formu, Derecelendirme ölçeği, Kontrol listesi, Anekdot kaydı, Analitik dereceli puanlama anahtarı, Çalışma yaprakları ve performans görevi"
+   ]
+  },
+  "SB.5.2.1": {
+   "code": "SB.5.2.1",
+   "text": "Yaşadığı ilin göreceli konum özelliklerini algılayabilme",
+   "components": [
+    "Yaşadığı ilin göreceli konum özelliklerini belirler.",
+    "Yaşadığı ilin göreceli konum özelliklerini görselleştirir.",
+    "Yaşadığı ilin göreceli konum özelliklerini özetler."
+   ],
+   "sdb": [
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D5",
+     "label": "Duyarlılık"
+    },
+    {
+     "code": "D18",
+     "label": "Temizlik"
+    },
+    {
+     "code": "D19",
+     "label": "Vatanseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB8",
+     "label": "Sürdürülebilirlik Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Gözlem formu, Kontrol listesi, Derecelendirme ölçeği, Karşılaştırma tablosu, Balık kılçığı, Bütüncül dereceli puanlama anahtarı ve performans görevi"
+   ]
+  },
+  "SB.5.2.2": {
+   "code": "SB.5.2.2",
+   "text": "Yaşadığı ilde doğal ve beşerî çevredeki değişimi neden ve sonuçlarıyla yorumlayabilme",
+   "components": [
+    "Yaşadığı ilde doğal ve beşerî çevrenin değişimine neden olan unsurları inceler.",
+    "Yaşadığı ilde doğal ve beşerî çevrenin değişiminden etkilenen unsurları inceler.",
+    "Yaşadığı ilde doğal ve beşerî çevrede meydana gelen değişimin etkilerini sorgular.",
+    "Yaşadığı ilde doğal ve beşerî çevrede meydana gelen değişimin neden ve sonuçlarını elde ettiği bilgilere dayanarak ifade eder."
+   ],
+   "sdb": [
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D5",
+     "label": "Duyarlılık"
+    },
+    {
+     "code": "D18",
+     "label": "Temizlik"
+    },
+    {
+     "code": "D19",
+     "label": "Vatanseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB8",
+     "label": "Sürdürülebilirlik Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Gözlem formu, Kontrol listesi, Derecelendirme ölçeği, Karşılaştırma tablosu, Balık kılçığı, Bütüncül dereceli puanlama anahtarı ve performans görevi"
+   ]
+  },
+  "SB.5.2.3": {
+   "code": "SB.5.2.3",
+   "text": "Yaşadığı ilde meydana gelebilecek afetlerin etkilerini azaltmaya yönelik farkın dalık etkinliği fikrini eyleme dönüştürebilme",
+   "components": [
+    "Yaşadığı ilde meydana gelebilecek afetlerin etkilerini azaltmaya yönelik farkındalık etkinliği planı yapar.",
+    "Yaşadığı ilde meydana gelebilecek afetlerin etkilerini azaltmaya yönelik hazırladığı farkındalık etkinliği planını uygular.",
+    "Yaşadığı ilde meydana gelebilecek afetlerin etkilerini azaltmaya yönelik hazırladığı farkındalık etkinliği planını değerlendirir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "SB.5.2.4": {
+   "code": "SB.5.2.4",
+   "text": "Ülkemize kara sınırı olan komşu devletler hakkında bilgi toplayabilme",
+   "components": [
+    "Ülkemize kara sınırı olan komşu devletlerle ilgili bilgilere ulaşmak amacıyla kullanacağı kaynakları belirler.",
+    "Ülkemize kara sınırı olan komşu devletlerle ilgili bilgileri belirlediği kaynaklardan bulur.",
+    "Ülkemize kara sınırı olan komşu devletlerle ilgili belirlediği kaynaklardan edindiği bilgileri doğrular.",
+    "Ülkemize kara sınırı olan komşu devletlerle ilgili belirlediği kaynaklardan edindiği bilgileri kaydeder."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "SB.5.3.1": {
+   "code": "SB.5.3.1",
+   "text": "Yaşadığı ildeki ortak miras ögelerine ilişkin oluşturduğu ürünü paylaşabilme",
+   "components": [
+    "Yaşadığı ildeki somut ve somut olmayan kültürel miras ögelerinden hareketle ortak mirasın önemi hakkında çıkarım yapar.",
+    "Yapılan çıkarımlardan hareketle ortak mirasın önemini açıklayan bir ürün oluşturur.",
+    "Ortak mirasın önemi hakkında çıkarımlarına dayalı olarak oluşturduğu ürünü paylaşır."
+   ],
+   "sdb": [
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D15",
+     "label": "Sevgi"
+    },
+    {
+     "code": "D19",
+     "label": "Vatanseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB5",
+     "label": "Kültür Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Gözlem formu, Kontrol listesi, Bütüncül dereceli puanlama anahtarı, Derecelendirme ölçeği, Karşılaştırma tablosu, İnfografik ve performans görevi"
+   ]
+  },
+  "SB.5.3.2": {
+   "code": "SB.5.3.2",
+   "text": "Anadolu’da ilk yerleşimleri kuran toplumların sosyal hayatlarına yönelik bakış açısı geliştirebilme",
+   "components": [
+    "Anadolu’da ilk yerleşimleri kuran toplumların sosyal hayatlarını kaynaklardan edindiği bilgiler doğrultusunda yorumlar.",
+    "Anadolu’da ilk yerleşimleri kuran toplumların sosyal hayatlarına ilişkin tarihsel bağlam oluşturur.",
+    "Anadolu’da ilk yerleşimleri kuran toplumların sosyal hayatlarına ilişkin bakış açısını kaynaklar doğrultusunda yapılandırır.",
+    "Anadolu’da ilk yerleşimleri kuran toplumların sosyal hayatlarına ilişkin bakış açı sını kaynaklar doğrultusunda yapılandırır."
+   ],
+   "sdb": [
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D15",
+     "label": "Sevgi"
+    },
+    {
+     "code": "D19",
+     "label": "Vatanseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB5",
+     "label": "Kültür Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Gözlem formu, Kontrol listesi, Bütüncül dereceli puanlama anahtarı, Derecelendirme ölçeği, Karşılaştırma tablosu, İnfografik ve performans görevi"
+   ]
+  },
+  "SB.5.3.3": {
+   "code": "SB.5.3.3",
+   "text": "Mezopotamya ve Anadolu medeniyetlerinin ortak mirasa katkılarını karşılaştırabilme",
+   "components": [
+    "Mezopotamya ve Anadolu medeniyetlerinin ortak mirasa katkılarını belirler.",
+    "Mezopotamya ve Anadolu medeniyetlerinin ortak mirasa katkılarının benzerliklerini listeler.",
+    "Mezopotamya ve Anadolu medeniyetlerinin ortak mirasa katkılarının farklılıklarını listeler."
+   ],
+   "sdb": [
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D15",
+     "label": "Sevgi"
+    },
+    {
+     "code": "D19",
+     "label": "Vatanseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB5",
+     "label": "Kültür Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Gözlem formu, Kontrol listesi, Bütüncül dereceli puanlama anahtarı, Derecelendirme ölçeği, Karşılaştırma tablosu, İnfografik ve performans görevi"
+   ]
+  },
+  "SB.5.4.1": {
+   "code": "SB.5.4.1",
+   "text": "Demokrasi ve cumhuriyet kavramları arasındaki ilişkiyi çözümleyebilme",
+   "components": [
+    "Demokrasi ve cumhuriyet kavramlarının niteliklerini belirler.",
+    "Demokrasi ve cumhuriyet kavramları arasındaki ilişkiyi belirler."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB2.3",
+     "label": "Sosyal Farkındalık"
+    }
+   ],
+   "values": [
+    {
+     "code": "D1",
+     "label": "Adalet"
+    },
+    {
+     "code": "D5",
+     "label": "Duyarlılık"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D19",
+     "label": "Vatanseverlik"
+    },
+    {
+     "code": "D20",
+     "label": "Yardımseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB6",
+     "label": "Vatandaşlık Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Gözlem formu, Kontrol listesi, Derecelendirme ölçeği, Bütüncül dereceli puanlama anahtarı, Çalışma yaprağı Performans görevi Frayer Modeli, Kelime ilişkilendirme testi, Doğru-yanlış testleri Tanılayıcı dallanmış ağaç"
+   ]
+  },
+  "SB.5.4.2": {
+   "code": "SB.5.4.2",
+   "text": "Toplum düzenine etkisi bakımından etkin vatandaş olmanın önemine yönelik çıkarımda bulunabilme",
+   "components": [
+    "Etkin vatandaş olmanın önemine ilişkin varsayımda bulunur.",
+    "Etkin vatandaşın sahip olması gereken özellikleri listeler.",
+    "Etkin olan ve olmayan vatandaş özelliklerini karşılaştırır. ç)Etkin vatandaş davranışlarının toplum düzenine etkisine yönelik önermelerde bulunur",
+    "Etkin vatandaş olmanın önemini toplum düzeni açısından değerlendirir.",
+    "Etkin olan ve olmayan vatandaş özelliklerini karşılaştırır.",
+    "Etkin vatandaş davranışlarının toplum düzenine etkisine yönelik tahminlerde bulunur."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "SB.5.4.3": {
+   "code": "SB.5.4.3",
+   "text": "Temel insan hak ve sorumluluklarının önemini sorgulayabilme",
+   "components": [
+    "Temel insan hak ve sorumluluklarının önemine yönelik merak ettiği konuları tanımlar.",
+    "Toplumsal hayatta insan hak ve sorumluluklarının önemine yönelik sorular sorar.",
+    "Temel insan hak ve sorumluluklarının önemine ilişkin bilgi toplar.",
+    "Temel insan hak ve sorumluluklarının önemine ilişkin topladığı bilgilerin doğruluğunu değerlendirir.",
+    "Temel insan hak ve sorumluluklarının önemine ilişkin topladığı bilgiler doğrultusunda çıkarımlar yapar."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "SB.5.4.4": {
+   "code": "SB.5.4.4",
+   "text": "Bir ihtiyaç hâlinde veya sorun karşısında başvuru yapılabilecek kurumlar hakkında bilgi toplayabilme",
+   "components": [
+    "Bir ihtiyaç hâlinde veya sorun karşısında başvuru yapılabilecek kurumlar hakkında bilgi toplayabileceği kaynakları belirler.",
+    "Belirlediği kaynaklardan ihtiyaç hâlinde veya sorun karşısında başvuru yapılabilecek kurumlar hakkındaki bilgileri bulur.",
+    "Belirlediği kaynaklardan ihtiyaç hâlinde veya sorun karşısında başvuru yapılabilecek kurumlar hakkında ulaştığı bilgileri doğrular.",
+    "Belirlediği kaynaklardan ihtiyaç hâlinde veya sorun karşısında başvuru yapılabilecek kurumlar hakkında ulaştığı bilgileri kaydeder."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "SB.5.5.1": {
+   "code": "SB.5.5.1",
+   "text": "Kaynakları verimli kullanmanın doğa ve insanlar üzerindeki etkisini yorumlayabilme",
+   "components": [
+    "Kaynakları verimli kullanmanın doğa ve insanlar üzerindeki etkisini farklı kaynaklar üzerinden inceler.",
+    "Kaynakları verimli kullanmanın doğa ve insanlar üzerindeki etkilerine ilişkin bilgileri bağlamdan kopmadan dönüştürür.",
+    "Kaynakları verimli kullanmanın doğa ve insanlar üzerindeki etkisini nesnel, doğru ve anlamı değiştirmeyecek şekilde yeniden ifade eder."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    }
+   ],
+   "values": [
+    {
+     "code": "D17",
+     "label": "Tasarruf"
+    },
+    {
+     "code": "D19",
+     "label": "Vatanseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB3",
+     "label": "Finansal Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB8",
+     "label": "Sürdürülebilirlik Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Gözlem formu, Anekdot kaydı, Kontrol listesi, Bütüncül dereceli puanlama anahtarı, Derecelendirme ölçeği, Öz değerlendirme formu, Sınıflama tablosu, Kavram ağı Performans görevi"
+   ]
+  },
+  "SB.5.5.2": {
+   "code": "SB.5.5.2",
+   "text": "İhtiyaç ve isteklerini karşılamak için gerekli bütçe kaynaklarını yönetebilme",
+   "components": [
+    "İhtiyaç ve isteklerini karşılamaya yönelik bütçe için gerekli olan kaynakları belirler.",
+    "İhtiyaç ve isteklerini karşılamaya yönelik bütçe için gerekli olan kaynakları temin etme ve etkin kullanmaya ilişkin bir taslak oluşturur."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    }
+   ],
+   "values": [
+    {
+     "code": "D17",
+     "label": "Tasarruf"
+    },
+    {
+     "code": "D19",
+     "label": "Vatanseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB3",
+     "label": "Finansal Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB8",
+     "label": "Sürdürülebilirlik Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Gözlem formu, Anekdot kaydı, Kontrol listesi, Bütüncül dereceli puanlama anahtarı, Derecelendirme ölçeği, Öz değerlendirme formu, Sınıflama tablosu, Kavram ağı Performans görevi"
+   ]
+  },
+  "SB.5.5.3": {
+   "code": "SB.5.5.3",
+   "text": "Yaşadığı ildeki ekonomik faaliyetleri özetleyebilme",
+   "components": [
+    "Yaşadığı ildeki ekonomik faaliyetleri çözümler.",
+    "Yaşadığı ildeki ekonomik faaliyetleri alanlarına göre sınıﬂandırır.",
+    "Yaşadığı ildeki ekonomik faaliyetleri yorumlar."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "SB.5.6.1": {
+   "code": "SB.5.6.1",
+   "text": "Teknolojik gelişmelerin toplum hayatına etkilerini tartışabilme",
+   "components": [
+    "Teknolojik gelişmelerin toplum hayatına etkileri hakkında mantıksal temellendirmeler yapar.",
+    "Teknolojik gelişmelerin toplum hayatına etkileri üzerindeki tartışmalarda tutarsızlıkları tespit eder.",
+    "Teknolojik gelişmelerin toplum hayatına etkilerine yönelik görüşleri çürütür veya kabul eder."
+   ],
+   "sdb": [
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D8",
+     "label": "Mahremiyet"
+    },
+    {
+     "code": "D11",
+     "label": "Özgürlük"
+    },
+    {
+     "code": "D17",
+     "label": "Tasarruf"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    }
+   ],
+   "assessment": [
+    "Kısa veya uzun cevaplı maddeler içeren çalışma yaprakları Bütüncül dereceli puanlama anahtarı Performans görevi"
+   ]
+  },
+  "SB.5.6.2": {
+   "code": "SB.5.6.2",
+   "text": "Teknolojik ürünlerin bilinçli kullanımının önemine ilişkin oluşturduğu ürünü paylaşabilme",
+   "components": [
+    "Teknolojik ürünlerin bilinçli kullanımının önemine ilişkin kanıtlara dayalı çıkarımda bulunur.",
+    "Teknolojik ürünlerin bilinçli kullanımının önemine ilişkin kendi çıkarımlarına dayalı ürün oluşturur.",
+    "Teknolojik ürünlerin bilinçli kullanımının önemine ilişkin oluşturulan ürünleri paylaşır."
+   ],
+   "sdb": [
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D8",
+     "label": "Mahremiyet"
+    },
+    {
+     "code": "D11",
+     "label": "Özgürlük"
+    },
+    {
+     "code": "D17",
+     "label": "Tasarruf"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    }
+   ],
+   "assessment": [
+    "Kısa veya uzun cevaplı maddeler içeren çalışma yaprakları Bütüncül dereceli puanlama anahtarı Performans görevi"
+   ]
+  }
+ }
+}

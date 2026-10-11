@@ -1,0 +1,3002 @@
+{
+ "id": "fen-bilimleri-7",
+ "subject": "Fen Bilimleri",
+ "subjectId": "fen-bilimleri",
+ "grade": 7,
+ "program": "tymm",
+ "source": {
+  "file": "FEN BİLİMLERİ  (3-8. SINIFLAR) TASLAK ÇERÇEVE YILLIK PLAN+++.xlsx",
+  "sheet": "FEN BİLİMLERİ 7 (TYMM)"
+ },
+ "units": [
+  {
+   "id": "uzay-cagi",
+   "name": "Uzay Çağı",
+   "topics": [
+    {
+     "id": "uzay-cagi--turkiye-ve-uzay-arastirmalari",
+     "name": "Türkiye ve Uzay Araştırmaları",
+     "outcomeCodes": [
+      "FB.7.1.1",
+      "FB.7.1.2",
+      "FB.7.1.3"
+     ]
+    },
+    {
+     "id": "uzay-cagi--uzayda-neler-var",
+     "name": "Uzayda Neler Var?",
+     "outcomeCodes": [
+      "FB.7.1.4",
+      "FB.7.1.5"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "kuvvet-ve-enerjiyi-kesfedelim",
+   "name": "Kuvvet ve Enerjiyi Keşfedelim",
+   "topics": [
+    {
+     "id": "kuvvet-ve-enerjiyi-kesfedelim--kuvvet-is-ve-enerji-iliskisi",
+     "name": "Kuvvet, İş ve Enerji İlişkisi",
+     "outcomeCodes": [
+      "FB.7.2.1",
+      "FB.7.2.2",
+      "FB.7.2.3"
+     ]
+    },
+    {
+     "id": "kuvvet-ve-enerjiyi-kesfedelim--enerji-donusumleri",
+     "name": "Enerji Dönüşümleri",
+     "outcomeCodes": [
+      "FB.7.2.2",
+      "FB.7.2.3"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "vucudumuzdaki-sistemler",
+   "name": "Vücudumuzdaki Sistemler",
+   "topics": [
+    {
+     "id": "vucudumuzdaki-sistemler--sindirim-sistemi",
+     "name": "Sindirim Sistemi",
+     "outcomeCodes": [
+      "FB.7.3.1",
+      "FB.7.3.2"
+     ]
+    },
+    {
+     "id": "vucudumuzdaki-sistemler--dolasim-sistemi",
+     "name": "Dolaşım Sistemi",
+     "outcomeCodes": [
+      "FB.7.3.3",
+      "FB.7.3.4",
+      "FB.7.3.5",
+      "FB.7.3.6"
+     ]
+    },
+    {
+     "id": "vucudumuzdaki-sistemler--solunum-sistemi",
+     "name": "Solunum Sistemi",
+     "outcomeCodes": [
+      "FB.7.3.5",
+      "FB.7.3.6",
+      "FB.7.3.7",
+      "FB.7.3.8"
+     ]
+    },
+    {
+     "id": "vucudumuzdaki-sistemler--bosaltim-sistemi",
+     "name": "Boşaltım Sistemi",
+     "outcomeCodes": [
+      "FB.7.3.7",
+      "FB.7.3.8",
+      "FB.7.3.9"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "isigin-kirilmasi-ve-mercekler",
+   "name": "Işığın Kırılması ve Mercekler",
+   "topics": [
+    {
+     "id": "isigin-kirilmasi-ve-mercekler--isigin-kirilmasi",
+     "name": "Işığın Kırılması",
+     "outcomeCodes": [
+      "FB.7.4.1"
+     ]
+    },
+    {
+     "id": "isigin-kirilmasi-ve-mercekler--mercekler",
+     "name": "Mercekler",
+     "outcomeCodes": [
+      "FB.7.4.2",
+      "FB.7.4.3"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "maddenin-dogasina-yolculuk",
+   "name": "Maddenin Doğasına Yolculuk",
+   "topics": [
+    {
+     "id": "maddenin-dogasina-yolculuk--maddenin-tanecikli-yapisi",
+     "name": "Maddenin Tanecikli Yapısı",
+     "outcomeCodes": [
+      "FB.7.5.1",
+      "FB.7.5.2",
+      "FB.7.5.3",
+      "FB.7.5.4"
+     ]
+    },
+    {
+     "id": "maddenin-dogasina-yolculuk--saf-maddeler",
+     "name": "Saf Maddeler",
+     "outcomeCodes": [
+      "FB.7.5.3",
+      "FB.7.5.4",
+      "FB.7.5.5",
+      "FB.7.5.6",
+      "FB.7.5.7"
+     ]
+    },
+    {
+     "id": "maddenin-dogasina-yolculuk--karisimlar",
+     "name": "Karışımlar",
+     "outcomeCodes": [
+      "FB.7.5.8",
+      "FB.7.5.9"
+     ]
+    },
+    {
+     "id": "maddenin-dogasina-yolculuk--karisimlarin-ayrilmasi",
+     "name": "Karışımların Ayrılması",
+     "outcomeCodes": [
+      "FB.7.5.10"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "elektriklenme",
+   "name": "Elektriklenme",
+   "topics": [
+    {
+     "id": "elektriklenme--elektrik-yukleri-ve-elektriklenme",
+     "name": "Elektrik Yükleri ve Elektriklenme",
+     "outcomeCodes": [
+      "FB.7.6.1",
+      "FB.7.6.2",
+      "FB.7.6.3"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "surdurulebilir-yasam-ve-enerji",
+   "name": "Sürdürülebilir Yaşam ve Enerji",
+   "topics": [
+    {
+     "id": "surdurulebilir-yasam-ve-enerji--besin-zinciri-ve-enerji-akisi",
+     "name": "Besin Zinciri ve Enerji Akışı",
+     "outcomeCodes": [
+      "FB.7.7.1",
+      "FB.7.7.2"
+     ]
+    },
+    {
+     "id": "surdurulebilir-yasam-ve-enerji--surdurulebilir-yasam",
+     "name": "Sürdürülebilir Yaşam",
+     "outcomeCodes": [
+      "FB.7.7.1",
+      "FB.7.7.2"
+     ]
+    }
+   ]
+  }
+ ],
+ "outcomes": {
+  "FB.7.1.1": {
+   "code": "FB.7.1.1",
+   "text": "Uzay araştırmaları için geliştirilen teknolojileri karşılaştırabilme",
+   "components": [
+    "Uzay araştırmaları için geliştirilen teknolojilerin özelliklerini belirler.",
+    "Uzay araştırmaları için geliştirilen teknolojilerin özelliklerine göre benzerliklerini listeler.",
+    "Uzay araştırmaları için geliştirilen teknolojilerin özelliklerine göre farklılıklarını listeler."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.1",
+     "label": "Kendini Tanıma (Öz Farkındalık)"
+    },
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D19",
+     "label": "Vatanseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB7",
+     "label": "Veri Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Öğrenme çıktılarının değerlendirilmesinde eşleştirme testleri, yapılandırılmış grid, tanılayıcı dallanmış ağaç, çalışma kâğıdı, kısa cevaplı testler vb. kullanılabilir. Ayrıca ünite sürecinde ortaya çıkan öğrenci ürünleri değerlendirme amaçlı kullanılabilir."
+   ]
+  },
+  "FB.7.1.2": {
+   "code": "FB.7.1.2",
+   "text": "Uzay gözlem araçları ile ilgili bilimsel model oluşturabilme",
+   "components": [
+    "Uzay gözlem araçları ile ilgili model önerir.",
+    "Uzay gözlem araçları ile ilgili hazırladığı modeli yeni kanıtlara göre yeniler."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.1",
+     "label": "Kendini Tanıma (Öz Farkındalık)"
+    },
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D19",
+     "label": "Vatanseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB7",
+     "label": "Veri Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Uzay gözlem araçları ile ilgili model yapımı performans görevi verilebilir. Bu görevin değerlendirilmesi için analitik dereceli puanlama anahtarı kullanılabilir. Uzay araştırmalarının yol açabileceği problem durumu, çözüm önerileri ve çözüme yönelik değerlendirmeyi içeren rapor hazırlama performans görevi verilebilir. Bu görev, analitik dereceli puanlama anahtarı ile değerlendirilebilir."
+   ]
+  },
+  "FB.7.1.3": {
+   "code": "FB.7.1.3",
+   "text": "Uzay araştırmalarının yol açabileceği problemleri çözebilme",
+   "components": [
+    "Uzay araştırmalarının yol açabileceği problemleri yapılandırır.",
+    "Uzay araştırmalarının yol açabileceği problemleri özetler.",
+    "Uzay araştırmalarının yol açabileceği problemlerin çözümüne yönelik veriye dayalı tahminde bulunur.",
+    "Uzay araştırmalarının yol açabileceği problemlerin çözümüne yönelik önermeler üzerinden akıl yürütür.",
+    "Uzay araştırmalarının yol açabileceği problemlerin çözümüne ilişkin değerlendirmede bulunur."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.1",
+     "label": "Kendini Tanıma (Öz Farkındalık)"
+    },
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D19",
+     "label": "Vatanseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB7",
+     "label": "Veri Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Uzay gözlem araçları ile ilgili model yapımı performans görevi verilebilir. Bu görevin değerlendirilmesi için analitik dereceli puanlama anahtarı kullanılabilir. Uzay araştırmalarının yol açabileceği problem durumu, çözüm önerileri ve çözüme yönelik değerlendirmeyi içeren rapor hazırlama performans görevi verilebilir. Bu görev, analitik dereceli puanlama anahtarı ile değerlendirilebilir."
+   ]
+  },
+  "FB.7.1.4": {
+   "code": "FB.7.1.4",
+   "text": "Yıldızların yaşamını açıklayarak yapılandırabilme",
+   "components": [
+    "Yıldızların yaşamını inceleyerek hiyerarşik ilişkileri ortaya koyar.",
+    "Yıldızların yaşamı ile ilgili elde ettiği ilişkilere dayalı unsurlardan uyumlu bir bütün oluşturur."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.1",
+     "label": "Kendini Tanıma (Öz Farkındalık)"
+    },
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D19",
+     "label": "Vatanseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB7",
+     "label": "Veri Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Yıldız yaşam süreci ile ilgili afiş, poster hazırlama süreci görevi verilebilir. Bu görev, analitik dereceli puanlama anahtarı ile değerlendirilebilir."
+   ]
+  },
+  "FB.7.1.5": {
+   "code": "FB.7.1.5",
+   "text": "Yıldız, galaksi ve evren kavramlarını açıklayarak yapılandırabilme",
+   "components": [
+    "Yıldız, galaksi ve evren kavramlarını inceleyerek hiyerarşik ilişkileri ortaya koyar.",
+    "Yıldız, galaksi ve evren kavramları ile ilgili elde ettiği ilişkilere dayalı unsurlardan uyumlu bir bütün oluşturur."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.1",
+     "label": "Kendini Tanıma (Öz Farkındalık)"
+    },
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D19",
+     "label": "Vatanseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB7",
+     "label": "Veri Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Öğrenme çıktılarının değerlendirilmesinde eşleştirme testleri, yapılandırılmış grid, tanılayıcı dallanmış ağaç, çalışma kâğıdı, kısa cevaplı testler vb. kullanılabilir. Ayrıca ünite sürecinde ortaya çıkan öğrenci ürünleri değerlendirme amaçlı kullanılabilir."
+   ]
+  },
+  "FB.7.2.1": {
+   "code": "FB.7.2.1",
+   "text": "Fiziksel anlamda yapılan işin bağlı olduğu faktörlere ilişkin bilimsel çıkarım yapabilme",
+   "components": [
+    "Fiziksel anlamda yapılan işin niteliklerini tanımlar.",
+    "Fiziksel anlamda yapılan işin farklı örneklerini gözlemleyerek verileri toplar ve kaydeder.",
+    "Fiziksel anlamda yapılan işin kuvvet ve yer değiştirmeye bağlı olduğunu yorumlar ve değerlendirir."
+   ],
+   "sdb": [
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    }
+   ],
+   "values": [
+    {
+     "code": "D1",
+     "label": "Adalet"
+    },
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB7",
+     "label": "Veri Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Öğrenme çıktılarının değerlendirilmesinde çalışma kâğıdı, eşleştirme testi ve performans görevi kullanılabilir. Ayrıca ünite sürecinde ortaya çıkan öğrenci ürünleri değerlendirme amaçlı kullanılabilir."
+   ]
+  },
+  "FB.7.2.2": {
+   "code": "FB.7.2.2",
+   "text": "Enerji çeşitlerinden kinetik ve potansiyel enerjiyi karşılaştırabilme",
+   "components": [
+    "Kinetik ve potansiyel enerjinin özelliklerini belirler.",
+    "Kinetik ve potansiyel enerjinin benzer özelliklerini listeler.",
+    "Kinetik ve potansiyel enerjinin farklı özelliklerini listeler."
+   ],
+   "sdb": [
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    }
+   ],
+   "values": [
+    {
+     "code": "D1",
+     "label": "Adalet"
+    },
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB7",
+     "label": "Veri Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Öğrenme çıktılarının değerlendirilmesinde çalışma kâğıdı, eşleştirme testi ve performans görevi kullanılabilir. Ayrıca ünite sürecinde ortaya çıkan öğrenci ürünleri değerlendirme amaçlı kullanılabilir."
+   ]
+  },
+  "FB.7.2.3": {
+   "code": "FB.7.2.3",
+   "text": "Enerji dönüşümünden hareketle enerjinin korunduğuna yönelik tümevarımsal akıl yürütebilme",
+   "components": [
+    "Kinetik ve potansiyel enerjinin birbirine dönüşümüne yönelik örüntü bulur.",
+    "Enerjinin korunumuna yönelik genelleme yapar."
+   ],
+   "sdb": [
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    }
+   ],
+   "values": [
+    {
+     "code": "D1",
+     "label": "Adalet"
+    },
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB7",
+     "label": "Veri Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Öğrenme çıktılarının değerlendirilmesinde çalışma kâğıdı, eşleştirme testi ve performans görevi kullanılabilir. Ayrıca ünite sürecinde ortaya çıkan öğrenci ürünleri değerlendirme amaçlı kullanılabilir.",
+    "Performans görevi olarak kinetik ve potansiyel enerjinin birbirine dönüştürülmesine ilişkin balık kılçığı diyagramı hazırlamaları öğrencilerden istenebilir. Bu performans görevi analitik dereceli puanlama anahtarı yoluyla değerlendirilebilir. Ayrıca öz, akran ve grup değerlendirme formları ile ölçme araçlarında çeşitlilik sağlanabilir."
+   ]
+  },
+  "FB.7.3.1": {
+   "code": "FB.7.3.1",
+   "text": "Sindirim sistemini oluşturan yapı ve organların görevlerini model üzerinde bilimsel olarak gözlemleyebilme",
+   "components": [
+    "Sindirim sistemini oluşturan yapı ve organların niteliklerini tanımlar.",
+    "Sindirim sistemini oluşturan yapı ve organları model üzerinde inceleyerek gözlem verilerini kaydeder.",
+    "Sindirim sistemini oluşturan yapı ve organların görevlerini açıklar."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB2.3",
+     "label": "Sosyal Farkındalık"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D1",
+     "label": "Adalet"
+    },
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D5",
+     "label": "Duyarlılık"
+    },
+    {
+     "code": "D6",
+     "label": "Dürüstlük"
+    },
+    {
+     "code": "D13",
+     "label": "Sağlıklı Yaşam"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D17",
+     "label": "Tasarruf"
+    },
+    {
+     "code": "D20",
+     "label": "Yardımseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB6",
+     "label": "Vatandaşlık Okuryazarlığı"
+    },
+    {
+     "code": "OB7",
+     "label": "Veri Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Öğrenme çıktılarının değerlendirilmesinde eşleştirme testi, tanılayıcı dallanmış ağaç, çalışma kâğıdı, yapılandırılmış grid, açık uçlu sorular, boşluk doldurma testi, anlam çözümleme tablosu ve performans görevleri kullanılabilir. Ayrıca ünite sürecinde ortaya çıkan öğrenci ürünleri, bir ürün dosyasında toplanarak değerlendirme amaçlı kullanılabilir. Yeniden kullanılabilir malzemelerle sindirim sistemini oluşturan yapı ve organları ile bu yapı ve organların özelliklerini tanıtacakları poster hazırlama performans görevi verilebilir. Bu görev, analitik dereceli puanlama anahtarıyla değerlendirilebilir.",
+    "Sindirim sisteminin sağlığı konusunda yapılması gerekenlere ilişkin poster, afiş, resim, rapor vb. hazırlama performans görevi verilebilir. Bu görev, analitik dereceli puanlama anahtarıyla değerlendirilebilir."
+   ]
+  },
+  "FB.7.3.2": {
+   "code": "FB.7.3.2",
+   "text": "Sindirim sisteminin sağlığı için yapılması gerekenler konusunda bilgi toplayabilme",
+   "components": [
+    "Sindirim sisteminin sağlığı ile ilgili bilgiye ulaşmak için kullanacağı araçları belirler.",
+    "Belirlediği araçları kullanarak sindirim sisteminin sağlığı hakkında bilgiler bulur.",
+    "Sindirim sisteminin sağlığı hakkında bulduğu bilgileri doğrular.",
+    "Sindirim sisteminin sağlığı hakkında bulduğu bilgileri kaydeder."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB2.3",
+     "label": "Sosyal Farkındalık"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D1",
+     "label": "Adalet"
+    },
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D5",
+     "label": "Duyarlılık"
+    },
+    {
+     "code": "D6",
+     "label": "Dürüstlük"
+    },
+    {
+     "code": "D13",
+     "label": "Sağlıklı Yaşam"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D17",
+     "label": "Tasarruf"
+    },
+    {
+     "code": "D20",
+     "label": "Yardımseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB6",
+     "label": "Vatandaşlık Okuryazarlığı"
+    },
+    {
+     "code": "OB7",
+     "label": "Veri Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Sindirim sisteminin sağlığı konusunda yapılması gerekenlere ilişkin poster, afiş, resim, rapor vb. hazırlama performans görevi verilebilir. Bu görev, analitik dereceli puanlama anahtarıyla değerlendirilebilir."
+   ]
+  },
+  "FB.7.3.3": {
+   "code": "FB.7.3.3",
+   "text": "Dolaşım sistemini oluşturan yapı ve organların görevlerini model üzerinde bilimsel olarak gözlemleyebilme",
+   "components": [
+    "Dolaşım sistemini oluşturan yapı ve organların niteliklerini tanımlar.",
+    "Dolaşım sistemini oluşturan yapı ve organları model üzerinde inceleyerek gözlem verilerini kaydeder.",
+    "Dolaşım sistemini oluşturan yapı ve organların görevlerini açıklar."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB2.3",
+     "label": "Sosyal Farkındalık"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D1",
+     "label": "Adalet"
+    },
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D5",
+     "label": "Duyarlılık"
+    },
+    {
+     "code": "D6",
+     "label": "Dürüstlük"
+    },
+    {
+     "code": "D13",
+     "label": "Sağlıklı Yaşam"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D17",
+     "label": "Tasarruf"
+    },
+    {
+     "code": "D20",
+     "label": "Yardımseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB6",
+     "label": "Vatandaşlık Okuryazarlığı"
+    },
+    {
+     "code": "OB7",
+     "label": "Veri Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Öğrenme çıktılarının değerlendirilmesinde eşleştirme testi, tanılayıcı dallanmış ağaç, çalışma kâğıdı, yapılandırılmış grid, açık uçlu sorular, boşluk doldurma testi, anlam çözümleme tablosu ve performans görevleri kullanılabilir. Ayrıca ünite sürecinde ortaya çıkan öğrenci ürünleri, bir ürün dosyasında toplanarak değerlendirme amaçlı kullanılabilir.",
+    "Öğrencilerin dolaşım sisteminin sağlığı için yapılması gerekenleri açıkladıkları bir poster, afiş, resim, rapor vb. hazırlama ve sunmayı içeren performans görevi verilebilir. Bu görev ve süreci analitik dereceli puanlama anahtarıyla değerlendirilebilir. Solunum sistemi maketi hazırlama performans görevi verilebilir. Bu görev, analitik dereceli puanlama anahtarıyla değerlendirilebilir."
+   ]
+  },
+  "FB.7.3.4": {
+   "code": "FB.7.3.4",
+   "text": "Kan bağışının toplumsal dayanışma açısından önemini tartışabilme",
+   "components": [
+    "Kan bağışının toplumsal dayanışma açısından önemine yönelik mantıksal temellendirme yapar.",
+    "Kan bağışının toplumsal dayanışma açısından önemine yönelik mantıksal çelişkileri tespit eder.",
+    "Kan bağışının toplumsal dayanışma açısından önemi konusunda geçerli fikirler oluşturur."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB2.3",
+     "label": "Sosyal Farkındalık"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D1",
+     "label": "Adalet"
+    },
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D5",
+     "label": "Duyarlılık"
+    },
+    {
+     "code": "D6",
+     "label": "Dürüstlük"
+    },
+    {
+     "code": "D13",
+     "label": "Sağlıklı Yaşam"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D17",
+     "label": "Tasarruf"
+    },
+    {
+     "code": "D20",
+     "label": "Yardımseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB6",
+     "label": "Vatandaşlık Okuryazarlığı"
+    },
+    {
+     "code": "OB7",
+     "label": "Veri Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Öğrencilerin dolaşım sisteminin sağlığı için yapılması gerekenleri açıkladıkları bir poster, afiş, resim, rapor vb. hazırlama ve sunmayı içeren performans görevi verilebilir. Bu görev ve süreci analitik dereceli puanlama anahtarıyla değerlendirilebilir. Solunum sistemi maketi hazırlama performans görevi verilebilir. Bu görev, analitik dereceli puanlama anahtarıyla değerlendirilebilir."
+   ]
+  },
+  "FB.7.3.5": {
+   "code": "FB.7.3.5",
+   "text": "Dolaşım sisteminin sağlığı için yapılması gerekenler konusunda bilgi toplayabilme",
+   "components": [
+    "Dolaşım sisteminin sağlığı ile ilgili bilgiye ulaşmak için kullanacağı araçları belirler.",
+    "Belirlediği aracı kullanarak dolaşım sisteminin sağlığı hakkında bilgiler bulur.",
+    "Dolaşım sisteminin sağlığı hakkında bulduğu bilgileri doğrular.",
+    "Dolaşım sisteminin sağlığı hakkında bulduğu bilgileri kaydeder."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB2.3",
+     "label": "Sosyal Farkındalık"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D1",
+     "label": "Adalet"
+    },
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D5",
+     "label": "Duyarlılık"
+    },
+    {
+     "code": "D6",
+     "label": "Dürüstlük"
+    },
+    {
+     "code": "D13",
+     "label": "Sağlıklı Yaşam"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D17",
+     "label": "Tasarruf"
+    },
+    {
+     "code": "D20",
+     "label": "Yardımseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB6",
+     "label": "Vatandaşlık Okuryazarlığı"
+    },
+    {
+     "code": "OB7",
+     "label": "Veri Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Öğrencilerin dolaşım sisteminin sağlığı için yapılması gerekenleri açıkladıkları bir poster, afiş, resim, rapor vb. hazırlama ve sunmayı içeren performans görevi verilebilir. Bu görev ve süreci analitik dereceli puanlama anahtarıyla değerlendirilebilir. Solunum sistemi maketi hazırlama performans görevi verilebilir. Bu görev, analitik dereceli puanlama anahtarıyla değerlendirilebilir."
+   ]
+  },
+  "FB.7.3.6": {
+   "code": "FB.7.3.6",
+   "text": "Solunum sistemini oluşturan yapı ve organların görevlerini model üzerinde bilimsel olarak gözlemleyebilme",
+   "components": [
+    "Solunum sistemini oluşturan yapı ve organların niteliklerini tanımlar.",
+    "Solunum sistemini oluşturan yapı ve organları model üzerinde inceleyerek gözlem verilerini kaydeder."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB2.3",
+     "label": "Sosyal Farkındalık"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D1",
+     "label": "Adalet"
+    },
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D5",
+     "label": "Duyarlılık"
+    },
+    {
+     "code": "D6",
+     "label": "Dürüstlük"
+    },
+    {
+     "code": "D13",
+     "label": "Sağlıklı Yaşam"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D17",
+     "label": "Tasarruf"
+    },
+    {
+     "code": "D20",
+     "label": "Yardımseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB6",
+     "label": "Vatandaşlık Okuryazarlığı"
+    },
+    {
+     "code": "OB7",
+     "label": "Veri Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Öğrencilerin dolaşım sisteminin sağlığı için yapılması gerekenleri açıkladıkları bir poster, afiş, resim, rapor vb. hazırlama ve sunmayı içeren performans görevi verilebilir. Bu görev ve süreci analitik dereceli puanlama anahtarıyla değerlendirilebilir. Solunum sistemi maketi hazırlama performans görevi verilebilir. Bu görev, analitik dereceli puanlama anahtarıyla değerlendirilebilir.",
+    "Solunum sistemi maketi hazırlama performans görevi verilebilir. Bu görev, analitik dereceli puanlama anahtarıyla değerlendirilebilir. Solunum sisteminin sağlığı konusunda yapılması gerekenlere ilişkin poster, afiş, resim, rapor vb. hazırlama performans görevi verilebilir. Süreç kontrol listesi, öz/akran değerlendirme formları vb. değerlendirilebilir."
+   ]
+  },
+  "FB.7.3.7": {
+   "code": "FB.7.3.7",
+   "text": "Solunum sisteminin sağlığı için yapılması gerekenler konusunda bilgi toplayabilme",
+   "components": [
+    "Solunum sisteminin sağlığı ile ilgili bilgiye ulaşmak için kullanacağı araçları belirler.",
+    "Belirlediği aracı kullanarak solunum sisteminin sağlığı hakkında bilgiler bulur.",
+    "Solunum sisteminin sağlığı hakkında bulduğu bilgileri doğrular.",
+    "Solunum sisteminin sağlığı hakkında bulduğu bilgileri kaydeder."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB2.3",
+     "label": "Sosyal Farkındalık"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D1",
+     "label": "Adalet"
+    },
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D5",
+     "label": "Duyarlılık"
+    },
+    {
+     "code": "D6",
+     "label": "Dürüstlük"
+    },
+    {
+     "code": "D13",
+     "label": "Sağlıklı Yaşam"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D17",
+     "label": "Tasarruf"
+    },
+    {
+     "code": "D20",
+     "label": "Yardımseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB6",
+     "label": "Vatandaşlık Okuryazarlığı"
+    },
+    {
+     "code": "OB7",
+     "label": "Veri Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Solunum sistemi maketi hazırlama performans görevi verilebilir. Bu görev, analitik dereceli puanlama anahtarıyla değerlendirilebilir. Solunum sisteminin sağlığı konusunda yapılması gerekenlere ilişkin poster, afiş, resim, rapor vb. hazırlama performans görevi verilebilir. Süreç kontrol listesi, öz/akran değerlendirme formları vb. değerlendirilebilir."
+   ]
+  },
+  "FB.7.3.8": {
+   "code": "FB.7.3.8",
+   "text": "Boşaltım sistemini oluşturan yapı ve organları model üzerinde bilimsel olarak gözlemleyebilme",
+   "components": [
+    "Boşaltım sistemini oluşturan yapı ve organların niteliklerini tanımlar.",
+    "Boşaltım sistemini oluşturan yapı ve organları model üzerinde inceleyerek gözlem verilerini kaydeder.",
+    "Boşaltım sistemini oluşturan yapı ve organların özelliklerini açıklar."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB2.3",
+     "label": "Sosyal Farkındalık"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D1",
+     "label": "Adalet"
+    },
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D5",
+     "label": "Duyarlılık"
+    },
+    {
+     "code": "D6",
+     "label": "Dürüstlük"
+    },
+    {
+     "code": "D13",
+     "label": "Sağlıklı Yaşam"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D17",
+     "label": "Tasarruf"
+    },
+    {
+     "code": "D20",
+     "label": "Yardımseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB6",
+     "label": "Vatandaşlık Okuryazarlığı"
+    },
+    {
+     "code": "OB7",
+     "label": "Veri Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Solunum sistemi maketi hazırlama performans görevi verilebilir. Bu görev, analitik dereceli puanlama anahtarıyla değerlendirilebilir. Solunum sisteminin sağlığı konusunda yapılması gerekenlere ilişkin poster, afiş, resim, rapor vb. hazırlama performans görevi verilebilir. Süreç kontrol listesi, öz/akran değerlendirme formları vb. değerlendirilebilir.",
+    "Boşaltım sisteminin sağlığı konusunda yapılması gerekenlere ilişkin poster, afiş, resim, rapor vb. hazırlamayı içeren performans görevi verilebilir. Bu performans görevini değerlendirmek için analitik dereceli puanlama anahtarı kullanılabilir."
+   ]
+  },
+  "FB.7.3.9": {
+   "code": "FB.7.3.9",
+   "text": "Boşaltım sisteminin sağlığı için yapılması gerekenler konusunda bilgi toplayabilme",
+   "components": [
+    "Boşaltım sisteminin sağlığı ile ilgili bilgiye ulaşmak için kullanacağı araçları belirler.",
+    "Belirlediği aracı kullanarak boşaltım sisteminin sağlığı hakkında bilgiler bulur.",
+    "Boşaltım sisteminin sağlığı hakkında bulduğu bilgileri doğrular.",
+    "Boşaltım sisteminin sağlığı hakkında ulaştığı bilgileri kaydeder."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB2.3",
+     "label": "Sosyal Farkındalık"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D1",
+     "label": "Adalet"
+    },
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D5",
+     "label": "Duyarlılık"
+    },
+    {
+     "code": "D6",
+     "label": "Dürüstlük"
+    },
+    {
+     "code": "D13",
+     "label": "Sağlıklı Yaşam"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D17",
+     "label": "Tasarruf"
+    },
+    {
+     "code": "D20",
+     "label": "Yardımseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB6",
+     "label": "Vatandaşlık Okuryazarlığı"
+    },
+    {
+     "code": "OB7",
+     "label": "Veri Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Boşaltım sisteminin sağlığı konusunda yapılması gerekenlere ilişkin poster, afiş, resim, rapor vb. hazırlamayı içeren performans görevi verilebilir. Bu performans görevini değerlendirmek için analitik dereceli puanlama anahtarı kullanılabilir."
+   ]
+  },
+  "FB.7.4.1": {
+   "code": "FB.7.4.1",
+   "text": "Ortam değiştiren ışığın izlediği yolu gözlemleyerek kırılma olayına yönelik bilimsel çıkarım yapabilme",
+   "components": [
+    "Işık ışınlarının kırılmasına yönelik nitelikleri tanımlar.",
+    "Farklı yoğunluklara sahip ortamlarda ışığın kırılmasına yönelik verileri toplayarak kaydeder.",
+    "Az yoğun ortamda ve çok yoğun ortamda ışığın izlediği yolları yorumlar ve değerlendirir."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB2.3",
+     "label": "Sosyal Farkındalık"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D14",
+     "label": "Saygı"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D19",
+     "label": "Vatanseverlik"
+    },
+    {
+     "code": "D20",
+     "label": "Yardımseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB5",
+     "label": "Kültür Okuryazarlığı"
+    },
+    {
+     "code": "OB7",
+     "label": "Veri Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Öğrenme çıktılarının değerlendirilmesinde tanılayıcı dallanmış ağaç, görsel tamamlamayı içeren çalışma kâğıdı, yapılandırılmış grid, doğru-yanlış testleri, kısa cevaplı sorular, açık uçlu sorular, eşleştirme testleri ve performans görevi kullanılabilir. Ayrıca ünite sürecinde ortaya çıkan öğrenci ürünleri, bir ürün dosyasında toplanarak değerlendirme amaçlı kullanılabilir."
+   ]
+  },
+  "FB.7.4.2": {
+   "code": "FB.7.4.2",
+   "text": "Mercek çeşitlerine yönelik bilimsel çıkarım yapabilme",
+   "components": [
+    "Mercek çeşitlerinin niteliklerini deneyerek tanımlar.",
+    "Mercek çeşitlerini kullanarak özelliklerine yönelik veri kaydeder.",
+    "Mercekleri ince ve kalın kenarlı mercek olarak yorumlar ve değerlendirir."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB2.3",
+     "label": "Sosyal Farkındalık"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D14",
+     "label": "Saygı"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D19",
+     "label": "Vatanseverlik"
+    },
+    {
+     "code": "D20",
+     "label": "Yardımseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB5",
+     "label": "Kültür Okuryazarlığı"
+    },
+    {
+     "code": "OB7",
+     "label": "Veri Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Öğrenme çıktılarının değerlendirilmesinde tanılayıcı dallanmış ağaç, görsel tamamlamayı içeren çalışma kâğıdı, yapılandırılmış grid, doğru-yanlış testleri, kısa cevaplı sorular, açık uçlu sorular, eşleştirme testleri ve performans görevi kullanılabilir. Ayrıca ünite sürecinde ortaya çıkan öğrenci ürünleri, bir ürün dosyasında toplanarak değerlendirme amaçlı kullanılabilir."
+   ]
+  },
+  "FB.7.4.3": {
+   "code": "FB.7.4.3",
+   "text": "Merceklerin günlük hayatta kullanım alanlarını örneklerle sınıflandırabilme",
+   "components": [
+    "Merceklerin kullanım alanlarını belirler.",
+    "Merceklerin kullanım alanlarını niteliklerine göre ayrıştırır.",
+    "Merceklerin kullanım alanlarını gruplandırır.",
+    "Merceklerin kullanım alanlarını niteliklerine göre etiketler."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB2.3",
+     "label": "Sosyal Farkındalık"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D14",
+     "label": "Saygı"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D19",
+     "label": "Vatanseverlik"
+    },
+    {
+     "code": "D20",
+     "label": "Yardımseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB5",
+     "label": "Kültür Okuryazarlığı"
+    },
+    {
+     "code": "OB7",
+     "label": "Veri Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Merceklerin günlük hayatta kullanım alanları ile ilgili performans görevi verilebilir. Bu performans görevi, analitik dereceli puanlama anahtarı ile değerlendirilebilir."
+   ]
+  },
+  "FB.7.5.1": {
+   "code": "FB.7.5.1",
+   "text": "Atomun yapısını ve yapısındaki temel parçacıkları çözümleyebilme",
+   "components": [
+    "Atomu oluşturan temel parçacıkları belirler.",
+    "Atomu oluşturan temel parçacıklar arasındaki ilişkileri belirler."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.1",
+     "label": "Kendini Tanıma (Öz Farkındalık)"
+    },
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB3.1",
+     "label": "Uyum"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D4",
+     "label": "Dostluk"
+    },
+    {
+     "code": "D7",
+     "label": "Estetik"
+    },
+    {
+     "code": "D11",
+     "label": "Özgürlük"
+    },
+    {
+     "code": "D12",
+     "label": "Sabır"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D18",
+     "label": "Temizlik"
+    },
+    {
+     "code": "D19",
+     "label": "Vatanseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB7",
+     "label": "Veri Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Öğrenme çıktılarının değerlendirilmesinde çalışma kâğıdı, tanılayıcı dallanmış ağaç, yapılandırılmış grid, boşluk doldurma, yazılı yoklama, eşleştirme testi, doğru-yanlış testi vb. araçlar kullanılabilir. Ayrıca ünite sürecinde ortaya çıkan öğrenci ürünleri değerlendirme amaçlı kullanılabilir. Performans görevi olarak geçmişten günümüze atom kavramı ile ilgili bilimsel bilgilerin nasıl değiştiğini gösteren poster, afiş vb. görsel araçlar oluşturmaları öğrencilerden istenebilir. Hazırlanan araçları değerlendirmek için analitik dereceli puanlama anahtarı kullanılabilir."
+   ]
+  },
+  "FB.7.5.2": {
+   "code": "FB.7.5.2",
+   "text": "Geçmişten günümüze atom kavramı ile ilgili bilimsel bilgilerin değişebileceğini sorgulayabilme",
+   "components": [
+    "Geçmişten günümüze atomun sürecini açıklar.",
+    "Geçmişten günümüze atom ile ilgili sorular sorar.",
+    "Geçmişten günümüze atom ile ilgili bilgi toplar.",
+    "Toplanan bilgilerin doğruluğunu değerlendirir.",
+    "Toplanan bilgiler üzerinde çıkarım yapar."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.1",
+     "label": "Kendini Tanıma (Öz Farkındalık)"
+    },
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB3.1",
+     "label": "Uyum"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D4",
+     "label": "Dostluk"
+    },
+    {
+     "code": "D7",
+     "label": "Estetik"
+    },
+    {
+     "code": "D11",
+     "label": "Özgürlük"
+    },
+    {
+     "code": "D12",
+     "label": "Sabır"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D18",
+     "label": "Temizlik"
+    },
+    {
+     "code": "D19",
+     "label": "Vatanseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB7",
+     "label": "Veri Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Öğrenme çıktılarının değerlendirilmesinde çalışma kâğıdı, tanılayıcı dallanmış ağaç, yapılandırılmış grid, boşluk doldurma, yazılı yoklama, eşleştirme testi, doğru-yanlış testi vb. araçlar kullanılabilir. Ayrıca ünite sürecinde ortaya çıkan öğrenci ürünleri değerlendirme amaçlı kullanılabilir. Performans görevi olarak geçmişten günümüze atom kavramı ile ilgili bilimsel bilgilerin nasıl değiştiğini gösteren poster, afiş vb. görsel araçlar oluşturmaları öğrencilerden istenebilir. Hazırlanan araçları değerlendirmek için analitik dereceli puanlama anahtarı kullanılabilir."
+   ]
+  },
+  "FB.7.5.3": {
+   "code": "FB.7.5.3",
+   "text": "Farklı moleküllere ait bilimsel model oluşturabilme",
+   "components": [
+    "Aynı veya farklı atomların bir araya gelmesiyle ilgili molekül modeli önerir.",
+    "Yeni kanıtlarla modeli yeniler."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.1",
+     "label": "Kendini Tanıma (Öz Farkındalık)"
+    },
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB3.1",
+     "label": "Uyum"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D4",
+     "label": "Dostluk"
+    },
+    {
+     "code": "D7",
+     "label": "Estetik"
+    },
+    {
+     "code": "D11",
+     "label": "Özgürlük"
+    },
+    {
+     "code": "D12",
+     "label": "Sabır"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D18",
+     "label": "Temizlik"
+    },
+    {
+     "code": "D19",
+     "label": "Vatanseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB5",
+     "label": "Kültür Okuryazarlığı"
+    },
+    {
+     "code": "OB7",
+     "label": "Veri Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Molekül modelleri oluşturma performans görevi verilerek geliştirilen molekül modelleri analitik dereceli puanlama anahtarı yoluyla değerlendirilebilir. Bu süreçte; sorular üretme, plan yapma, oluşturma, test etme, geliştirme vb. ölçütler dikkate alınıp değerlendirme yapılabilir."
+   ]
+  },
+  "FB.7.5.4": {
+   "code": "FB.7.5.4",
+   "text": "Saf maddeleri element ve bileşik olarak sınıflandırabilme",
+   "components": [
+    "Saf maddelerin farklı yapıda olduğunu belirler.",
+    "Saf maddeleri niteliklerine göre ayrıştırır.",
+    "Saf maddeleri element ve bileşik olarak sınıflar.",
+    "Çevresindeki maddeleri element ve bileşik olarak etiketlendirir."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.1",
+     "label": "Kendini Tanıma (Öz Farkındalık)"
+    },
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB3.1",
+     "label": "Uyum"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D4",
+     "label": "Dostluk"
+    },
+    {
+     "code": "D7",
+     "label": "Estetik"
+    },
+    {
+     "code": "D11",
+     "label": "Özgürlük"
+    },
+    {
+     "code": "D12",
+     "label": "Sabır"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D18",
+     "label": "Temizlik"
+    },
+    {
+     "code": "D19",
+     "label": "Vatanseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB5",
+     "label": "Kültür Okuryazarlığı"
+    },
+    {
+     "code": "OB7",
+     "label": "Veri Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Molekül modelleri oluşturma performans görevi verilerek geliştirilen molekül modelleri analitik dereceli puanlama anahtarı yoluyla değerlendirilebilir. Bu süreçte; sorular üretme, plan yapma, oluşturma, test etme, geliştirme vb. ölçütler dikkate alınıp değerlendirme yapılabilir."
+   ]
+  },
+  "FB.7.5.5": {
+   "code": "FB.7.5.5",
+   "text": "Periyodik tablodaki ilk 18 elementin isimlerini sembolleriyle yapılandırabilme",
+   "components": [
+    "Periyodik tablodaki ilk 18 elementin isimlerini ve sembollerini inceleyerek mantıksal ilişkiler ortaya koyar.",
+    "Konu ile ilgili ön öğrenmelerine bağlı olarak uyumlu bir bütün oluşturur."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.1",
+     "label": "Kendini Tanıma (Öz Farkındalık)"
+    },
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB3.1",
+     "label": "Uyum"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D4",
+     "label": "Dostluk"
+    },
+    {
+     "code": "D7",
+     "label": "Estetik"
+    },
+    {
+     "code": "D11",
+     "label": "Özgürlük"
+    },
+    {
+     "code": "D12",
+     "label": "Sabır"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D18",
+     "label": "Temizlik"
+    },
+    {
+     "code": "D19",
+     "label": "Vatanseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB5",
+     "label": "Kültür Okuryazarlığı"
+    },
+    {
+     "code": "OB7",
+     "label": "Veri Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Periyodik tablodaki ilk 18 elementin isimleri ve sembolleri ile ilgili kart eşleştirme oyunu hazırlama performans görevi verilebilir. Hazırlanan oyunu değerlendirmek için kontrol listesi kullanılabilir."
+   ]
+  },
+  "FB.7.5.6": {
+   "code": "FB.7.5.6",
+   "text": "Periyodik tabloda grup ve periyotları karşılaştırabilme",
+   "components": [
+    "Periyodik tabloda grup ve periyotlara ilişkin özellikleri belirler.",
+    "Belirlenen özelliklere ilişkin benzerlikleri listeler.",
+    "Belirlenen özelliklere ilişkin farklılıkları listeler."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.1",
+     "label": "Kendini Tanıma (Öz Farkındalık)"
+    },
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB3.1",
+     "label": "Uyum"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D4",
+     "label": "Dostluk"
+    },
+    {
+     "code": "D7",
+     "label": "Estetik"
+    },
+    {
+     "code": "D11",
+     "label": "Özgürlük"
+    },
+    {
+     "code": "D12",
+     "label": "Sabır"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D18",
+     "label": "Temizlik"
+    },
+    {
+     "code": "D19",
+     "label": "Vatanseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB5",
+     "label": "Kültür Okuryazarlığı"
+    },
+    {
+     "code": "OB7",
+     "label": "Veri Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Periyodik tablodaki ilk 18 elementin isimleri ve sembolleri ile ilgili kart eşleştirme oyunu hazırlama performans görevi verilebilir. Hazırlanan oyunu değerlendirmek için kontrol listesi kullanılabilir."
+   ]
+  },
+  "FB.7.5.7": {
+   "code": "FB.7.5.7",
+   "text": "Bileşiklerin isimlerini formülleriyle yapılandırabilme",
+   "components": [
+    "Yaygın kullanılan bileşiklerin formüllerini inceleyerek mantıksal ilişkiler ortaya koyar.",
+    "Konu ile ilgili ön öğrenmelerine bağlı olarak uyumlu bir bütün oluşturur."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.1",
+     "label": "Kendini Tanıma (Öz Farkındalık)"
+    },
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB3.1",
+     "label": "Uyum"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D4",
+     "label": "Dostluk"
+    },
+    {
+     "code": "D7",
+     "label": "Estetik"
+    },
+    {
+     "code": "D11",
+     "label": "Özgürlük"
+    },
+    {
+     "code": "D12",
+     "label": "Sabır"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D18",
+     "label": "Temizlik"
+    },
+    {
+     "code": "D19",
+     "label": "Vatanseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB5",
+     "label": "Kültür Okuryazarlığı"
+    },
+    {
+     "code": "OB7",
+     "label": "Veri Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Öğrenme çıktılarının değerlendirilmesinde çalışma kâğıdı, tanılayıcı dallanmış ağaç, yapılandırılmış grid, boşluk doldurma, yazılı yoklama, eşleştirme testi, doğru-yanlış testi vb. araçlar kullanılabilir. Ayrıca ünite sürecinde ortaya çıkan öğrenci ürünleri değerlendirme amaçlı kullanılabilir."
+   ]
+  },
+  "FB.7.5.8": {
+   "code": "FB.7.5.8",
+   "text": "Karışımları homojen ve heterojen olarak sınıﬂandırabilme",
+   "components": [
+    "Karışımların görünümlerinin farklı yapıda olduğunu belirler.",
+    "Farklı görünümlerdeki karışımları niteliklerine göre ayrıştırır.",
+    "Karışımları homojen ve heterojen olarak gruplandırır.",
+    "Çevresindeki maddeleri homojen ve heterojen karışım olarak etiketler."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.1",
+     "label": "Kendini Tanıma (Öz Farkındalık)"
+    },
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB3.1",
+     "label": "Uyum"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D4",
+     "label": "Dostluk"
+    },
+    {
+     "code": "D7",
+     "label": "Estetik"
+    },
+    {
+     "code": "D11",
+     "label": "Özgürlük"
+    },
+    {
+     "code": "D12",
+     "label": "Sabır"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D18",
+     "label": "Temizlik"
+    },
+    {
+     "code": "D19",
+     "label": "Vatanseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB5",
+     "label": "Kültür Okuryazarlığı"
+    },
+    {
+     "code": "OB7",
+     "label": "Veri Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Öğrenme çıktılarının değerlendirilmesinde çalışma kâğıdı, tanılayıcı dallanmış ağaç, yapılandırılmış grid, boşluk doldurma, yazılı yoklama, eşleştirme testi, doğru-yanlış testi vb. araçlar kullanılabilir. Ayrıca ünite sürecinde ortaya çıkan öğrenci ürünleri değerlendirme amaçlı kullanılabilir."
+   ]
+  },
+  "FB.7.5.9": {
+   "code": "FB.7.5.9",
+   "text": "Çözünme hızına etki eden faktörler ile ilgili hipotez oluşturabilme",
+   "components": [
+    "Çözünme hızını etkileyen faktörleri tanımlar.",
+    "Çözünme hızı ile onu etkileyen faktörler arasındaki neden sonuç ilişkilerini belirler.",
+    "Çözünme hızını etkileyen değişkenleri belirler.",
+    "Temas yüzeyi, karıştırma ve sıcaklık değişkenlerini kontrol eder.",
+    "Çözünme hızını etkileyen faktörlere ait önermeler sunar."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.1",
+     "label": "Kendini Tanıma (Öz Farkındalık)"
+    },
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB3.1",
+     "label": "Uyum"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D4",
+     "label": "Dostluk"
+    },
+    {
+     "code": "D7",
+     "label": "Estetik"
+    },
+    {
+     "code": "D11",
+     "label": "Özgürlük"
+    },
+    {
+     "code": "D12",
+     "label": "Sabır"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D18",
+     "label": "Temizlik"
+    },
+    {
+     "code": "D19",
+     "label": "Vatanseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB5",
+     "label": "Kültür Okuryazarlığı"
+    },
+    {
+     "code": "OB7",
+     "label": "Veri Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Öğrenme çıktılarının değerlendirilmesinde çalışma kâğıdı, tanılayıcı dallanmış ağaç, yapılandırılmış grid, boşluk doldurma, yazılı yoklama, eşleştirme testi, doğru-yanlış testi vb. araçlar kullanılabilir. Ayrıca ünite sürecinde ortaya çıkan öğrenci ürünleri değerlendirme amaçlı kullanılabilir."
+   ]
+  },
+  "FB.7.5.10": {
+   "code": "FB.7.5.10",
+   "text": "Karışımları ayırmak için deney yapabilme",
+   "components": [
+    "Farklı karışımları ayırmak için deney tasarlar.",
+    "Deney ile ilgili ölçme ve veri analizi yapar."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.1",
+     "label": "Kendini Tanıma (Öz Farkındalık)"
+    },
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB3.1",
+     "label": "Uyum"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D4",
+     "label": "Dostluk"
+    },
+    {
+     "code": "D7",
+     "label": "Estetik"
+    },
+    {
+     "code": "D11",
+     "label": "Özgürlük"
+    },
+    {
+     "code": "D12",
+     "label": "Sabır"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D18",
+     "label": "Temizlik"
+    },
+    {
+     "code": "D19",
+     "label": "Vatanseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB5",
+     "label": "Kültür Okuryazarlığı"
+    },
+    {
+     "code": "OB7",
+     "label": "Veri Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Öğrenme çıktılarının değerlendirilmesinde çalışma kâğıdı, tanılayıcı dallanmış ağaç, yapılandırılmış grid, boşluk doldurma, yazılı yoklama, eşleştirme testi, doğru-yanlış testi vb. araçlar kullanılabilir. Ayrıca ünite sürecinde ortaya çıkan öğrenci ürünleri değerlendirme amaçlı kullanılabilir."
+   ]
+  },
+  "FB.7.6.1": {
+   "code": "FB.7.6.1",
+   "text": "Elektriklenme ile ilgili bilgi toplayabilme",
+   "components": [
+    "Elektriklenme ile ilgili bilgiye ulaşmak için kullanacağı araçları belirler.",
+    "Belirlediği araçları kullanarak elektriklenme hakkında bilgileri bulur.",
+    "Elektriklenme ile ilgili bulduğu bilgileri doğrular.",
+    "Elektriklenme ile ilgili bulduğu bilgileri kaydeder."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D20",
+     "label": "Yardımseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    }
+   ],
+   "assessment": [
+    "Öğrenme çıktılarının değerlendirilmesinde kısa cevaplı testler, eşleştirme testi, çalışma kâğıdı, açık uçlu sorular ve performans görevleri kullanılabilir. Ayrıca ünite sürecinde ortaya çıkan öğrenci ürünleri değerlendirme amaçlı kullanılabilir. Elektriklenme kavramı ve elektriklenme uygulamaları örneklerini içeren poster, afiş vb. hazırlama performans görevi verilebilir. Hazırlanan poster, afiş kontrol listesi ile değerlendirilebilir"
+   ]
+  },
+  "FB.7.6.2": {
+   "code": "FB.7.6.2",
+   "text": "Elektriklenme çeşitlerini belirlemeye yönelik deney yapabilme",
+   "components": [
+    "Elektriklenme çeşitlerini gözlemleyebilecekleri bir deney tasarlar.",
+    "Deneyle ilgili ölçme ve veri analizi yapar."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D20",
+     "label": "Yardımseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    }
+   ],
+   "assessment": [
+    "Elektriklenme çeşitlerine ilişkin deney düzeneği üzerine performans görevi verilebilir. Performans görevi kontrol listesi ile değerlendirilebilir. Ayrıca akran değerlendirme formu kullanılabilir."
+   ]
+  },
+  "FB.7.6.3": {
+   "code": "FB.7.6.3",
+   "text": "Cisimlerin elektrik yüklerini sınıflandırabilme",
+   "components": [
+    "Cisimlerin elektrik yüklerinin niteliklerini belirler.",
+    "Cisimlerin yük durumlarını ayrıştırır.",
+    "Cisimlerin yük durumlarını gruplandırır.",
+    "Cisimlerin yük durumlarını negatif, pozitif ve nötr olarak etiketler."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D20",
+     "label": "Yardımseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    }
+   ],
+   "assessment": [
+    "Elektriklenme çeşitlerine ilişkin deney düzeneği üzerine performans görevi verilebilir. Performans görevi kontrol listesi ile değerlendirilebilir. Ayrıca akran değerlendirme formu kullanılabilir."
+   ]
+  },
+  "FB.7.7.1": {
+   "code": "FB.7.7.1",
+   "text": "Besin zincirindeki canlılar arasındaki ilişkileri yapılandırabilme",
+   "components": [
+    "Besin zincirindeki canlılar arasındaki nedensel ilişkileri ortaya koyar.",
+    "Besin zincirini uyumlu bir bütün olarak açıklar."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB1.3",
+     "label": "Kendini Uyarlama (Öz Yansıtma)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB3.1",
+     "label": "Uyum"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D5",
+     "label": "Duyarlılık"
+    },
+    {
+     "code": "D9",
+     "label": "Merhamet"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D17",
+     "label": "Tasarruf"
+    },
+    {
+     "code": "D19",
+     "label": "Vatanseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB3",
+     "label": "Finansal Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB5",
+     "label": "Kültür Okuryazarlığı"
+    },
+    {
+     "code": "OB8",
+     "label": "Sürdürülebilirlik Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Öğrenme çıktılarının değerlendirilmesinde kavram haritası, çalışma kâğıdı, açık uçlu sorular ve performans görevleri kullanılabilir. Ayrıca ünite sürecinde ortaya çıkan öğrenci ürünleri, bir ürün dosyasında toplanarak değerlendirme amaçlı kullanılabilir. Besin zincirleri ve ekoloji piramidi hazırlama performans görevi verilebilir. Değerlendirme aracı olarak analitik dereceli puanlama anahtarı kullanılabilir."
+   ]
+  },
+  "FB.7.7.2": {
+   "code": "FB.7.7.2",
+   "text": "Kaynakların tasarruflu kullanımının önemini sorgulayabilme",
+   "components": [
+    "Kaynakların tasarruflu kullanımı ile ilgili problemi tanımlar.",
+    "Kaynakların tasarruflu kullanımına yönelik çözüm bulmak için model geliştirir.",
+    "Kaynakların tasarruflu kullanımına yönelik planladığı araştırmayı gerçekleştirir.",
+    "Kaynakların tasarruflu kullanımına yönelik analiz ettiği verileri yorumlar.",
+    "Kaynakların tasarruflu kullanımına yönelik kanıta dayalı çözüm üretir.",
+    "Kaynakların tasarruflu kullanımına yönelik bilgileri değerlendirir ve paylaşır."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB1.3",
+     "label": "Kendini Uyarlama (Öz Yansıtma)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB3.1",
+     "label": "Uyum"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D5",
+     "label": "Duyarlılık"
+    },
+    {
+     "code": "D9",
+     "label": "Merhamet"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D17",
+     "label": "Tasarruf"
+    },
+    {
+     "code": "D19",
+     "label": "Vatanseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB3",
+     "label": "Finansal Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB5",
+     "label": "Kültür Okuryazarlığı"
+    },
+    {
+     "code": "OB8",
+     "label": "Sürdürülebilirlik Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Öğrenme çıktılarının değerlendirilmesinde kavram haritası, çalışma kâğıdı, açık uçlu sorular ve performans görevleri kullanılabilir. Ayrıca ünite sürecinde ortaya çıkan öğrenci ürünleri, bir ürün dosyasında toplanarak değerlendirme amaçlı kullanılabilir. Besin zincirleri ve ekoloji piramidi hazırlama performans görevi verilebilir. Değerlendirme aracı olarak analitik dereceli puanlama anahtarı kullanılabilir.",
+    "Öğrenme çıktılarının değerlendirilmesinde kavram haritası, çalışma kâğıdı, açık uçlu sorular ve performans görevleri kullanılabilir. Ayrıca ünite sürecinde ortaya çıkan öğrenci ürünleri, bir ürün dosyasında toplanarak değerlendirme amaçlı kullanılabilir. Suyun tasarruflu kullanımına yönelik proje tasarlama görevi verilebilir. Süreç analitik dereceli puanlama anahtarı ile değerlendirilebilir. Ayrıca öz/akran değerlendirme formları da kullanılabilir."
+   ]
+  }
+ }
+}

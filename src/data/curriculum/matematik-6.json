@@ -1,0 +1,1664 @@
+{
+ "id": "matematik-6",
+ "subject": "Matematik",
+ "subjectId": "matematik",
+ "grade": 6,
+ "program": "tymm",
+ "source": {
+  "file": "matematik_mufredat.xlsx",
+  "sheet": "6.Sınıf"
+ },
+ "units": [
+  {
+   "id": "sayilar-ve-nicelikler-1",
+   "name": "Sayılar ve Nicelikler (1)",
+   "topics": [
+    {
+     "id": "sayilar-ve-nicelikler-1--bir-dogal-sayinin-carpanlari-ve-katlari",
+     "name": "Bir Doğal Sayının Çarpanları ve Katları",
+     "outcomeCodes": [
+      "MAT.6.1.1",
+      "MAT.6.1.3",
+      "MAT.6.1.4"
+     ]
+    },
+    {
+     "id": "sayilar-ve-nicelikler-1--bolunebilme-kriterleri",
+     "name": "Bölünebilme Kriterleri",
+     "outcomeCodes": [
+      "MAT.6.1.2"
+     ]
+    },
+    {
+     "id": "sayilar-ve-nicelikler-1--asal-sayilar-ve-asal-carpanlar",
+     "name": "Asal Sayılar ve Asal Çarpanlar",
+     "outcomeCodes": [
+      "MAT.6.1.3",
+      "MAT.6.1.4"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "veriden-olasiliga",
+   "name": "Veriden Olasılığa",
+   "topics": [
+    {
+     "id": "veriden-olasiliga--deneysel-olasilik",
+     "name": "Deneysel Olasılık",
+     "outcomeCodes": [
+      "MAT.6.6.1"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "sayilar-ve-nicelikler-2",
+   "name": "Sayılar ve Nicelikler(2)",
+   "topics": [
+    {
+     "id": "sayilar-ve-nicelikler-2--ondalik-gosterimleri-cozumleme",
+     "name": "Ondalık Gösterimleri Çözümleme",
+     "outcomeCodes": [
+      "MAT.6.1.5",
+      "MAT.6.1.6"
+     ]
+    },
+    {
+     "id": "sayilar-ve-nicelikler-2--kesir-bolme-iliskisi",
+     "name": "Kesir-Bölme İlişkisi",
+     "outcomeCodes": [
+      "MAT.6.1.5",
+      "MAT.6.1.6"
+     ]
+    },
+    {
+     "id": "sayilar-ve-nicelikler-2--kesirlerle-dort-islem-iceren-problem-cozme",
+     "name": "Kesirlerle Dört İşlem İçeren Problem Çözme",
+     "outcomeCodes": [
+      "MAT.6.1.7",
+      "MAT.6.1.8"
+     ]
+    },
+    {
+     "id": "sayilar-ve-nicelikler-2--uzunluk-olcme",
+     "name": "Uzunluk Ölçme",
+     "outcomeCodes": [
+      "MAT.6.1.7",
+      "MAT.6.1.8"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "istatistiksel-arastirma-sureci",
+   "name": "İstatistiksel Araştırma Süreci",
+   "topics": [
+    {
+     "id": "istatistiksel-arastirma-sureci--kategorik-ve-nicel-kesikli-veri-dagilimlari",
+     "name": "Kategorik ve Nicel (Kesikli) Veri Dağılımları",
+     "outcomeCodes": [
+      "MAT.6.5.1"
+     ]
+    },
+    {
+     "id": "istatistiksel-arastirma-sureci--kategorik-ve-nicel-surekli-veri-dagilimlari",
+     "name": "Kategorik ve Nicel (Sürekli) Veri Dağılımları",
+     "outcomeCodes": [
+      "MAT.6.5.1",
+      "MAT.6.5.2"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "geometrik-sekiller",
+   "name": "Geometrik Şekiller",
+   "topics": [
+    {
+     "id": "geometrik-sekiller--iki-paralel-dogrunun-bir-kesenile-olusturdugu-acilar",
+     "name": "İki Paralel Doğrunun Bir Kesenile Oluşturduğu Açılar",
+     "outcomeCodes": [
+      "MAT.6.3.1"
+     ]
+    },
+    {
+     "id": "geometrik-sekiller--ucgenin-acilari",
+     "name": "Üçgenin Açıları",
+     "outcomeCodes": [
+      "MAT.6.3.2",
+      "MAT.6.3.4"
+     ]
+    },
+    {
+     "id": "geometrik-sekiller--yamuk-paralelkenar-eskenar-dortgen-dikdortgen-ve-karenin-ken",
+     "name": "Yamuk, Paralelkenar, Eşkenar Dörtgen, Dikdörtgen ve Karenin Kenar, Açı ve Köşegen Özellikleri",
+     "outcomeCodes": [
+      "MAT.6.3.2",
+      "MAT.6.3.3",
+      "MAT.6.3.4"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "islemlerle-cebirsel-dusunme-ve-degisimler",
+   "name": "İşlemlerle Cebirsel Düşünme ve Değişimler",
+   "topics": [
+    {
+     "id": "islemlerle-cebirsel-dusunme-ve-degisimler--bilinmeyen-nicelikler",
+     "name": "Bilinmeyen Nicelikler",
+     "outcomeCodes": [
+      "MAT.6.2.1"
+     ]
+    },
+    {
+     "id": "islemlerle-cebirsel-dusunme-ve-degisimler--oruntu",
+     "name": "Örüntü",
+     "outcomeCodes": [
+      "MAT.6.2.2"
+     ]
+    },
+    {
+     "id": "islemlerle-cebirsel-dusunme-ve-degisimler--cebirsel-ifadeler-ve-algoritma",
+     "name": "Cebirsel İfadeler ve Algoritma",
+     "outcomeCodes": [
+      "MAT.6.2.3"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "geometrik-nicelikler",
+   "name": "Geometrik Nicelikler",
+   "topics": [
+    {
+     "id": "geometrik-nicelikler--uzunluk-ve-alan-olcme-birimleri-arasindaki-iliski",
+     "name": "Uzunluk ve Alan Ölçme Birimleri Arasındaki İlişki",
+     "outcomeCodes": [
+      "MAT.6.4.1",
+      "MAT.6.4.3"
+     ]
+    },
+    {
+     "id": "geometrik-nicelikler--paralelkenar-ve-ucgenin-alani",
+     "name": "Paralelkenar ve Üçgenin Alanı",
+     "outcomeCodes": [
+      "MAT.6.4.2",
+      "MAT.6.4.3"
+     ]
+    },
+    {
+     "id": "geometrik-nicelikler--cemberin-ve-capin-uzunluklari-arasindaki-iliski",
+     "name": "Çemberin ve Çapın Uzunlukları Arasındaki İlişki",
+     "outcomeCodes": [
+      "MAT.6.4.4",
+      "MAT.6.4.5",
+      "MAT.6.4.6"
+     ]
+    },
+    {
+     "id": "geometrik-nicelikler--cemberde-merkez-aci-ve-gordugu-yay-uzunlugu",
+     "name": "Çemberde Merkez Açı ve Gördüğü Yay Uzunluğu",
+     "outcomeCodes": [
+      "MAT.6.4.5",
+      "MAT.6.4.6"
+     ]
+    }
+   ]
+  }
+ ],
+ "outcomes": {
+  "MAT.6.1.1": {
+   "code": "MAT.6.1.1",
+   "text": "Karşılaştığı problem durumlarında bir doğal sayının çarpan ve katlarına yönelik muhakeme yapabilme",
+   "components": [
+    "Karşılaştığı durumlarda bir doğal sayının çarpan ve katlarına yönelik varsayımlarda bulunur.",
+    "Varsayımına yönelik örnek durumların içerdiği ilişkileri inceleyerek bir doğal sayının çarpan ve katlarına ilişkin genellemeleri belirler.",
+    "Elde ettiği genellemelerin varsayımını karşılayıp karşılamadığını çeşitli modellerle gösterir.",
+    "Varsayımı ile ilgili ulaştığı sonuca yönelik doğrulayabileceği matematiksel bir önermeyi sözel ya da sembolik temsil ile sunar.",
+    "Farklı problemlerin pratik yoldan çözümüne yönelik oluşturduğu önermenin gerekçelerini sunar.",
+    "Önermenin geçerliliğini destekleyen kapsayıcı örnekler verir.",
+    "İşe koştuğu doğrulamanın benzer önermelere uygulanıp uygulanamayacağını değerlendirir."
+   ],
+   "sdb": [
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB2.3",
+     "label": "Sosyal Farkındalık"
+    }
+   ],
+   "values": [
+    {
+     "code": "D9",
+     "label": "Merhamet"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    }
+   ],
+   "assessment": [
+    "Tanılayıcı dallanmış ağaç Öz değerlendirme Akran değerlendirme Grup değerlendirme İzleme testi Gelişim raporu Performans görevi Bütüncül dereceli puanlama anahtarı"
+   ]
+  },
+  "MAT.6.1.2": {
+   "code": "MAT.6.1.2",
+   "text": "Bir doğal sayının 2, 3, 4, 5, 6, 9 ve 10 ile tam bölünebilme kriterlerine ilişkin çıkarım yapabilme",
+   "components": [
+    "Bir doğal sayının katlarını veya basamak değerlerini dikkate alarak 2, 3, 4, 5, 6, 9 ve 10’a tam bölünebilme kriterleri ile ilgili varsayımlarda bulunur.",
+    "2, 3, 4, 5, 6, 9 ve 10’un katlarını ve basamak değerlerini inceleyerek genellemeleri belirler.",
+    "Elde ettiği genellemelerin, varsayımını karşılayıp karşılamadığını örnekler ile sınar.",
+    "Bir doğal sayının 2, 3, 4, 5, 6, 9 ve 10 ile tam bölünebilmesindeki kriterlere ilişkin önerme sunar.",
+    "Bir doğal sayının 2, 3, 4, 5, 6, 9 ve 10 ile tam bölünebilmesindeki kriterlerin farklı durumlarda kullanışlılığını değerlendirir."
+   ],
+   "sdb": [
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB2.3",
+     "label": "Sosyal Farkındalık"
+    }
+   ],
+   "values": [
+    {
+     "code": "D9",
+     "label": "Merhamet"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    }
+   ],
+   "assessment": [
+    "Tanılayıcı dallanmış ağaç Öz değerlendirme Akran değerlendirme Grup değerlendirme İzleme testi Gelişim raporu Performans görevi Bütüncül dereceli puanlama anahtarı"
+   ]
+  },
+  "MAT.6.1.3": {
+   "code": "MAT.6.1.3",
+   "text": "Bir doğal sayının asal olma durumunu ve asal çarpanlarını çözümleyebilme",
+   "components": [
+    "Bir doğal sayının asal olup olmadığını ve asal çarpanlarını belirler.",
+    "Asal sayıların özelliklerini ve bir doğal sayı ile asal çarpanları arasındaki ilişkileri belirler."
+   ],
+   "sdb": [
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB2.3",
+     "label": "Sosyal Farkındalık"
+    }
+   ],
+   "values": [
+    {
+     "code": "D9",
+     "label": "Merhamet"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    }
+   ],
+   "assessment": [
+    "Tanılayıcı dallanmış ağaç Öz değerlendirme Akran değerlendirme Grup değerlendirme İzleme testi Gelişim raporu Performans görevi Bütüncül dereceli puanlama anahtarı"
+   ]
+  },
+  "MAT.6.1.4": {
+   "code": "MAT.6.1.4",
+   "text": "Günlük hayat problemleri ya da matematiksel durumlar üzerinden ortak kat ve ortak böleni yorumlayabilme",
+   "components": [
+    "Problemlerde ya da matematiksel durumlarda verilen iki sayının ortak katlarını ve ortak bölenlerini inceler.",
+    "İncelediği ortak kat veya ortak bölen ilişkilerini çizim, tablo ve sayı doğrusu gibi matematiksel temsillerle ifade eder.",
+    "İki sayının ortak katlarını ve ortak bölenlerini kendi ifadelerini kullanarak açıklar."
+   ],
+   "sdb": [
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB2.3",
+     "label": "Sosyal Farkındalık"
+    }
+   ],
+   "values": [
+    {
+     "code": "D9",
+     "label": "Merhamet"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    }
+   ],
+   "assessment": [
+    "Tanılayıcı dallanmış ağaç Öz değerlendirme Akran değerlendirme Grup değerlendirme İzleme testi Gelişim raporu Performans görevi Bütüncül dereceli puanlama anahtarı"
+   ]
+  },
+  "MAT.6.1.5": {
+   "code": "MAT.6.1.5",
+   "text": "Gerçek yaşam durumlarında ondalık gösterimlerin basamak değerlerini kesirlerden yararlanarak yorumlayabilme",
+   "components": [
+    "Ondalık gösterimlerin basamak değerlerini inceler.",
+    "Ondalık gösterimlerin basamak değerlerini paydası 10, 100 ve 1000 olan kesirlerin toplamlarını kullanarak yeniden ifade eder.",
+    "Ondalık gösterimlerin basamak değerlerini kendi cümleleriyle açıklar."
+   ],
+   "sdb": [
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB1.3",
+     "label": "Kendini Uyarlama (Öz Yansıtma)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.3",
+     "label": "Sosyal Farkındalık"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D4",
+     "label": "Dostluk"
+    },
+    {
+     "code": "D5",
+     "label": "Duyarlılık"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D17",
+     "label": "Tasarruf"
+    },
+    {
+     "code": "D18",
+     "label": "Temizlik"
+    },
+    {
+     "code": "D19",
+     "label": "Vatanseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB7",
+     "label": "Veri Okuryazarlığı"
+    },
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB3",
+     "label": "Finansal Okuryazarlık"
+    },
+    {
+     "code": "OB8",
+     "label": "Sürdürülebilirlik Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Çalışma kâğıdı Performans görevi Öz değerlendirme formu Akran değerlendirme formu Grup değerlendirme formu Bütüncül dereceli puanlama anahtarı",
+    "Çalışma kâğıdı Açık uçlu sorular İzleme testi Sayı kartları Görsel kartlar Performans görevi Analitik dereceli puanlama anahtarı Öz değerlendirme formu Akran değerlendirme formu Grup değerlendirme formu"
+   ]
+  },
+  "MAT.6.1.6": {
+   "code": "MAT.6.1.6",
+   "text": "Kesir ve bölme işlemi arasındaki ilişkiye yönelik tümevarımsal akıl yürütebilme",
+   "components": [
+    "Kâğıt-kalemle ve hesap makinesinde bölme işlemi gerçekleştirerek kesirlerin ondalık gösterimlerine ilişkin gözlem yapar.",
+    "Kesirlerin sonlu ve devirli ondalık gösterimlerine ait örüntüleri belirler.",
+    "Örüntülerde keşfedilen ilişkileri geneller."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB1.3",
+     "label": "Kendini Uyarlama (Öz Yansıtma)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB2.3",
+     "label": "Sosyal Farkındalık"
+    }
+   ],
+   "values": [
+    {
+     "code": "D4",
+     "label": "Dostluk"
+    },
+    {
+     "code": "D5",
+     "label": "Duyarlılık"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D17",
+     "label": "Tasarruf"
+    },
+    {
+     "code": "D18",
+     "label": "Temizlik"
+    },
+    {
+     "code": "D19",
+     "label": "Vatanseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB3",
+     "label": "Finansal Okuryazarlık"
+    },
+    {
+     "code": "OB8",
+     "label": "Sürdürülebilirlik Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Çalışma kâğıdı Açık uçlu sorular İzleme testi Sayı kartları Görsel kartlar Performans görevi Analitik dereceli puanlama anahtarı Öz değerlendirme formu Akran değerlendirme formu Grup değerlendirme formu"
+   ]
+  },
+  "MAT.6.1.7": {
+   "code": "MAT.6.1.7",
+   "text": "Gerçek yaşam durumlarında karşılaşılan kesir, ondalık ve yüzde gösterimleri ile ilgili dört işlem gerektiren problemleri çözebilme",
+   "components": [
+    "Kesir, ondalık ve yüzde gösterimleri ile ilgili dört işlem problemlerinde sayı ve işlem bileşenlerini belirler.",
+    "Kesir, ondalık ve yüzde gösterimleri ile ilgili dört işlem problemlerinde verilenler ile istenenlerin gerektirdiği işlemler arasındaki ilişkiyi belirler.",
+    "Kesir, ondalık ve yüzde gösterimleri ile ilgili dört işlem problemlerinde problem bağlamına uygun temsilleri (şekil, tablo, diyagram gibi) kullanır.",
+    "Kullanılan temsil üzerinden problemi kendi ifadeleri ile açıklar.",
+    "Problemlerin sonucuna ilişkin tahminde bulunur ve işlemleri gerçekleştirmek için stratejiler geliştirir.",
+    "Stratejileri işe koşarak problemleri çözer.",
+    "Çözüm yollarını kontrol eder ve çözüme ulaştırmayan stratejiyi değiştirir.",
+    "Problemlerin çözümü için kullandığı veya geliştirdiği stratejileri gözden geçirerek kısa yolları değerlendirir.",
+    "Kullandığı strateji veya stratejileri farklı problemlerin çözümlerine geneller.",
+    "Genellemenin geçerliliğini değerlendirir."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB1.3",
+     "label": "Kendini Uyarlama (Öz Yansıtma)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB2.3",
+     "label": "Sosyal Farkındalık"
+    }
+   ],
+   "values": [
+    {
+     "code": "D4",
+     "label": "Dostluk"
+    },
+    {
+     "code": "D5",
+     "label": "Duyarlılık"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D17",
+     "label": "Tasarruf"
+    },
+    {
+     "code": "D18",
+     "label": "Temizlik"
+    },
+    {
+     "code": "D19",
+     "label": "Vatanseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB3",
+     "label": "Finansal Okuryazarlık"
+    },
+    {
+     "code": "OB8",
+     "label": "Sürdürülebilirlik Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Çalışma kâğıdı Açık uçlu sorular İzleme testi Sayı kartları Görsel kartlar Performans görevi Analitik dereceli puanlama anahtarı Öz değerlendirme formu Akran değerlendirme formu Grup değerlendirme formu"
+   ]
+  },
+  "MAT.6.1.8": {
+   "code": "MAT.6.1.8",
+   "text": "Karşılaştığı günlük hayat ya da matematiksel durumlarda standart uzunluk ölçme birimlerini değerlendirebilme",
+   "components": [
+    "Uzunluk ölçme birimlerinden metreyi ölçüt olarak belirler.",
+    "Standart ölçme birimlerini kullanarak ölçme yapar.",
+    "Ölçme sonuçlarını belirlediği ölçme birimleri ile karşılaştırır.",
+    "Karşılaştırmalarına ilişkin yargıda bulunur."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB1.3",
+     "label": "Kendini Uyarlama (Öz Yansıtma)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB2.3",
+     "label": "Sosyal Farkındalık"
+    },
+    {
+     "code": "SDB3.2",
+     "label": "Esneklik"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D4",
+     "label": "Dostluk"
+    },
+    {
+     "code": "D5",
+     "label": "Duyarlılık"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    },
+    {
+     "code": "D17",
+     "label": "Tasarruf"
+    },
+    {
+     "code": "D18",
+     "label": "Temizlik"
+    },
+    {
+     "code": "D19",
+     "label": "Vatanseverlik"
+    },
+    {
+     "code": "D1",
+     "label": "Adalet"
+    },
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D6",
+     "label": "Dürüstlük"
+    },
+    {
+     "code": "D8",
+     "label": "Mahremiyet"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB1",
+     "label": "Bilgi Okuryazarlığı"
+    },
+    {
+     "code": "OB3",
+     "label": "Finansal Okuryazarlık"
+    },
+    {
+     "code": "OB8",
+     "label": "Sürdürülebilirlik Okuryazarlığı"
+    },
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    }
+   ],
+   "assessment": [
+    "Çalışma kâğıdı Açık uçlu sorular İzleme testi Sayı kartları Görsel kartlar Performans görevi Analitik dereceli puanlama anahtarı Öz değerlendirme formu Akran değerlendirme formu Grup değerlendirme formu",
+    "Akran değerlendirme formu Çalışma kâğıdı Performans görevi Bütüncül dereceli puanlama anahtarı Analitik dereceli puanlama anahtarı"
+   ]
+  },
+  "MAT.6.2.1": {
+   "code": "MAT.6.2.1",
+   "text": "Gerçek yaşam durumlarında bilinen niceliklerden bilinmeyen niceliklere ilişkin muhakeme yapabilme",
+   "components": [
+    "Gerçek yaşam durumlarında nicelikleri belirler.",
+    "Nicelikler arasındaki ilişkileri tablo temsili kullanarak belirler.",
+    "Nicelikler arasındaki ilişkileri cebirsel olarak ifade eder.",
+    "Cebirsel ifadenin anlamını kendi cümleleri ile açıklar.",
+    "Yorumladığı cebirsel ifadelere karşılık gelen durumlara yönelik varsayımda bulunur.",
+    "Verilen cebirsel ifadelere yönelik varsayımda bulunduğu durumları inceleyerek değişkenlerin ve cebirsel ifadelerin anlamlarına yönelik genellemeleri belirler.",
+    "Elde ettiği genellemelerin varsayımını karşılayıp karşılamadığını farklı sözel ve cebirsel ifadeler ile sınar.",
+    "Doğrulayabileceği sözel ve cebirsel ifadeleri farklı değişken ve değerlerle sözel ve cebirsel olarak yeniden ifade eder.",
+    "Cebirsel ifadelerin matematiğin farklı alanlarında ve gerçek yaşam durumlarında kullanımına yönelik katkısını ifade eder."
+   ],
+   "sdb": [
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.3",
+     "label": "Sosyal Farkındalık"
+    }
+   ],
+   "values": [
+    {
+     "code": "D5",
+     "label": "Duyarlılık"
+    },
+    {
+     "code": "D9",
+     "label": "Merhamet"
+    },
+    {
+     "code": "D17",
+     "label": "Tasarruf"
+    },
+    {
+     "code": "D20",
+     "label": "Yardımseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB3",
+     "label": "Finansal Okuryazarlık"
+    }
+   ],
+   "assessment": [
+    "Çalışma kâğıtları İzleme testi Performans görevi Bütüncül dereceli puanlama anahtarı",
+    "Çalışma Kâğıtları İzleme Testi Performans Görevi Bütüncül Dereceli Puanlama Anahtarı"
+   ]
+  },
+  "MAT.6.2.2": {
+   "code": "MAT.6.2.2",
+   "text": "Sayı ve şekil örüntülerini yorumlayabilme",
+   "components": [
+    "Sayı ve şekil örüntülerindeki ilişkileri inceler.",
+    "İncelediği ilişkileri tablo, grafik ve sözel temsiller aracılığıyla ifade eder.",
+    "Farklı temsillerle gösterilen ilişkilerden yola çıkarak örüntülerdeki yapıları cebirsel olarak ifade eder."
+   ],
+   "sdb": [
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.3",
+     "label": "Sosyal Farkındalık"
+    }
+   ],
+   "values": [
+    {
+     "code": "D5",
+     "label": "Duyarlılık"
+    },
+    {
+     "code": "D9",
+     "label": "Merhamet"
+    },
+    {
+     "code": "D17",
+     "label": "Tasarruf"
+    },
+    {
+     "code": "D20",
+     "label": "Yardımseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB3",
+     "label": "Finansal Okuryazarlık"
+    }
+   ],
+   "assessment": [
+    "Çalışma Kâğıtları İzleme Testi Performans Görevi Bütüncül Dereceli Puanlama Anahtarı"
+   ]
+  },
+  "MAT.6.2.3": {
+   "code": "MAT.6.2.3",
+   "text": "Cebirsel ifadeler içeren durumlardaki algoritmaları yorumlayabilme",
+   "components": [
+    "Cebirsel ifadeler içeren durumlardaki algoritmik yapıyı inceler.",
+    "İncelediği durumlardaki algoritmik yapıyı tablo temsiline veya cebirsel ifadelere dönüştürür.",
+    "Dönüştürdüğü algoritmik yapının içerdiği matematiksel ilişkileri sözel olarak ifade eder."
+   ],
+   "sdb": [
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.3",
+     "label": "Sosyal Farkındalık"
+    }
+   ],
+   "values": [
+    {
+     "code": "D5",
+     "label": "Duyarlılık"
+    },
+    {
+     "code": "D9",
+     "label": "Merhamet"
+    },
+    {
+     "code": "D17",
+     "label": "Tasarruf"
+    },
+    {
+     "code": "D20",
+     "label": "Yardımseverlik"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB3",
+     "label": "Finansal Okuryazarlık"
+    }
+   ],
+   "assessment": [
+    "Çalışma Kâğıtları İzleme Testi Performans Görevi Bütüncül Dereceli Puanlama Anahtarı"
+   ]
+  },
+  "MAT.6.3.1": {
+   "code": "MAT.6.3.1",
+   "text": "Düzlemde iki paralel doğru ve bir kesen ile oluşan açıları sınıflandırabilme",
+   "components": [
+    "Düzlemde iki paralel doğru ve bir kesen ile oluşan açıları belirler.",
+    "Düzlemde iki paralel doğru ve bir kesen ile oluşan açıları ayrıştırır.",
+    "Düzlemde iki paralel doğru ve bir kesen ile oluşan açıları tasnif eder.",
+    "Bu tasnife göre açıları adlandırır."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D4",
+     "label": "Dostluk"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    }
+   ],
+   "assessment": [
+    "Çalışma kâğıdı Performans görevi Zihin haritası İzleme testi Analitik dereceli puanlama anahtarı Bütüncül dereceli puanlama anahtarı Öz değerlendirme formu Akran değerlendirme formu Grup değerlendirme formu"
+   ]
+  },
+  "MAT.6.3.2": {
+   "code": "MAT.6.3.2",
+   "text": "Matematiksel araç ve teknolojiden yararlanarak iki paralel doğrunun iki kesenle oluşturduğu şekillerin özelliklerine dair çıkarım yapabilme",
+   "components": [
+    "Düzlemde iki paralel doğrunun iki kesenle oluşturduğu şekillerin özelliklerine dair varsayımda bulunur.",
+    "Oluşan şekilleri çeşitli özelliklerine göre listeler.",
+    "Oluşan şekilleri kenar ve açı özelliklerini dikkate alarak varsayımları ile karşılaştırır.",
+    "Oluşan şekillerin iç açılarının ölçüleri toplamına ve yamuk, paralelkenar, eşkenar dörtgen, dikdörtgen, karenin ortak özelliklerine dair önermeler sunar.",
+    "Sunduğu önermelerin dörtgenlerin sınıflandırılmasına yönelik katkısını değerlendirir."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D4",
+     "label": "Dostluk"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    }
+   ],
+   "assessment": [
+    "Çalışma kâğıdı Performans görevi Zihin haritası İzleme testi Analitik dereceli puanlama anahtarı Bütüncül dereceli puanlama anahtarı Öz değerlendirme formu Akran değerlendirme formu Grup değerlendirme formu"
+   ]
+  },
+  "MAT.6.3.3": {
+   "code": "MAT.6.3.3",
+   "text": "Matematiksel araç ve teknolojiden yararlanarak birbirlerini ortalayan doğru parçalarını köşegen kabul eden dörtgenlere yönelik çıkarım yapabilme",
+   "components": [
+    "Birbirlerini ortalayan doğru parçalarını köşegen kabul eden dörtgenlere yönelik varsayımlarda bulunur.",
+    "Birbirlerini ortalayan doğru parçalarını köşegen kabul eden dörtgenleri oluşturur ve listeler.",
+    "Oluşturulan dörtgenleri varsayımları ile karşılaştırır.",
+    "Özelliklerine bağlı olarak birbirlerini ortalayan doğru parçalarını köşegen kabul eden dörtgenlere yönelik önermeler sunar.",
+    "Sunduğu önermelerin dörtgenlerin farklı yollardan tanımlanmasına yönelik katkısını değerlendirir."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D4",
+     "label": "Dostluk"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    }
+   ],
+   "assessment": [
+    "Çalışma kâğıdı Performans görevi Zihin haritası İzleme testi Analitik dereceli puanlama anahtarı Bütüncül dereceli puanlama anahtarı Öz değerlendirme formu Akran değerlendirme formu Grup değerlendirme formu"
+   ]
+  },
+  "MAT.6.3.4": {
+   "code": "MAT.6.3.4",
+   "text": "Üçgen, yamuk, paralelkenar, eşkenar dörtgen, dikdörtgen ve karenin açıları ile ilgili problemleri çözebilme",
+   "components": [
+    "Üçgen, yamuk, paralelkenar, eşkenar dörtgen, dikdörtgen ve karenin açıları ile ilgili problemlerde matematiksel bileşenleri (şekil, açı ölçüsü, kenar uzunluğu, paralellik, diklik gibi) belirler.",
+    "Matematiksel bileşenler arasındaki ilişkiyi belirler.",
+    "Problem bağlamındaki temsilleri farklı temsillere dönüştürür.",
+    "Matematiksel temsillere dönüştürdüğü problemi kendi ifadeleri ile açıklar.",
+    "Problemin çözümü için stratejiler geliştirir.",
+    "Belirlenen stratejileri çözüm için uygular.",
+    "Çözüm yollarını kontrol eder ve çözüme ulaştırmayan stratejiyi değiştirir.",
+    "Problemin çözümü için kullandığı veya geliştirdiği stratejileri gözden geçirerek alternatif çözüm yollarını değerlendirir.",
+    "Kullandığı strateji veya stratejileri farklı problemlerin çözümlerine geneller.",
+    "Genellemenin geçerliliğini matematiksel örneklerle değerlendirir."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D4",
+     "label": "Dostluk"
+    },
+    {
+     "code": "D16",
+     "label": "Sorumluluk"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    }
+   ],
+   "assessment": [
+    "Çalışma kâğıdı Performans görevi Zihin haritası İzleme testi Analitik dereceli puanlama anahtarı Bütüncül dereceli puanlama anahtarı Öz değerlendirme formu Akran değerlendirme formu Grup değerlendirme formu"
+   ]
+  },
+  "MAT.6.4.1": {
+   "code": "MAT.6.4.1",
+   "text": "Uzunluk ve alan ölçme birimleri arasındaki ilişkilerle ilgili analojik akıl yürütebilme",
+   "components": [
+    "Uzunluk ve alan ölçme birimleri arasındaki ilişkileri gözlemler.",
+    "Uzunluk ve alan ölçme birimleri arasındaki ilişkiyi tespit eder.",
+    "Uzunluk ve alan ölçme birimleri arasında kurulan ilişkiden hareketle alan ölçme birimleri arasındaki ilişkiye dair çıkarım yapar."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.3",
+     "label": "Kendini Uyarlama (Öz Yansıtma)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB3.1",
+     "label": "Uyum"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D7",
+     "label": "Estetik"
+    },
+    {
+     "code": "D10",
+     "label": "Mütevazılık"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    }
+   ],
+   "assessment": [
+    "Çalışma kâğıtları İzleme testi Zihin haritası Öz değerlendirme formu Akran değerlendirme formu Performans görevi Bütüncül dereceli puanlama anahtarı Analitik dereceli puanlama anahtarı"
+   ]
+  },
+  "MAT.6.4.2": {
+   "code": "MAT.6.4.2",
+   "text": "Dikdörtgenin alan bağıntısına yönelik deneyimlerini paralelkenar ve üçgenin alan bağıntılarına yansıtabilme",
+   "components": [
+    "Dikdörtgenin alan bağıntısını gözden geçirir.",
+    "Dikdörtgenin alan bağıntısından yola çıkarak paralelkenar ve üçgenin alan bağıntıları hakkında çıkarım yapar.",
+    "Çıkarımını farklı örnekler üzerinden değerlendirir."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.3",
+     "label": "Kendini Uyarlama (Öz Yansıtma)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB3.1",
+     "label": "Uyum"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D7",
+     "label": "Estetik"
+    },
+    {
+     "code": "D10",
+     "label": "Mütevazılık"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    }
+   ],
+   "assessment": [
+    "Çalışma kâğıtları İzleme testi Zihin haritası Öz değerlendirme formu Akran değerlendirme formu Performans görevi Bütüncül dereceli puanlama anahtarı Analitik dereceli puanlama anahtarı"
+   ]
+  },
+  "MAT.6.4.3": {
+   "code": "MAT.6.4.3",
+   "text": "Geometrik şekillerin alanları ile modellenen gerçek yaşam durumlarına yönelik problem çözebilme",
+   "components": [
+    "Geometrik şekillerin alanları ile modellenen gerçek yaşam probleminde ilgili matematiksel bileşenleri (alan, şekil, uzunluk, alan ölçme birimleri gibi) belirler.",
+    "Matematiksel bileşenler arasındaki ilişkiyi belirler.",
+    "Problem bağlamıyla ilişkili verilenleri uygun matematiksel temsillere dönüştürür.",
+    "Matematiksel temsillere dönüştürdüğü problemi kendi ifadeleri ile açıklar.",
+    "Problemin sonucuna ilişkin tahminde bulunur ve işlemleri gerçekleştirmek için stratejiler geliştirir.",
+    "Belirlediği stratejileri çözüm için uygular.",
+    "Çözüm yollarını kontrol eder ve çözüme ulaştırmayan stratejiyi değiştirir.",
+    "Problemin çözümü için kullandığı veya geliştirdiği stratejileri gözden geçirerek alternatif çözüm yollarını değerlendirir.",
+    "Kullandığı strateji veya stratejileri farklı problemlerin çözümlerine geneller.",
+    "Genellemenin geçerliliğini matematiksel örneklerle değerlendirir."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.3",
+     "label": "Kendini Uyarlama (Öz Yansıtma)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB3.1",
+     "label": "Uyum"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D7",
+     "label": "Estetik"
+    },
+    {
+     "code": "D10",
+     "label": "Mütevazılık"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    }
+   ],
+   "assessment": [
+    "Çalışma kâğıtları İzleme testi Zihin haritası Öz değerlendirme formu Akran değerlendirme formu Performans görevi Bütüncül dereceli puanlama anahtarı Analitik dereceli puanlama anahtarı"
+   ]
+  },
+  "MAT.6.4.4": {
+   "code": "MAT.6.4.4",
+   "text": "Çemberin uzunluğu ile çap uzunluğu arasındaki ilişkiye yönelik çıkarım yapabilme",
+   "components": [
+    "Çemberin uzunluğu ile çap uzunluğu arasındaki ilişkiye yönelik varsayımlarda bulunur.",
+    "Çemberlerin uzunlukları ile çap uzunlukları arasındaki ilişkileri listeler.",
+    "Çemberin uzunluğu ile çap uzunluğu arasındaki ilişkiyi varsayımlarıyla karşılaştırır.",
+    "Çemberin uzunluğu ile çap uzunluğu arasındaki ilişkiye yönelik önermeler sunar.",
+    "Elde ettiği ilişkiye yönelik değerlendirmeler yapar."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.3",
+     "label": "Kendini Uyarlama (Öz Yansıtma)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB3.1",
+     "label": "Uyum"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D7",
+     "label": "Estetik"
+    },
+    {
+     "code": "D10",
+     "label": "Mütevazılık"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    }
+   ],
+   "assessment": [
+    "Çalışma kâğıtları İzleme testi Zihin haritası Öz değerlendirme formu Akran değerlendirme formu Performans görevi Bütüncül dereceli puanlama anahtarı Analitik dereceli puanlama anahtarı"
+   ]
+  },
+  "MAT.6.4.5": {
+   "code": "MAT.6.4.5",
+   "text": "Çap veya yarıçap uzunluğu verilen bir çemberin uzunluğu ile ilgili problemleri çözebilme",
+   "components": [
+    "Çap veya yarıçap uzunluğu verilen bir çemberin uzunluğu ile ilgili problemlerde ilgili matematiksel bileşenleri (çap, yarıçap, çevre uzunluğu gibi) belirler.",
+    "Matematiksel bileşenler arasındaki ilişkiyi belirler.",
+    "Problem bağlamıyla ilişkili verilenleri uygun matematiksel temsillere dönüştürür.",
+    "Matematiksel temsillere dönüştürdüğü problemi kendi ifadeleri ile açıklar.",
+    "Problemlerin sonucuna ilişkin tahminde bulunur ve işlemleri gerçekleştirmek için stratejiler geliştirir.",
+    "Belirlediği stratejileri çözüm için uygular.",
+    "Çözüm yollarını kontrol eder ve çözüme ulaştırmayan stratejiyi değiştirir.",
+    "Problemin çözümü için kullandığı veya geliştirdiği stratejileri gözden geçirerek alternatif çözüm yollarını değerlendirir.",
+    "Kullandığı strateji veya stratejileri farklı problemlerin çözümlerine geneller.",
+    "Genellemenin geçerliliğini matematiksel örneklerle değerlendirir."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.3",
+     "label": "Kendini Uyarlama (Öz Yansıtma)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB3.1",
+     "label": "Uyum"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D7",
+     "label": "Estetik"
+    },
+    {
+     "code": "D10",
+     "label": "Mütevazılık"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    }
+   ],
+   "assessment": [
+    "Çalışma kâğıtları İzleme testi Zihin haritası Öz değerlendirme formu Akran değerlendirme formu Performans görevi Bütüncül dereceli puanlama anahtarı Analitik dereceli puanlama anahtarı"
+   ]
+  },
+  "MAT.6.4.6": {
+   "code": "MAT.6.4.6",
+   "text": "Çemberde merkez açının ölçüsü ile gördüğü yayın uzunluğu arasındaki ilişkiye dair tümevarımsal akıl yürütebilme",
+   "components": [
+    "Çemberde farklı ölçülere sahip merkez açıların gördüğü yayların uzunluklarına ilişkin gözlem yapar.",
+    "Merkez açıların ölçüleri ile gördükleri yayların uzunlukları arasındaki ilişkiye dair örüntü bulur.",
+    "Merkez açının ölçüsü ile gördüğü yayın uzunluğu arasındaki ilişkiye dair genelleme yapar."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.3",
+     "label": "Kendini Uyarlama (Öz Yansıtma)"
+    },
+    {
+     "code": "SDB2.1",
+     "label": "İletişim"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB3.1",
+     "label": "Uyum"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D7",
+     "label": "Estetik"
+    },
+    {
+     "code": "D10",
+     "label": "Mütevazılık"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    }
+   ],
+   "assessment": [
+    "Çalışma kâğıtları İzleme testi Zihin haritası Öz değerlendirme formu Akran değerlendirme formu Performans görevi Bütüncül dereceli puanlama anahtarı Analitik dereceli puanlama anahtarı"
+   ]
+  },
+  "MAT.6.5.1": {
+   "code": "MAT.6.5.1",
+   "text": "Kategorik veya nicel (kesikli) veri ile çalışabilme ve veriye dayalı karar verebilme",
+   "components": [
+    "Kategorik veya nicel (kesikli) veriye dayanan istatistiksel araştırma gerektiren durumları fark eder.",
+    "Kategorik veya nicel (kesikli) veriye dayanan betimleme veya karşılaştırma gerektirebilecek araştırma soruları oluşturur.",
+    "Kategorik veya nicel (kesikli) veriye ulaşmak için plan yapar.",
+    "Araştırma sorusuna uygun hazırlanan anket sorularını kullanarak veri toplar veya hazır veriye ulaşır.",
+    "Veri görselleştirme (kök-yaprak gösterimi, nokta grafiği gibi) ve özetleme (aritmetik ortalama, ortanca, tepe değer ve açıklık) araçlarını seçme gerekçelerini belirtir.",
+    "Toplanan veriyi uygun araçlarla analiz eder.",
+    "Araştırmada ulaştığı sonuçlara yönelik gerekçeler sunar.",
+    "Araştırma sonuçlarının araştırma sorusuna ne düzeyde cevap verdiğini değerlendirerek araştırma sürecine uygun olmayan adımları yeniden planlar."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB2.3",
+     "label": "Sosyal Farkındalık"
+    },
+    {
+     "code": "SDB3.2",
+     "label": "Esneklik"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D1",
+     "label": "Adalet"
+    },
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D5",
+     "label": "Duyarlılık"
+    },
+    {
+     "code": "D6",
+     "label": "Dürüstlük"
+    },
+    {
+     "code": "D8",
+     "label": "Mahremiyet"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    },
+    {
+     "code": "D17",
+     "label": "Tasarruf"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB3",
+     "label": "Finansal Okuryazarlık"
+    }
+   ],
+   "assessment": [
+    "Akran değerlendirme formu Çalışma kâğıdı Performans görevi Bütüncül dereceli puanlama anahtarı Analitik dereceli puanlama anahtarı"
+   ]
+  },
+  "MAT.6.5.2": {
+   "code": "MAT.6.5.2",
+   "text": "Başkaları tarafından oluşturulan kategorik veya nicel (kesikli) veriye dayalı istatistiksel sonuç veya yorumları tartışabilme",
+   "components": [
+    "Başkaları tarafından oluşturulan kategorik veya nicel (kesikli) veriye dayalı istatistiksel sonuç veya yorumlara yönelik istatistiksel temellendirme yapar.",
+    "Başkaları tarafından oluşturulan kategorik veya nicel (kesikli) veriye dayalı istatistiksel sonuç veya yorumlara yönelik hataları ya da yanlılıkları tespit eder.",
+    "Başkaları tarafından oluşturulan kategorik veya nicel (kesikli) veriye dayalı istatistiksel sonuç veya yorumları çürütür ya da kabul eder."
+   ],
+   "sdb": [
+    {
+     "code": "SDB1.2",
+     "label": "Kendini Düzenleme (Öz Düzenleme)"
+    },
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    },
+    {
+     "code": "SDB2.3",
+     "label": "Sosyal Farkındalık"
+    },
+    {
+     "code": "SDB3.2",
+     "label": "Esneklik"
+    },
+    {
+     "code": "SDB3.3",
+     "label": "Sorumlu Karar Verme"
+    }
+   ],
+   "values": [
+    {
+     "code": "D1",
+     "label": "Adalet"
+    },
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    },
+    {
+     "code": "D5",
+     "label": "Duyarlılık"
+    },
+    {
+     "code": "D6",
+     "label": "Dürüstlük"
+    },
+    {
+     "code": "D8",
+     "label": "Mahremiyet"
+    },
+    {
+     "code": "D14",
+     "label": "Saygı"
+    },
+    {
+     "code": "D17",
+     "label": "Tasarruf"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB3",
+     "label": "Finansal Okuryazarlık"
+    }
+   ],
+   "assessment": [
+    "Akran değerlendirme formu Çalışma kâğıdı Performans görevi Bütüncül dereceli puanlama anahtarı Analitik dereceli puanlama anahtarı"
+   ]
+  },
+  "MAT.6.6.1": {
+   "code": "MAT.6.6.1",
+   "text": "Bir olayın olasılığını gözleme dayalı tahmin edebilme",
+   "components": [
+    "Bir olayın olasılığı ile deneylerden elde ettiği veriyi ilişkilendirir.",
+    "Deneye ait tekrar sayısı ile deneyin çıktılarının göreli sıklıklarının ilişkisine yönelik çıkarım yapar.",
+    "Çıkarımlardan hareketle olasılık değerini belirleme için göreli sıklığın kullanımına yönelik yargıda bulunur."
+   ],
+   "sdb": [
+    {
+     "code": "SDB2.2",
+     "label": "İş Birliği"
+    }
+   ],
+   "values": [
+    {
+     "code": "D3",
+     "label": "Çalışkanlık"
+    }
+   ],
+   "literacy": [
+    {
+     "code": "OB2",
+     "label": "Dijital Okuryazarlık"
+    },
+    {
+     "code": "OB4",
+     "label": "Görsel Okuryazarlık"
+    },
+    {
+     "code": "OB7",
+     "label": "Veri Okuryazarlığı"
+    }
+   ],
+   "assessment": [
+    "Çalışma kâğıdı Performans görevi Öz değerlendirme formu Akran değerlendirme formu Grup değerlendirme formu Bütüncül dereceli puanlama anahtarı"
+   ]
+  }
+ }
+}

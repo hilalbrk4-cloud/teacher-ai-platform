@@ -1,0 +1,787 @@
+{
+ "id": "matematik-8",
+ "subject": "Matematik",
+ "subjectId": "matematik",
+ "grade": 8,
+ "program": "onceki",
+ "source": {
+  "file": "matematik_mufredat.xlsx",
+  "sheet": "8.Sınıf"
+ },
+ "units": [
+  {
+   "id": "sayilar-ve-islemler",
+   "name": "Sayılar ve İşlemler",
+   "topics": [
+    {
+     "id": "sayilar-ve-islemler--carpanlar-ve-katlar",
+     "name": "Çarpanlar ve Katlar",
+     "outcomeCodes": [
+      "M.8.1.1.1",
+      "M.8.1.1.2",
+      "M.8.1.1.3"
+     ]
+    },
+    {
+     "id": "sayilar-ve-islemler--uslu-ifadeler",
+     "name": "Üslü İfadeler",
+     "outcomeCodes": [
+      "M.8.1.2.1",
+      "M.8.1.2.2",
+      "M.8.1.2.3",
+      "M.8.1.2.4",
+      "M.8.1.2.5"
+     ]
+    },
+    {
+     "id": "sayilar-ve-islemler--karekoklu-ifadeler",
+     "name": "Kareköklü İfadeler",
+     "outcomeCodes": [
+      "M.8.1.3.1",
+      "M.8.1.3.2",
+      "M.8.1.3.3",
+      "M.8.1.3.4",
+      "M.8.1.3.5",
+      "M.8.1.3.6",
+      "M.8.1.3.7",
+      "M.8.1.3.8"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "veri-isleme",
+   "name": "Veri İşleme",
+   "topics": [
+    {
+     "id": "veri-isleme--veri-analizi",
+     "name": "Veri Analizi",
+     "outcomeCodes": [
+      "M.8.4.1.1",
+      "M.8.4.1.2"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "olasilik",
+   "name": "Olasılık",
+   "topics": [
+    {
+     "id": "olasilik--basit-olaylarin-olma-olasiligi",
+     "name": "Basit Olayların Olma Olasılığı",
+     "outcomeCodes": [
+      "M.8.5.1.1",
+      "M.8.5.1.2",
+      "M.8.5.1.3",
+      "M.8.5.1.4",
+      "M.8.5.1.5"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cebir",
+   "name": "Cebir",
+   "topics": [
+    {
+     "id": "cebir--cebirsel-ifadeler-ve-ozdeslikler",
+     "name": "Cebirsel İfadeler ve Özdeşlikler",
+     "outcomeCodes": [
+      "M.8.2.1.1",
+      "M.8.2.1.2",
+      "M.8.2.1.3",
+      "M.8.2.1.4",
+      "M.8.2.2.1"
+     ]
+    },
+    {
+     "id": "cebir--dogrusal-denklemler",
+     "name": "Doğrusal Denklemler",
+     "outcomeCodes": [
+      "M.8.2.1.4",
+      "M.8.2.2.1",
+      "M.8.2.2.2",
+      "M.8.2.2.3",
+      "M.8.2.2.4",
+      "M.8.2.2.5",
+      "M.8.2.2.6",
+      "M.8.2.3.1"
+     ]
+    },
+    {
+     "id": "cebir--esitsizlikler",
+     "name": "Eşitsizlikler",
+     "outcomeCodes": [
+      "M.8.2.2.6",
+      "M.8.2.3.1",
+      "M.8.2.3.2",
+      "M.8.2.3.3"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "geometri-ve-olcme",
+   "name": "Geometri ve Ölçme",
+   "topics": [
+    {
+     "id": "geometri-ve-olcme--ucgenler",
+     "name": "Üçgenler",
+     "outcomeCodes": [
+      "M.8.3.1.1",
+      "M.8.3.1.2",
+      "M.8.3.1.3",
+      "M.8.3.1.4",
+      "M.8.3.1.5",
+      "M.8.3.3.1"
+     ]
+    },
+    {
+     "id": "geometri-ve-olcme--eslik-ve-benzerlik",
+     "name": "Eşlik ve Benzerlik",
+     "outcomeCodes": [
+      "M.8.3.1.5",
+      "M.8.3.3.1",
+      "M.8.3.3.2"
+     ]
+    },
+    {
+     "id": "geometri-ve-olcme--donusum-geometrisi",
+     "name": "Dönüşüm Geometrisi",
+     "outcomeCodes": [
+      "M.8.3.2.1",
+      "M.8.3.2.2",
+      "M.8.3.2.3"
+     ]
+    },
+    {
+     "id": "geometri-ve-olcme--geometrik-cisimler",
+     "name": "Geometrik Cisimler",
+     "outcomeCodes": [
+      "M.8.3.4.1",
+      "M.8.3.4.2",
+      "M.8.3.4.3",
+      "M.8.3.4.4",
+      "M.8.3.4.5",
+      "M.8.3.4.6"
+     ]
+    }
+   ]
+  }
+ ],
+ "outcomes": {
+  "M.8.1.1.1": {
+   "code": "M.8.1.1.1",
+   "text": "Verilen pozitif tam sayıların pozitif tam sayı çarpanlarını bulur, pozitif tam sayıların pozitif tam sayı çarpanlarını üslü ifadelerin çarpımı şeklinde yazar.",
+   "components": [
+    "Bir pozitif tam sayının asal çarpanlarını bulmaya yönelik çalışmalara da yer verilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "M.8.1.1.2": {
+   "code": "M.8.1.1.2",
+   "text": "İki doğal sayının en büyük ortak bölenini (EBOB) ve en küçük ortak katını (EKOK) hesaplar, ilgili problemleri çözer.",
+   "components": [
+    "Alan ve hacim hesaplamayı gerektiren problemlere girilmez."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "M.8.1.1.3": {
+   "code": "M.8.1.1.3",
+   "text": "Verilen iki doğal sayının aralarında asal olup olmadığını belirler.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "M.8.1.2.1": {
+   "code": "M.8.1.2.1",
+   "text": "Tam sayıların, tam sayı kuvvetlerini hesaplar.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "M.8.1.2.2": {
+   "code": "M.8.1.2.2",
+   "text": "Üslü ifadelerle ilgili temel kuralları anlar, birbirine denk ifadeler oluşturur.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "M.8.1.2.3": {
+   "code": "M.8.1.2.3",
+   "text": "Sayıların ondalık gösterimlerini 10’un tam sayı kuvvetlerini kullanarak çözümler.",
+   "components": [
+    "Örneğin 82,53 = 8.10¹ + 2.10⁰ + 5.10⁻¹ + 3.10⁻²"
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "M.8.1.2.4": {
+   "code": "M.8.1.2.4",
+   "text": "Verilen bir sayıyı 10’un farklı tam sayı kuvvetlerini kullanarak ifade eder.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "M.8.1.2.5": {
+   "code": "M.8.1.2.5",
+   "text": "Çok büyük ve çok küçük sayıları bilimsel gösterimle ifade eder ve karşılaştırır.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "M.8.1.3.1": {
+   "code": "M.8.1.3.1",
+   "text": "Tamkare pozitif tam sayılarla bu sayıların karekökleri arasındaki ilişkiyi belirler.",
+   "components": [
+    "Kare modelleri kullanılarak alanla kenar arasındaki ilişkiden yararlanılarak bir sayıyla karekökü arasındaki ilişki ele alınabilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "M.8.1.3.2": {
+   "code": "M.8.1.3.2",
+   "text": "Tam kare olmayan kareköklü bir sayının hangi iki doğal sayı arasında olduğunu belirler.",
+   "components": [
+    "Örneğin √31 sayısının 5 ile 6 sayıları arasında bulunduğunu ve 6’ya daha yakın olduğunu belirlemeye yönelik çalışmalar yapılır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": [
+    "Ölçme ve değerlendirme yöntemleri kazanımın düzeyi, konu içeriği dikkate alınarak planlanmalıdır. Kazanıma ve konunun içeriğine uygun olarak belirlenen bu ölçme ve değerlendirme yöntemlerinden klasik ve tamamlayıcı (alternatif) ölçme ve değerlendirme yöntemleri birlikte kullanılarak öğrencinin bütüncül olarak değerlendirilmesi sağlanmalıdır. Ölçme ve değerlendirme çalışmalarında sadece sonuca odaklı değerlendirme yapılmamalı süreç değerlendirmeye yönelik ölçme etkinlikleri de planlanmalıdır, süreçte planlanan değerlendirmeler öğretimde ve öğrenmelerde bir eksiklik olup olmadığının tespit edilmesi ve giderilmesinde önemlidir. Kaynaştırma/Bütünleştirme yoluyla eğitim ve öğretimlerine devam eden öğrencilere yönelik ölçme değerlendirmede Bireyselleştirilmiş Eğitim Programı (BEP) esas alınır."
+   ]
+  },
+  "M.8.1.3.3": {
+   "code": "M.8.1.3.3",
+   "text": "Kareköklü bir ifadeyi a√b şeklinde yazar ve a√b şeklindeki ifadede katsayıyı kök içine alır.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "M.8.1.3.4": {
+   "code": "M.8.1.3.4",
+   "text": "Kareköklü ifadelerde çarpma ve bölme işlemlerini yapar.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "M.8.1.3.5": {
+   "code": "M.8.1.3.5",
+   "text": "Kareköklü ifadelerde toplama ve çıkarma işlemlerini yapar.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "M.8.1.3.6": {
+   "code": "M.8.1.3.6",
+   "text": "Kareköklü bir ifade ile çarpıldığında, sonucu bir doğal sayı yapan çarpanlara örnek verir.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "M.8.1.3.7": {
+   "code": "M.8.1.3.7",
+   "text": "Ondalık ifadelerin kareköklerini belirler.",
+   "components": [
+    "Kesir olarak ifade edildiğinde payı ve paydası tam kare olan ondalık gösterimlerin kareköklerini bulmaya yönelik çalışmalara yer verilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "M.8.1.3.8": {
+   "code": "M.8.1.3.8",
+   "text": "Gerçek sayıları tanır, rasyonel ve irrasyonel sayılarla ilişkilendirir.",
+   "components": [
+    "Tam kare olmayan sayıların kareköklerinin rasyonel sayı olarak belirtilemediğine (iki tam sayının oranı şeklinde yazılamadığına) dikkat çekilir. π sayısı bir irrasyonel sayı olarak tanıtılır. İrrasyonel sayı olmasına rağmen işlemlerde kolaylık sağlaması açısından π sayısı yerine 3; 3,14 veya 22/7 de alınabileceği vurgulanır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "M.8.2.1.1": {
+   "code": "M.8.2.1.1",
+   "text": "Basit cebirsel ifadeleri anlar ve farklı biçimlerde yazar.",
+   "components": [
+    "Terim, katsayı ve değişkenin anlamları üzerinde durulur. Sabit terimin de bir katsayı olduğu vurgulanır.",
+    "x+5, 3x, x², -6y², a².b, 2a+2b gibi temel cebirsel ifadeler üzerinde durulur."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "M.8.2.1.2": {
+   "code": "M.8.2.1.2",
+   "text": "Cebirsel ifadelerin çarpımını yapar.",
+   "components": [
+    "y(3y-2), (2x+3)(5x-1) gibi işlemler üzerinde durulur.",
+    "Cebirsel ifadelerdeki katsayılar tamsayılardan seçilir.",
+    "Cebirsel ifadelerle çarpma işlemini modellerle yapmaya yönelik çalışmalara yer verilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "M.8.2.1.3": {
+   "code": "M.8.2.1.3",
+   "text": "Özdeşlikleri modellerle açıklar.",
+   "components": [
+    "(a ± b)² = a² ± 2ab + b² ve a² - b² = (a-b)(a+b) özdeşlikleriyle sınırlı kalınır.",
+    "Özdeşliklerdeki katsayılar tam sayılardan seçilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "M.8.2.1.4": {
+   "code": "M.8.2.1.4",
+   "text": "Cebirsel ifadeleri çarpanlara ayırır.",
+   "components": [
+    "Ortak çarpan parantezine alma ile iki kare farkı ve a² ± 2ab + b² biçimindeki tam kare ifadelerin çarpanlara ayırma işlemleri ele alınır.",
+    "Cebirsel ifadelerdeki katsayılar ve kökleri tam sayılar içinde kalacak biçimde seçilir.",
+    "Gruplandırarak çarpanlarına ayırma yöntemine girilmez.",
+    "Tam kare olmayan ikinci dereceden ifadelerin çarpanlara ayrılma işlemlerine girilmez."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "M.8.2.2.1": {
+   "code": "M.8.2.2.1",
+   "text": "Birinci dereceden bir bilinmeyenli denklemleri çözer.",
+   "components": [
+    "Bu sınıf düzeyinde katsayıları rasyonel sayı olan denklemlere yer verilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "M.8.2.2.2": {
+   "code": "M.8.2.2.2",
+   "text": "Koordinat sistemini özellikleriyle tanır ve sıralı ikilileri gösterir.",
+   "components": [
+    "Koordinat sistemi üzerinde yer belirlemeyle gerçek hayat durumlarını ilişkilendirmeye yönelik çalışmalara yer verilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "M.8.2.2.3": {
+   "code": "M.8.2.2.3",
+   "text": "Aralarında doğrusal ilişki bulunan iki değişkenden birinin diğerine bağlı olarak nasıl değiştiğini tablo ve denklem ile ifade eder.",
+   "components": [
+    "Tablo ile yapılan gösterimlerde sıralı ikililer biçiminde ifadelere de yer verilir.",
+    "İki değişkenden birinin değerinin, diğer değişkenin aldığı değere göre nasıl değiştiği ve bu durumda hangisinin bağımlı hangisinin bağımsız değişken olduğu incelenir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "M.8.2.2.4": {
+   "code": "M.8.2.2.4",
+   "text": "Doğrusal denklemlerin grafiğini çizer.",
+   "components": [
+    "Doğrunun eksenleri hangi noktalarda kestiği, eksenlere paralelliği, orijinden geçip geçmediği durumlar ele alınır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "M.8.2.2.5": {
+   "code": "M.8.2.2.5",
+   "text": "Doğrusal ilişki içeren gerçek hayat durumlarına ait denklem, tablo ve grafiği oluşturur ve yorumlar.",
+   "components": [
+    "Doğrunun grafiği yorumlanırken doğru üzerindeki noktaların x ve y koordinatları arasındaki ilişki, eksenleri hangi noktalarda kestiği, orijinden geçip geçmediği, eksenlere paralelliği durumları ele alınır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "M.8.2.2.6": {
+   "code": "M.8.2.2.6",
+   "text": "Doğrunun eğimini modellerle açıklar, doğrusal denklemleri ve grafiklerini eğimle ilişkilendirir.",
+   "components": [
+    "Eğimin işaretinin ve büyüklüğünün anlamı üzerinde durulur.",
+    "Günlük hayatla ilişkili modellemelerde eğimin dikey uzunluğun yatay uzunluğa oranı olduğu dikkate alınarak işareti üzerinde durulmaz.",
+    "Gerektiğinde uygun bilgi ve iletişim teknolojilerinden yararlanılır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "M.8.2.3.1": {
+   "code": "M.8.2.3.1",
+   "text": "Birinci dereceden bir bilinmeyenli eşitsizlik içeren günlük hayat durumlarına uygun matematik cümleleri yazar.",
+   "components": [
+    "Örneğin “Anaokuluna en az 3 yaşında olan çocuklar kabul ediliyor.” ifadesinde çocukların yaşı x ile temsil edildiğinde, eşitsizlik x ≥ 3 olarak belirtilebilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "M.8.2.3.2": {
+   "code": "M.8.2.3.2",
+   "text": "Birinci dereceden bir bilinmeyenli eşitsizlikleri sayı doğrusunda gösterir.",
+   "components": [
+    "x ≥ -1, -3 ≤ t < 7, a < 1 gibi durumlar inceletilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "M.8.2.3.3": {
+   "code": "M.8.2.3.3",
+   "text": "Birinci dereceden bir bilinmeyenli eşitsizlikleri çözer.",
+   "components": [
+    "En çok iki işlem gerektiren eşitsizlikler seçilir.",
+    "Eşitsizliğin her iki tarafı negatif bir sayı ile çarpılır veya bölünürse eşitsizliğin yön değiştireceğinin fark edilmesine yönelik çalışmalara yer verilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "M.8.3.1.1": {
+   "code": "M.8.3.1.1",
+   "text": "Üçgende kenarortay, açıortay ve yüksekliği inşa eder.",
+   "components": [
+    "Kâğıtları katlayarak, keserek veya kareli kâğıt üzerinde çizim yaparak üçgenin elemanlarını oluşturmaya yönelik çalışmalara yer verilir.",
+    "Eşkenar, ikizkenar ve dik üçgen gibi özel üçgenlerde kenarortay, açıortay ve yüksekliğin özelliklerini belirlemeye yönelik çalışmalara da yer verilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "M.8.3.1.2": {
+   "code": "M.8.3.1.2",
+   "text": "Üçgenin iki kenar uzunluğunun toplamı veya farkı ile üçüncü kenarının uzunluğunu ilişkilendirir.",
+   "components": [
+    "Somut modeller kullanılarak yapılacak etkinliklere yer verilebilir.",
+    "Uygun bilgisayar yazılımları ile üçgen eşitsizliğini anlamaya yönelik çalışmalara yer verilebilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "M.8.3.1.3": {
+   "code": "M.8.3.1.3",
+   "text": "Üçgenin kenar uzunlukları ile bu kenarların karşısındaki açıların ölçülerini ilişkilendirir.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "M.8.3.1.4": {
+   "code": "M.8.3.1.4",
+   "text": "Yeterli sayıda elemanının ölçüleri verilen bir üçgeni çizer.",
+   "components": [
+    "(1) Üç kenarının uzunluğu, (2) bir kenarının uzunluğu ile iki açısının ölçüsü, (3) iki kenar uzunluğu ile bu kenarların arasındaki açının ölçüsü verilen üçgenlerin uygun araçlar kullanılarak çizilmesi sağlanır.",
+    "Dinamik geometri yazılımları ile yapılacak çalışmalara yer verilebilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "M.8.3.1.5": {
+   "code": "M.8.3.1.5",
+   "text": "Pisagor bağıntısını oluşturur, ilgili problemleri çözer.",
+   "components": [
+    "Pisagor bağıntısının gerçek hayat uygulamalarına yönelik çalışmalara yer verilir.",
+    "Koordinat düzlemi üzerinde verilen iki nokta arasındaki uzaklığı Pisagor bağıntısını kullanarak bulma çalışmalarına yer verilir. İki nokta arasındaki uzaklık formülü verilmez.",
+    "Kenar uzunlukları verilen bir üçgenin dik üçgen olup olmadığına Pisagor bağıntısını kullanarak karar vermeye yönelik çalışmalar yapılır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "M.8.3.2.1": {
+   "code": "M.8.3.2.1",
+   "text": "Nokta, doğru parçası ve diğer şekillerin öteleme sonucundaki görüntülerini çizer.",
+   "components": [
+    "Kareli veya noktalı kâğıt, koordinat sistemi üzerinde çalışmalar yapılır.",
+    "Dinamik geometri yazılımları ile yapılacak çalışmalara da yer verilebilir.",
+    "Ötelemede şekil üzerindeki her bir noktanın aynı yönde hareket ettiği ve şekil ile görüntüsünün eş olduğu fark ettirilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "M.8.3.2.2": {
+   "code": "M.8.3.2.2",
+   "text": "Nokta, doğru parçası ve diğer şekillerin yansıma sonucu oluşan görüntüsünü oluşturur.",
+   "components": [
+    "Kareli veya noktalı kâğıt, koordinat sistemi üzerinde çalışmalar yapılır.",
+    "Dinamik geometri yazılımları ile yapılacak çalışmalara da yer verilebilir.",
+    "Yansımada şekil ile görüntüsü üzerinde birbirlerine karşılık gelen noktaların simetri doğrusuna dik ve aralarındaki uzaklıkların eşit olduğu bu nedenle şekil ile görüntüsünün eş olduğu fark ettirilir.",
+    "Simetri doğrularının üzerinde olan şekillerle de çalışmalar yapılır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "M.8.3.2.3": {
+   "code": "M.8.3.2.3",
+   "text": "Çokgenlerin öteleme ve yansımalar sonucunda ortaya çıkan görüntüsünü oluşturur.",
+   "components": [
+    "En çok iki ardışık öteleme veya yansımaya yer verilir.",
+    "Desen, motif ve benzeri görsellerde öteleme veya yansıma dönüşümlerini belirlemeye yönelik çalışmalara yer verilir.",
+    "Geleneksel sanatlarımızdan (çini, seramik, dokuma vb.) örnekler de dikkate alınır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "M.8.3.3.1": {
+   "code": "M.8.3.3.1",
+   "text": "Eşlik ve benzerliği ilişkilendirir, eş ve benzer şekillerin kenar ve açı ilişkilerini belirler.",
+   "components": [
+    "Düzlemsel şekilleri karşılaştırarak eş olup olmadıklarını belirlemeye yönelik etkinliklere yer verilir.",
+    "Eş çokgenlerde karşılıklı kenar uzunluklarının ve açı ölçülerinin eşit, benzer çokgenlerde ise karşılık gelen açı ölçülerinin eşit fakat kenar uzunluklarının orantılı olduğu vurgulanır. Eş çokgenlerin benzer olduğu ancak benzer çokgenlerin eş olmalarının gerekmediği vurgulanır. KKK, AKA gibi üçgenlerde eşlik ve benzerlik kuralları özel olarak verilmez.",
+    "Somut modellerle, kareli kâğıtla veya kâğıtları katlayarak yapılacak çalışmalara yer verilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "M.8.3.3.2": {
+   "code": "M.8.3.3.2",
+   "text": "Benzer çokgenlerin benzerlik oranını belirler, bir çokgene eş ve benzer çokgenler oluşturur",
+   "components": [
+    "Somut modellerle, kareli kâğıtla veya kâğıtları katlayarak yapılacak çalışmalara yer verilir.",
+    "Gerektiğinde uygun bilgi ve iletişim teknolojilerinden yararlanılır.",
+    "Çokgenlerde benzerlik problemlerine girilmez."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "M.8.3.4.1": {
+   "code": "M.8.3.4.1",
+   "text": "Dik prizmaları tanır, temel elemanlarını belirler, inşa eder ve açınımını çizer.",
+   "components": [
+    "Somut modellerle çalışmalara yer verilir.",
+    "Bilgi ve iletişim teknolojilerinden yararlanılabilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "M.8.3.4.2": {
+   "code": "M.8.3.4.2",
+   "text": "Dik dairesel silindirin temel elemanlarını belirler, inşa eder ve açınımını çizer.",
+   "components": [
+    "Somut modellerle çalışmalara yer verilir.",
+    "Bilgi ve iletişim teknolojilerinden yararlanılabilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "M.8.3.4.3": {
+   "code": "M.8.3.4.3",
+   "text": "Dik dairesel silindirin yüzey alanı bağıntısını oluşturur, ilgili problemleri çözer.",
+   "components": [
+    "Somut modellerle çalışmalara yer verilir.",
+    "Bilgi ve iletişim teknolojilerinden yararlanılabilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "M.8.3.4.4": {
+   "code": "M.8.3.4.4",
+   "text": "Dik dairesel silindirin hacim bağıntısını oluşturur; ilgili problemleri çözer.",
+   "components": [
+    "Somut modellerle çalışmalara yer verilir.",
+    "Bilgi ve iletişim teknolojilerinden yararlanılabilir.",
+    "Dik dairesel silindirin hacmini tahmin etmeye yönelik çalışmalara yer verilir.",
+    "Dik dairesel silindirin hacim bağıntısını dik prizmanın hacim bağıntısı ile ilişkilendirmeye yönelik çalışmalara yer verilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "M.8.3.4.5": {
+   "code": "M.8.3.4.5",
+   "text": "Dik piramidi tanır, temel elemanlarını belirler, inşa eder ve açınımını çizer.",
+   "components": [
+    "Somut modellerle çalışmalara yer verilir.",
+    "Bilgi ve iletişim teknolojilerinden yararlanılabilir.",
+    "Alan ve hacim problemlerine girilmez."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "M.8.3.4.6": {
+   "code": "M.8.3.4.6",
+   "text": "Dik koniyi tanır, temel elemanlarını belirler, inşa eder ve açınımını çizer.",
+   "components": [
+    "Somut modellerle çalışmalara yer verilir.",
+    "Bilgi ve iletişim teknolojilerinden yararlanılabilir.",
+    "Alan ve hacim problemlerine girilmez."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "M.8.4.1.1": {
+   "code": "M.8.4.1.1",
+   "text": "En fazla üç veri grubuna ait çizgi ve sütun grafiklerini yorumlar.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "M.8.4.1.2": {
+   "code": "M.8.4.1.2",
+   "text": "Verileri sütun, daire veya çizgi grafiği ile gösterir ve bu gösterimler arasında uygun olan dönüşümleri yapar.",
+   "components": [
+    "Farklı gösterimlerin birbirlerine göre üstün ve zayıf yönleri üzerinde durulur."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "M.8.5.1.1": {
+   "code": "M.8.5.1.1",
+   "text": "Bir olaya ait olası durumları belirler.",
+   "components": [
+    "Örneğin 3 kırmızı, 5 mavi renkli topun bulunduğu bir torbadan top çekilmesi olayı ile ilgili olası durumların sayısının 8 olduğu ifade edilir. Birden fazla olayın olası durumları ele alınmaz"
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "M.8.5.1.2": {
+   "code": "M.8.5.1.2",
+   "text": "“Daha fazla”, “eşit”, “daha az” olasılıklı olayları ayırt eder, örnek verir.",
+   "components": [
+    "Olasılığı hesaplamayı gerektirmeyen sezgisel durumlar ele alınır. Örneğin bir okuldaki tüm öğretmen ve öğrencilerin isimlerinin yazılı olduğu bir listeden rastgele çekilen bir ismin öğrenciye ait olma olasılığının daha fazla olduğu, 15’i erkek öğrenci ve 15’i kız öğrenci olan bir sınıftan rastgele seçilen birinin kız öğrenci olma olasılığı ile erkek öğrenci olma olasılığının eşit olduğunu belirten çalışmalar yapılır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "M.8.5.1.3": {
+   "code": "M.8.5.1.3",
+   "text": "Eşit şansa sahip olan olaylarda her bir çıktının olasılık değerinin eşit olduğunu ve bu değerin 1/n olduğunu açıklar.",
+   "components": [
+    "Kazanım ifadesindeki n, olası durum sayısını temsil etmektedir.",
+    "Eşit şansa sahip olan ve olmayan olayları ayırt etmeye yönelik çalışmalara yer verilir.",
+    "Olasılığın bir olayın olma şansına (olabilirliğine) ilişkin bir ölçüm olduğu vurgulanır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "M.8.5.1.4": {
+   "code": "M.8.5.1.4",
+   "text": "Olasılık değerinin 0 ile 1 arasında (0 ve 1 dâhil) olduğunu anlar.",
+   "components": [
+    "İmkânsız olay ve kesin olayın olasılık değerleri vurgulanır.",
+    "Bir olayın olma olasılığı ile olmama olasılığının toplamının 1 olduğu fark ettirilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "M.8.5.1.5": {
+   "code": "M.8.5.1.5",
+   "text": "Basit bir olayın olma olasılığını hesaplar.",
+   "components": [
+    "Zar atıldığında tek sayı gelmesi gibi örnekler verilir.",
+    "Ayrık olan ve olmayan, bağımlı ve bağımsız olayların olasılığına girilmez.",
+    "Birden fazla olayın olma olasılığı ele alınmaz."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  }
+ }
+}

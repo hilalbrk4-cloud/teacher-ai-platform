@@ -24,6 +24,10 @@ export function LessonPlannerWorkspace() {
     feedback,
     updateField,
     toggleRefinement,
+    selectCurriculumTopic,
+    setFreeTopic,
+    toggleCurriculumOutcome,
+    setCurriculumOutcomes,
     generate,
     regenerate,
     updateSectionContent,
@@ -34,6 +38,8 @@ export function LessonPlannerWorkspace() {
     expand,
     save,
     duplicate,
+    exportWord,
+    isExportingWord,
   } = useLessonPlanGenerator(t);
 
   const hasPlan = status === "success" || (status === "loading" && plan !== null);
@@ -97,6 +103,10 @@ export function LessonPlannerWorkspace() {
             status={status}
             onFieldChange={updateField}
             onToggleRefinement={toggleRefinement}
+            onSelectCurriculumTopic={selectCurriculumTopic}
+            onFreeTopic={setFreeTopic}
+            onToggleCurriculumOutcome={toggleCurriculumOutcome}
+            onSetCurriculumOutcomes={setCurriculumOutcomes}
             onSubmit={generate}
           />
         </Card>
@@ -128,6 +138,8 @@ export function LessonPlannerWorkspace() {
                 onShorten={shorten}
                 onExpand={expand}
                 onDuplicate={duplicate}
+                isExportingWord={isExportingWord}
+                onExportWord={exportWord}
               />
             </div>
           ) : null}

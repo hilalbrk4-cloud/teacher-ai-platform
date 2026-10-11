@@ -39,7 +39,10 @@ export function getLessonPlanQualityMetrics(plan: LessonPlan): QualityMetric[] {
         : "attention",
   };
 
-  const assessmentSection = plan.sections.find((section) => section.key === "olcmeDegerlendirme");
+  // 5E planlarında ölçme, "Değerlendirme" aşamasındadır.
+  const assessmentSection = plan.sections.find(
+    (section) => section.key === "olcmeDegerlendirme" || section.key === "degerlendirme"
+  );
   const assessment: QualityMetric = {
     id: "assessment",
     status:

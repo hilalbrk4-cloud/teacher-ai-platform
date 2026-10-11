@@ -153,3 +153,78 @@ Zorluk arttıkça hata riski artar. Bu yüzden:
   soru **reddedilip** yeniden üretilsin.
 - Bu, sayı doğrusu ve kartlarda zaten uygulanan "veri doğruluğun tek kaynağıdır"
   prensibinin tüm tiplere taşınmasıdır.
+
+
+
+# TYMM & Yeni Nesil Soru Kalite Standartları ve Few-Shot Referansları
+
+Bu belgedeki örnekler, soru üretim motorunun referans alması gereken kabul kriterleridir. Üretilen her soru "HEDEF MODEL" yapısında olmalı, "RET EDİLEN MODEL" kalıplarından kesinlikle kaçınılmalıdır.
+
+---
+
+## 1. Görsel Tip: alan_izgara (Izgara / Alan Modeli)
+
+### ❌ RET EDİLEN MODEL (Düşük Bilişsel Düzey / Tek Adımlı Sayma)
+* **Görsel Parametresi:** `{ rows: 3, cols: 4, blue: 4, orange: 3, empty: 5 }`
+* **Soru Metni:** "Bir bahçe eş karelere ayrılmıştır. Mavi karelere çiçek, turuncu karelere sebze ekilmiş, beyaz kareler boş bırakılmıştır. Buna göre bahçenin boş bırakılan kısmı, tüm bahçenin kaçta kaçıdır?"
+* **Neden Reddedildi?**
+  - Sadece kareleri sayıp $5/12$ oranını bulduran 4. sınıf düzeyinde tek adımlı kazanım sorusudur.
+  - Muhakeme, tahmin veya gerçek bir problem çözme adımı içermez.
+
+### ✅ HEDEF MODEL (TYMM Uyumlu / Çok Adımlı Modelleme)
+* **Görsel Parametresi:** `{ rows: 3, cols: 4, blue: 4, orange: 3, empty: 5 }`
+* **Görsel Açıklaması/Etiketi:** "Parsel Planı" (Öğrenci toplam 12 parseli kendisi keşfetmelidir).
+* **Soru Metni:** 
+  "Bir peyzaj mimarı yukarıdaki eş parsellere ayrılmış hobi bahçesinde mavi bölgelere süs bitkisi, turuncu bölgelere sebze fidesi dikmiştir. 
+  Mimar, geriye kalan boş parsellerin tamamına her $\frac{1}{24}$ birimlik alana bir otomatik damlama ucu gelecek şekilde sulama tesisatı kuracaktır. 
+  Buna göre, boş bırakılan alan için toplam kaç adet damlama ucuna ihtiyaç vardır?"
+* **Çözüm Adımları:**
+  1. Görseli analiz etme: Toplam parsel = $12$, Boş parsel = $5 \rightarrow$ Boş oran = $\frac{5}{12}$.
+  2. Kesir işlemi / Oranlama: $\frac{5}{12} \div \frac{1}{24} = \frac{5}{12} \times 24 = 10$.
+* **Seçenekler & Çeldirici Mantığı:**
+  - A) 10 (Doğru)
+  - B) 5 (Öğrenci sadece boş kutuları sayıp işlem yapmadı)
+  - C) 8 (Ters işlem: Paydaları oranlamada işlem hatası)
+  - D) 14 (Tüm bahçe için hesapladı: $\frac{12}{12} \div \frac{1}{24} = 24$, sonra yanlış eksiltti)
+
+---
+
+## 2. Görsel Tip: cetvel_olcum (Ölçüm ve Cetvel Modeli)
+
+### ❌ RET EDİLEN MODEL (Doğrudan Çıkarma / Yüzeysel Görsel)
+* **Görsel Parametresi:** Silgi (2 ile 7 arası), Tebeşir (4 ile 6 arası).
+* **Soru Metni:** "Cetvelin her santimetresi eş parçalara bölünmüştür. Buna göre silgi tebeşirden kaç cm uzundur?"
+* **Neden Reddedildi?**
+  - İki nesnenin boyunu doğrudan okutup birbirinden çıkarma düzeyindedir. Kesir kavramı ölçümün odağında değildir.
+
+### ✅ HEDEF MODEL (TYMM Uyumlu / Birim Kesir ve Hata Payı)
+* **Görsel Parametresi:** `{ start: 3, end: 7, tick_subdivisions: 4 }` (Her 1 cm 4 eş parçaya bölünmüş cetvel, nesne 3 tam $\frac{1}{4}$'ten başlayıp 6 tam $\frac{3}{4}$'e uzanır).
+* **Soru Metni:**
+  "Bir marangoz çırağı, uzunluğu görseldeki cetvel üzerinde gösterilen çıtayı, uzunlukları eşit ve her biri $\frac{7}{8}\text{ cm}$ olan minik kamalara bölmek istiyor.
+  Kesme payı ihmal edildiğinde, bu çıtadan en fazla kaç adet tam kama elde edilir?"
+* **Çözüm Adımları:**
+  1. Cetvelden kesirli uzunluğu okuma: $6\frac{3}{4} - 3\frac{1}{4} = 3\frac{2}{4} = 3\frac{1}{2}\text{ cm} = \frac{7}{2}\text{ cm}$.
+  2. Kesirlerle bölme: $\frac{7}{2} \div \frac{7}{8} = \frac{7}{2} \times \frac{8}{7} = 4$.
+* **Seçenekler:**
+  - A) 3
+  - B) 4 (Doğru)
+  - C) 5
+  - D) 7
+
+---
+
+## 3. Görsel Tip: sayidogrusu (Sayı Doğrusu Modeli)
+
+### ❌ RET EDİLEN MODEL (İkon Bulma / Dekoratif)
+* **Görsel Parametresi:** 0 ile 2 arası, 9/10 noktasında yıldız ikonu.
+* **Soru Metni:** "9/10 kesri sayı doğrusunda hangi emoji ile gösterilmiştir?"
+* **Neden Reddedildi?**
+  - Matematiksel ilişkiyi emojilerle eşleştirmek yüzeysel bir bulmacadan öteye geçmez; TYMM modelleme becerisi kazandırmaz.
+
+### ✅ HEDEF MODEL (TYMM Uyumlu / Adım Aralığı ve Konum Analizi)
+* **Görsel Parametresi:** 0 ile 1 arası 6 eş parçaya, 1 ile 2 arası 4 eş parçaya bölünmüş bir doğru üzerinde K ve L noktaları.
+* **Soru Metni:**
+  "Bir robot süpürge şarj istasyonundan (0 noktası) başlayarak doğrusal bir hat boyunca hareket etmektedir. Süpürge birinci etapta K noktasına, ardından K noktasından başlayıp L noktasına kadar temizlik yapmıştır.
+  Buna göre robot süpürgenin ikinci etapta aldığı yol, birinci etapta aldığı yoldan kaç birim fazladır?"
+* **Çözüm Adımları:**
+  - Farklı paydalara sahip iki aralığın birim kesir değerini ayrı ayrı okuma ve aradaki farkı hesaplama.

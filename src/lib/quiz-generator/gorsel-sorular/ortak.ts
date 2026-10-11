@@ -6,7 +6,7 @@ import type {
   GorselStratejisi,
   Kesir,
   SecenekKimligi,
-  SenaryoCikarimPlani, SenaryoSayilari,
+  GorselCizimPlani, SenaryoCikarimPlani, SenaryoSayilari,
 } from "@/types/gorsel-soru";
 
 /** `QuizValidationIssue` ile yapısal olarak aynı; aynı diziye eklenebilir. */
@@ -67,6 +67,8 @@ export interface GorselSoruGorevTanimi<K extends GorselSoruTipi> {
   ornekSayilari?: SenaryoSayilari;
   /** Çıkarım görevlerinde (sıralama, "olabilir", "olamaz") örneğin dayandığı plan. */
   ornekCikarim?: SenaryoCikarimPlani;
+  /** Planlı görsel tiplerde örneğin çizildiği veri (ör. daireler). */
+  ornekCizim?: GorselCizimPlani;
   /**
    * `veri` için OpenAI structured outputs (strict) uyumlu JSON Schema:
    * her alan zorunlu, isteğe bağlı alanlar `null` alabilir, fazladan alan yok.

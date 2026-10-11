@@ -25,12 +25,13 @@ function klonla<T>(value: T): T {
 
 /** Bir görevin planı; senaryolarda örneğin kendi planıyla (bağlam, veriler, cevap, kodun şıkları). */
 function ornekPlan(tip: GorselSoruTipi, gorev: string): GorselSoruPlani {
-  const { ornekSayilari: sayilar, ornekCikarim: cikarim } = gorevTanimi({ tip, gorev } as GorselSoruPlani);
+  const { ornekSayilari: sayilar, ornekCikarim: cikarim, ornekCizim: cizim } = gorevTanimi({ tip, gorev } as GorselSoruPlani);
   return {
     tip,
     gorev,
     ...(sayilar ? { sayilar: klonla(sayilar) } : {}),
     ...(cikarim ? { cikarim: klonla(cikarim) } : {}),
+    ...(cizim ? { cizim: klonla(cizim) } : {}),
   } as GorselSoruPlani;
 }
 
@@ -97,38 +98,57 @@ function planlar(form: QuizFormInput): GorselSoruPlani[] {
 }
 
 describe("görsel soru planı (Blueprint)", () => {
-  it("basit görsel okuma soruları üçte bir, en fazla 2; kalanı çok adımlı sayısal senaryodur", () => {
+  // TYMM: tek adımlı okuma görevleri plandan çıkarıldı; "basit" sırada yalnızca kart muhakemesi kalır.
+  const BASIT = new Set(["kesir_kartlari"]);
+  const SENARYO = "gercek_hayat_senaryo";
+
+  it("görsel yeni nesil (kesir): her soruya işlevsel bir görsel bağlanır; aynı tip en fazla 2 (12 soruya kadar)", () => {
     for (let questionCount = 1; questionCount <= 12; questionCount += 1) {
       for (const gradeLevel of ["5. Sınıf", "6. Sınıf"]) {
         const plan = planlar({ ...FORM, gradeLevel, questionCount, difficulty: "mixed" });
-        const basit = plan.filter((item) => item.tip !== "gercek_hayat_senaryo");
-        expect(basit).toHaveLength(Math.min(2, Math.floor(questionCount / 3)));
-        const senaryolar = plan.filter((item) => item.tip === "gercek_hayat_senaryo");
-        // Kesir konusunda her senaryonun verilerini, cevabını ve şıklarını kod kurar.
-        expect(senaryolar.every((item) => item.gorev !== "cokAdimliCikarim" && (item.sayilar || item.cikarim))).toBe(true);
+        expect(plan).toHaveLength(questionCount);
+        // Her sorunun çizimi ve metin planı kodda kurulur; görselsiz senaryo ya da kart tanım sorusu yoktur.
+        expect(plan.every((item) => item.cizim?.tip === item.tip && item.cikarim)).toBe(true);
+        expect(plan.some((item) => item.tip === SENARYO || BASIT.has(item.tip))).toBe(false);
+        for (const tip of new Set(plan.map((item) => item.tip))) {
+          expect(plan.filter((item) => item.tip === tip).length).toBeLessThanOrEqual(2);
+        }
       }
     }
   });
 
-  it("iki basit okuma sorusu farklı tiplerdendir; çok adımlı görevler tümü kullanılmadan tekrar etmez", () => {
-    const plan = planlar({ ...FORM, gradeLevel: "6. Sınıf", questionCount: 8 });
-    const basit = plan.filter((item) => item.tip !== "gercek_hayat_senaryo");
-    expect(new Set(basit.map((item) => item.tip)).size).toBe(2);
-    const gorevler = plan.filter((item) => item.tip === "gercek_hayat_senaryo").map((item) => item.gorev);
-    expect(gorevler).toHaveLength(6);
-    expect(new Set(gorevler.slice(0, 5)).size).toBe(5);
+  it("TYMM: hiçbir planda tek adımlı ya da saf tanım görevi yoktur", () => {
+    const TEK_ADIMLI = new Set(["siralama", "hedefeEnYakin", "isaretliKesir", "kesriGoster", "turuBul", "gosterimDonusumu", "ifadeDegerlendirme"]);
+    for (let questionCount = 1; questionCount <= 12; questionCount += 1) {
+      for (const gradeLevel of ["5. Sınıf", "6. Sınıf"]) {
+        const tumu = planlar({ ...FORM, gradeLevel, questionCount });
+        expect(tumu.some((item) => item.tip === "sayi_dogrusu" || item.tip === "kesir_kartlari" || TEK_ADIMLI.has(item.gorev))).toBe(false);
+      }
+    }
   });
 
   it("basit okuma soruları Blueprint'in en kolay işaretlediği sıralara verilir", () => {
     const slots = buildQuizBlueprint({ ...FORM, questionCount: 6, difficulty: "mixed" }).slots;
     const sira = { easy: 0, medium: 1, hard: 2 } as const;
     const basitZorluk = slots
-      .filter((slot) => slot.gorselPlani && slot.gorselPlani.tip !== "gercek_hayat_senaryo")
+      .filter((slot) => slot.gorselPlani && BASIT.has(slot.gorselPlani.tip))
       .map((slot) => sira[slot.difficulty]);
-    const senaryoZorluk = slots
-      .filter((slot) => slot.gorselPlani?.tip === "gercek_hayat_senaryo")
+    const digerZorluk = slots
+      .filter((slot) => slot.gorselPlani && !BASIT.has(slot.gorselPlani.tip))
       .map((slot) => sira[slot.difficulty]);
-    expect(Math.max(...basitZorluk)).toBeLessThanOrEqual(Math.min(...senaryoZorluk));
+    expect(Math.max(...basitZorluk)).toBeLessThanOrEqual(Math.min(...digerZorluk));
+  });
+
+  it("bağlam havuzu kısıtı: 8 soruya kadar bir quizde aynı bağlam konusu (robot süpürge, pizza…) tekrar etmez", () => {
+    for (let varyant = 0; varyant < 40; varyant += 1) {
+      for (const gradeLevel of ["5. Sınıf", "6. Sınıf"]) {
+        for (let questionCount = 2; questionCount <= 8; questionCount += 1) {
+          const plan = planlar({ ...FORM, gradeLevel, questionCount, objectives: `Kesirlerle problem çözer ${varyant}` });
+          const konular = plan.flatMap((item) => [item.cikarim?.konu ?? item.sayilar?.konu].filter((konu): konu is string => Boolean(konu)));
+          expect(new Set(konular).size).toBe(konular.length);
+        }
+      }
+    }
   });
 
   it("kesir dışı konularda yalnızca derse bağımsız tip ve görevleri atar", () => {
@@ -136,28 +156,16 @@ describe("görsel soru planı (Blueprint)", () => {
     expect(geometri.every((plan) => plan.tip === "gercek_hayat_senaryo" && plan.gorev === "cokAdimliCikarim")).toBe(true);
   });
 
-  it("kesir bölme/çarpma gerektiren senaryo görevlerini 5. sınıfa atamaz; kesir konusunda metinsel görevi kullanmaz", () => {
-    const tumSenaryoGorevleri = (sinif: string) =>
+  it("6. sınıf kazanımı olan görevleri (kesir ÷ doğal sayı, birim kesre bölme) 5. sınıfa atamaz", () => {
+    const ALTINCI_SINIF = new Set(["kalanPaylasim", "damlamaUcu", "kamaBolme"]);
+    const gorevler = (gradeLevel: string) =>
       new Set(
-        planlar({ ...FORM, gradeLevel: sinif, questionCount: 18 })
-          .filter((plan) => plan.tip === "gercek_hayat_senaryo")
-          .map((plan) => plan.gorev)
+        Array.from({ length: 30 }, (_, varyant) =>
+          planlar({ ...FORM, gradeLevel, questionCount: 8, objectives: `Kesirlerle problem çözer ${varyant}` })
+        ).flatMap((plan) => plan.map((item) => item.gorev))
       );
-    const besinci = tumSenaryoGorevleri("5. Sınıf");
-    expect([...besinci].sort()).toEqual([
-      "coklugunKesri",
-      "denklikOlamaz",
-      "kalaniBulma",
-      "karsilastirma",
-      "kesirSiralama",
-      "olabilirCikarim",
-      "parcaButun",
-    ]);
-    const altinci = tumSenaryoGorevleri("6. Sınıf");
-    expect(altinci.has("bolmeEnFazla") && altinci.has("birimOlcekleme")).toBe(true);
-    expect(altinci.has("cokAdimliCikarim")).toBe(false);
-    // Anlamsal çelişki riski nedeniyle plandan çıkarıldı (bkz. gorev tanımı).
-    expect(altinci.has("araliklar")).toBe(false);
+    expect([...gorevler("5. Sınıf")].some((gorev) => ALTINCI_SINIF.has(gorev))).toBe(false);
+    expect([...gorevler("6. Sınıf")].filter((gorev) => ALTINCI_SINIF.has(gorev)).length).toBeGreaterThanOrEqual(2);
   });
 
   it("deterministiktir: aynı form her zaman aynı planı verir", () => {

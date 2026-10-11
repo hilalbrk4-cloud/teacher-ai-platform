@@ -636,6 +636,8 @@ const gorevler: GorselSoruTanimi<"kesir_kartlari">["gorevler"] = {
     gorev: "ifadeDegerlendirme",
     etiket: "Öğrenci ifadelerini değerlendirme",
     aciklama: "Öğrencilerin kartlardaki kesirlerin türü hakkındaki ifadelerinden hangilerinin doğru/yanlış olduğunu bulur.",
+    // Saf tanım sorusu ("… bileşik kesirdir" ifadelerini değerlendirme); gerçek hayat bağlamı yok, plana alınmaz.
+    plandanCikarildi: true,
     kesirKonusuGerekir: true,
     semaAciklamasi: [
       KART_ACIKLAMASI + " 2-6 kart.",
@@ -704,6 +706,8 @@ const gorevler: GorselSoruTanimi<"kesir_kartlari">["gorevler"] = {
     gorev: "turuBul",
     etiket: "İstenen türdeki kesri bulma",
     aciklama: "Kartlar arasından istenen türde (basit, bileşik, tam sayılı veya birim) olan tek kesri bulur.",
+    // TYMM (CLAUDE.md, referans v2): tek adımlı okuma/eşleştirme görevi; yeni nesil plana alınmaz.
+    plandanCikarildi: true,
     kesirKonusuGerekir: true,
     semaAciklamasi: [
       KART_ACIKLAMASI + " 3-6 kart.",
@@ -752,6 +756,8 @@ const gorevler: GorselSoruTanimi<"kesir_kartlari">["gorevler"] = {
     etiket: "Bileşik ↔ tam sayılı gösterim",
     aciklama:
       "Bir karttaki bileşik kesrin tam sayılı kesir gösterimini ya da tam sayılı kesrin bileşik kesir gösterimini bulur.",
+    // TYMM (CLAUDE.md, referans v2): tek adımlı okuma/eşleştirme görevi; yeni nesil plana alınmaz.
+    plandanCikarildi: true,
     kesirKonusuGerekir: true,
     semaAciklamasi: [
       KART_ACIKLAMASI + " 2-6 kart.",

@@ -1,0 +1,657 @@
+{
+ "id": "fen-bilimleri-4",
+ "subject": "Fen Bilimleri",
+ "subjectId": "fen-bilimleri",
+ "grade": 4,
+ "program": "onceki",
+ "source": {
+  "file": "FEN BİLİMLERİ  (3-8. SINIFLAR) TASLAK ÇERÇEVE YILLIK PLAN+++.xlsx",
+  "sheet": "FEN BİLİMLERİ 4"
+ },
+ "units": [
+  {
+   "id": "yer-kabugu-ve-dunya-mizin-hareketleri",
+   "name": "Yer Kabuğu ve Dünya’mızın Hareketleri",
+   "topics": [
+    {
+     "id": "yer-kabugu-ve-dunya-mizin-hareketleri--yer-kabugunun-yapisi",
+     "name": "Yer Kabuğunun Yapısı",
+     "outcomeCodes": [
+      "F.4.1.1.1",
+      "F.4.1.1.2",
+      "F.4.1.1.3"
+     ]
+    },
+    {
+     "id": "yer-kabugu-ve-dunya-mizin-hareketleri--dunya-mizin-hareketleri",
+     "name": "Dünya’mızın Hareketleri",
+     "outcomeCodes": [
+      "F.4.1.2.1",
+      "F.4.1.2.2"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "besinlerimiz",
+   "name": "Besinlerimiz",
+   "topics": [
+    {
+     "id": "besinlerimiz--besinler-ve-ozellikleri",
+     "name": "Besinler ve Özellikleri",
+     "outcomeCodes": [
+      "F.4.2.1.1",
+      "F.4.2.1.2",
+      "F.4.2.1.3",
+      "F.4.2.1.4",
+      "F.4.2.1.5",
+      "F.4.2.1.6"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "kuvvetin-etkileri",
+   "name": "Kuvvetin Etkileri",
+   "topics": [
+    {
+     "id": "kuvvetin-etkileri--kuvvetin-cisimler-uzerindeki-etkileri",
+     "name": "Kuvvetin Cisimler Üzerindeki Etkileri",
+     "outcomeCodes": [
+      "F.4.3.1.1"
+     ]
+    },
+    {
+     "id": "kuvvetin-etkileri--miknatislarin-uyguladigi-kuvvet",
+     "name": "Mıknatısların Uyguladığı Kuvvet",
+     "outcomeCodes": [
+      "F.4.3.2.1",
+      "F.4.3.2.2",
+      "F.4.3.2.3",
+      "F.4.3.2.4"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "maddenin-ozellikleri",
+   "name": "Maddenin Özellikleri",
+   "topics": [
+    {
+     "id": "maddenin-ozellikleri--maddeyi-niteleyen-ozellikler",
+     "name": "Maddeyi Niteleyen Özellikler",
+     "outcomeCodes": [
+      "F.4.4.1.1"
+     ]
+    },
+    {
+     "id": "maddenin-ozellikleri--maddenin-olculebilir-ozellikleri",
+     "name": "Maddenin Ölçülebilir Özellikleri",
+     "outcomeCodes": [
+      "F.4.4.2.1",
+      "F.4.4.2.2"
+     ]
+    },
+    {
+     "id": "maddenin-ozellikleri--maddenin-halleri",
+     "name": "Maddenin Hâlleri",
+     "outcomeCodes": [
+      "F.4.4.3.1",
+      "F.4.4.3.2",
+      "F.4.4.4.1"
+     ]
+    },
+    {
+     "id": "maddenin-ozellikleri--maddenin-isi-etkisiyle-degisimi",
+     "name": "Maddenin Isı Etkisiyle Değişimi",
+     "outcomeCodes": [
+      "F.4.4.3.2",
+      "F.4.4.4.1",
+      "F.4.4.4.2"
+     ]
+    },
+    {
+     "id": "maddenin-ozellikleri--saf-madde-ve-karisim",
+     "name": "Saf Madde ve Karışım",
+     "outcomeCodes": [
+      "F.4.4.5.1",
+      "F.4.4.5.2",
+      "F.4.4.5.3"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "aydinlatma-ve-ses-teknolojileri",
+   "name": "Aydınlatma ve Ses Teknolojileri",
+   "topics": [
+    {
+     "id": "aydinlatma-ve-ses-teknolojileri--aydinlatma-teknolojileri",
+     "name": "Aydınlatma Teknolojileri",
+     "outcomeCodes": [
+      "F.4.5.1.1",
+      "F.4.5.1.2",
+      "F.4.5.2.1"
+     ]
+    },
+    {
+     "id": "aydinlatma-ve-ses-teknolojileri--uygun-aydinlatma",
+     "name": "Uygun Aydınlatma",
+     "outcomeCodes": [
+      "F.4.5.1.2",
+      "F.4.5.2.1",
+      "F.4.5.2.2",
+      "F.4.5.3.1"
+     ]
+    },
+    {
+     "id": "aydinlatma-ve-ses-teknolojileri--isik-kirliligi",
+     "name": "Işık Kirliliği",
+     "outcomeCodes": [
+      "F.4.5.2.2",
+      "F.4.5.3.1",
+      "F.4.5.3.2",
+      "F.4.5.3.3",
+      "F.4.5.4.1"
+     ]
+    },
+    {
+     "id": "aydinlatma-ve-ses-teknolojileri--gecmisten-gunumuze-ses-teknolojileri",
+     "name": "Geçmişten Günümüze Ses Teknolojileri",
+     "outcomeCodes": [
+      "F.4.5.3.3",
+      "F.4.5.4.1",
+      "F.4.5.4.2",
+      "F.4.5.5.1"
+     ]
+    },
+    {
+     "id": "aydinlatma-ve-ses-teknolojileri--ses-kirliligi",
+     "name": "Ses Kirliliği",
+     "outcomeCodes": [
+      "F.4.5.4.2",
+      "F.4.5.5.1",
+      "F.4.5.5.2",
+      "F.4.5.5.3"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "insan-ve-cevre",
+   "name": "İnsan ve Çevre",
+   "topics": [
+    {
+     "id": "insan-ve-cevre--bilincli-tuketici",
+     "name": "Bilinçli Tüketici",
+     "outcomeCodes": [
+      "F.4.6.1.1",
+      "F.4.6.1.2"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "basit-elektrik-devreleri",
+   "name": "Basit Elektrik Devreleri",
+   "topics": [
+    {
+     "id": "basit-elektrik-devreleri--basit-elektrik-devreleri",
+     "name": "Basit Elektrik Devreleri",
+     "outcomeCodes": [
+      "F.4.7.1.1",
+      "F.4.7.1.2",
+      "F.4.7.1.3"
+     ]
+    }
+   ]
+  }
+ ],
+ "outcomes": {
+  "F.4.1.1.1": {
+   "code": "F.4.1.1.1",
+   "text": "Yer kabuğunun kara tabakasının kayaçlardan oluştuğunu belirtir.",
+   "components": [
+    "Kayaçların sınıflandırılmasına girilmez."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.4.1.1.2": {
+   "code": "F.4.1.1.2",
+   "text": "Kayaçlarla madenleri ilişkilendirir ve kayaçların ham madde olarak önemini tartışır.",
+   "components": [
+    "Türkiye’deki önemli kayaçlara ve madenlere değinilir; altın, bor, mermer, linyit, bakır, taşkömürü, gümüş vb. örnekler verilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.4.1.1.3": {
+   "code": "F.4.1.1.3",
+   "text": "Fosillerin oluşumunu açıklar.",
+   "components": [
+    "Fosil çeşitlerine girilmez."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.4.1.2.1": {
+   "code": "F.4.1.2.1",
+   "text": "Dünya’nın dönme ve dolanma hareketleri arasındaki farkı açıklar.",
+   "components": [
+    "Dönme ve dolanma hareketine günlük yaşamdan örnek verilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.4.1.2.2": {
+   "code": "F.4.1.2.2",
+   "text": "Dünya’nın hareketleri sonucu gerçekleşen olayları açıklar.",
+   "components": [
+    "Dünya’nın dönme hareketine değinilir.",
+    "Dünya’nın dolanma hareketine değinilir.",
+    "Dünya’nın dönmesine bağlı olarak Güneş’in gün içerisindeki konumunun değişimine değinilir.",
+    "Gece ve gündüzün oluşumuna değinilir.",
+    "Gün, yıl, zaman kavramları verilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.4.2.1.1": {
+   "code": "F.4.2.1.1",
+   "text": "Canlı yaşamı ve besin içerikleri arasındaki ilişkiyi açıklar.",
+   "components": [
+    "Protein, karbonhidrat, yağ, vitamin, su ve minerallerin ayrıntılı yapısına girilmeden yalnızca önemleri vurgulanır.",
+    "Vitamin çeşitlerine girilmez."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.4.2.1.2": {
+   "code": "F.4.2.1.2",
+   "text": "Su ve minerallerin bütün besinlerde bulunduğu çıkarımını yapar.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.4.2.1.3": {
+   "code": "F.4.2.1.3",
+   "text": "Sağlıklı bir yaşam için besinlerin tazeliğinin ve doğallığının önemini, araştırma verilerine dayalı olarak tartışır.",
+   "components": [
+    "Dondurulmuş besinler, paketlenmiş besinler, son kullanma tarihi gibi kavramlar üzerinde durulur. Ayrıca besinlerin temizliği konusuna öğrencilerin dikkati çekilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.4.2.1.4": {
+   "code": "F.4.2.1.4",
+   "text": "İnsan sağlığı ile dengeli beslenmeyi ilişkilendirir.",
+   "components": [
+    "Obezitenin beslenme alışkanlığı ile ilişkisi vurgulanır. Besin israfının önlenmesine dikkat çekilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.4.2.1.5": {
+   "code": "F.4.2.1.5",
+   "text": "Alkol ve sigara kullanımının insan sağlığına olan olumsuz etkilerinin farkına varır.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.4.2.1.6": {
+   "code": "F.4.2.1.6",
+   "text": "Yakın çevresinde sigara kullanımını azaltmaya yönelik sorumluluk üstlenir.",
+   "components": [
+    "Yakın çevresindeki kişilere sigaranın sağlığa zararlı olduğu konusunda uyarılarda bulunması beklenir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.4.3.1.1": {
+   "code": "F.4.3.1.1",
+   "text": "Kuvvetin, cisimlere hareket kazandırmasına ve cisimlerin şekillerini değiştirmesine yönelik deneyler yapar.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.4.3.2.1": {
+   "code": "F.4.3.2.1",
+   "text": "Mıknatısı tanır ve kutupları olduğunu keşfeder.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.4.3.2.2": {
+   "code": "F.4.3.2.2",
+   "text": "Mıknatısın etki ettiği maddeleri deney yaparak keşfeder.",
+   "components": [
+    "Mıknatısın uyguladığı kuvvetin, temas gerektiren kuvvetlerden farklı olarak temas gerektirmediği vurgulanır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.4.3.2.3": {
+   "code": "F.4.3.2.3",
+   "text": "Mıknatısların günlük yaşamdaki kullanım alanlarına örnekler verir.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.4.3.2.4": {
+   "code": "F.4.3.2.4",
+   "text": "Mıknatısların yeni kullanım alanları konusunda fikirlerini açıklar.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.4.4.1.1": {
+   "code": "F.4.4.1.1",
+   "text": "Beş duyu organını kullanarak maddeyi niteleyen temel özellikleri açıklar.",
+   "components": [
+    "Maddeyi niteleyen; suda yüzme ve batma, suyu emme ve emmeme ve mıknatısla çekilme gibi özellikleri konusu işlenirken duyu organlarını kullanmaları sağlanır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.4.4.2.1": {
+   "code": "F.4.4.2.1",
+   "text": "Farklı maddelerin kütle ve hacimlerini ölçerek karşılaştırır.",
+   "components": [
+    "Gazların kütle ve hacimlerine girilmez."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.4.4.2.2": {
+   "code": "F.4.4.2.2",
+   "text": "Ölçülebilir özelliklerini kullanarak maddeyi tanımlar.",
+   "components": [
+    "Kütlesi ve hacmi olan varlıkların madde olduğu belirtilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.4.4.3.1": {
+   "code": "F.4.4.3.1",
+   "text": "Maddelerin hâllerine ait temel özellikleri karşılaştırır.",
+   "components": [
+    "Tanecikli ve boşluklu yapıya girilmez."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.4.4.3.2": {
+   "code": "F.4.4.3.2",
+   "text": "Aynı maddenin farklı hâllerine örnekler verir.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.4.4.4.1": {
+   "code": "F.4.4.4.1",
+   "text": "Maddelerin ısınıp soğumasına yönelik deneyler tasarlar.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.4.4.4.2": {
+   "code": "F.4.4.4.2",
+   "text": "Maddelerin ısı etkisiyle hâl değiştirebileceğine yönelik deney tasarlar.",
+   "components": [
+    "Hâl değişimlerinden sadece erime, donma ve buharlaşmaya değinilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.4.4.5.1": {
+   "code": "F.4.4.5.1",
+   "text": "Günlük yaşamında sıklıkla kullandığı maddeleri saf madde ve karışım şeklinde sınıflandırarak araların daki farkları açıklar.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.4.4.5.2": {
+   "code": "F.4.4.5.2",
+   "text": "Günlük yaşamda karşılaştığı karışımların ayrılmasında kullanılabilecek yöntemlerden uygun olanı seçer.",
+   "components": [
+    "Eleme, süzme ve mıknatısla ayırma yöntemleri üzerinde durulur."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.4.4.5.3": {
+   "code": "F.4.4.5.3",
+   "text": "Karışımların ayrılmasını, ülke ekonomisine katkısı ve kaynakların etkili kullanımı bakımından tartışır.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.4.5.1.1": {
+   "code": "F.4.5.1.1",
+   "text": "Geçmişte ve günümüzde kullanılan aydınlatma araçlarını karşılaştırır.",
+   "components": [
+    "Teknolojinin aydınlatma araçlarının gelişimine olan katkısı vurgulanır, kronolojik sıralama ve ayrıntı verilmez.",
+    "Aydınlatma araçlarının yaşamımızdaki önemi vurgulanır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.4.5.1.2": {
+   "code": "F.4.5.1.2",
+   "text": "Gelecekte kullanılabilecek aydınlatma araçlarına yönelik tasarım yapar.",
+   "components": [
+    "Tasarımını çizim yaparak ifade etmesi istenir, üç boyutlu tasarıma girilmez"
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.4.5.2.1": {
+   "code": "F.4.5.2.1",
+   "text": "Uygun aydınlatma hakkında araştırma yapar.",
+   "components": [
+    "Uygun aydınlatmanın göz sağlığı açısından önemi vurgulanır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.4.5.2.2": {
+   "code": "F.4.5.2.2",
+   "text": "Aydınlatma araçlarının tasarruflu kullanımının aile ve ülke ekonomisi bakımından önemini tartışır.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.4.5.3.1": {
+   "code": "F.4.5.3.1",
+   "text": "Işık kirliliğinin nedenlerini sorgular.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.4.5.3.2": {
+   "code": "F.4.5.3.2",
+   "text": "Işık kirliliğinin, doğal hayata ve gök cisimlerinin gözlenmesine olan olumsuz etkilerini açıklar.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.4.5.3.3": {
+   "code": "F.4.5.3.3",
+   "text": "Işık kirliliğini azaltmaya yönelik çözümler üretir.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.4.5.4.1": {
+   "code": "F.4.5.4.1",
+   "text": "Geçmişte ve günümüzde kullanılan ses teknolojilerini karşılaştırır.",
+   "components": [
+    "Teknolojinin ses araçlarının gelişimine olan katkısı vurgulanır, kronolojik sıralama ve ayrıntı verilmez.",
+    "Ses şiddetini değiştirmeye, işitme yetimizi geliştirmeye ve sesi kaydetmeye yarayan teknolojiler üzerinde durulur."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.4.5.4.2": {
+   "code": "F.4.5.4.2",
+   "text": "Şiddetli sese sahip teknolojik araçların olumlu ve olumsuz etkilerini araştırır.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.4.5.5.1": {
+   "code": "F.4.5.5.1",
+   "text": "Ses kirliliğinin nedenlerini sorgular.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.4.5.5.2": {
+   "code": "F.4.5.5.2",
+   "text": "Ses kirliliğinin insan sağlığı ve çevre üzerindeki olumsuz etkilerini açıklar.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.4.5.5.3": {
+   "code": "F.4.5.5.3",
+   "text": "Ses kirliliğini azaltmaya yönelik çözümler üretir.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.4.6.1.1": {
+   "code": "F.4.6.1.1",
+   "text": "Kaynakların kullanımında tasarruflu davranmaya özen gösterir.",
+   "components": [
+    "Elektrik, su, besin gibi kaynakların tasarruflu kullanılmasının önemi vurgulanır.",
+    "Yeniden kullanmanın önemi üzerinde durulur."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.4.6.1.2": {
+   "code": "F.4.6.1.2",
+   "text": "Yaşam için gerekli olan kaynakların ve geri dönüşümün önemini fark eder.",
+   "components": [
+    "Su, besin, elektrik gibi kaynaklara değinilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.4.7.1.1": {
+   "code": "F.4.7.1.1",
+   "text": "Basit elektrik devresini oluşturan devre elemanlarını işlevleri ile tanır.",
+   "components": [
+    "Devre elemanı olarak, pil, ampul, kablo ve anahtar tanıtılır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.4.7.1.2": {
+   "code": "F.4.7.1.2",
+   "text": "Çalışan bir elektrik devresi kurar.",
+   "components": [
+    "Ampul, pilden ve anahtardan oluşan devre kurulması istenir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "F.4.7.1.3": {
+   "code": "F.4.7.1.3",
+   "text": "Evde ve okuldaki elektrik düğmelerinin ve kabloların birer devre elemanı olduğunu bilir.",
+   "components": [
+    "Elektrik düğmeleri ile lambalar arasında, duvar içinden geçen bağlantı kabloları olduğu vurgulanır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  }
+ }
+}

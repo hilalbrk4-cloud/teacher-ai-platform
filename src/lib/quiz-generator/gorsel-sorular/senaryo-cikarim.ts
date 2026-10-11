@@ -346,21 +346,26 @@ interface DenklikBaglami {
   anahtarIfadeler: string[][];
 }
 
+// Sıra sözcükle verilir: "1. kart, 2. kart" yazılınca metne plan dışı sayılar girer ve soru reddedilir.
+const SIRA_SOZCUKLERI = ["", "birinci", "ikinci", "üçüncü"];
+
 const DENKLIK_BAGLAMLARI: readonly DenklikBaglami[] = [
   {
     konu: "oyun",
     baglam:
       "Bir oyunda her kartın ön yüzünde bir bileşik kesir, arka yüzünde aynı sayının tam sayılı kesir gösterimi yazılıdır. Masadaki kartların yalnızca ön yüzleri görünmektedir.",
     ornekSoru: "Buna göre aşağıdakilerden hangisi bu kartlardan birinin arka yüzü olamaz?",
-    veriAdi: (sira) => `${sira}. kartın ön yüzündeki kesir`,
+    veriAdi: (sira) => `${SIRA_SOZCUKLERI[sira]} kartın ön yüzündeki kesir`,
     anahtarIfadeler: [["ön yüz"], ["arka yüz"]],
   },
   {
-    konu: "tarif",
+    // İlk sürümde kek tarifi ve "su bardağı" vardı: "7/2 su bardağı" ifadesindeki "su", dil denetiminde
+    // kesirden sonra boşlukla yazılmış ek ("7/2 su" → "7/2'si") sanılıp soru reddediliyordu.
+    konu: "market",
     baglam:
-      "Bir kek tarifinde malzeme miktarları bileşik kesirle yazılmıştır. Ayşe her miktarı tam sayılı kesre çevirip deftere not alıyor.",
-    ornekSoru: "Buna göre aşağıdakilerden hangisi Ayşe'nin defterine yazdığı miktarlardan biri olamaz?",
-    veriAdi: (sira) => `${sira}. malzemenin miktarı (su bardağı)`,
+      "Bir manavda meyve kasalarının ağırlıkları etiketlere bileşik kesirle (kilogram) yazılmıştır. Ayşe her ağırlığı tam sayılı kesre çevirip yeni etiketlere yazıyor.",
+    ornekSoru: "Buna göre aşağıdakilerden hangisi Ayşe'nin yazdığı yeni etiketlerden biri olamaz?",
+    veriAdi: (sira) => `${SIRA_SOZCUKLERI[sira]} kasanın ağırlığı (kilogram)`,
     anahtarIfadeler: [["tam sayılı"]],
   },
 ];

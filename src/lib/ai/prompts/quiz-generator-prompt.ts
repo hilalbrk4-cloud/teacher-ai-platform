@@ -155,9 +155,11 @@ function buildSlotLine(slot: QuestionBlueprintSlot, index: number): string {
           " | Şıkları sistem üretir."
         : "") +
       (inference
-        ? ` | Bağlam: ${inference.baglam} | SİSTEMİN VERDİĞİ VERİLER (aynen, aynı yazımla kullan): ${inference.veriler
-            .map((veri) => `${veri.ad} = ${kesirGosterimi(veri.deger)}`)
-            .join("; ")}` +
+        ? ` | Bağlam: ${inference.baglam} | SİSTEMİN VERDİĞİ VERİLER (aynen, aynı yazımla kullan): ${
+            inference.veriler.length
+              ? inference.veriler.map((veri) => `${veri.ad} = ${kesirGosterimi(veri.deger)}`).join("; ")
+              : "yok — metne HİÇBİR sayı yazma, sayılar şekilden okunur"
+          }` +
           (inference.adlar.length ? ` | Adlar (aynen kullan): ${inference.adlar.join(", ")}` : "") +
           ` | Doğru cevap: ${inference.secenekler.find((secenek) => !secenek.hata)?.metin ?? ""} (${inference.ipucu})` +
           ` | Örnek soru kökü: "${inference.ornekSoru}"` +
@@ -354,6 +356,25 @@ function buildMathQualityBlock(): string {
     "- Aynı kavramı birden fazla temsille sun (ör. hem sayısal hem tablo/grafik/şekil üzerinden), tek bir " +
       "temsile bağlı kalma.",
     "- Aynı tür işlemi tekrar tekrar soran, birbirinin kopyası, tekdüze şablon sorulardan kaçın.",
+    "- İŞLEM SEÇİMİ SORULARI (\"Bu problemi çözmek için hangi işlem yapılmalıdır?\" gibi): Problem metni TEK ve NET " +
+      "bir işlemi (ya da tek bir işlem dizisini) gerektirmeli; şıklardan yalnızca biri savunulabilir olmalı.",
+    "- Belirsiz bütün ifadeleri YASAK: \"kalan malzemenin yarısı\", \"bir kısmı\", \"bir miktar\", \"biraz\", \"geri " +
+      "kalanın bir bölümü\" gibi, neyin kesri ya da neyin kalanı olduğu belli olmayan ifadeler kullanma. Her kesrin " +
+      "NEYİN kesri olduğunu açıkça yaz: \"tüm unun 1/2'si\" ya da \"ilk kullanımdan sonra kalan 6 kg unun 1/2'si\". " +
+      "\"Kalan\" kelimesini kullanırsan neyin kalanı olduğunu ve (gerekiyorsa) miktarını aynı cümlede belirt.",
+    "- SORU KÖKÜ de aynı netlikte olmalı: \"kaçta kaçını?\" diye soruyorsan neyin kaçta kaçı olduğunu yaz (\"tüm yolun " +
+      "kaçta kaçını\", \"kalan yolun kaçta kaçını\"). \"3 kat daha fazla\", \"yarısı kadar daha\" gibi iki türlü " +
+      "okunabilen ifadeler yerine \"3 katı\", \"yarısı\" gibi tek anlamlı ifadeler kullan.",
+    "- İşlem seçimi sorularında gerekli her sayı rakamla verilir; şıklar aynı sayıları kullanıp yalnızca işlem türüyle " +
+      "ayrışır (ör. 12 × 3/4, 12 ÷ 3/4, 12 − 3/4, 12 + 3/4). Doğru şıktaki işlem, metnin anlattığı durumla birebir " +
+      "örtüşmeli; iki farklı işlemin de doğru sayılabileceği bir kurgu yazma.",
+    "- İşlem seçimi sorusunda her sayı NEYİ temsil ettiğiyle ve birimiyle verilir (\"3/4 saatte 15 km\"); bağlamda anlamı " +
+      "olmayan sayı ya da birim yazma (ör. \"uzunluğu 1/4 olan bir adam\"). Aynı eylemi baştan sona aynı fiille anlat " +
+      "(\"satıldı\" dediysen soruda da \"satılan\"). Yazdıktan sonra doğru şıktaki işlemi sayılarla hesapla ve sonucun " +
+      "bağlamda anlamlı olduğunu kontrol et; anlamsızsa soruyu baştan kur.",
+    "- İstenen sonuç birden fazla adımla bulunuyorsa (ör. \"katılmadığı turlar\" = 16 − 16 × 5/8) doğru şık TÜM işlem " +
+      "dizisi olmalı; yalnızca ilk adımı (16 × 5/8) doğru şık yapma. Çözümde kullanılmayan veri (ikinci bir kişi, " +
+      "fazladan bir kesir) ekleme. Soru kökü tek bir şeyi sorar: \"… bulmak için hangi işlem yapılmalıdır?\"",
   ].join("\n");
 }
 
@@ -470,6 +491,25 @@ function buildGorselSoruBlock(blueprint: QuizBlueprint): string {
       "Aynı tipte birden fazla soru yazıyorsan farklı paydalar ve farklı sayı aralıkları kullan.",
     "- SORU PLANI'ndaki bilişsel düzey, zorluk, yaklaşım ve kazanım bu sorular için de bağlayıcıdır.",
     "- \"veri\" içindeki alan adlarını ve sabit değerleri (ör. \"kucuktenBuyuge\", \"mavi\") birebir koru.",
+    // CLAUDE.md + references/senaryo-kalite-referans-v2.md — TYMM yeni nesil soru kuralları.
+    "- TYMM 1 (bağlamsal zorunluluk): Görselli soruda çözüm için gereken en az bir sayısal/oransal veri YALNIZCA " +
+      "görselden okunur. Görseldeki veriyi metinde TEKRARLAMA: \"12 parçaya bölünmüş bahçe\" değil \"eş parsellere " +
+      "ayrılmış bahçe\" yaz; öğrenci sayıyı görselden bulur. Görsel süs değildir; ikon/emoji eşleştirme sorusu yazma.",
+    "- TYMM 2 (en az iki aşama): Tek adımlı \"şekilde boyalı kesir kaçtır?\", \"hangi emoji hangi kesri gösterir?\" " +
+      "soruları YASAKTIR. Adım 1 görselden bir kesir/oran okumak, Adım 2 bu kesri gerçek hayat senaryosunda (kapasite, " +
+      "kalan miktar, paylaştırma, kesme/bölme, sulama ucu) başka bir değerle işleme sokmaktır. Soru kökü bu ikinci " +
+      "aşamayı sorar.",
+    "- TYMM 3 (pedagojik çeldirici): Şıkları sistem öğrenci yanılgılarından üretir (pay ve paydayı doğrudan toplama, " +
+      "aralık yerine çizgi sayma, parçanın bütüne değil kalana oranı); metni bu yanılgıları sınayacak netlikte yaz.",
+    // references/gorsel-tip-haritasi.md — çeşitlilik (dağılımı Blueprint uygular; model plana uyar).
+    "- GÖRSEL YENİ NESİL: Bu türdeki HER soruda veri taşıyan işlevsel bir görsel model vardır (daire, şerit, ızgara, " +
+      "tablo, cetvel, sayı doğrusu); saf tanım sorusu (\"… bileşik kesirdir\" gibi) yazılmaz. Her soru FARKLI bir sektör " +
+      "ya da yaşam bağlamındadır (planın Bağlam satırı: inşaat, enerji, lojistik, tarım, laboratuvar…); örnek çıktılardaki " +
+      "cümleleri ve kişileri kopyalama, şablonu o bağlama uyarla.",
+    "- ÇEŞİTLİLİK: Bir quizde aynı görsel tip en fazla 1-2 kez kullanılır ve hiçbir tip baskın olmaz. Konuya uyan tipler " +
+      "öne alınır: daire = paylaşma, bütünün parçaları ve göstergeler; tablo = çoklu veri; cetvel = ölçüm; ızgara = alan. " +
+      "Planın atadığı tipi değiştirme ve metni planın Bağlam satırındaki sektörde yaz; aynı quizdeki sorularda kişi " +
+      "adlarını ve cümle kalıplarını tekrarlama.",
     tipBloklari.join("\n\n"),
   ].join("\n");
 }

@@ -1,3 +1,5 @@
+import type { LessonPlanCurriculumContext, LessonPlanCurriculumSelection } from "@/types/curriculum";
+
 export const LESSON_PLAN_SECTION_ORDER = [
   "dersBilgileri",
   "ogrenmeHedefleri",
@@ -11,7 +13,27 @@ export const LESSON_PLAN_SECTION_ORDER = [
   "ogretmenNotlari",
 ] as const;
 
-export type LessonPlanSectionKey = (typeof LESSON_PLAN_SECTION_ORDER)[number];
+/**
+ * 5E modeli (TYMM uyumlu) seçildiğinde klasik Giriş / Gelişme / Sonuç ve ayrı
+ * "Ölçme ve değerlendirme" bölümü yerine bu beş aşama üretilir.
+ */
+export const LESSON_PLAN_5E_PHASES = ["girme", "kesfetme", "aciklama", "derinlestirme", "degerlendirme"] as const;
+
+export type LessonPlan5EPhase = (typeof LESSON_PLAN_5E_PHASES)[number];
+
+export const LESSON_PLAN_5E_SECTION_ORDER = [
+  "dersBilgileri",
+  "ogrenmeHedefleri",
+  "gerekliMalzemeler",
+  "derseHazirlik",
+  ...LESSON_PLAN_5E_PHASES,
+  "farklilastirma",
+  "ogretmenNotlari",
+] as const;
+
+export type LessonPlanSectionKey = (typeof LESSON_PLAN_SECTION_ORDER)[number] | LessonPlan5EPhase;
+
+export type LessonPlanModel = "klasik" | "5e";
 
 export type LessonPlanRefinementId =
   | "fiveE"
@@ -32,6 +54,8 @@ export interface LessonPlanFormInput {
   specialNeeds: string;
   additionalNotes: string;
   refinements: LessonPlanRefinementId[];
+  /** MEB müfredat havuzundan seçilen ünite/konu ve resmî öğrenme çıktıları (seçim yoksa null). */
+  curriculum?: LessonPlanCurriculumSelection | null;
 }
 
 export type LessonPlanRequiredField = "subject" | "gradeLevel" | "topic" | "duration" | "objectives";
@@ -57,7 +81,13 @@ export interface LessonPlanPromptContext {
   specialNeeds?: string;
   additionalNotes?: string;
   refinements: LessonPlanRefinementId[];
+  /** "5e" seçiliyse bölümler 5E aşamalarıdır; aksi hâlde klasik Giriş/Gelişme/Sonuç. */
+  model: LessonPlanModel;
   requiredSections: readonly LessonPlanSectionKey[];
+  /** Yalnızca 5E'de: koddan hesaplanan aşama aralıkları (toplamı ders süresine eşit). */
+  phaseTimeRanges?: Record<LessonPlan5EPhase, LessonPlanTimeRange>;
+  /** Sunucunun müfredat havuzundan çözdüğü resmî çıktılar ve programlar arası bileşenler. */
+  officialCurriculum?: LessonPlanCurriculumContext;
   language: "tr";
 }
 
@@ -69,9 +99,28 @@ export interface LessonPlanPrompt extends LessonPlanPromptContext {
   instructions: string;
 }
 
+/** Bir aşamanın ders içindeki dakika aralığı (00–04 dk gibi); kod hesaplar, toplamı ders süresini aşmaz. */
+export interface LessonPlanTimeRange {
+  start: number;
+  end: number;
+}
+
 export interface LessonPlanSection {
   key: LessonPlanSectionKey;
   content: string;
+  timeRange?: LessonPlanTimeRange;
+}
+
+/**
+ * TYMM Beceriler Örgüsü: plan hangi kavramsal becerileri (KB), sosyal-duygusal
+ * öğrenme becerilerini (SDB), eğilimleri ve değerleri hedefliyor. Etiketler
+ * sabit listelerden seçilir (bkz. `tymm-skills.ts`); kod uydurulmaz.
+ */
+export interface LessonPlanSkills {
+  conceptual: string[];
+  socialEmotional: string[];
+  dispositions: string[];
+  values: string[];
 }
 
 export interface LessonPlan {
@@ -82,6 +131,11 @@ export interface LessonPlan {
   duration: number;
   sections: LessonPlanSection[];
   generatedAt: string;
+  /** "5e" ise bölümler 5E aşamalarıdır ve her aşamanın `timeRange`ı vardır. */
+  model?: LessonPlanModel;
+  skills?: LessonPlanSkills;
+  /** Resmî müfredat seçimi yapıldıysa: kodlar, SDB, Değerler ve OB (kod tarafından eklenir). */
+  curriculum?: LessonPlanCurriculumContext;
 }
 
 export type LessonPlanDocumentStatus = "draft" | "saved";

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Yeni Nesil Soru — Daire/Pizza Kesir Demosu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+    --bg:#f5f4fb; --surface:#ffffff; --ink:#20233a; --muted:#6d7286;
+    --line:#e7e6f1; --accent:#5b4bd6;
+    --info-bg:#eef3f7; --info-ink:#3d4b57;
+    --correct:#12855f; --correct-bg:#e2f5ed; --wrong:#c0453c; --wrong-bg:#fbeae8;
+    --code-bg:#1f2233; --code-ink:#e7e9f5; --code-key:#9db4ff; --code-str:#8fd6a6; --code-num:#f0b36b;
+  }
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+    --bg:#14151f; --surface:#1d1f2c; --ink:#eef0fa; --muted:#9aa0b4;
+    --line:#2c2f40; --accent:#8b7cf0;
+    --info-bg:#1b2530; --info-ink:#bfd0dc;
+    --correct:#54c79a; --correct-bg:#173328; --wrong:#e78a82; --wrong-bg:#33201e;
+  }}
+  :root[data-theme="dark"]{
+    --bg:#14151f; --surface:#1d1f2c; --ink:#eef0fa; --muted:#9aa0b4;
+    --line:#2c2f40; --accent:#8b7cf0; --info-bg:#1b2530; --info-ink:#bfd0dc;
+    --correct:#54c79a; --correct-bg:#173328; --wrong:#e78a82; --wrong-bg:#33201e;
+  }
+  *{box-sizing:border-box}
+  body{margin:0; background:var(--bg); color:var(--ink);
+    font-family:"Nunito",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; line-height:1.5; -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:760px; margin:0 auto; padding:22px 18px 60px}
+  header.top{display:flex; align-items:center; gap:10px; margin-bottom:6px}
+  .logo{width:30px;height:30px;border-radius:9px;background:var(--accent);display:grid;place-items:center;color:#fff;font-weight:800;font-size:16px;flex:none}
+  header.top h1{font-size:1.06rem; font-weight:800; margin:0; letter-spacing:-.2px}
+  .sub{color:var(--muted); font-size:.9rem; margin:2px 0 18px 40px}
+  .card{background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:20px 20px 22px; box-shadow:0 1px 2px rgba(20,20,40,.04)}
+  .qnum{font-weight:800; color:var(--accent); font-size:.95rem; margin-bottom:10px}
+  .gorevlbl{display:inline-block; font-size:.72rem; font-weight:800; color:var(--accent); background:var(--surface); border:1px solid var(--line); border-radius:999px; padding:2px 9px; margin-left:8px; vertical-align:middle}
+  .pies{display:flex; gap:26px; justify-content:center; flex-wrap:wrap; margin:10px 0 6px}
+  .pie-wrap{display:flex; flex-direction:column; align-items:center; gap:8px}
+  .pie-label{font-weight:800; font-size:.95rem}
+  .pie{width:156px; height:156px; display:block}
+  .senaryo{font-weight:700; margin:16px 0 4px; font-size:1rem}
+  .qtext{font-weight:800; margin:8px 0 14px; font-size:1rem}
+  .opts{display:grid; gap:10px}
+  .opt{display:flex; align-items:center; gap:12px; width:100%; text-align:left; background:var(--surface); border:1.5px solid var(--line); border-radius:12px; padding:12px 14px; cursor:pointer; font:inherit; color:inherit; transition:border-color .12s, background .12s}
+  .opt:hover{border-color:var(--accent)}
+  .opt .letter{font-weight:800; color:var(--muted); width:22px; flex:none}
+  .opt .val{font-size:1.1rem; font-weight:700}
+  .opt.correct{border-color:var(--correct); background:var(--correct-bg)} .opt.correct .letter{color:var(--correct)}
+  .opt.wrong{border-color:var(--wrong); background:var(--wrong-bg)} .opt.wrong .letter{color:var(--wrong)}
+  .opt .mark{margin-left:auto; font-weight:800; font-size:.92rem; opacity:0}
+  .opt.correct .mark{opacity:1; color:var(--correct)} .opt.wrong .mark{opacity:1; color:var(--wrong)}
+  .frac{display:inline-flex; flex-direction:column; align-items:center; line-height:1.05; vertical-align:middle}
+  .frac .num{border-bottom:2px solid currentColor; padding:0 5px} .frac .den{padding:0 5px}
+  .controls{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px}
+  .btn{font:inherit; font-weight:700; border-radius:11px; padding:10px 16px; cursor:pointer; border:1.5px solid var(--line); background:var(--surface); color:var(--ink)}
+  .btn:hover{border-color:var(--accent)}
+  .btn.primary{background:var(--accent); border-color:var(--accent); color:#fff} .btn.primary:hover{filter:brightness(1.05)}
+  .note{margin-top:16px; font-size:.9rem; color:var(--muted)} .note b{color:var(--ink)}
+  details.data{margin-top:22px; border:1px solid var(--line); border-radius:14px; background:var(--surface); overflow:hidden}
+  details.data > summary{cursor:pointer; list-style:none; padding:14px 18px; font-weight:800; font-size:.95rem; display:flex; align-items:center; gap:8px}
+  details.data > summary::-webkit-details-marker{display:none}
+  details.data > summary .chev{margin-left:auto; color:var(--muted); transition:transform .15s}
+  details.data[open] > summary .chev{transform:rotate(90deg)}
+  .data .body{padding:0 18px 18px}
+  .data p.exp{color:var(--muted); font-size:.9rem; margin:0 0 12px}
+  pre.code{margin:0; background:var(--code-bg); color:var(--code-ink); border-radius:11px; padding:16px; overflow-x:auto; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:.82rem; line-height:1.55}
+  pre.code .k{color:var(--code-key)} pre.code .s{color:var(--code-str)} pre.code .n{color:var(--code-num)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top"><div class="logo">E</div><h1>Yeni Nesil Soru — Daire / Pizza Kesir</h1></header>
+  <p class="sub">Pizza bir <b>resim</b> değil: yapay zekânın ürettiği <b>veriden</b> çiziliyor ve soru <b>çok adımlı</b> bir işlem gerektiriyor. “Yeni soru üret”e bas.</p>
+
+  <div class="card">
+    <div class="qnum" id="qnum">Soru 1 <span class="gorevlbl" id="gorevlbl"></span></div>
+    <div class="pies" id="pies"></div>
+    <div class="senaryo" id="senaryo"></div>
+    <div class="qtext" id="qtext"></div>
+    <div class="opts" id="opts"></div>
+    <div class="controls">
+      <button class="btn primary" id="new">Yeni soru üret</button>
+      <button class="btn" id="reveal">Cevabı göster</button>
+    </div>
+    <p class="note" id="note"></p>
+  </div>
+
+  <details class="data" id="dataBox">
+    <summary>Yapay zekânın ürettiği veri <span class="chev">›</span></summary>
+    <div class="body">
+      <p class="exp">Model senaryoyu ve işlem verisini üretir; <b>doğru cevabı kod hesaplar</b> (pizza dilimlerinden), modelin şıkkıyla karşılaştırır, tutmazsa reddeder. Görsel her zaman soruyla uyumlu.</p>
+      <pre class="code" id="json"></pre>
+    </div>
+  </details>
+</div>
+
+<script>
+(function(){
+  const COLORS=[
+    {ad:"turuncu", slice:"#ff8a3d", stroke:"#d9641c", empty:"#ffe9d6"},
+    {ad:"mavi",    slice:"#4c9aff", stroke:"#2f6fd0", empty:"#dbeafe"},
+    {ad:"yeşil",   slice:"#39c07a", stroke:"#1f8f56", empty:"#d7f3e5"},
+    {ad:"mor",     slice:"#9b6cf0", stroke:"#6f45c8", empty:"#ece0ff"},
+    {ad:"pembe",   slice:"#f2679e", stroke:"#cf3f79", empty:"#ffe0ee"}
+  ];
+  const ISIMLER=["Ali","Ayşe","Mert","Zeynep","Can","Elif","Deniz","Burak","Ece","Mehmet"];
+  const GOREV_AD={dilime_cevir:"kesrin kesri",kalan_kisiler:"çıkarma + sadeleştirme",iki_pizza_karsilastir:"karşılaştırma",toplam_iki_pizza:"toplama"};
+  const TASKS=Object.keys(GOREV_AD);
+
+  let Q=null, selected=null, revealed=false, counter=1;
+  function gcd(a,b){return b?gcd(b,a%b):a;}
+  function simp(n,d){const g=gcd(n,d)||1;return [n/g,d/g];}
+  function rnd(a){return a[Math.floor(Math.random()*a.length)];}
+  function pick(a,n){const c=[...a],o=[];for(let i=0;i<n;i++)o.push(c.splice(Math.floor(Math.random()*c.length),1)[0]);return o;}
+  function shuffle(a){const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;}
+  function fracStr(n,d){return `${n}/${d}`;}
+  function fracHTML(s){const m=String(s).match(/^(\d+)\/(\d+)$/);return m?`<span class="frac"><span class="num">${m[1]}</span><span class="den">${m[2]}</span></span>`:s;}
+  function uniq4(correct,cands){const out=[correct];for(const c of cands){if(out.length>=4)break;if(c!=null&&!out.includes(c))out.push(c);}while(out.length<4)out.push(correct+"·"+out.length);return shuffle(out.slice(0,4));}
+
+  // SVG pie
+  function piePath(cx,cy,r,a0,a1){const x0=cx+r*Math.cos(a0),y0=cy+r*Math.sin(a0),x1=cx+r*Math.cos(a1),y1=cy+r*Math.sin(a1),lg=(a1-a0)>Math.PI?1:0;return `M${cx},${cy} L${x0.toFixed(2)},${y0.toFixed(2)} A${r},${r} 0 ${lg} 1 ${x1.toFixed(2)},${y1.toFixed(2)} Z`;}
+  function pieSVG(dilim,boyali,color){const S=156,cx=78,cy=78,r=68,step=2*Math.PI/dilim,start=-Math.PI/2;let s=`<svg class="pie" viewBox="0 0 ${S} ${S}" role="img" aria-label="${dilim} eş parçaya bölünmüş, ${boyali} parçası dolu pizza">`;for(let i=0;i<dilim;i++){const a0=start+i*step,a1=start+(i+1)*step,fill=i<boyali?color.slice:color.empty;s+=`<path d="${piePath(cx,cy,r,a0,a1)}" fill="${fill}" stroke="${color.stroke}" stroke-width="2"/>`;}s+=`<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${color.stroke}" stroke-width="2.5"/></svg>`;return s;}
+
+  function build(){
+    const task=rnd(TASKS);
+    if(task==="dilime_cevir"){
+      // pizza N eş dilim, p/q yendi, kaç dilim yendi? (N × p/q)
+      const [p,q]=rnd([[2,3],[3,4],[1,2],[5,6],[2,5],[3,5]]);
+      const m=rnd([2,3]); const N=q*m; const yenen=p*m; const c=rnd(COLORS);
+      const [isim]=pick(ISIMLER,1);
+      Q={task,daireler:[{dilim:N,boyali:0,color:c}],
+        senaryo:`${isim}'in doğum günü pizzası ${N} eş dilime bölünmüştür. Pizzanın ${fracStr(p,q)}'ü yenmiştir.`,
+        soru:`Buna göre kaç dilim pizza yenmiştir?`,
+        correctVal:String(yenen),
+        opts:uniq4(String(yenen),[String(N-yenen),String(yenen+m),String(yenen-1>0?yenen-1:yenen+2),String(q*m-p)]),
+        cozum:`${N} × ${fracStr(p,q)} = ${yenen} dilim.`};
+    }else if(task==="kalan_kisiler"){
+      // pizza N dilim, k kişi birer dilim yedi (shaded), kaçta kaçı KALDI? (sadeleştir)
+      const N=rnd([6,8,10,12]); const k=2+Math.floor(Math.random()*(N-3)); const c=rnd(COLORS);
+      const [sk,sk2]=simp(N-k,N);
+      const yenenS=simp(k,N);
+      Q={task,daireler:[{dilim:N,boyali:k,color:c}],
+        senaryo:`Bir pasta ${N} eş dilime bölünmüştür. ${k} kişi birer dilim yemiştir (dolu dilimler).`,
+        soru:`Buna göre pastanın kaçta kaçı KALMIŞTIR? (sadeleştirerek)`,
+        correctVal:fracStr(sk,sk2),
+        opts:uniq4(fracStr(sk,sk2),[fracStr(yenenS[0],yenenS[1]),fracStr(N-k,N),fracStr(k,N)]),
+        cozum:`Kalan = ${N-k}/${N} = ${sk}/${sk2}.`};
+    }else if(task==="iki_pizza_karsilastir"){
+      // aynı boy iki pizza, farklı kesir yendi, hangisinden daha çok?
+      let a=rnd([[3,4],[2,3],[5,6],[5,8],[3,5],[7,8]]);
+      let b=rnd([[3,4],[2,3],[5,6],[5,8],[3,5],[7,8]]);
+      if(a[0]/a[1]===b[0]/b[1]) b=[1,2];
+      const [c1,c2]=pick(COLORS,2);
+      const [n1,n2]=pick(ISIMLER,2);
+      const big=a[0]/a[1]>b[0]/b[1]?n1:n2;
+      Q={task,daireler:[{ad:n1,dilim:a[1],boyali:a[0],color:c1},{ad:n2,dilim:b[1],boyali:b[0],color:c2}],
+        senaryo:`Aynı büyüklükteki iki pizzadan ${n1}, kendi pizzasının ${fracStr(a[0],a[1])}'ünü; ${n2} ise kendi pizzasının ${fracStr(b[0],b[1])}'ini yemiştir.`,
+        soru:`Buna göre kim daha çok pizza yemiştir?`,
+        correctVal:big,
+        opts:uniq4(big,[big===n1?n2:n1,"İkisi eşit","Belli değil"]),
+        cozum:`${fracStr(a[0],a[1])} ile ${fracStr(b[0],b[1])} karşılaştırılır → ${big} daha çok yemiştir.`};
+    }else{ // toplam_iki_pizza — aynı paydalı toplama
+      const d=rnd([6,8,10,12]); let x=1+Math.floor(Math.random()*(d-2)); let y=1+Math.floor(Math.random()*(d-x-1||1)); if(x+y>d)y=d-x;
+      const [c1,c2]=pick(COLORS,2); const [n1,n2]=pick(ISIMLER,2);
+      const [ts,td]=simp(x+y,d);
+      Q={task,daireler:[{ad:n1,dilim:d,boyali:x,color:c1},{ad:n2,dilim:d,boyali:y,color:c2}],
+        senaryo:`Aynı büyüklükteki iki pizzadan ${n1} ${fracStr(x,d)}'ini, ${n2} ${fracStr(y,d)}'ini yemiştir.`,
+        soru:`Buna göre toplam ne kadar pizza yenmiştir? (sadeleştirerek)`,
+        correctVal:fracStr(ts,td),
+        opts:uniq4(fracStr(ts,td),[fracStr(x+y,d*2),fracStr(x+y,d),fracStr(Math.abs(x-y),d)]),
+        cozum:`${fracStr(x,d)} + ${fracStr(y,d)} = ${fracStr(x+y,d)} = ${fracStr(ts,td)}.`};
+    }
+    selected=null; revealed=false;
+  }
+
+  function renderJSON(){
+    const lines=Q.daireler.map(x=>`    { ${x.ad?`"ad": "${x.ad}", `:""}"renk": "${x.color.ad}", "dilim": ${x.dilim}, "boyali": ${x.boyali} }`).join(",\n");
+    const opts=Q.opts.map((o,i)=>`    "${String.fromCharCode(65+i)}": "${o}"`).join(",\n");
+    const cl=String.fromCharCode(65+Q.opts.indexOf(Q.correctVal));
+    const raw=
+`{
+  "tip": "daire_kesir",
+  "gorev": "${Q.task}",
+  "kazanim": "M.5.1.x — Kesirlerle işlem; daire modeli üzerinden çok adımlı problem.",
+  "daireler": [
+${lines}
+  ],
+  "senaryo": "${Q.senaryo}",
+  "soru": "${Q.soru}",
+  "secenekler": {
+${opts}
+  },
+  "dogru_cevap": "${cl}",
+  "cozum": "${Q.cozum}"
+}`;
+    const esc=raw.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+    document.getElementById("json").innerHTML=esc.replace(/"([^"]+)":/g,'"<span class="k">$1</span>":').replace(/: "([^"]*)"/g,': "<span class="s">$1</span>"').replace(/: (\d+)/g,': <span class="n">$1</span>');
+  }
+
+  function render(){
+    document.getElementById("qnum").firstChild.textContent="Soru "+counter+" ";
+    document.getElementById("gorevlbl").textContent=GOREV_AD[Q.task];
+    document.getElementById("pies").innerHTML=Q.daireler.map(x=>`<div class="pie-wrap">${x.ad?`<div class="pie-label">${x.ad}</div>`:""}${pieSVG(x.dilim,x.boyali,x.color)}</div>`).join("");
+    document.getElementById("senaryo").textContent=Q.senaryo;
+    document.getElementById("qtext").textContent=Q.soru;
+    const opts=document.getElementById("opts");opts.innerHTML="";
+    Q.opts.forEach((o,i)=>{const b=document.createElement("button");b.className="opt";b.type="button";b.dataset.idx=i;b.innerHTML=`<span class="letter">${String.fromCharCode(65+i)})</span><span class="val">${fracHTML(o)}</span><span class="mark"></span>`;b.addEventListener("click",()=>{if(revealed)return;selected=i;paint();});opts.appendChild(b);});
+    paint();renderJSON();setNote();
+  }
+  function paint(){const ci=Q.opts.indexOf(Q.correctVal);[...document.querySelectorAll(".opt")].forEach(el=>{const i=+el.dataset.idx;el.classList.remove("correct","wrong");el.querySelector(".mark").textContent="";el.style.outline=(!revealed&&selected===i)?"2px solid var(--accent)":"none";if(revealed){if(i===ci){el.classList.add("correct");el.querySelector(".mark").textContent="Doğru";}else if(selected===i){el.classList.add("wrong");el.querySelector(".mark").textContent="Yanlış";}}});}
+  function setNote(){const n=document.getElementById("note");if(!revealed){n.innerHTML='<b>İpucu:</b> Bir şıkka dokun, sonra “Cevabı göster” ile kontrol et.';return;}const letter=String.fromCharCode(65+Q.opts.indexOf(Q.correctVal));const ok=selected!=null&&Q.opts[selected]===Q.correctVal;n.innerHTML=`<b>Doğru cevap: ${letter}.</b> ${Q.cozum} `+(selected==null?"":ok?"✅":"Seçtiğin şık yanlıştı.");}
+
+  document.getElementById("new").addEventListener("click",()=>{counter++;build();render();});
+  document.getElementById("reveal").addEventListener("click",()=>{revealed=true;paint();setNote();});
+  build();render();
+})();
+</script>
+</body>
+</html>

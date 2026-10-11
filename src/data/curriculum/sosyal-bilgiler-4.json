@@ -1,0 +1,471 @@
+{
+ "id": "sosyal-bilgiler-4",
+ "subject": "Sosyal Bilgiler",
+ "subjectId": "sosyal-bilgiler",
+ "grade": 4,
+ "program": "onceki",
+ "source": {
+  "file": "sosyal_mufredat.xlsx",
+  "sheet": "4. SINIF YILLIK PLAN"
+ },
+ "units": [
+  {
+   "id": "birey-ve-toplum",
+   "name": "Birey ve Toplum",
+   "topics": [
+    {
+     "id": "birey-ve-toplum--birey-ve-toplum",
+     "name": "Birey ve Toplum",
+     "outcomeCodes": [
+      "SB.4.1.1",
+      "SB.4.1.2",
+      "SB.4.1.3",
+      "SB.4.1.4",
+      "SB.4.1.5"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "kultur-ve-miras",
+   "name": "Kültür ve Miras",
+   "topics": [
+    {
+     "id": "kultur-ve-miras--kultur-ve-miras",
+     "name": "Kültür ve Miras",
+     "outcomeCodes": [
+      "SB.4.2.1",
+      "SB.4.2.2",
+      "SB.4.2.3",
+      "SB.4.2.4"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "insanlar-yerler-ve-cevreler",
+   "name": "İnsanlar, Yerler ve Çevreler",
+   "topics": [
+    {
+     "id": "insanlar-yerler-ve-cevreler--insanlar-yerler-ve-cevreler",
+     "name": "İnsanlar, Yerler ve Çevreler",
+     "outcomeCodes": [
+      "SB.4.3.1",
+      "SB.4.3.2",
+      "SB.4.3.3",
+      "SB.4.3.4",
+      "SB.4.3.5",
+      "SB.4.3.6"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bilim-teknoloji-ve-toplum",
+   "name": "Bilim, Teknoloji ve Toplum",
+   "topics": [
+    {
+     "id": "bilim-teknoloji-ve-toplum--bilim-teknoloji-ve-toplum",
+     "name": "Bilim, Teknoloji ve Toplum",
+     "outcomeCodes": [
+      "SB.4.4.1",
+      "SB.4.4.2",
+      "SB.4.4.3",
+      "SB.4.4.4",
+      "SB.4.4.5"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "uretim-dagitim-ve-tuketim",
+   "name": "Üretim, Dağıtım ve Tüketim",
+   "topics": [
+    {
+     "id": "uretim-dagitim-ve-tuketim--uretim-dagitim-ve-tuketim",
+     "name": "Üretim, Dağıtım ve Tüketim",
+     "outcomeCodes": [
+      "SB.4.5.1",
+      "SB.4.5.2",
+      "SB.4.5.3",
+      "SB.4.5.4",
+      "SB.4.5.5"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "etkin-vatandaslik",
+   "name": "Etkin Vatandaşlık",
+   "topics": [
+    {
+     "id": "etkin-vatandaslik--etkin-vatandaslik",
+     "name": "Etkin Vatandaşlık",
+     "outcomeCodes": [
+      "SB.4.6.1",
+      "SB.4.6.2",
+      "SB.4.6.3",
+      "SB.4.6.4"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "kuresel-baglantilar",
+   "name": "Küresel Bağlantılar",
+   "topics": [
+    {
+     "id": "kuresel-baglantilar--kuresel-baglantilar",
+     "name": "Küresel Bağlantılar",
+     "outcomeCodes": [
+      "SB.4.7.1",
+      "SB.4.7.2",
+      "SB.4.7.3",
+      "SB.4.7.4"
+     ]
+    }
+   ]
+  }
+ ],
+ "outcomes": {
+  "SB.4.1.1": {
+   "code": "SB.4.1.1",
+   "text": "Resmî kimlik belgesini inceleyerek kişisel kimliğine ilişkin çıkarımlarda bulunur",
+   "components": [
+    "Resmî kimlik belgesini inceleyerek bu belgenin içerdiği bilgiler açıklanır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "SB.4.1.2": {
+   "code": "SB.4.1.2",
+   "text": "Yaşamına ilişkin belli başlı olayları kronolojik sıraya koyar.",
+   "components": [
+    "Öğrencinin kendi hayatında önemli gördüğü (doğum, ilk konuşma, okula başlama vb.) olayları kronolojik olarak sıralaması sağlanır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "SB.4.1.3": {
+   "code": "SB.4.1.3",
+   "text": "Bireysel ilgi, ihtiyaç ve yeteneklerini tanır.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "SB.4.1.4": {
+   "code": "SB.4.1.4",
+   "text": "Kendisini farklı özelliklere sahip diğer bireylerin yerine koyar",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "SB.4.1.5": {
+   "code": "SB.4.1.5",
+   "text": "Diğer bireylerin farklı özelliklerini saygı ile karşılar.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "SB.4.2.1": {
+   "code": "SB.4.2.1",
+   "text": "Sözlü, yazılı, görsel kaynaklar ve nesnelerden yararlanarak aile tarihi çalışması yapar.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "SB.4.2.2": {
+   "code": "SB.4.2.2",
+   "text": "Ailesi ve çevresindeki millî kültürü yansıtan ögeleri araştırarak örnekler verir",
+   "components": [
+    "Yakın çevresinde yer alan bir müze, cami, türbe, köprü, medrese, kervansaray gibi tarihî bir mekân gezisi ya da sözlü tarih veya yerel tarih çalışmaları yapılır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "SB.4.2.3": {
+   "code": "SB.4.2.3",
+   "text": "Geleneksel çocuk oyunlarını değişim ve süreklilik açısından günümüzdeki oyunlarla karşılaştırır.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "SB.4.2.4": {
+   "code": "SB.4.2.4",
+   "text": "Millî Mücadele kahramanlarının hayatlarından hareketle Millî Mücadele’nin önemini kavrar.",
+   "components": [
+    "Kazanım biyografi öğretimi bağlamında ele alınır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "SB.4.3.1": {
+   "code": "SB.4.3.1",
+   "text": "Çevresindeki herhangi bir yerin konumu ile ilgili çıkarımlarda bulunur.",
+   "components": [
+    "Yönler ile doğal ve beşerî unsurlara yakınlık, uzaklık açısından konum analizi yapılır. Doğal ve teknolojik yön bulma yöntemlerine ve araçlarına değinilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "SB.4.3.2": {
+   "code": "SB.4.3.2",
+   "text": "Günlük yaşamında kullandığı mekânların krokisini çizer",
+   "components": [
+    "Sığınak, acil toplanma yeri, acil çıkış ve diğer güvenli alanlar kroki üzerinde gösterilir."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "SB.4.3.3": {
+   "code": "SB.4.3.3",
+   "text": "Yaşadığı çevredeki doğal ve beşerî unsurları ayırt eder.",
+   "components": [
+    "Öğrencilerin yakın çevrelerini tüm unsurlarıyla birlikte tanımaları sağlanır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "SB.4.3.4": {
+   "code": "SB.4.3.4",
+   "text": "Çevresinde meydana gelen hava olaylarını gözlemleyerek bulgularını resimli grafiklere aktarır",
+   "components": [
+    "Gözlem yapma süresi, farklı hava olaylarının gözlemlenmesine imkân verecek şekilde belirlenir. Ayrıca hava olaylarını aktarırken grafik okuma ve oluşturma becerileri üzerinde durulur."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "SB.4.3.5": {
+   "code": "SB.4.3.5",
+   "text": "Yaşadığı yer ve çevresindeki yer şekilleri ve nüfus özellikleri hakkında çıkarımlarda bulunur",
+   "components": [
+    "Türkiye’nin Siyasi ve Fiziki Haritası öğrencilerle birlikte incelenir. Bu kazanım işlenirken şiir, hikâye, destan gibi edebi ürünlerden yararlanılır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "SB.4.3.6": {
+   "code": "SB.4.3.6",
+   "text": "Afet öncesi, sırası ve sonrasına yönelik gerekli hazırlıkları yapar.",
+   "components": [
+    "Afet ve acil durum aile planı hazırlatılır. Planda; afet öncesi, sırası ve sonrasında yapılması gerekenler listelenir. Planın aileye özgü bölümlerinin (toplanma alanının kararlaştırılması, acil durumda bilgi verilecek kişi/lerin belirlenmesi vb.) evde aile ile birlikte tamamlanması teşvik edilir. Afet ve acil durum çantası hazırlatılır"
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "SB.4.4.1": {
+   "code": "SB.4.4.1",
+   "text": "Çevresindeki teknolojik ürünleri, kullanım alanlarına göre sınıflandırır",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "SB.4.4.2": {
+   "code": "SB.4.4.2",
+   "text": "Teknolojik ürünlerin geçmişteki ve bugünkü kullanımlarını karşılaştırır",
+   "components": [
+    "Teknolojinin hayatımızda ve çevremizde meydana getirdiği olumlu ve olumsuz etkilerine dikkat çekilir"
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "SB.4.4.3": {
+   "code": "SB.4.4.3",
+   "text": "Kullandığı teknolojik ürünlerin mucitlerini ve bu ürünlerin zaman içerisindeki gelişimini araştırır.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "SB.4.4.4": {
+   "code": "SB.4.4.4",
+   "text": "Çevresindeki ihtiyaçlardan yola çıkarak kendine özgü ürünler tasarlamaya yönelik fikirler geliştirir.",
+   "components": [
+    "Örnek girişimciler ve onların başarı öyküleri üzerinde durulur."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "SB.4.4.5": {
+   "code": "SB.4.4.5",
+   "text": "Teknolojik ürünleri kendisine, başkalarına ve doğaya zarar vermeden kullanır",
+   "components": [
+    "Teknolojik ürünler için hazırlanan kullanım kılavuzlarına dikkat çekilir"
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "SB.4.5.1": {
+   "code": "SB.4.5.1",
+   "text": "İstek ve ihtiyaçlarını ayırt ederek ikisi arasında bilinçli seçimler yapar.",
+   "components": [
+    "Kaynakların sınırlılığı, fayda ve maliyet dengesi göz önüne alınacaktır. İstek ve ihtiyaçların birbirinden farklı olduğu vurgulanır"
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "SB.4.5.2": {
+   "code": "SB.4.5.2",
+   "text": "Ailesi ve yakın çevresindeki başlıca ekonomik faaliyetleri tanır.",
+   "components": [
+    "Gelir, gider, bütçe, üretim, dağıtım, tüketim ve meslek gibi kavramları kullanarak öğrencinin yakın çevresindeki ekonomik faaliyetleri gözlemlemesi ve raporlaştırması sağlanır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "SB.4.5.3": {
+   "code": "SB.4.5.3",
+   "text": "Sorumluluk sahibi bir birey olarak bilinçli tüketici davranışları sergiler.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "SB.4.5.4": {
+   "code": "SB.4.5.4",
+   "text": "Kendine ait örnek bir bütçe oluşturur.",
+   "components": [
+    "Öğrencinin ailesi ile beraber örnek bir bütçe miktarı üzerinden gelir gider tablosu oluşturması sağlanır. Yöresel ve sosyo-ekonomik şartlar ile ailelerin gelir düzeyleri dikkate alınır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "SB.4.5.5": {
+   "code": "SB.4.5.5",
+   "text": "Çevresindeki kaynakları israf etmeden kullanır.",
+   "components": [
+    "Sahip olduğu kaynakları bilinçli kullanarak tasarrufta bulunması gerektiği vurgulanır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "SB.4.6.1": {
+   "code": "SB.4.6.1",
+   "text": "Çocuk olarak sahip olduğu haklara örnekler verir.",
+   "components": [
+    "Çocuk Haklarına Dair Sözleşme’deki maddeler ele alınır"
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "SB.4.6.2": {
+   "code": "SB.4.6.2",
+   "text": "Aile ve okul yaşamındaki söz ve eylemlerinin sorumluluğunu alır.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "SB.4.6.3": {
+   "code": "SB.4.6.3",
+   "text": "Okul yaşamında gerekli gördüğü eğitsel sosyal etkinlikleri önerir.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "SB.4.6.4": {
+   "code": "SB.4.6.4",
+   "text": "Ülkesinin bağımsızlığı ile bireysel özgürlüğü arasındaki ilişkiyi açıklar.",
+   "components": [
+    "Türkiye Büyük Millet Meclisinin açılışı ile ulusal egemenlik ilişkilendirilir. Bir birey olarak ülkesinin bağımsızlığı için üstlenebileceği rollere örnekler verir. 15 Temmuz Demokrasi ve Millî Birlik Günü’nün bireysel özgürlüğü ve ülkesinin bağımsızlığına katkısı üzerinde durulur"
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "SB.4.7.1": {
+   "code": "SB.4.7.1",
+   "text": "Dünya üzerindeki çeşitli ülkeleri tanıtır",
+   "components": [
+    "Araştırdığı bir ülkenin önemli özelliklerini görsel materyaller kullanarak sınıfta tanıtması sağlanır."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "SB.4.7.2": {
+   "code": "SB.4.7.2",
+   "text": "Türkiye’nin komşuları ve diğer Türk Cumhuriyetleri ile olan ilişkilerini kavrar.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "SB.4.7.3": {
+   "code": "SB.4.7.3",
+   "text": "Farklı ülkelere ait kültürel unsurlarla ülkemizin sahip olduğu kültürel unsurları karşılaştırır.",
+   "components": [
+    "Görsel ve yazılı iletişim araçları ile kültürel unsurlardan kıyafet, yemek, oyun, aile ilişkileri gibi konular üzerinde durulur."
+   ],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  },
+  "SB.4.7.4": {
+   "code": "SB.4.7.4",
+   "text": "Farklı kültürlere saygı gösterir.",
+   "components": [],
+   "sdb": [],
+   "values": [],
+   "literacy": [],
+   "assessment": []
+  }
+ }
+}
