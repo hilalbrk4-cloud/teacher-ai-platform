@@ -137,3 +137,14 @@ describe("üretim pipeline'ı", () => {
     expect(applyOfficialCurriculum(plan, undefined)).toBe(plan);
   });
 });
+
+describe("hedef satırı yardımcıları (Quiz / Ders Planlayıcı)", () => {
+  it("resmî satırları ekler, tekrar eklemez ve öğretmenin kendi satırlarını korur", async () => {
+    const { appendOutcomeLines, removeOutcomeLines } = await import("@/lib/curriculum/catalog");
+    const outcome = { code: "MAT.6.1.4", text: "Kesirlerle işlem yapabilme" };
+    const withLine = appendOutcomeLines("Kendi hedefim", [outcome]);
+    expect(withLine).toBe("Kendi hedefim\nMAT.6.1.4 — Kesirlerle işlem yapabilme");
+    expect(appendOutcomeLines(withLine, [outcome])).toBe(withLine);
+    expect(removeOutcomeLines(withLine, ["MAT.6.1.4"])).toBe("Kendi hedefim");
+  });
+});

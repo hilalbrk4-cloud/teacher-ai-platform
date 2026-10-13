@@ -21,6 +21,8 @@ interface CurriculumOutcomePickerProps {
   /** Modüle özgü metinler (ör. Rubrik: "Kriter havuzuna otomatik bağlanacak"). */
   description?: string;
   autoIncludedTitle?: string;
+  /** SDB / Değer / OB özetini gizler (ör. Quiz: bu bileşenler üretimde kullanılmaz). */
+  hideIncluded?: boolean;
 }
 
 function mergeTags(lists: CurriculumTag[][]): CurriculumTag[] {
@@ -50,6 +52,7 @@ export function CurriculumOutcomePicker({
   onSetAll,
   description,
   autoIncludedTitle,
+  hideIncluded = false,
 }: CurriculumOutcomePickerProps) {
   const copy = t.curriculum;
   const outcomes = React.useMemo(
@@ -160,8 +163,8 @@ export function CurriculumOutcomePicker({
       </div>
 
       <div className="flex flex-col gap-1.5 border-t border-primary/10 pt-2.5">
-        <p className="text-xs font-medium text-foreground">{autoIncludedTitle ?? copy.autoIncludedTitle}</p>
-        {included.length > 0 ? (
+        {hideIncluded ? null : <p className="text-xs font-medium text-foreground">{autoIncludedTitle ?? copy.autoIncludedTitle}</p>}
+        {hideIncluded ? null : included.length > 0 ? (
           <div className="flex flex-wrap gap-1">
             {included.flatMap(({ kind, tags }) =>
               tags.map((tag) => (

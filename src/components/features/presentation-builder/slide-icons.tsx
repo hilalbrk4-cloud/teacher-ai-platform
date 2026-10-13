@@ -1,0 +1,48 @@
+import {
+  Atom,
+  BookOpen,
+  Calculator,
+  Droplet,
+  FlaskConical,
+  Globe2,
+  HeartPulse,
+  Landmark,
+  Leaf,
+  Lightbulb,
+  Map,
+  Microscope,
+  Music,
+  Puzzle,
+  Ruler,
+  Sun,
+  Target,
+  Users,
+  Zap,
+  CircleHelp,
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+
+import type { SlideIcon } from "@/types/presentation";
+
+export const SLIDE_ICON_COMPONENTS: Record<SlideIcon, LucideIcon> = {
+  microscope: Microscope,
+  leaf: Leaf,
+  flask: FlaskConical,
+  atom: Atom,
+  sun: Sun,
+  globe: Globe2,
+  lightbulb: Lightbulb,
+  users: Users,
+  book: BookOpen,
+  calculator: Calculator,
+  ruler: Ruler,
+  map: Map,
+  landmark: Landmark,
+  music: Music,
+  heart: HeartPulse,
+  question: CircleHelp,
+  target: Target,
+  puzzle: Puzzle,
+  zap: Zap,
+  droplet: Droplet,
+};

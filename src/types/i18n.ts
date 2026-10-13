@@ -5,6 +5,7 @@ import type {
   LessonPlanSkills,
 } from "@/types/lesson-planner";
 import type { RubricRequiredField, RubricTaskType, RubricType } from "@/types/rubric";
+import type { PresentationRequiredField, PresentationType, SlideLayout } from "@/types/presentation";
 import type {
   CognitiveLevel,
   DifficultyLevel,
@@ -357,6 +358,77 @@ export interface Dictionary {
       exportError: string;
     };
   };
+  presentationBuilder: {
+    pageTitle: string;
+    pageHelperText: string;
+    hero: { eyebrow: string; highlights: string[] };
+    form: {
+      essentialTitle: string;
+      formatTitle: string;
+      fields: Record<"subject" | "gradeLevel" | "topic", { label: string; placeholder: string }>;
+      typeLabel: string;
+      types: Record<PresentationType, { label: string; description: string }>;
+      slideCountLabel: string;
+      slideCounts: Record<"5" | "8", { label: string; description: string }>;
+      outcomesDescription: string;
+      outcomesAutoTitle: string;
+      noCurriculumHint: string;
+      errors: Record<PresentationRequiredField, string>;
+      validationBanner: string;
+      submit: string;
+      submitLoading: string;
+      submitCaption: string;
+    };
+    loadingMessages: [string, string, string];
+    preview: {
+      title: string;
+      emptyTitle: string;
+      emptyDescription: string;
+      slideLabel: (current: number, total: number) => string;
+      filmstripLabel: string;
+      layouts: Record<SlideLayout, string>;
+      teacherNote: string;
+      activity: string;
+      outcomeCodes: string;
+      imageLoading: string;
+      imageNone: string;
+      imageCredit: (author: string, license: string) => string;
+      nextImage: string;
+      removeImage: string;
+      restoreImage: string;
+      imageCount: (current: number, total: number) => string;
+      previous: string;
+      next: string;
+      showForm: string;
+      hideForm: string;
+    };
+    board: {
+      open: string;
+      close: string;
+      hint: string;
+      timerLabel: string;
+      timerStart: string;
+      timerPause: string;
+      timerReset: string;
+      timerDone: string;
+      activityBadge: string;
+    };
+    actions: {
+      exportPptx: string;
+      exportingPptx: string;
+      regenerate: string;
+      regenerating: string;
+    };
+    feedback: {
+      generated: string;
+      generationError: string;
+      requestTimeout: string;
+      validation: string;
+      exported: (fileName: string) => string;
+      exportError: string;
+      fullscreenUnavailable: string;
+    };
+  };
   quizGenerator: {
     pageTitle: string;
     pageHelperText: string;
@@ -393,6 +465,17 @@ export interface Dictionary {
       includeAnswerKeyLabel: string;
       includeExplanationsLabel: string;
       errors: Record<QuizRequiredField, string>;
+      plan: {
+        gradePlaceholder: string;
+        topicPlaceholder: string;
+        topicOutcomeCount: (count: number) => string;
+        manualTopic: string;
+        planTopic: string;
+        planSource: (subject: string, grade: number) => string;
+        noPlanHint: string;
+        outcomesDescription: string;
+        objectivesHint: string;
+      };
       validationBanner: string;
       submit: string;
       submitLoading: string;

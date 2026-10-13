@@ -2,7 +2,7 @@
 
 import * as React from "react";
 
-import { findCurriculumEntry, outcomeObjectiveLine } from "@/lib/curriculum/catalog";
+import { findCurriculumEntry, outcomeObjectiveLine, removeOutcomeLines } from "@/lib/curriculum/catalog";
 import { generateLessonPlanViaApi, LessonPlanApiError } from "@/lib/lesson-planner/lesson-plan-api-client";
 import { shortenLessonPlan, expandLessonPlan } from "@/lib/lesson-planner/content-transforms";
 import { lessonPlanDocumentStore } from "@/lib/lesson-planner/document-store";
@@ -60,15 +60,6 @@ const LOADING_STAGE_INTERVAL_MS = 700;
 // times out first and returns a proper error instead of the client
 // aborting a request that was about to succeed.
 const CLIENT_REQUEST_TIMEOUT_MS = 125_000;
-
-/** Hedefler metninden belirtilen resmî kodlarla başlayan satırları kaldırır; öğretmenin kendi satırları korunur. */
-function removeOutcomeLines(objectives: string, codes: readonly string[]): string {
-  return objectives
-    .split("\n")
-    .filter((line) => !codes.some((code) => line.trimStart().startsWith(`${code} — `)))
-    .join("\n")
-    .trim();
-}
 
 function isRequiredField(key: keyof LessonPlanFormInput): key is LessonPlanRequiredField {
   return (REQUIRED_FIELDS as string[]).includes(key);

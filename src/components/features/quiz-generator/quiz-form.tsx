@@ -4,9 +4,9 @@ import * as React from "react";
 import { Check, ChevronDown, ClipboardList, Loader2, Sparkles } from "lucide-react";
 
 import { LessonPlanField } from "@/components/features/lesson-planner/lesson-plan-field";
+import { QuizCurriculumFields } from "@/components/features/quiz-generator/quiz-curriculum-fields";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 import type { Dictionary } from "@/types/i18n";
 import {
@@ -136,52 +136,7 @@ export function QuizForm({
           </select>
         </LessonPlanField>
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <LessonPlanField id="qz-subject" label={copy.fields.subject.label} required error={errors.subject}>
-            <Input
-              id="qz-subject"
-              value={form.subject}
-              onChange={(event) => onFieldChange("subject", event.target.value)}
-              placeholder={copy.fields.subject.placeholder}
-              aria-invalid={Boolean(errors.subject)}
-              aria-describedby={errors.subject ? "qz-subject-error" : undefined}
-            />
-          </LessonPlanField>
-
-          <LessonPlanField id="qz-grade" label={copy.fields.gradeLevel.label} required error={errors.gradeLevel}>
-            <Input
-              id="qz-grade"
-              value={form.gradeLevel}
-              onChange={(event) => onFieldChange("gradeLevel", event.target.value)}
-              placeholder={copy.fields.gradeLevel.placeholder}
-              aria-invalid={Boolean(errors.gradeLevel)}
-              aria-describedby={errors.gradeLevel ? "qz-grade-error" : undefined}
-            />
-          </LessonPlanField>
-        </div>
-
-        <LessonPlanField id="qz-topic" label={copy.fields.topic.label} required error={errors.topic}>
-          <Input
-            id="qz-topic"
-            value={form.topic}
-            onChange={(event) => onFieldChange("topic", event.target.value)}
-            placeholder={copy.fields.topic.placeholder}
-            aria-invalid={Boolean(errors.topic)}
-            aria-describedby={errors.topic ? "qz-topic-error" : undefined}
-          />
-        </LessonPlanField>
-
-        <LessonPlanField id="qz-objectives" label={copy.fields.objectives.label} required error={errors.objectives}>
-          <Textarea
-            id="qz-objectives"
-            value={form.objectives}
-            onChange={(event) => onFieldChange("objectives", event.target.value)}
-            placeholder={copy.fields.objectives.placeholder}
-            rows={3}
-            aria-invalid={Boolean(errors.objectives)}
-            aria-describedby={errors.objectives ? "qz-objectives-error" : undefined}
-          />
-        </LessonPlanField>
+        <QuizCurriculumFields t={t} form={form} errors={errors} onFieldChange={onFieldChange} />
 
         <LessonPlanField
           id="qz-question-count"

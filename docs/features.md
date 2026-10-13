@@ -471,3 +471,83 @@ A third tab in the rubric preview. While it is open, the rubric form is hidden a
 - `exceljs` is loaded on click.
 - Columns: No, Ad Soyad, K1…Kn points (max in header), Toplam, Durum, Geri Bildirim.
 - Includes a class average row, frozen header and name columns, and landscape page setup.
+
+# Presentation & Class Activity Builder (Sunum ve Sınıf İçi Etkinlik Oluşturucu)
+
+Route: `/ai-tools/presentation-builder`. The existing Dashboard card already pointed here; the Dashboard itself was not changed.
+
+## Form
+- Ders, Sınıf and Konu are connected to the curriculum pool; free topics are allowed.
+- Learning-outcome selection uses the shared `components/features/curriculum/` components.
+- Sunum türü: yeniKonu, pekistirme, tartisma. Slayt sayısı: 5 or 8.
+
+## Slide model (`src/types/presentation.ts`)
+
+Each slide has:
+- `slideNumber` (set by code);
+- `title` (at most 5 words);
+- `layout`: `split-right-image`, `split-left-image`, `hero-visual` or `activity-timer`;
+- `visual`:
+  - `type`: `photo`, `diagram_placeholder` or `icon_badge`;
+  - `searchKeyword` (English);
+  - `caption` (one short question or hint);
+  - `icon` (from a fixed list);
+- `bullets` (0–3, at most about 12 words each);
+- `teacherNote` (a question; never shown on the board);
+- `activityPrompt` (only on activity slides);
+- `outcomeCodes` (enum from the curriculum pool).
+
+**Validation** (`src/lib/presentation/schema.ts`): strict json_schema plus rule-tagged checks.
+- The first slide is a hero slide.
+- Activity count: 1 activity slide for yeniKonu and pekistirme, 2 for tartisma; in 8-slide decks 2 and 3 respectively.
+- An `activity-timer` layout requires an `activityPrompt`, and vice versa.
+- Selected outcomes must be covered: up to 3 for TYMM grades, at least 1 for previous-program grades.
+- A rejected response is regenerated once, with the issues fed back.
+
+## Images (`src/lib/presentation/image-search.ts`, `GET /api/presentations/image`)
+- **Sources:** Unsplash when `UNSPLASH_ACCESS_KEY` is set (photos only). Otherwise Wikimedia Commons: no key needed, licensed, credited on the slide and in the notes. Unsplash Source is shut down and is not used.
+- **Diagrams:** searched as drawings; Turkish-labeled files rank first.
+- **Ranking and filters:**
+  - relevance is scored against the keyword terms;
+  - scanned book pages and a safety blocklist are filtered out;
+  - results are cached in memory.
+- **Fallback:** a designed placeholder with the slide's icon.
+- **Teacher control:** "Başka görsel" cycles through results; "Görseli kaldır" switches the slide to its icon.
+
+## Preview and smart board
+- **Slide rendering:** one 16:9 `SlideCanvas` sized with container-query units, identical in the thumbnail, preview and board.
+- **Preview:** vertical filmstrip on wide screens, horizontal below the slide on narrow screens; the form collapses after generation.
+- **Smart board mode:**
+  - Fullscreen API, falling back to in-window display;
+  - ←/→, Space, PageUp/PageDown, Home/End to navigate;
+  - T toggles the 2-minute timer on activity slides;
+  - Esc exits;
+  - controls auto-hide;
+  - teacher notes are hidden.
+
+## PPTX export (`src/lib/presentation/export-pptx.ts`)
+- Built with `pptxgenjs`, loaded on click, in the 16:9 wide layout.
+- Each layout is rebuilt with native shapes.
+- Images are embedded; WebP and other formats are converted to JPEG for older PowerPoint versions.
+- Speaker notes hold the teacher question, activity, outcome codes and image credit.
+
+## Provider
+- `PRESENTATION_PROVIDER`, falling back to `LESSON_PLAN_PROVIDER`; mock by default.
+- Model: gpt-4o.
+
+# Quiz Generator — annual plan selection
+
+The Quiz form uses the same MEB annual plan pool as the Rubric Generator, Lesson Planner and Presentation Builder: `src/data/curriculum/` via `catalog.ts`, `/api/curriculum/[id]` and `useCurriculumGrade`. The component is `src/components/features/quiz-generator/quiz-curriculum-fields.tsx`.
+
+**When the subject matches a plan**
+- "Sınıf düzeyi" becomes a select listing the grades available for that subject.
+- "Konu" becomes a select grouped by unit; each option shows how many outcomes it has.
+- After a topic is chosen, the shared outcome picker opens:
+  - topics with up to 3 outcomes are preselected; longer lists (Türkçe) are left for the teacher to choose;
+  - selected outcomes are written to the objectives as `KOD — metin` lines; unselecting removes the line, and the teacher's own lines are kept.
+- Changing the subject or grade clears the selection and its lines.
+- "Listede yok, konuyu elle yazacağım" switches the topic back to free text.
+
+**When the subject has no plan** (for example Müzik): grade and topic stay free-text inputs.
+
+**Generation:** the selection only fills the existing `gradeLevel`, `topic` and `objectives` fields. The quiz request, prompt and generation pipeline are unchanged.

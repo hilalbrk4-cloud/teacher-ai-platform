@@ -135,3 +135,21 @@ export const RUBRIC_REQUEST_TIMEOUT_MS = 60_000;
 
 /** A response that fails validation is regenerated once with the issues fed back. */
 export const RUBRIC_MAX_ATTEMPTS = 2;
+
+export type PresentationProvider = "mock" | "openai";
+
+/** Presentation Builder provider: `PRESENTATION_PROVIDER`, falling back to `LESSON_PLAN_PROVIDER`; mock by default. */
+export function getPresentationProvider(): PresentationProvider {
+  const raw = (process.env.PRESENTATION_PROVIDER ?? process.env.LESSON_PLAN_PROVIDER)?.trim().toLowerCase();
+  return raw === "openai" ? "openai" : "mock";
+}
+
+export const OPENAI_PRESENTATION_MODEL = "gpt-4o";
+export const PRESENTATION_REQUEST_TIMEOUT_MS = 60_000;
+export const PRESENTATION_MAX_ATTEMPTS = 2;
+
+/** Optional: with an Unsplash access key, photo slides use Unsplash; otherwise Wikimedia Commons. */
+export function getUnsplashAccessKey(): string | undefined {
+  const key = process.env.UNSPLASH_ACCESS_KEY?.trim();
+  return key ? key : undefined;
+}

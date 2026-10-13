@@ -88,3 +88,18 @@ export function formatCurriculumTag(tag: CurriculumTag): string {
 export function outcomeObjectiveLine(outcome: { code: string; text: string }): string {
   return `${outcome.code} — ${outcome.text}`;
 }
+
+/** Hedefler metninden belirtilen resmî kodlarla başlayan satırları kaldırır; öğretmenin kendi satırları korunur. */
+export function removeOutcomeLines(objectives: string, codes: readonly string[]): string {
+  return objectives
+    .split("\n")
+    .filter((line) => !codes.some((code) => line.trimStart().startsWith(`${code} — `)))
+    .join("\n")
+    .trim();
+}
+
+/** Hedefler metninin sonuna resmî çıktı satırlarını ekler (zaten varsa tekrar eklemez). */
+export function appendOutcomeLines(objectives: string, outcomes: { code: string; text: string }[]): string {
+  const base = removeOutcomeLines(objectives, outcomes.map((outcome) => outcome.code));
+  return [base, ...outcomes.map(outcomeObjectiveLine)].filter(Boolean).join("\n");
+}
